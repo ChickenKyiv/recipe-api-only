@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "eslint": "^2.13.1",
-    "eslint-config-loopback": "^4.0.0",
+    "eslint-config-loopback": "^8.0.0",
     "nsp": "^2.1.0"
   },
   "repository": {
