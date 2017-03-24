@@ -18,7 +18,7 @@
     "loopback": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^2.13.1",
+    "eslint": "^3.18.0",
     "eslint-config-loopback": "^8.0.0",
     "nsp": "^2.1.0"
   },
