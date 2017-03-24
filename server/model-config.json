@@ -38,5 +38,13 @@
   "recipe": {
     "dataSource": "db",
     "public": true
+  },
+  "WeeklyMenu": {
+    "dataSource": "db",
+    "public": true
+  },
+  "GroceryList": {
+    "dataSource": "db",
+    "public": true
   }
 }

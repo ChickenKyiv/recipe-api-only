@@ -1,0 +1,25 @@
+{
+  "name": "WeeklyMenu",
+  "plural": "menu",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": true
+    },
+    "items": {
+      "type": [
+        "object"
+      ],
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
