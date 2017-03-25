@@ -1,5 +1,34 @@
 'use strict';
 
-module.exports = function(Weeklymenu) {
 
-};
+/**
+ * Module dependencies.
+ */
+
+const mongoose = require('mongoose');
+
+
+const Schema = mongoose.Schema;
+
+var options = {
+          timestamps: { 
+               createdAt: 'created_at',
+               updatedAt: 'updated_at' 
+          }
+
+     };
+
+var MenuSchema = mongoose.Schema({
+
+     title : String,
+     img   : String,
+     desc  : String,
+     slug  : String,
+         
+  }, options );
+
+
+
+var Weeklymenu = mongoose.model('Weeklymenu', MenuSchema);
+
+module.exports = Weeklymenu;
