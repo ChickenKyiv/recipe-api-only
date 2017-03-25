@@ -13,6 +13,10 @@
 //   // we're connected!
 // });
 
+var models     = require('../models');
+var GL         = models.Grocerylist;
+// var OtherModel = models['other-model'];
+
 module.exports = function(server) {
   // Install a `/` route that returns server status
 	var router = server.loopback.Router();
