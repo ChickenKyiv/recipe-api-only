@@ -23,19 +23,27 @@ module.exports = function(server) {
  *    GET: finds all recipe
  *    POST: creates a new recipe @todo finish this
  */
-	router.get('/recipe/:id', function(req, res){})
+	router.get('/recipe/:id', function(req, res){		
+		res.send('This is not implemented now');
+	});
 
 /*  "/api/menu"
  *    GET: finds all recipe
  *    POST: creates a new recipe @todo finish this
  */
-	router.get('/menu/:id', function(req, res){})
+	router.get('/menu/:id', function(req, res){
+		res.send('This is not implemented now');
+	});
+
 
 /*  "/api/grocery"
  *    GET: finds all recipe
  *    POST: creates a new recipe @todo finish this
  */
-	router.get('/grocery/:id', function(req, res){})
+	router.get('/grocery/:id', function(req, res){
+		res.send('This is not implemented now');
+	});
+	
 
 
 

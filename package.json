@@ -8,18 +8,22 @@
     "posttest": "npm run lint && nsp check"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "helmet": "^3.5.0",
+    "loopback": "^3.0.0",
     "loopback-boot": "^2.6.5",
-    "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^2.0.0",
     "loopback-component-explorer": "^4.0.0",
-    "loopback": "^3.0.0"
+    "mongodb": "^2.2.25",
+    "mongoose": "^4.9.1",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^3.18.0",
     "eslint-config-loopback": "^8.0.0",
+    "nodemon": "^1.11.0",
     "nsp": "^2.1.0"
   },
   "repository": {
