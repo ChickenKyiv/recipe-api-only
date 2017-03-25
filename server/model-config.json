@@ -36,15 +36,15 @@
     "public": false
   },
   "recipe": {
-    "dataSource": "db",
+    "dataSource": "accountDS",
     "public": true
   },
   "WeeklyMenu": {
-    "dataSource": "db",
+    "dataSource": "accountDS",
     "public": true
   },
   "GroceryList": {
-    "dataSource": "db",
+    "dataSource": "accountDS",
     "public": true
   }
 }

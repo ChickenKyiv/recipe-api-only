@@ -1,7 +1,10 @@
 'use strict';
 
-var loopback = require('loopback');
-var boot = require('loopback-boot');
+var loopback   = require('loopback');
+var boot       = require('loopback-boot');
+
+// var bodyParser = require('body-parser');
+// var mongodb    = require('mongodb');
 
 var app = module.exports = loopback();
 
