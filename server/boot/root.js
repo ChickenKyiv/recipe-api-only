@@ -3,7 +3,7 @@
 // how we'll get a methods to operate the router
 // var db = require('queries'); or include model schemas here
 
-// var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 // var mongodb    = require('mongodb');
 // var mongoose = require('mongoose'); 
 
@@ -15,6 +15,7 @@
 
 var models     = require('../models');
 var GL         = models.Grocerylist;
+var Product    = models.Product; // i.e. ingredient
 // var OtherModel = models['other-model'];
 
 module.exports = function(server) {
@@ -49,7 +50,18 @@ module.exports = function(server) {
 	});
 	
 
+/* This is part of other project, contain few api routers
+ * @todo Later move this particular routes to another file and include it here.
+ *
+ */
 
 
-  server.use(router);
+
+
+
+	server.use(router);
+
+
+	server.use(bodyParser.json({limit: '1mb'}));
+
 };
