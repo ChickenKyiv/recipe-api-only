@@ -34,6 +34,7 @@ module.exports = function(server) {
 
 	router.get('/', server.loopback.status());
 
+
 /*  "/api/recipe"
  *    GET: finds all recipe
  *    POST: creates a new recipe @todo finish this
@@ -41,6 +42,7 @@ module.exports = function(server) {
 	router.get('/recipe/:id', function(req, res){		
 		res.send('This is not implemented now');
 	});
+
 
 /*  "/api/menu"
  *    GET: finds all recipe
@@ -138,7 +140,7 @@ module.exports = function(server) {
 
 	//Not sure why it have.json. maybe we need to remove it. @todo
 	var recipe = require('router-recipe');
-	
+
 /*  "/api/grocery"
  *    GET: finds all recipe
  *    POST: creates a new recipe @todo finish this
