@@ -13,6 +13,13 @@ var bodyParser = require('body-parser');
 //   // we're connected!
 // });
 
+
+// Use 
+ // request = require('request'),
+ //    async   = require('async'),
+ //    config  = require('./config');
+
+
 var models     = require('../models');
 var GL         = models.Grocerylist;
 var Product    = models.Product; // i.e. ingredient
@@ -21,6 +28,9 @@ var Product    = models.Product; // i.e. ingredient
 module.exports = function(server) {
   // Install a `/` route that returns server status
 	var router = server.loopback.Router();
+
+
+
 
 	router.get('/', server.loopback.status());
 
@@ -55,11 +65,76 @@ module.exports = function(server) {
  *
  */
 
+	//connect to database. right now it'll cause an error
+
+	//products api
+	router.get('/api/products', function (req, res) {
+
+	    Product.getProducts(function (err, products) {
+	        if (err) { throw err; }
+	        res.json(products);
+	    });
+
+	});
+
+	//products api by ID
+	router.get('/api/products/:_id', function (req, res) {
+
+	    Product.getProductById(req.params._id, function (err, product) {
+	        if (err) { throw err; }
+	        res.json(product);
+	    });
+
+	});
+
+	//add product via api
+	router.post('/api/products', function (req, res) {
+
+	    const product = req.body;
+	    Product.addProduct(product, function (err, product) {
+	        if (err) { throw err; }
+	        res.json(product);
+	    });
+
+	});
+
+	//update product via api
+	router.put('/api/products/:_id', function (req, res) {
+
+	    const id = req.params._id;
+	    const product = req.body;
+	    Product.updateProduct(id, product, {}, function (err, product) {
+	        if (err) { throw err; }
+	        res.json(product);
+	    });
+
+	});
+
+	//delete product via api
+	router.delete('/api/products/:_id', function (req, res) {
+
+	    const id = req.params._id;
+	    Product.deleteProduct(id, function (err, product) {
+	        if (err) { throw err; }
+	        res.json(product);
+	    });
+
+	});
 
 
 
 
 	server.use(router);
+
+	// replace with lines below when we'll slice routers to different files
+	// Register routes of Router
+	// require('./routes/issues')(router, request, async, config);
+	// require('router-product')(router, request, async, config);
+
+	// Prefix all routes with /api
+	// server.use('/api', router);
+	// better to use
+	// server.use('/api/products', router);
 
 
 	server.use(bodyParser.json({limit: '1mb'}));
