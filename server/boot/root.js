@@ -136,6 +136,33 @@ module.exports = function(server) {
 	// better to use
 	// server.use('/api/products', router);
 
+	//Not sure why it have.json. maybe we need to remove it. @todo
+	var recipe = require('router-recipe');
+	
+/*  "/api/grocery"
+ *    GET: finds all recipe
+ *    POST: creates a new recipe @todo finish this
+ */
+	server.get('/api/recipe.json', recipe.list);
+
+/*  "/api/grocery"
+ *    GET: finds all recipe
+ *    POST: creates a new recipe @todo finish this
+ */
+	server.post('/api/recipe.json', recipe.create);
+
+/*  "/api/grocery"
+ *    GET: finds all recipe
+ *    POST: creates a new recipe @todo finish this
+ */
+	server.get('/api/recipe/:id.json', recipe.show);
+
+/*  "/api/grocery"
+ *    GET: finds all recipe
+ *    POST: creates a new recipe @todo finish this
+ */
+	server.put('/api/recipe/:id.json', recipe.update);
+
 
 	server.use(bodyParser.json({limit: '1mb'}));
 
