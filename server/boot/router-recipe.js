@@ -19,8 +19,9 @@ exports.list = function(req, res) {
  * GET a particular recipe.
  */ 
 exports.show = function(req, res) {
-
-  Recipe.find({_id: req.params.id}, function(err, recipes) {
+	
+ const id = req.params._id;
+  Recipe.find({_id: id}, function(err, recipes) {
 
     if(err) res.json(404, { status: 404, message: "Recipe not found." });
 
@@ -53,8 +54,9 @@ exports.update = function(req, res) {
 
   var json = req.body;
   delete json._id;
+  const id = req.params._id;
 
-  Recipe.update({_id: req.params.id}, json, { multi: true }, function(err, numAffected) {
+  Recipe.update({_id: id}, json, { multi: true }, function(err, numAffected) {
 
     if(err || numAffected === 0) res.json(500, { status: 500, message: "Could not update recipe. No recipe with that ID exists." });
 

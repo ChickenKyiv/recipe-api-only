@@ -73,8 +73,9 @@ module.exports = function(server) {
 	router.get('/api/products', function (req, res) {
 
 	    Product.getProducts(function (err, products) {
+
 	        if (err) { throw err; }
-	        res.json(products);
+	        res.json(200, products);
 	    });
 
 	});
@@ -83,8 +84,9 @@ module.exports = function(server) {
 	router.get('/api/products/:_id', function (req, res) {
 
 	    Product.getProductById(req.params._id, function (err, product) {
+
 	        if (err) { throw err; }
-	        res.json(product);
+	        res.json(200, product);
 	    });
 
 	});
@@ -94,8 +96,9 @@ module.exports = function(server) {
 
 	    const product = req.body;
 	    Product.addProduct(product, function (err, product) {
+
 	        if (err) { throw err; }
-	        res.json(product);
+	        res.json(200, product);
 	    });
 
 	});
@@ -106,8 +109,9 @@ module.exports = function(server) {
 	    const id = req.params._id;
 	    const product = req.body;
 	    Product.updateProduct(id, product, {}, function (err, product) {
+
 	        if (err) { throw err; }
-	        res.json(product);
+	        res.json(200, product);
 	    });
 
 	});
@@ -117,8 +121,9 @@ module.exports = function(server) {
 
 	    const id = req.params._id;
 	    Product.deleteProduct(id, function (err, product) {
+
 	        if (err) { throw err; }
-	        res.json(product);
+	        res.json(200, product);
 	    });
 
 	});
@@ -167,5 +172,18 @@ module.exports = function(server) {
 
 
 	server.use(bodyParser.json({limit: '1mb'}));
+
+
+	var ing = require('router-ingredient');
+
+	server.get('/api/ingredients/', ing.list);	
+	server.get('/api/ingredients/:id', ing.show);	
+
+	server.get('/api/recipe/:recipe_id/ingredients/', ing.list_recipe);	
+	server.get('/api/recipe/:recipe_id/ingredients/:ingredient_id', ing.show_from_recipe);	
+
+
+
+
 
 };
