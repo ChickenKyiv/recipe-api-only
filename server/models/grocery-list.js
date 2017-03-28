@@ -19,13 +19,28 @@ var options = {
 
 var GrocerySchema = mongoose.Schema({
 
-     title : String,
+     categories : [category], // rename to propriate name of food categories
      img   : String,
      desc  : String,
      slug  : String,
          
   }, options );
 
+{
+     category_id: Number,
+     name: String,
+     items: []     
+}
+
+{
+     id       : Number,
+     name     : String,
+     recipeId : [String],
+     type     : String,
+     units    : Number,
+     done     : Bool,
+     delete   : Bool    
+}
 
 
 var Grocerylist = mongoose.model('Grocerylist', GrocerySchema);

@@ -20,10 +20,10 @@ var options = {
 
 var MenuSchema = mongoose.Schema({
 
-     title : String,
-     img   : String,
-     desc  : String,
-     slug  : String,
+     title   : String,
+     date    : Date,
+     desc    : String,
+     recipes : [Recipe], // wouldn't work 'cause we don't finish it
          
   }, options );
 
@@ -32,3 +32,20 @@ var MenuSchema = mongoose.Schema({
 var Weeklymenu = mongoose.model('Weeklymenu', MenuSchema);
 
 module.exports = Weeklymenu;
+
+
+//get recipes
+module.exports.getMenus = function (callback, limit) {
+
+
+Weeklymenu.find(callback).limit(limit);
+  
+
+    
+}
+
+//get recipe by ID
+module.exports.getMenuById = function (id, callback) {
+
+Weeklymenu.findById(id, callback);
+}

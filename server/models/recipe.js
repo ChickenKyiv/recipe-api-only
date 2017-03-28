@@ -18,14 +18,62 @@ var options = {
 
 var RecipeSchema = mongoose.Schema({
 
-     title : String,
-     img   : String,
-     desc  : String,
-     slug  : String,
+
+
+name: String,
+ingredients: [Ingredients], // @todo add ingredients
+directions: [String],
+
+prepTime    : String,
+totalTime   : String,
+recipeYield : String,
+
+imageURL: String,
+originalURL: String,
+
          
   }, options );
 
 
-var Recipe = mongoose.model('Recipe', RecipeSchema);
+const Recipe = mongoose.model('Recipe', RecipeSchema);
 
 module.exports = Recipe;
+
+// const Product = module.exports = mongoose.model('Product', productSchema);
+
+//get recipes
+module.exports.getRecipes = function (callback, limit, short = false) {
+
+var select = 'id name imageUrl';
+if( short ){     
+     Recipe.find(callback).limit(limit).select(select); 
+} else {
+     Recipe.find(callback).limit(limit);
+}
+
+    
+}
+
+//get recipe by ID
+module.exports.getRecipeById = function (id, callback) {
+
+Recipe.findById(id, callback);
+}
+
+//get recipe ingredients by recipe id
+module.exports.getRecipeIngredientsById = function (id, callback) {
+var select = 'ingredients';
+    // Product.findById(id, callback);
+}
+
+//get recipe ingredient by recipe id and ingredient id
+module.exports.getRecipeIngredientByIds = function (recipe_id, ingredient_id, callback) {
+
+// Product.findById(id, callback);
+}
+
+//get recipe directions by recipe id
+module.exports.getRecipeDirectionsById = function (id, callback) {
+var select = 'directions';
+// Product.findById(id, callback);
+}

@@ -37,7 +37,7 @@ exports.list_recipe = function(req, res) {
 
   const id = req.params._id;
   Recipe.ingredientsList( id, function(err, ingredients){
-
+//@todo add this method
   	if (err) { throw err; }
     res.json(200, ingredients);
   });
@@ -51,7 +51,7 @@ exports.show_from_recipe = function(req, res) {
 
   const id = req.params._id;
   Recipe.ingredientOne( id, function(err, ingredient){
-
+//@todo add this method
   	if(err) res.json(404, { status: 404, message: "Ingredient not found." });
   	res.json(200, ingredient);
   });
