@@ -77,3 +77,25 @@ module.exports.getRecipeDirectionsById = function (id, callback) {
 var select = 'directions';
 // Product.findById(id, callback);
 }
+
+POST https://recipal.com/api/v1/recipes/{RECIPE_ID}/scale
+
+### Recipe Meta [GET]
+/meta
+
+### Recipe Ingredients Categorized [GET]
+/ingredients/categorized
+
+
+
+## /recipeIdByWeekday - maybe this is belong more to weekly menu
+
+## /nutrition
+
+
+### Delete [DELETE]
++ /delete
++ Response 204
+
+upload
+
