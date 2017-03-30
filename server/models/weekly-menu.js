@@ -104,29 +104,44 @@ module.exports.filter = function(){
 
 }
 
+// /mealdone/:recipe_id
 module.exports.done = function(id, recipe_id, callback){
 Weeklymenu.findById(id);
 weeklymenu.mealDoneRecipeById(recipe_id);
 }
+// /mealdone/:recipe_id/delete
+module.exports.doneUndone = function(){
+
+}
+// /mealdone/:id/list
+module.exports.doneCurrentMenuList = function(){
+
+}
+
+// will return all done meals in one array of recipe ids.
+// no data from Menus are required right now.
+// /mealdone/list
+module.exports.doneList = function(){
+
+}
+
+module.exports.favoriteRecipe = function(){
+Recipe.favoriteById(recipe_id); //don't have this method
+}
+module.exports.unFavoriteRecipe = function(){
+Recipe.unFavoriteById(recipe_id); //don't have this method
+}
+
+// main menu is created and managed by chief. So user_id at weekly menu row is chief id
+// when client want to change something at menu - we clone this collection and change user_id to to end user.
+module.exports.clone = function(){
+// weekly menu
+//  /recipe/edit
+//  /recipe/delete
+//  /recipe/add
+}
 
 
-
-/mealdone/:id
-/add
-/delete
-/list возвращает айдишники рецептов
-
-
-favorite
-/add
-/:id
-/delete
-/list возвращает айдишники рецептов
-
-weekly menu
- /recipe/edit
- /recipe/delete
- /recipe/add
 
 
  add methods, similar to getMenus getMenuById but for outside recipe database.

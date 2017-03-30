@@ -99,3 +99,11 @@ POST https://recipal.com/api/v1/recipes/{RECIPE_ID}/scale
 
 upload
 
+
+
+
+favorite
+/add
+/:id
+/delete
+/list возвращает айдишники рецептов
