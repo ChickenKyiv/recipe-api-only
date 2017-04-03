@@ -19,33 +19,77 @@ var options = {
 
 var GrocerySchema = mongoose.Schema({
 
-     categories : [category], // rename to propriate name of food categories
+     departments : [Department], // rename to propriate name of food categories
      img   : String,
      desc  : String,
      slug  : String,
          
   }, options );
 
-{
-     category_id: Number,
-     name: String,
-     items: []     
-}
+var Department = mongoose.Schema({
 
-{
+     id   : Number,
+     name : String,
+     items: [Ingredient] 
+         
+  }, options );
+
+
+var Ingredient = mongoose.Schema({
+
      id       : Number,
      name     : String,
      recipeId : [String],
      type     : String,
      units    : Number,
-     done     : Bool,
-     delete   : Bool    
-}
+
+     done     : Bool, //don't used in free-recipes
+     delete   : Bool  //don't used in free-recipes
+         
+  }, options );
+
+
 
 
 var Grocerylist = mongoose.model('Grocerylist', GrocerySchema);
 
 module.exports = Grocerylist;
+
+// get list of ingredients
+// by department id or uncategorized
+// params {recipe id, name, qty, ingredient id, weekday}
+function list (){
+
+}
+
+// get list of departments
+// not filtered or ordered - get it as is
+// params { id, dep_name} 
+function list (){
+
+}
+
+
+
+
+// get list of grocery list items
+// long list with all ingredients
+// v1 not combined by ingredient id.
+// Ex. Monday - 1 cup of milk
+//     Friday - 3 l of milk
+// params {recipe id, name, qty, dep_id, ingredient id, weekday}
+function list (){
+
+}
+
+// short version of grocery list
+// when we got only departments ids
+// params { id, dep_name} 
+function short (){
+
+}
+
+
 
 Full grocery list
 Grocery list category

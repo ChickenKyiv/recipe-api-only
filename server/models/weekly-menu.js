@@ -50,6 +50,17 @@ module.exports.getMenuById = function (id, callback) {
 Weeklymenu.findById(id, callback);
 }
 
+
+
+
+function recipesCalendar(){
+     
+}
+
+
+
+
+
 //disable recipe from clients menu
 //not working, not tested
 module.exports.removeRecipeFromMenu = function (id, recipe_id, callback) {
@@ -144,12 +155,12 @@ module.exports.clone = function(){
 
 
 
- add methods, similar to getMenus getMenuById but for outside recipe database.
+//  add methods, similar to getMenus getMenuById but for outside recipe database.
 
- we must enable tokens, so firstly user(chief) pass their token, we approve it and then app user can grab menus and recipes too from outside database. 
+//  we must enable tokens, so firstly user(chief) pass their token, we approve it and then app user can grab menus and recipes too from outside database. 
 
-i think for this kind of functionality we'll need to use soket.io connections
-how it will work? app connects via socket after getting token we understand from what place we need to get recipes.
-when app make a request - we send similar request to outside database.
-When we get a response(data) - in appropriate way - we send it to customer app.
+// i think for this kind of functionality we'll need to use soket.io connections
+// how it will work? app connects via socket after getting token we understand from what place we need to get recipes.
+// when app make a request - we send similar request to outside database.
+// When we get a response(data) - in appropriate way - we send it to customer app.
 

@@ -78,6 +78,29 @@ var select = 'directions';
 // Product.findById(id, callback);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// simple version. getting nothing
+function getNutritionFactsById = function (id, callback){
+
+}
+
+
+
+
+
+
 POST https://recipal.com/api/v1/recipes/{RECIPE_ID}/scale
 
 ### Recipe Meta [GET]
@@ -106,4 +129,4 @@ favorite
 /add
 /:id
 /delete
-/list возвращает айдишники рецептов
+/list return array recipe ids only
