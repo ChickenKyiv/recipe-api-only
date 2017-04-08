@@ -7,19 +7,22 @@
     "validateUpsert": true
   },
   "properties": {
+
     "meta": {
       "type": "object",
       "required": true
     },
+
     "items": {
       "type": [
         "object"
       ],
       "required": true
     }
+
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+  "relations"  : {},
+  "acls"       : [],
+  "methods"    : {}
 }

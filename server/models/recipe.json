@@ -1,40 +1,47 @@
 {
-  "name": "recipe",
+  "name"  : "recipe",
   "plural": "recipe",
-  "base": "Model",
+  "base"  : "Model",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
+
     "id": {
       "type": "string",
       "required": true
     },
+
     "name": {
       "type": "string",
       "required": true
     },
+
     "img": {
       "type": "string",
       "required": true
     },
+
     "url": {
       "type": "string"
     },
+
     "title": {
       "type": "string",
       "required": true
     },
+
     "ingredients": {
       "type": [
         "object"
       ],
       "required": true
     }
+
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+  "relations"  : {},
+  "acls"       : [],
+  "methods"    : {}
 }

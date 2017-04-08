@@ -10,7 +10,7 @@ dotenv.load();
 
 module.exports = {
 
-  db: process.env.MONGODB || process.env.MONGOLAB_URI || 
+  db: process.env.MONGODB || process.env.MONGODB_URI || 
   process.env.MONGOHQ_URL || 'mongodb://localhost/recipe',
 
   

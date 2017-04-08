@@ -2,6 +2,8 @@ var models     = require('../models');
 var Ingredient = models.Ingredient;
 var Recipe     = models.Recipe;
 
+// Maybe this is controller? @todo finish this
+
 /*
  * GET Ingredient listing.
  */
