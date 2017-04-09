@@ -31,6 +31,9 @@ recipeYield : String,
 imageURL: String,
 originalURL: String,
 
+
+
+
          
   }, options );
 
