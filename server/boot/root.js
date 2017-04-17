@@ -4,6 +4,7 @@
 // var db = require('queries'); or include model schemas here
 
 var bodyParser = require('body-parser');
+var consign    = require('consign');
 // var mongodb    = require('mongodb');
 // var mongoose = require('mongoose'); 
 
@@ -20,16 +21,19 @@ var bodyParser = require('body-parser');
  //    config  = require('./config');
 
 
-var models     = require('../models');
-var GL         = models.Grocerylist;
-var Product    = models.Product; // i.e. ingredient
+// var models     = require('../models');
+// var GL         = models.Grocerylist;
+// var Product    = models.Product; // i.e. ingredient
 // var OtherModel = models['other-model'];
 
 module.exports = function(server) {
   // Install a `/` route that returns server status
 	var router = server.loopback.Router();
 
-
+	consign()
+	  .include('models')
+	  .then('controllers')
+	  .into(server);
 
 
 	router.get('/', server.loopback.status());

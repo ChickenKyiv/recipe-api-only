@@ -10,6 +10,7 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "compression": "^1.0.3",
+    "consign": "^0.1.4",
     "cors": "^2.5.2",
     "helmet": "^3.5.0",
     "loopback": "^3.0.0",
