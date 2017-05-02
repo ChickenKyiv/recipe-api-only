@@ -13,7 +13,7 @@
     "consign": "^0.1.4",
     "cors": "^2.5.2",
     "helmet": "^3.5.0",
-    "loopback": "^3.7.0",
+    "loopback": "^3.8.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^4.0.0",
     "mongodb": "^2.2.25",
