@@ -3,8 +3,9 @@
 // how we'll get a methods to operate the router
 // var db = require('queries'); or include model schemas here
 
-var bodyParser = require('body-parser');
-var consign    = require('consign');
+var bodyParser   = require('body-parser');
+var consign      = require('consign');
+var routeConfig  = require('route-config.js');
 // var mongodb    = require('mongodb');
 // var mongoose = require('mongoose'); 
 
@@ -33,7 +34,7 @@ module.exports = function(server) {
 	consign()
 	  .include('models')
 	  .then('controllers')
-	  .into(server);
+	  .into(server); //@TODO test this configuration. It might not work well right now
 
 
 	router.get('/', server.loopback.status());
@@ -187,7 +188,10 @@ module.exports = function(server) {
 	server.get('/api/recipe/:recipe_id/ingredients/:ingredient_id', ing.show_from_recipe);	
 
 
+	//@TODO test this
 
+	// *** config ** //
+	routeConfig.init(server); //@TODO test this configuration
 
 
 };
