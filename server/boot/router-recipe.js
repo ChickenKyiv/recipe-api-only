@@ -2,7 +2,7 @@ var models     = require('../models');
 var Recipe     = models.Recipe;
 
 // Maybe this is controller? @todo finish this
-
+// This is methods from controllers. Move them
 /*
  * GET recipe listing.
  */
