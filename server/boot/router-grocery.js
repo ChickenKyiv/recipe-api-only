@@ -7,10 +7,7 @@ var router  = express.Router();
 // controllers
 var controller = require('../controllers/grocery-controller');
 
-//@TODO remove app from attributes
-module.exports = function (app) {
-  
-};
+
 /*  "/api/grocery"
  *    GET: finds all recipe
  *    POST: creates a new recipe @todo finish this
