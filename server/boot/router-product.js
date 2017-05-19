@@ -1,3 +1,14 @@
+'use strict';
+
+// middleware
+var express = require('express');
+var router  = express.Router();
+
+// controllers
+var controller = require('../controllers/product-controller');
+
+
+
 var express = require('express');
 var router  = express.Router();
 

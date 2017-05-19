@@ -3,9 +3,16 @@
 // how we'll get a methods to operate the router
 // var db = require('queries'); or include model schemas here
 
-var bodyParser   = require('body-parser');
-var consign      = require('consign');
-var routeConfig  = require('route-config.js');
+
+
+
+
+
+// var bodyParser   = require('body-parser');
+// var consign      = require('consign');
+// var routeConfig  = require('route-config.js');
+
+
 
 // var mongodb    = require('mongodb');
 // var mongoose = require('mongoose'); 

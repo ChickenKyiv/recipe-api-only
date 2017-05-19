@@ -1,4 +1,11 @@
+'use strict';
 
+// middleware
+var express = require('express');
+var router  = express.Router();
+
+// controllers
+var controller = require('../controllers/ingredients-controller');
 
 
 

@@ -1,3 +1,14 @@
+'use strict';
+
+// middleware
+var express = require('express');
+var router  = express.Router();
+
+// controllers
+var controller = require('../controllers/recipe-controller');
+
+
+
 /*  "/api/recipe"
  *    GET: finds all recipe
  *    POST: creates a new recipe @todo finish this
