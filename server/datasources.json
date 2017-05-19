@@ -1,15 +1,8 @@
 {
-  "db": {
-    "name": "db",
+  "reservationDS": {
+    "name": "reservationDS",
+    "localStorage": "",
+    "file": "db.json",
     "connector": "memory"
-  },
-  "accountDS": {
-    "host"     : "ds143588.mlab.com",
-    "port"     : 43588,
-    "database" : "heroku_mfstx9tp",
-    "username" : "heroku_mfstx9tp",
-    "password" : "eesh2l0mcgehm7ruam0icidhn4",
-    "name"     : "accountDS",
-    "connector": "mongodb"
   }
 }
