@@ -1,7 +1,7 @@
 {
   "name": "Ingredients",
   "plural": "ingredient",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -31,12 +31,12 @@
     },
 
     "done": {
-      "type": "bool",
+      "type": "boolean",
       "required": true
     },
     
     "delete": {
-      "type": "bool",
+      "type": "boolean",
       "required": true
     },
 

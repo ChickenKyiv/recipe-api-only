@@ -1,7 +1,7 @@
 {
   "name": "WeeklyMenu",
   "plural": "menu",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -19,10 +19,10 @@
       ],
       "required": true
     },
-        "createdAt": {
+    "created_at": {
       "type": "date"
     },
-    "lastModifiedAt": {
+    "updated_at": {
       "type": "date"
     }
 

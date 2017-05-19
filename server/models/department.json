@@ -1,7 +1,7 @@
 {
   "name": "Departments",
   "plural": "department",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true

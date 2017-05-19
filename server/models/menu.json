@@ -1,7 +1,7 @@
 {
   "name": "Menu",
-  "plural": "menu",
-  "base": "Model",
+  "plural": "menu1",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -26,10 +26,10 @@
       ],
       "required": true
     },
-        "createdAt": {
+    "created_at": {
       "type": "date"
     },
-    "lastModifiedAt": {
+    "updated_at": {
       "type": "date"
     }
 

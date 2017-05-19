@@ -1,7 +1,7 @@
 {
   "name": "GroceryList",
   "plural": "grocery",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true

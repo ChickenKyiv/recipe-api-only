@@ -1,7 +1,7 @@
 {
-  "name"  : "recipe",
+  "name"  : "Recipe",
   "plural": "recipe",
-  "base"  : "Model",
+  "base"  : "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -57,10 +57,10 @@
       "type": "string",
           "required": true
     },
-        "createdAt": {
+    "created_at": {
       "type": "date"
     },
-    "lastModifiedAt": {
+    "updated_at": {
       "type": "date"
     }    
 
