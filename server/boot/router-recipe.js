@@ -1,67 +1,38 @@
-var models     = require('../models');
-var Recipe     = models.Recipe;
-
-// Maybe this is controller? @todo finish this
-// This is methods from controllers. Move them
-/*
- * GET recipe listing.
+/*  "/api/recipe"
+ *    GET: finds all recipe
+ *    POST: creates a new recipe @todo finish this
  */
-exports.list = function(req, res) {
-
-  Recipe.find({}, function(err, recipes) {
-
-    res.json(200, recipes);
+  router.get('/recipe/:id', function(req, res){   
+    res.send('This is not implemented now');
   });
 
-};
 
-/*
- * GET a particular recipe.
- */ 
-exports.show = function(req, res) {
-	
- const id = req.params._id;
-  Recipe.find({_id: id}, function(err, recipes) {
 
-    if(err) res.json(404, { status: 404, message: "Recipe not found." });
+  //Not sure why it have.json. maybe we need to remove it. @TODO remove json
 
-    res.json(200, recipes[0]);
-  });
+  var controller = require('recipe-controller');
+  // var recipe = require('router-recipe');
 
-};
-
-/*
- * Create a new recipe.
+/*  "/api/grocery"
+ *    GET: finds all recipe
+ *    POST: creates a new recipe @todo finish this
  */
-exports.create = function(req, res) {
+  server.get('/api/recipe.json', recipe.list);
 
-  var json   = JSON.parse(req.body.recipe),
-      recipe = new Recipe(json);
-
-  recipe.save(function(err) {
-
-    if(err) req.json(500, { status: 500, message: "Could not save recipe." });
-
-    res.json(200, { status: 200, message: "Recipe successfully saved.", recipe: recipe });
-  });
-
-};
-
-/*
- * Updates an existing meal.
+/*  "/api/grocery"
+ *    GET: finds all recipe
+ *    POST: creates a new recipe @todo finish this
  */
-exports.update = function(req, res) {
+  server.post('/api/recipe.json', recipe.create);
 
-  var json = req.body;
-  delete json._id;
-  const id = req.params._id;
+/*  "/api/grocery"
+ *    GET: finds all recipe
+ *    POST: creates a new recipe @todo finish this
+ */
+  server.get('/api/recipe/:id.json', recipe.show);
 
-  Recipe.update({_id: id}, json, { multi: true }, function(err, numAffected) {
-
-    if(err || numAffected === 0) res.json(500, { status: 500, message: "Could not update recipe. No recipe with that ID exists." });
-
-    res.json(200, { status: 200, message: "Recipe successfully updated." });
-  });
-
-};
-
+/*  "/api/grocery"
+ *    GET: finds all recipe
+ *    POST: creates a new recipe @todo finish this
+ */
+  server.put('/api/recipe/:id.json', recipe.update);

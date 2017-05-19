@@ -1,7 +1,7 @@
 (function (routeConfig) {
 
   'use strict';
-
+  // move it later to config file
   routeConfig.init = function (server) {
 
     // *** routes *** //
