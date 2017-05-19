@@ -1,8 +1,8 @@
-var models     = require('../models');
-var Ingredient = models.Ingredient;
+// var models     = require('../models');
+var Ingredient = require('../models/ingredient') //models.Ingredient;
 var Recipe     = models.Recipe;
 
--
+
 
 /*
  * GET Ingredient listing.

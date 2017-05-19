@@ -6,7 +6,7 @@
     "lint": "eslint .",
     "start": "node .",
     "posttest": "npm run lint && nsp check",
-    "watch" : "nodemon server.js"
+    "watch": "nodemon server/server.js"
   },
   "dependencies": {
     "body-parser": "^1.17.1",

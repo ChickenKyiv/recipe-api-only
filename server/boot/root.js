@@ -10,7 +10,7 @@
 
 // var bodyParser   = require('body-parser');
 // var consign      = require('consign');
-// var routeConfig  = require('route-config.js');
+// var routeConfig  = require('./config/routes.js');
 
 
 

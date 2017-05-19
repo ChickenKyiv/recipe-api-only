@@ -23,7 +23,7 @@ var MenuSchema = mongoose.Schema({
      title   : String,
      date    : Date,
      desc    : String,
-     recipes : [Recipe], // wouldn't work 'cause we don't finish it
+     // recipes : [Recipe], // wouldn't work 'cause we don't finish it
          
   }, options );
 

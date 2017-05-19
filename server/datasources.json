@@ -1,4 +1,8 @@
 {
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
   "accountDS": {
     "name": "accountDS",
     "localStorage": "",
