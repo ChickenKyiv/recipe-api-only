@@ -23,3 +23,5 @@ Emails & notifications by schedule only passed test builds
 Contact Owners/sales representative - button
 
 Update your plan due to big amount of registrations
+
+Add link - start this project on Github
