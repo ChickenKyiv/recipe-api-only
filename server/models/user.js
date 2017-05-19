@@ -1,6 +1,6 @@
 user.js
 
-add favourites, meal done like array of recipe ids.
+// add favourites, meal done like array of recipe ids.
 
 //favourite/list
 //favourite/add

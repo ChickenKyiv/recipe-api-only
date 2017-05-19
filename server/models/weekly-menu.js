@@ -28,7 +28,7 @@ var MenuSchema = mongoose.Schema({
   }, options );
 
 
-
+//@TODO rename to Menu
 var Weeklymenu = mongoose.model('Weeklymenu', MenuSchema);
 
 module.exports = Weeklymenu;

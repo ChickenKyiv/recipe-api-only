@@ -77,14 +77,6 @@ module.exports = function(server) {
 
 	// server.use(bodyParser.json({limit: '1mb'}));
 
-
-	
-
-
-
-	
-
-
 	
 
 
