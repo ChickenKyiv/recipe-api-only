@@ -1,5 +1,5 @@
 {
-  "name": "WeeklyMenu",
+  "name": "Menu",
   "plural": "menu",
   "base": "Model",
   "idInjection": true,
@@ -8,12 +8,19 @@
   },
   "properties": {
 
-    "meta": {
-      "type": "object",
+    "title": {
+      "type": "string",
       "required": true
     },
-
-    "items": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "desc": {
+      "type": "string",
+      "required": true
+    },    
+    "recipes": {
       "type": [
         "object"
       ],

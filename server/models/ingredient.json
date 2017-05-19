@@ -1,6 +1,6 @@
 {
-  "name": "GroceryList",
-  "plural": "grocery",
+  "name": "Ingredients",
+  "plural": "ingredient",
   "base": "Model",
   "idInjection": true,
   "options": {
@@ -8,25 +8,35 @@
   },
   "properties": {
 
-    "departments": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+
+    "recipeId": {
       "type": [
         "object"
       ],
       "required": true
     },
 
-    "img": {
+    "type": {
       "type": "string",
       "required": true
     },
 
-    "desc": {
-      "type": "string",
+    "type": {
+      "type": "number",
       "required": true
     },
 
-    "slug": {
-      "type": "string",
+    "done": {
+      "type": "bool",
+      "required": true
+    },
+    
+    "delete": {
+      "type": "bool",
       "required": true
     },
 

@@ -37,7 +37,32 @@
         "object"
       ],
       "required": true
-    }
+    },
+
+    "directions": {
+      "type": [
+        "object"
+      ],
+      "required": true
+    },    
+    "prepTime":{
+      "type": "string",
+          "required": true
+    },
+    "totalTime":{
+      "type": "string",
+          "required": true
+    },
+    "recipeYield":{
+      "type": "string",
+          "required": true
+    },
+        "createdAt": {
+      "type": "date"
+    },
+    "lastModifiedAt": {
+      "type": "date"
+    }    
 
   },
   "validations": [],
