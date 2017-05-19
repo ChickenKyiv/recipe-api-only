@@ -6,6 +6,7 @@
 var bodyParser   = require('body-parser');
 var consign      = require('consign');
 var routeConfig  = require('route-config.js');
+
 // var mongodb    = require('mongodb');
 // var mongoose = require('mongoose'); 
 
@@ -39,20 +40,17 @@ module.exports = function(server) {
 
 
 
+ //  // Install a `/` route that returns server status
+	// var router = server.loopback.Router();
 
+	// //@TODO test this configuration. It might not work well right now
+	// consign()
+	//   .include('models')
+	//   .then('controllers')
+	//   .into(server); 
 
-
-  // Install a `/` route that returns server status
-	var router = server.loopback.Router();
-
-	//@TODO test this configuration. It might not work well right now
-	consign()
-	  .include('models')
-	  .then('controllers')
-	  .into(server); 
-
-	  //moved to route-main.js
-	// router.get('/', server.loopback.status());
+	//   //moved to route-main.js
+	// // router.get('/', server.loopback.status());
 
 
 
@@ -60,32 +58,27 @@ module.exports = function(server) {
 
 
 
-	//dont need this, because we're using routerConfig
-	server.use(router)	;
-
-	// replace with lines below when we'll slice routers to different files
-	// Register routes of Router
-	// require('./routes/issues')(router, request, async, config);
-	// require('router-product')(router, request, async, config);
-
-	// Prefix all routes with /api
-	// server.use('/api', router);
-	// better to use
-	// server.use('/api/products', router);
+	// //dont need this, because we're using routerConfig
+	// server.use(router)	;
 
 
 
+	// //@TODO test this. Add this configuration before server.use()
 
-	server.use(bodyParser.json({limit: '1mb'}));
+	// // *** config ** //
+	// routeConfig.init(server); //@TODO test this configuration
+
+	// server.use(bodyParser.json({limit: '1mb'}));
 
 
-	var ing = require('router-ingredient');
+	
 
 
-	//@TODO test this
 
-	// *** config ** //
-	routeConfig.init(server); //@TODO test this configuration
+	
+
+
+	
 
 
 };

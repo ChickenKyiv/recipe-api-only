@@ -17,6 +17,19 @@
 	// server.use('/player', player);
 
 
+
+  // replace with lines below when we'll slice routers to different files
+  // Register routes of Router
+  // require('./routes/issues')(router, request, async, config);
+  // require('router-product')(router, request, async, config);
+
+  // Prefix all routes with /api
+  // server.use('/api', router);
+  // better to use
+  // server.use('/api/products', router);
+
+
+
   };
 
 })(module.exports);

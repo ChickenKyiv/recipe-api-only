@@ -1,1 +1,0 @@
-router.get('/', server.loopback.status());
