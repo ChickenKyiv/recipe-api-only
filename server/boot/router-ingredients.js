@@ -8,7 +8,10 @@ var router  = express.Router();
 var controller = require('../controllers/ingredients-controller');
 
 
-
+//@TODO remove app from attributes
+module.exports = function (app) {
+  
+};
 
 
   //Ingredients controller

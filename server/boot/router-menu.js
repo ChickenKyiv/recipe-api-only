@@ -7,6 +7,10 @@ var router  = express.Router();
 // controllers
 var controller = require('../controllers/menu-controller');
 
+//@TODO remove app from attributes
+module.exports = function (app) {
+  
+};
 /*  "/api/menu"
  *    GET: finds all recipe
  *    POST: creates a new recipe @todo finish this

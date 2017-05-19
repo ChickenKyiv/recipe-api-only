@@ -8,9 +8,10 @@ var router  = express.Router();
 var controller = require('../controllers/product-controller');
 
 
-
-var express = require('express');
-var router  = express.Router();
+//@TODO remove app from attributes
+module.exports = function (app) {
+  
+};
 
 /* This is part of other project, contain few api routers
  * @todo Later move this particular routes to another file and include it here.
