@@ -45,21 +45,26 @@
       ],
       "required": true
     },    
+
     "prepTime":{
       "type": "string",
-          "required": true
+      "required": true
     },
+
     "totalTime":{
       "type": "string",
-          "required": true
+      "required": true
     },
+
     "recipeYield":{
       "type": "string",
-          "required": true
+      "required": true
     },
+
     "created_at": {
       "type": "date"
     },
+    
     "updated_at": {
       "type": "date"
     }    

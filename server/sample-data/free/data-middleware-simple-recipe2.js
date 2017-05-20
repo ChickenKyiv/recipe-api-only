@@ -10,29 +10,29 @@ module.exports = {
         {
             "name" : "apple",
             "amounts" : {
-                "amount" : "1",
-                "unit"   : "each"
+            "amount" : "1",
+            "unit"   : "each"
             }
         },
         {
             "name" : "banana",
             "amounts" : {
-                "amount" : "1",
-                "unit"   : "each"
+            "amount" : "1",
+            "unit"   : "each"
             }
         },
         {
             "name" : "orange",
             "amounts" : {
-                "amount" : "1",
-                "unit"   : "each"
+            "amount" : "1",
+            "unit"   : "each"
             }
         },
         {
             "name" : "grapes",
             "amounts" : {
-                "amount" : "10",
-                "unit"   : "cup"
+            "amount" : "10",
+            "unit"   : "cup"
             }
         },
     ],
