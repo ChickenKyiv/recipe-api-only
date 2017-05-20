@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = function(Department) {
-user.validatesPresenceOf('name', 'email');
+
+	Department.validatesPresenceOf('name', 'items');
   // user.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
   // user.validatesInclusionOf('gender', {in: ['male', 'female']});
   // user.validatesExclusionOf('domain', {in: ['www', 'billing', 'admin']});
