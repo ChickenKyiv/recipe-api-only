@@ -8,6 +8,13 @@
   },
   "properties": {
 
+    "departments": {
+      "type": [
+        "object"
+      ],
+      "required": true
+    },
+
     "img": {
       "type": "string",
       "required": true
