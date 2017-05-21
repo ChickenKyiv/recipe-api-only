@@ -26,7 +26,26 @@
     "menus": {
       "1": "{\"id\": \"6\", \"rec\": [\"1989\",\"1990\"], \"title\": \"string\", \"date\": \"December 17, 2003 03:24:00\", \"desc\": \"string\", \"recipes\": \"{}\", \"created_at\":\"December 17, 2003 03:24:00\",\"updated_at\":\"December 17, 2003 03:24:00\"}",
       "2": "{\"id\": \"10\",\"rec\": [\"1980\", \"1990\"], \"title\": \"string\", \"date\": \"December 17, 2003 03:24:00\", \"desc\": \"string\", \"recipes\": \"{}\", \"created_at\":\"December 17, 2003 03:24:00\",\"updated_at\":\"December 17, 2003 03:24:00\"}"
+    },
+
+    "customer": {
+      "1": "{\"name\":\"Andy Van Den Heuvel\",\"username\":\"andy\",\"password\":\"$2a$10$1lmPRI0Xjd5fU8HGdPmDoOkZpIPJj2axcdJYIfc/3RUnBDDqQe31K\",\"email\":\"andy@optis.be\",\"id\":1}",
+      "2": "{\"name\":\"Kenneth Van den Berghe\",\"username\":\"kenneth\",\"password\":\"$2a$10$H5wtnFvhxf8CPn66gEbPu.tki2WRpkplqvUV3yhQ049ugY8rHFSJi\",\"email\":\"kenneth@optis.be\",\"id\":2}",
+      "3": "{\"name\":\"Claudiu Matei\",\"username\":\"claudiu\",\"password\":\"$2a$10$6b9jxIwb6y84gpq.ZU57YegRM4BWxHoXc.K/WwlEOJTa/9fO7cCta\",\"email\":\"claudiu@optis.be\",\"id\":3}"
+    },
+
+    "AccessToken": {},
+
+    "ACL": {},
+
+    "RoleMapping": {
+      "1": "{\"principalType\":\"USER\",\"principalId\":\"1\",\"roleId\":1,\"id\":1}"
+    },
+    
+    "Role": {
+      "1": "{\"name\":\"admin\",\"created_at\":\"2017-02-21T06:07:25.571Z\",\"updated_at\":\"2017-02-21T06:07:25.571Z\",\"id\":1}"
     }
+
   }
 
 

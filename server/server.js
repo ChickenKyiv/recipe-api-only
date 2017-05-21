@@ -18,6 +18,12 @@ app.start = function() {
   });
 };
 
+//In order to create scripts load in custom way - use this:
+// bootOptions = { "appRootDir": __dirname, 
+//                 "bootScripts" : [ "/full/path/to/boot/script/first.js", "//full/path/to/boot/script/second.js", ... ]
+// };
+// boot(app, bootOptions);
+
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
 boot(app, __dirname, function(err) {

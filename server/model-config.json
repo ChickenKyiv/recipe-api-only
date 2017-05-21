@@ -36,5 +36,29 @@
   "weekly-menu": {
     "dataSource": "recipeDS",
     "public": true
+  },
+  "customer": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "User": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "recipeDS",
+    "public": false
   }
 }
