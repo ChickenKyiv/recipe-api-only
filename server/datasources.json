@@ -1,0 +1,8 @@
+{
+  "recipeDS": {
+    "name": "recipeDS",
+    "localStorage": "",
+    "file": "db.json",
+    "connector": "memory"
+  }
+}

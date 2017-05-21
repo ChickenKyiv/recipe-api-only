@@ -1,0 +1,65 @@
+{
+  "name": "recipes",
+  "plural": "recipe",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "img": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "ingredients": {
+      "type": "object",
+      "required": true
+    },
+    "directions": {
+      "type": "object",
+      "required": true
+    },
+    "prep_time": {
+      "type": "string",
+      "required": true
+    },
+    "total_time": {
+      "type": "string",
+      "required": true
+    },
+    "recipe_yield": {
+      "type": "string",
+      "required": true
+    },
+    "created_at": {
+      "type": "date",
+      "required": true
+    },
+    "updated_at": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "ing": {
+      "type": "hasMany",
+      "model": "ingredients",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "departments": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "groceries": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "ingredients": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "menus": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "recipes": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "weekly-menu": {
+    "dataSource": "recipeDS",
+    "public": true
+  }
+}
