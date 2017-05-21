@@ -35,7 +35,7 @@
     "dataSource": "db",
     "public": false
   },
-  "Recipe": {
+  "recipe": {
     "dataSource": "accountDS",
     "public": true
   },
@@ -43,19 +43,19 @@
     "dataSource": "accountDS",
     "public": true
   },
-  "GroceryList": {
+  "grocery": {
     "dataSource": "accountDS",
     "public": true
   },
-  "Menu":{
+  "menu":{
     "dataSource": "accountDS",
     "public": true
   },
-  "Ingredients":{
+  "ingredients":{
     "dataSource": "accountDS",
     "public": true
   },
-  "Departments":{
+  "departments":{
     "dataSource": "accountDS",
     "public": true
   }

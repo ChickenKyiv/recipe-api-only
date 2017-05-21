@@ -1,6 +1,6 @@
 {
-  "name": "departments",
-  "plural": "department",
+  "name": "GroceryList",
+  "plural": "grocery",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -8,15 +8,25 @@
   },
   "properties": {
 
-    "name": {
+    "departments": {
+      "type": [
+        "object"
+      ],
+      "required": true
+    },
+
+    "img": {
       "type": "string",
       "required": true
     },
 
-    "items": {
-      "type": [
-        "object"
-      ],
+    "desc": {
+      "type": "string",
+      "required": true
+    },
+
+    "slug": {
+      "type": "string",
       "required": true
     },
 
