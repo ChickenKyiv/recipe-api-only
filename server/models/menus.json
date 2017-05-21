@@ -1,13 +1,12 @@
 {
-  "name": "menu",
-  "plural": "menu1",
+  "name": "menus",
+  "plural": "menu",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-
     "title": {
       "type": "string",
       "required": true
@@ -19,23 +18,22 @@
     "desc": {
       "type": "string",
       "required": true
-    },    
+    },
     "recipes": {
-      "type": [
-        "object"
-      ],
+      "type": "object",
       "required": true
     },
     "created_at": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "updated_at": {
-      "type": "date"
+      "type": "date",
+      "required": true
     }
-
   },
   "validations": [],
-  "relations"  : {},
-  "acls"       : [],
-  "methods"    : {}
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

@@ -1,10 +1,6 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
-  "accountDS": {
-    "name": "accountDS",
+  "recipeDS": {
+    "name": "recipeDS",
     "localStorage": "",
     "file": "db.json",
     "connector": "memory"

@@ -7,50 +7,35 @@
     "validateUpsert": true
   },
   "properties": {
-
     "name": {
       "type": "string",
       "required": true
     },
-
-    "recipeId": {
-      "type": [
-        "object"
-      ],
+    "recipe_id": {
+      "type": "object",
       "required": true
     },
-
     "type": {
       "type": "string",
       "required": true
     },
-
-    "type": {
-      "type": "number",
-      "required": true
-    },
-
     "done": {
-      "type": "boolean",
-      "required": true
+      "type": "boolean"
     },
-    
     "delete": {
-      "type": "boolean",
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "date",
       "required": true
     },
-
-    "created_at": {
-      "type": "date"
-    },
-
     "updated_at": {
-      "type": "date"
+      "type": "date",
+      "required": true
     }
-
   },
-  "validations" : [],
-  "relations"   : {},
-  "acls"        : [],
-  "methods"     : {}
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

@@ -13,50 +13,28 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "db"
-  },
-  "AccessToken": {
-    "dataSource": "db",
-    "public": false
-  },
-  "ACL": {
-    "dataSource": "db",
-    "public": false
-  },
-  "RoleMapping": {
-    "dataSource": "db",
-    "public": false,
-    "options": {
-      "strictObjectIDCoercion": true
-    }
-  },
-  "Role": {
-    "dataSource": "db",
-    "public": false
-  },
-  "recipe": {
-    "dataSource": "accountDS",
+  "departments": {
+    "dataSource": "recipeDS",
     "public": true
   },
-  "WeeklyMenu": {
-    "dataSource": "accountDS",
+  "groceries": {
+    "dataSource": "recipeDS",
     "public": true
   },
-  "grocery": {
-    "dataSource": "accountDS",
+  "ingredients": {
+    "dataSource": "recipeDS",
     "public": true
   },
-  "menu":{
-    "dataSource": "accountDS",
+  "menus": {
+    "dataSource": "recipeDS",
     "public": true
   },
-  "ingredients":{
-    "dataSource": "accountDS",
+  "recipes": {
+    "dataSource": "recipeDS",
     "public": true
   },
-  "departments":{
-    "dataSource": "accountDS",
+  "weekly-menu": {
+    "dataSource": "recipeDS",
     "public": true
   }
 }
