@@ -32,11 +32,7 @@
   },
   "validations": [],
   "relations": {
-    "ing": {
-      "type": "hasMany",
-      "model": "ingredients",
-      "foreignKey": ""
-    }
+    
   },
   "acls": [],
   "methods": {}
