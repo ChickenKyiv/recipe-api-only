@@ -11,6 +11,9 @@ http://localhost:3000/api/menu
 
 http://localhost:3000/explorer/#!/customer/customer_login will return a token
 
+For sending email notifications - we'll use MailGun
 
+Our free key : key-4e236ace7f85293ec5eb2b37d6d9fa39
+Free domain : sandbox31d3370622eb42a597ccb3fa1fd0adbf.mailgun.org
 
 @TODO fill Readme with other urls, that what we'll need for Free and Menu Milestone
