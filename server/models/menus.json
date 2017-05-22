@@ -1,6 +1,6 @@
 {
   "name": "menus",
-  "plural": "menu",
+  "plural": "menu1",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

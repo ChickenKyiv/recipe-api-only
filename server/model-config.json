@@ -60,5 +60,9 @@
   "Role": {
     "dataSource": "recipeDS",
     "public": false
+  },
+  "Email": {
+    "dataSource": "mailgun",
+    "public": false
   }
 }

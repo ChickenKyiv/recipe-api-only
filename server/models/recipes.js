@@ -1,8 +1,8 @@
 'use strict';
 
-module.exports = function(Recipes) {
+module.exports = function(recipes) {
 
-	Recipes.validatesPresenceOf('name', 'img', 'url', 'title', 'ingredients', 'directions', 'prepTime', 'totalTime', 'recipeYield');
+	recipes.validatesPresenceOf('name', 'img', 'url', 'title', 'ingredients', 'directions', 'prepTime', 'totalTime', 'recipeYield');
   // user.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
   // user.validatesInclusionOf('gender', {in: ['male', 'female']});
   // user.validatesExclusionOf('domain', {in: ['www', 'billing', 'admin']});

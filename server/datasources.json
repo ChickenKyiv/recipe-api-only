@@ -6,8 +6,8 @@
     "connector": "memory"
   },
   "mailgun": {
-        "connector": "loopback-connector-mailgun",
-        "apikey": "key-4e236ace7f85293ec5eb2b37d6d9fa39",
-        "domain": "sandbox31d3370622eb42a597ccb3fa1fd0adbf.mailgun.org"
-    }
+    "connector": "loopback-connector-mailgun",
+    "apikey": "key-4e236ace7f85293ec5eb2b37d6d9fa39",
+    "domain": "sandbox31d3370622eb42a597ccb3fa1fd0adbf.mailgun.org"
+  }
 }
