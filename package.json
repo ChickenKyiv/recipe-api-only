@@ -7,7 +7,7 @@
     "start": "node .",
     "posttest": "npm run lint && nsp check",
     "watch": "nodemon server/server.js",
-    "test": ""
+    "test": "mocha spec"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
