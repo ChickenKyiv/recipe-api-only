@@ -23,12 +23,13 @@
   "devDependencies": {
     "eslint": "^2.13.1",
     "eslint-config-loopback": "^4.0.0",
+    "mocha": "^3.4.1",
     "nodemon": "^1.11.0",
     "nsp": "^2.1.0"
   },
   "repository": {
     "type": "",
-    "url": ""
+    "url": "https://github.com/atherdon/recipe-api-only"
   },
   "license": "UNLICENSED",
   "description": "recipe-api"

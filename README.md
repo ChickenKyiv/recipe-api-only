@@ -18,6 +18,8 @@ For sending email notifications - we'll use MailGun
 Our free key : key-4e236ace7f85293ec5eb2b37d6d9fa39
 Free domain : sandbox31d3370622eb42a597ccb3fa1fd0adbf.mailgun.org
 
+http://localhost:3000/api/ingredient?filter[where][name][like]=kosher
+
 @TODO fill Readme with other urls, that what we'll need for Free and Menu Milestone
 
 Note: Upload images are not supported right now. If you want to display images, you must upload them to storage, copy public url and save it on database.
