@@ -8,8 +8,6 @@ module.exports = function(app) {
   var Role        = app.models.Role;
   var RoleMapping = app.models.RoleMapping;
 
-  // var Team        = app.models.Team;
-
   var accounts = [
 	{
 	  name: 'john',	
