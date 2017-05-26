@@ -51,24 +51,25 @@ module.exports = function(app) {
       		// create the admin role
 
       			console.log(user);
+      			
       			// commented due to laziness moving this code to automigrate.
-			    // Role.create({
-			    //   name: 'admin'
-			    // }, function(err, role) {
-			    //   if (err) throw err;
+			    Role.create({
+			      name: 'admin'
+			    }, function(err, role) {
+			      if (err) throw err;
 
-			    //   console.log('Created role:', role);
+			      console.log('Created role:', role);
 
-			    //   //make andy an admin
-			    //   role.principals.create({
-			    //     principalType: RoleMapping.USER,
-			    //     principalId: user.id 
-			    //   }, function(err, principal) {
-			    //     if (err) throw err;
+			      //make admin an admin role
+			      role.principals.create({
+			        principalType: RoleMapping.USER,
+			        principalId: user.id 
+			      }, function(err, principal) {
+			        if (err) throw err;
 
-			    //     console.log('Created principal:', principal);
-			    //   });
-			    // });
+			        console.log('Created principal:', principal);
+			      });
+			    });
 
 	      }
 
