@@ -25,3 +25,5 @@ http://localhost:3000/api/ingredient?filter[where][name][like]=kosher
 Note: Upload images are not supported right now. If you want to display images, you must upload them to storage, copy public url and save it on database.
 Use this reference for adding such a functionality: https://github.com/optis/loopback-rest-api#storage
 
+
+https://recipe-api-loopback.herokuapp.com/

@@ -51,7 +51,7 @@ module.exports = function(app) {
       		// create the admin role
 
       			console.log(user);
-      			
+
       			// commented due to laziness moving this code to automigrate.
 			    Role.create({
 			      name: 'admin'
@@ -77,5 +77,13 @@ module.exports = function(app) {
 	    });
 
 	});
+
+};
+
+function Recipes(app) {
+
+};
+
+function Menu(app){
 
 };
