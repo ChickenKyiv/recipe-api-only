@@ -170,14 +170,6 @@ database.autoupdate('VideoModel', function(err) {
 
 // });
 
-
-
-// admin id for development instance 592642c1e675f021a033ebac
- 
- // "AccessToken": {
- //      "eZRy1Qv7YVx9xEcpLQMl9eruyEIEZd5UECmQOGWYCenAVysIUOCwWQOqLlkY9Gno": "{\"id\":\"eZRy1Qv7YVx9xEcpLQMl9eruyEIEZd5UECmQOGWYCenAVysIUOCwWQOqLlkY9Gno\",\"ttl\":1209600,\"created\":\"2017-05-21T22:58:46.468Z\",\"userId\":1}"
- //    },
-
 //creating loopback necessary tables if no exists
 var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
 // database.automigrate(lbTables, function(err) {
