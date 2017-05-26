@@ -1,17 +1,25 @@
 {
-  "name": "weekly-menu",
-  "plural": "menu",
+  "name": "menus",
+  "plural": "menu1",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "meta": {
-      "type": "object",
+    "title": {
+      "type": "string",
       "required": true
     },
-    "items": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "desc": {
+      "type": "string",
+      "required": true
+    },
+    "recipes": {
       "type": "object",
       "required": true
     },
@@ -25,7 +33,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "rec": {
+      "type": "hasMany",
+      "model": "recipes",
+      "foreignKey": ""
+    }
+  },
   "acls": [
     {
       "accessType": "*",

@@ -1,14 +1,14 @@
 {
-  "name": "weekly-menu",
-  "plural": "menu",
+  "name": "departments",
+  "plural": "department",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "meta": {
-      "type": "object",
+    "name": {
+      "type": "string",
       "required": true
     },
     "items": {

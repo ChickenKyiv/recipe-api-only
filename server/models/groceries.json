@@ -1,18 +1,24 @@
 {
-  "name": "weekly-menu",
-  "plural": "menu",
+  "name": "groceries",
+  "plural": "grocery",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "meta": {
+    "departments": {
       "type": "object",
       "required": true
     },
-    "items": {
-      "type": "object",
+    "img": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
       "required": true
     },
     "created_at": {
@@ -25,7 +31,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "ing": {
+      "type": "hasMany",
+      "model": "ingredients",
+      "foreignKey": ""
+    }
+  },
   "acls": [
     {
       "accessType": "*",
