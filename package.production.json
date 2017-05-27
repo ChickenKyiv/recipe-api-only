@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-   
+    "posttest": "npm run lint && nsp check",
     "watch": "nodemon server/server.js",
     "test": "mocha spec"
   },
