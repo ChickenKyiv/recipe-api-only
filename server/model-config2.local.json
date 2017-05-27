@@ -33,10 +33,7 @@
     "dataSource": "recipeDS",
     "public": true
   },
-  "weekly-menu": {
-    "dataSource": "recipeDS",
-    "public": true
-  },
+
 
   "User": {
     "dataSource": "recipeDS",

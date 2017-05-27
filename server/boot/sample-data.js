@@ -472,7 +472,19 @@ function saveMenu (app, Menu){
 	      // console.log("+ " + log.id);
 	      // callback();
 
-      	// console.log(user);
+      	console.log(menu);
+      	var recipe1 = Recipes1();
+      	Recipe.finOrCreate({
+      		where:{
+      			name : recipe.name
+      		}
+      	}, recipe1,
+      	function(err, recipe){
+      		console.log(recipe);
+      		console.log(recipe.id);
+      	});
+
+
 
 	});
 
