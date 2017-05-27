@@ -2,7 +2,10 @@
 
 module.exports = function(recipes) {
 
-	recipes.validatesPresenceOf('name', 'img', 'url', 'title', 'ingredients', 'directions', 'prepTime', 'totalTime', 'recipeYield');
+	recipes.validatesPresenceOf(
+		'name', 'img', 'url', 'title', 'ingredients', 
+		'directions', 'prep_time', 'total_time', 'recipe_yield'
+		);
   // user.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
   // user.validatesInclusionOf('gender', {in: ['male', 'female']});
   // user.validatesExclusionOf('domain', {in: ['www', 'billing', 'admin']});
