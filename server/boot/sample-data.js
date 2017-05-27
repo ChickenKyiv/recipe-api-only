@@ -4,7 +4,7 @@ var async      = require('async');
 
 module.exports = function(app) {
 
-  var User        = app.models.user;
+  var User        = app.models.UserModel;
   var Role        = app.models.Role;
   var RoleMapping = app.models.RoleMapping;
 
@@ -81,8 +81,8 @@ module.exports = function(app) {
 };
 
 function importUsers(app){
-	
-	var User        = app.models.user;
+
+  var User        = app.models.UserModel;
   var Role        = app.models.Role;
   var RoleMapping = app.models.RoleMapping;
 
