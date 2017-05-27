@@ -184,16 +184,96 @@ function Menu(app){
 
 	];
 
-{ \"customerId": "2", "id": "6", "rec": ["1989","1990"], "title": "string", "date": "December 17, 2003 03:24:00\", \"desc\": \"string\", \"recipes\": \"{}\", \"created_at\":\"December 17, 2003 03:24:00",updated_at:"December 17, 2003 03:24:00"}",
-      { "customerId": "1", "id": "10","rec": ["1980", "1990"], "title": "string", "date": "December 17, 2003 03:24:00\", \"desc\": \"string\", \"recipes\": \"{}\", \"created_at\":\"December 17, 2003 03:24:00",updated_at:"December 17, 2003 03:24:00"}",
-      {"title":"string1","date":"2003-12-17T11:24:00.000Z","desc":"string1","recipes":"{}\","created_at\":\"2003-12-17T11:24:00.000Z\",\"updated_at\":\"2003-12-17T11:24:00.000Z\",\"customerId":2,"id":3}",
-      {"title":"string2","date":"2003-12-17T11:24:00.000Z","desc":"string2","recipes":"{}\","created_at\":\"2003-12-17T11:24:00.000Z\",\"updated_at\":\"2003-12-17T11:24:00.000Z\",\"customerId":1,"id":4}",
-      {"title":"string2","date":"2003-12-17T11:24:00.000Z","desc":"string2","recipes":"{}\","created_at\":\"2003-12-17T11:24:00.000Z\",\"updated_at\":\"2003-12-17T11:24:00.000Z\",\"customerId":1,"id":5}"
+{ 
+	customerId: "2", 
+id: "6", 
+rec: ["1989","1990"], 
+title: "string", 
+date: "December 17, 2003 03:24:00",
+ desc: "string", 
+ recipes: "{}",
+  created_at:"December 17, 2003 03:24:00",
+  updated_at:"December 17, 2003 03:24:00"
+},
+      { 
+      	customerId: "1", 
+      id: "10",
+      rec: ["1980", "1990"], 
+      title: "string", 
+      date: "December 17, 2003 03:24:00", 
+      desc: "string", 
+      recipes: "{}", 
+      created_at:"December 17, 2003 03:24:00",
+      updated_at:"December 17, 2003 03:24:00"
+  },
+      {
+      	title:"string1",
+      date:"2003-12-17T11:24:00.000Z",
+      desc:"string1",
+      recipes:"{}",
+      created_at:"2003-12-17T11:24:00.000Z",
+      updated_at:"2003-12-17T11:24:00.000Z",
+      customerId:2,
+      id:3
+  },
+      {
+      	title:"string2",
+      date:"2003-12-17T11:24:00.000Z",
+      desc:"string2",
+      recipes:"{}",
+      created_at:"2003-12-17T11:24:00.000Z",
+      updated_at:"2003-12-17T11:24:00.000Z",
+      customerId:1,
+      id:4
+  },
+      {
+      	title:"string2",
+      date:"2003-12-17T11:24:00.000Z",
+      desc:"string2",
+      recipes:"{}",
+      created_at:"2003-12-17T11:24:00.000Z",
+      updated_at:"2003-12-17T11:24:00.000Z",
+      customerId:1,
+      id:5
+  }
 };
 
 function Grocery(app){
 	var grocery = [
-	{"ing":["6", "7", "8" ], "departments": [{"id": "1", "name": "BAKERY/BREAD", "items": [{\"id\": \"6\",\"name\": \"black pepper\",\"recipeId\": [\"1\", \"2\"],\"type\": \"simple\",\"units\": \"1 teaspoon\",\"done\": \"0\",\"delete\": \"0\"}]},{\"id\": \"2\", \"name\": \"BAKING\", \"items\": [{\"id\": \"6\",\"name\": \"black pepper\",\"recipeId\": [\"1\", \"2\"],\"type\": \"simple\",\"units\": "1 teaspoon","done": "0","delete": "0"}]}], "img": "string", desc: "string", "slug": "string", created_at: "2017-05-20T16:36:50.843Z", updated_at: "2017-05-20T16:36:50.843Z"}
+	{
+		ing:["6", "7", "8" ],
+		departments: [
+		{"id": "1",
+		 "name": "BAKERY/BREAD",
+		  "items": [
+		  {
+		  	id: "6","name": "black pepper",
+		  recipeId: ["1", "2"],
+		  type: "simple",
+		  units: "1 teaspoon",
+		  done: "0",
+		  delete: "0"
+		}
+		  ]
+		},{
+			id: "2",
+			 name: "BAKING",
+			  items: [{"id": "6",
+			  name: "black pepper",
+			  recipeId: ["1", "2"],
+			  type: "simple",
+			  units: "1 teaspoon",
+			  done: "0","delete": "0"
+			}
+			]
+		}
+		], 
+		img: "string", 
+		desc: "string",
+		 slug: "string", 
+		 created_at: "2017-05-20T16:36:50.843Z", 
+		 updated_at: "2017-05-20T16:36:50.843Z"
+		}
 	];
 	
 };
