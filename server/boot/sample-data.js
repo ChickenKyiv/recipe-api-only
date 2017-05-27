@@ -11,6 +11,8 @@ module.exports = function(app) {
   var Recipe      = app.models.recipes; // @TODO update recipe model name
   var Ingredient  = app.models.ingredients; // @TODO update ingredients model name
 
+  var Menu        = app.models.menus;  // @TODO update recipe model name
+
   var accounts = [
 	{
 	  name: 'john',	
@@ -83,7 +85,18 @@ module.exports = function(app) {
 
 	saveRecipe(app, Recipe);
 	saveIngredients(app, Ingredient);
+
+	saveMenu(app, Menu);
 };
+
+function importMenu(app){
+
+	var menus = Menu();
+
+
+
+}
+
 
 function importUsers(app){
 
@@ -163,14 +176,14 @@ function importUsers(app){
 }
 
 
-function Recipes() {
+function Recipes1() {
 
-	var recipes = [
+	var recipe1 = 
 		{ 
-			customerId: "2", 
-			ing:[ "6", "7", "8" ],
+			// customerId: "2", 
+			// ing:[ "6", "7", "8" ],
 			 // id: "1989",
-			  name: "Crock Pot Roast12",
+			  // name: "Crock Pot Roast12",
 			  title: "Crock Pot Roast12",
 			  ingredients: 
 			  [{
@@ -211,12 +224,20 @@ function Recipes() {
 			   img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg","url": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
 			   created_at:"December 17, 2003 03:24:00",
 			   updated_at:"December 17, 2003 03:24:00"
-			},
-		{ 
-			customerId: "1", 
-			ing:[ "7", "8", "9" ],
+			};
+
+return recipe1;
+
+};
+
+
+function Recipes2() {
+
+		var recipe2 = 		{ 
+			// customerId: "1", 
+			// ing:[ "7", "8", "9" ],
 			 // id: "1990",
-			  name: "Crock Pot Roast1",
+			  // name: "Crock Pot Roast1",
 			  title: "Crock Pot Roast1",
 			  img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
 			  ingredients: 
@@ -254,10 +275,10 @@ function Recipes() {
 			  recipe_yield :"8",
 			  created_at:"December 17, 2003 03:24:00",
 			  updated_at:"December 17, 2003 03:24:00"
-	}
-	];
+	};
+	
 
-return recipes;
+return recipe2;
 
 };
 
@@ -287,17 +308,17 @@ function Ingredients(){
 	var ingredients = [
 	{ 
 	
-name: "black pepper",
-recipe_id: ["1", "2"],
-type: "simple",
-units: "1 teaspoon",
-done: "0",
-delete: "0", 
-created_at: "2017-05-20T16:36:50.843Z", 
-updated_at: "2017-05-20T16:36:50.843Z",
-recipesId: [{'5928d6ddcef3be0530f8bdff'},{}]
-},
-{ 
+		name: "black pepper",
+		recipe_id: ["1", "2"],
+		type: "simple",
+		units: "1 teaspoon",
+		done: "0",
+		delete: "0", 
+		created_at: "2017-05-20T16:36:50.843Z", 
+		updated_at: "2017-05-20T16:36:50.843Z",
+		recipesId: [{'5928d6ddcef3be0530f8bdff'},{}]
+	},
+	{ 
   	
       name: "extra-virgin olive oil",
       recipe_id: ["1", "2", "3", "4"],
@@ -307,8 +328,8 @@ recipesId: [{'5928d6ddcef3be0530f8bdff'},{}]
      created_at: "2017-05-20T16:36:50.843Z", 
       updated_at: "2017-05-20T16:36:50.843Z",
       // recipesId: '5928d6ddcef3be0530f8bdff'
-  },
-  { 
+  	},
+  	{ 
       
       name: "kosher salt",
       recipe_id: ["5", "6", "7", "8"],
@@ -319,8 +340,8 @@ recipesId: [{'5928d6ddcef3be0530f8bdff'},{}]
       created_at: "2017-05-20T16:36:50.843Z", 
       updated_at: "2017-05-20T16:36:50.843Z",
       recipesId: '5928d6ddcef3be0530f8be00'
-  },
-  { 
+  	},
+  	{ 
       
       name: "kosher salt and freshly ground black",
       recipe_id: ["1", "2", "3", "4"],
@@ -330,7 +351,7 @@ recipesId: [{'5928d6ddcef3be0530f8bdff'},{}]
       created_at: "2017-05-20T16:36:50.843Z", 
       updated_at: "2017-05-20T16:36:50.843Z",
       recipesId: '5928d6ddcef3be0530f8bdff',
-  }
+  	}
 	];
 
   return ingredients;
@@ -359,66 +380,104 @@ function Menu(){
 
 	var menus = [
 
-{ 
-	customerId: "2", 
-id: "6", 
-rec: ["1989","1990"], 
-title: "string", 
-date: "December 17, 2003 03:24:00",
- desc: "string", 
- recipes: "{}",
-  created_at:"December 17, 2003 03:24:00",
-  updated_at:"December 17, 2003 03:24:00"
-},
-      { 
-      	customerId: "1", 
-      id: "10",
-      rec: ["1980", "1990"], 
+	{ 
+	// customerId: "2", 
+	// id: "6", 
+		// rec: ["1989","1990"], 
+		title: "string", 
+		date: "December 17, 2003 03:24:00",
+		desc: "string", 
+		recipes: [
+			Recipes1()
+		],
+
+		created_at:"December 17, 2003 03:24:00",
+		updated_at:"December 17, 2003 03:24:00"
+	},
+    { 
+      // customerId: "1", 
+      // id: "10",
+      // rec: ["1980", "1990"], 
       title: "string", 
       date: "December 17, 2003 03:24:00", 
       desc: "string", 
-      recipes: "{}", 
-      created_at:"December 17, 2003 03:24:00",
-      updated_at:"December 17, 2003 03:24:00"
-  },
+      recipes: [
+      	Recipes1(), Recipes2()
+      ],
+
+      created_at:"December 19, 2003 03:24:00",
+      updated_at:"December 19, 2003 03:24:00"
+  	},
     {
-      	title:"string1",
+      title:"string1",
       date:"2003-12-17T11:24:00.000Z",
       desc:"string1",
-      recipes:"{}",
+      recipes: [
+      	Recipes1(),Recipes1(),Recipes2()
+      ],
+
       created_at:"2003-12-17T11:24:00.000Z",
       updated_at:"2003-12-17T11:24:00.000Z",
-      customerId:2,
-      id:3
-  },
+      // customerId:2,
+      // id:3
+  	},
     {
-      	title:"string2",
-      date:"2003-12-17T11:24:00.000Z",
+      title:"string2",
+      date:"2017-05-17T11:24:00.000Z",
       desc:"string2",
-      recipes:"{}",
-      created_at:"2003-12-17T11:24:00.000Z",
-      updated_at:"2003-12-17T11:24:00.000Z",
-      customerId:1,
-      id:4
-  },
+      recipes: [
+      	Recipes1(), Recipes2(), Recipes2()
+      ],
+
+      created_at:"2017-05-17T11:24:00.000Z",
+      updated_at:"2017-05-17T11:24:00.000Z",
+      // customerId:1,
+      // id:4
+  	},
     {
-      	title:"string2",
-      date:"2003-12-17T11:24:00.000Z",
-      desc:"string2",
-      recipes:"{}",
-      created_at:"2003-12-17T11:24:00.000Z",
-      updated_at:"2003-12-17T11:24:00.000Z",
-      customerId:1,
-      id:5
-  }
+      title:"string3",
+      date:"2017-05-28T11:24:00.000Z",
+      desc:"string3",
+      recipes: [
+      	Recipes2()
+      ],
+
+      created_at:"2017-05-25T11:24:00.000Z",
+      updated_at:"2017-05-25T11:24:00.000Z",
+      // customerId:1,
+      // id:5
+  	}
 	];
 
 
-
-    
-    
+	return menu;       
     
 };
+
+function saveMenu (app, Menu){
+
+	var menu = Menu();
+
+	menus.forEach(function(element) {
+
+		Menu.findOrCreate({
+	      where: {
+	        title: element.title,
+	        date: element.date
+	        // email: element.email,
+	      }
+	    }, element,
+	    function (err, menu) {
+	      if (err) throw err;
+	      // console.log("+ " + log.id);
+	      // callback();
+
+      	// console.log(user);
+
+	});
+
+};
+
 
 function Grocery(){
 	var grocery = [
