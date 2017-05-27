@@ -454,6 +454,8 @@ function Menu(){
     
 };
 
+// For this moment we don't care about making this database structure working well
+// main aim is make it works, somehow. And as it will work fine for this case, it will evolve later.
 function saveMenu (app, Menu){
 
 	var menu = Menu();
@@ -473,6 +475,7 @@ function saveMenu (app, Menu){
 	      // callback();
 
       	console.log(menu);
+      	
       	var recipe1 = Recipes1();
       	Recipe.finOrCreate({
       		where:{
@@ -482,6 +485,15 @@ function saveMenu (app, Menu){
       	function(err, recipe){
       		console.log(recipe);
       		console.log(recipe.id);
+
+
+      		menu.recipes.push( recipe );
+
+      		if ( menu.title == 'string3' ) {// assume this as hardcode
+
+      			menu.recipes.push( Recipes2(), Recipes2() );
+
+      		}	
       	});
 
 

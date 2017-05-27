@@ -53,10 +53,7 @@
     "dataSource": "recipeDS",
     "public": false
   },
-  "Email": {
-    "dataSource": "mailgun",
-    "public": false
-  },
+
   "UserModel": {
     "dataSource": "recipeDS",
     "public": true
