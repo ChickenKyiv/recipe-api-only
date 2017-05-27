@@ -1,9 +1,12 @@
 {
-  "recipeDS": {   
-    "url": "mongodb://heroku_q9hl0pmx:50m2vi0dfgcvq3e7qn1kmklua9@ds151661.mlab.com:51661/heroku_q9hl0pmx",
-    "connector": "loopback-connector-mongodb"
+  "recipeDS": {
+    "name": "recipeDS",
+    "localStorage": "",
+    "file": "db.json",
+    "connector": "memory"
   },
   "mailgun": {
+    "name": "mailgun",
     "connector": "loopback-connector-mailgun",
     "apikey": "key-4e236ace7f85293ec5eb2b37d6d9fa39",
     "domain": "sandbox31d3370622eb42a597ccb3fa1fd0adbf.mailgun.org"
