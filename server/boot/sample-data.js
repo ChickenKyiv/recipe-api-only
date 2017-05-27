@@ -8,6 +8,8 @@ module.exports = function(app) {
   var Role        = app.models.Role;
   var RoleMapping = app.models.RoleMapping;
 
+  var Recipe      = app.models.recipes; // @TODO update recipe model name
+
   var accounts = [
 	{
 	  name: 'john',	
@@ -53,23 +55,23 @@ module.exports = function(app) {
       			console.log(user);
 
       			// commented due to laziness moving this code to automigrate.
-			    Role.create({
-			      name: 'admin'
-			    }, function(err, role) {
-			      if (err) throw err;
+			    // Role.create({
+			    //   name: 'admin'
+			    // }, function(err, role) {
+			    //   if (err) throw err;
 
-			      console.log('Created role:', role);
+			    //   console.log('Created role:', role);
 
-			      //make admin an admin role
-			      role.principals.create({
-			        principalType: RoleMapping.USER,
-			        principalId: user.id 
-			      }, function(err, principal) {
-			        if (err) throw err;
+			    //   //make admin an admin role
+			    //   role.principals.create({
+			    //     principalType: RoleMapping.USER,
+			    //     principalId: user.id 
+			    //   }, function(err, principal) {
+			    //     if (err) throw err;
 
-			        console.log('Created principal:', principal);
-			      });
-			    });
+			    //     console.log('Created principal:', principal);
+			    //   });
+			    // });
 
 	      }
 
@@ -77,6 +79,8 @@ module.exports = function(app) {
 	    });
 
 	});
+
+	saveRecipe(app, Recipe);
 
 };
 
@@ -158,14 +162,15 @@ function importUsers(app){
 }
 
 
-function Recipes(app) {
+function Recipes() {
 
 	var recipes = [
 		{ 
 			customerId: "2", 
 			ing:[ "6", "7", "8" ],
-			 id: "1989",
-			  name: "Crock Pot Roast",
+			 // id: "1989",
+			  name: "Crock Pot Roast12",
+			  title: "Crock Pot Roast12",
 			  ingredients: 
 			  [{
 			  	quantity: "1",
@@ -209,8 +214,9 @@ function Recipes(app) {
 		{ 
 			customerId: "1", 
 			ing:[ "7", "8", "9" ],
-			 id: "1990",
-			  name: "Crock Pot Roast",
+			 // id: "1990",
+			  name: "Crock Pot Roast1",
+			  title: "Crock Pot Roast1",
 			  img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
 			  ingredients: 
 			  [
@@ -250,11 +256,30 @@ function Recipes(app) {
 	}
 	];
 
-
+return recipes;
 
 };
 
-function Menu(app){
+function saveRecipe(app, Recipe){
+	var values = Recipes();
+
+
+	values.forEach(function(element) {
+	    // console.log(element);
+
+	    Recipe.findOrCreate({
+	      where: {
+	        name: element.name,
+	        // customerId: element.customerId,
+	      }
+	    }, element,
+	    function (err, model) {
+	      if (err) throw err;
+	  });
+	});
+};
+
+function Menu(){
 
 	var menus = [
 
@@ -319,7 +344,7 @@ date: "December 17, 2003 03:24:00",
     
 };
 
-function Grocery(app){
+function Grocery(){
 	var grocery = [
 	{
 		ing:["6", "7", "8" ],
