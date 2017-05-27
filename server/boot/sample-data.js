@@ -9,6 +9,7 @@ module.exports = function(app) {
   var RoleMapping = app.models.RoleMapping;
 
   var Recipe      = app.models.recipes; // @TODO update recipe model name
+  var Ingredient  = app.models.ingredients; // @TODO update ingredients model name
 
   var accounts = [
 	{
@@ -52,7 +53,7 @@ module.exports = function(app) {
 	      if (user.name == 'admin'){
       		// create the admin role
 
-      			console.log(user);
+      			// console.log(user);
 
       			// commented due to laziness moving this code to automigrate.
 			    // Role.create({
@@ -81,7 +82,7 @@ module.exports = function(app) {
 	});
 
 	saveRecipe(app, Recipe);
-
+	saveIngredients(app, Ingredient);
 };
 
 function importUsers(app){
@@ -279,6 +280,81 @@ function saveRecipe(app, Recipe){
 	});
 };
 
+
+
+function Ingredients(){
+
+	var ingredients = [
+	{ 
+	
+name: "black pepper",
+recipe_id: ["1", "2"],
+type: "simple",
+units: "1 teaspoon",
+done: "0",
+delete: "0", 
+created_at: "2017-05-20T16:36:50.843Z", 
+updated_at: "2017-05-20T16:36:50.843Z",
+recipesId: [{'5928d6ddcef3be0530f8bdff'},{}]
+},
+{ 
+  	
+      name: "extra-virgin olive oil",
+      recipe_id: ["1", "2", "3", "4"],
+     type: "complex",
+      units: "17 tablespoons + 0.25 cup",
+      done: "0","delete": "0", 
+     created_at: "2017-05-20T16:36:50.843Z", 
+      updated_at: "2017-05-20T16:36:50.843Z",
+      // recipesId: '5928d6ddcef3be0530f8bdff'
+  },
+  { 
+      
+      name: "kosher salt",
+      recipe_id: ["5", "6", "7", "8"],
+      type: "simple",
+      units: "1 teaspoon",
+      done: "0",
+      delete: "0", 
+      created_at: "2017-05-20T16:36:50.843Z", 
+      updated_at: "2017-05-20T16:36:50.843Z",
+      recipesId: '5928d6ddcef3be0530f8be00'
+  },
+  { 
+      
+      name: "kosher salt and freshly ground black",
+      recipe_id: ["1", "2", "3", "4"],
+      type: "simple",
+      units: "5 teaspoons",
+      done: "0","delete": "0", 
+      created_at: "2017-05-20T16:36:50.843Z", 
+      updated_at: "2017-05-20T16:36:50.843Z",
+      recipesId: '5928d6ddcef3be0530f8bdff',
+  }
+	];
+
+  return ingredients;
+    
+ };
+
+function saveIngredients(app, Ingredient){
+	var values = Ingredients();
+
+	values.forEach(function(element) {
+	    // console.log(element);
+
+	    Ingredient.findOrCreate({
+	      where: {
+	        name: element.name,
+	        // customerId: element.customerId,
+	      }
+	    }, element,
+	    function (err, model) {
+	      if (err) throw err;
+	  });
+	});
+}
+
 function Menu(){
 
 	var menus = [
@@ -384,55 +460,3 @@ function Grocery(){
 	];
 	
 };
-
-function Ingredients(){
-
-	var ingregients = [
-	{ 
-	id: "6",
-name: "black pepper",
-recipeId: ["1", "2"],
-type: "simple",
-units: "1 teaspoon",
-done: "0",
-delete: "0", 
-created_at: "2017-05-20T16:36:50.843Z", 
-updated_at: "2017-05-20T16:36:50.843Z"
-},
-{ 
-  	id: "7",
-      name: "extra-virgin olive oil",
-      recipeId: ["1", "2", "3", "4"],
-     type: "complex",
-      units: "17 tablespoons + 0.25 cup",
-      done: "0","delete": "0", 
-     created_at: "2017-05-20T16:36:50.843Z", 
-      updated_at: "2017-05-20T16:36:50.843Z"
-  },
-  { 
-      id: "8",
-      name: "kosher salt",
-      recipeId: ["5", "6", "7", "8"],
-      type: "simple",
-      units: "1 teaspoon",
-      done: "0",
-      delete: "0", 
-      created_at: "2017-05-20T16:36:50.843Z", 
-      updated_at: "2017-05-20T16:36:50.843Z"
-  },
-  { 
-      id: "9",
-      name: "kosher salt and freshly ground black",
-      recipeId: ["1", "2", "3", "4"],
-      type: "simple",
-      units: "5 teaspoons",
-      done: "0","delete": "0", 
-      created_at: "2017-05-20T16:36:50.843Z", 
-      updated_at: "2017-05-20T16:36:50.843Z"
-  }
-	];
-
-  
-  
-   
- };

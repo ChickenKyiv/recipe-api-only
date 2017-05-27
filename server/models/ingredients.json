@@ -35,7 +35,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "recipes": {
+      "type": "hasMany",
+      "model": "recipes",
+      "foreignKey": ""
+    }
+  },
   "acls": [
     {
       "accessType": "*",
