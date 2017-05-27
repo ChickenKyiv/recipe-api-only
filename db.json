@@ -1,0 +1,38 @@
+{
+  "ids": {
+    "departments": 1,
+    "groceries": 1,
+    "ingredients": 1,
+    "menus": 1,
+    "recipes": 1,
+    "weekly-menu": 1,
+    "User": 1,
+    "AccessToken": 1,
+    "ACL": 1,
+    "RoleMapping": 2,
+    "Role": 2,
+    "UserModel": 4
+  },
+  "models": {
+    "departments": {},
+    "groceries": {},
+    "ingredients": {},
+    "menus": {},
+    "recipes": {},
+    "weekly-menu": {},
+    "User": {},
+    "AccessToken": {},
+    "ACL": {},
+    "RoleMapping": {
+      "1": "{\"principalType\":\"USER\",\"principalId\":\"3\",\"roleId\":1,\"id\":1}"
+    },
+    "Role": {
+      "1": "{\"name\":\"admin\",\"created\":\"2017-05-27T00:24:54.057Z\",\"modified\":\"2017-05-27T00:24:54.057Z\",\"id\":1}"
+    },
+    "UserModel": {
+      "1": "{\"name\":\"john\",\"email\":\"john.doe@ibm.com\",\"password\":\"$2a$10$5be38DMrtzNf.NfOzpNlYePJ/sSXufZbAc5FHLLYUjmNFYnrsR3qy\",\"created_at\":\"2017-05-27T00:24:53.606Z\",\"updated_at\":\"2017-05-27T00:24:53.606Z\",\"id\":1}",
+      "2": "{\"name\":\"jane\",\"email\":\"jane.doe@ibm.com\",\"password\":\"$2a$10$iOxzC9j2Vumufvs7GBc5Y.odfaz2yW6x47zULNLue6B9ch.JJQpa2\",\"created_at\":\"2017-05-27T00:24:53.606Z\",\"updated_at\":\"2017-05-27T00:24:53.606Z\",\"id\":2}",
+      "3": "{\"name\":\"admin\",\"email\":\"admin@ibm.com\",\"password\":\"$2a$10$Bb1HvrtdfZancRhxUNKDW.qMeo9kZCvX8eqawNnqaawcQnys4TB.m\",\"created_at\":\"2017-05-27T00:24:53.606Z\",\"updated_at\":\"2017-05-27T00:24:53.606Z\",\"id\":3}"
+    }
+  }
+}

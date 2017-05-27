@@ -37,7 +37,6 @@
     "dataSource": "recipeDS",
     "public": true
   },
-
   "User": {
     "dataSource": "recipeDS",
     "public": false

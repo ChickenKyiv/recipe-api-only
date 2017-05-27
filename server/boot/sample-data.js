@@ -1,6 +1,6 @@
 'use strict';
 
-var async      = require('async');
+// var async      = require('async');
 
 module.exports = function(app) {
 
@@ -258,10 +258,6 @@ function Menu(app){
 
 	var menus = [
 
-
-
-	];
-
 { 
 	customerId: "2", 
 id: "6", 
@@ -284,7 +280,7 @@ date: "December 17, 2003 03:24:00",
       created_at:"December 17, 2003 03:24:00",
       updated_at:"December 17, 2003 03:24:00"
   },
-      {
+    {
       	title:"string1",
       date:"2003-12-17T11:24:00.000Z",
       desc:"string1",
@@ -294,7 +290,7 @@ date: "December 17, 2003 03:24:00",
       customerId:2,
       id:3
   },
-      {
+    {
       	title:"string2",
       date:"2003-12-17T11:24:00.000Z",
       desc:"string2",
@@ -304,7 +300,7 @@ date: "December 17, 2003 03:24:00",
       customerId:1,
       id:4
   },
-      {
+    {
       	title:"string2",
       date:"2003-12-17T11:24:00.000Z",
       desc:"string2",
@@ -314,6 +310,13 @@ date: "December 17, 2003 03:24:00",
       customerId:1,
       id:5
   }
+	];
+
+
+
+    
+    
+    
 };
 
 function Grocery(app){
