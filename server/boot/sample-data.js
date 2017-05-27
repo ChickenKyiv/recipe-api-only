@@ -258,7 +258,8 @@ function Grocery(app){
 		},{
 			id: "2",
 			 name: "BAKING",
-			  items: [{"id": "6",
+			  items: [{
+			  	"id": "6",
 			  name: "black pepper",
 			  recipeId: ["1", "2"],
 			  type: "simple",
@@ -279,9 +280,53 @@ function Grocery(app){
 };
 
 function Ingredients(){
-"1": "{ \"id\": \"6\",\"name\": \"black pepper\",\"recipeId\": [\"1\", \"2\"],\"type\": \"simple\",\"units\": \"1 teaspoon\",\"done\": \"0\",\"delete\": \"0\", \"created_at\": \"2017-05-20T16:36:50.843Z\", \"updated_at\": \"2017-05-20T16:36:50.843Z\"}",
-      "2": "{ \"id\": \"7\",\"name\": \"extra-virgin olive oil\",\"recipeId\": [\"1\", \"2\", \"3\", \"4\"],\"type\": \"complex\",\"units\": \"17 tablespoons + 0.25 cup\",\"done\": \"0\",\"delete\": \"0\", \"created_at\": \"2017-05-20T16:36:50.843Z\", \"updated_at\": \"2017-05-20T16:36:50.843Z\"}",
-      "3": "{ \"id\": \"8\",\"name\": \"kosher salt\",\"recipeId\": [\"5\", \"6\", \"7\", \"8\"],\"type\": \"simple\",\"units\": \"1 teaspoon\",\"done\": \"0\",\"delete\": \"0\", \"created_at\": \"2017-05-20T16:36:50.843Z\", \"updated_at\": \"2017-05-20T16:36:50.843Z\"}",
-      "4": "{ \"id\": \"9\",\"name\": \"kosher salt and freshly ground black\",\"recipeId\": [\"1\", \"2\", \"3\", \"4\"],\"type\": \"simple\",\"units\": \"5 teaspoons\",\"done\": \"0\",\"delete\": \"0\", \"created_at\": \"2017-05-20T16:36:50.843Z\", \"updated_at\": \"2017-05-20T16:36:50.843Z\"}"
-};
 
+	var ingregients = [
+	{ 
+	id: "6",
+name: "black pepper",
+recipeId: ["1", "2"],
+type: "simple",
+units: "1 teaspoon",
+done: "0",
+delete: "0", 
+created_at: "2017-05-20T16:36:50.843Z", 
+updated_at: "2017-05-20T16:36:50.843Z"
+},
+{ 
+  	id: "7",
+      name: "extra-virgin olive oil",
+      recipeId: ["1", "2", "3", "4"],
+     type: "complex",
+      units: "17 tablespoons + 0.25 cup",
+      done: "0","delete": "0", 
+     created_at: "2017-05-20T16:36:50.843Z", 
+      updated_at: "2017-05-20T16:36:50.843Z"
+  },
+  { 
+      id: "8",
+      name: "kosher salt",
+      recipeId: ["5", "6", "7", "8"],
+      type: "simple",
+      units: "1 teaspoon",
+      done: "0",
+      delete: "0", 
+      created_at: "2017-05-20T16:36:50.843Z", 
+      updated_at: "2017-05-20T16:36:50.843Z"
+  },
+  { 
+      id: "9",
+      name: "kosher salt and freshly ground black",
+      recipeId: ["1", "2", "3", "4"],
+      type: "simple",
+      units: "5 teaspoons",
+      done: "0","delete": "0", 
+      created_at: "2017-05-20T16:36:50.843Z", 
+      updated_at: "2017-05-20T16:36:50.843Z"
+  }
+	];
+
+  
+  
+   
+ };
