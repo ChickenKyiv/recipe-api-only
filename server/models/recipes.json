@@ -7,10 +7,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "name": {
-      "type": "string",
-      "required": true
-    },
+ 
     "img": {
       "type": "string",
       "required": true

@@ -21,7 +21,7 @@
     },
     "recipes": {
       "type": "object",
-      "required": true
+      "required": false
     },
     "created_at": {
       "type": "date",
