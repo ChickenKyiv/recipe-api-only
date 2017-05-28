@@ -10,11 +10,12 @@ module.exports = function(recipes) {
 
     recipes.observe("before save", function updateTimestamp(ctx, next) {
     	console.log( ctx.instance );
+    	console.log( ctx.isNewInstance ); 
     	if( ctx.instance ){
     		ctx.instance.created_at = new Date();
     		ctx.instance.updated_at = new Date();
     	} else {
-    		ctx.instance.updated_at = new Date();	
+    		ctx.data.updated_at = new Date();	
     	}
 
     	
