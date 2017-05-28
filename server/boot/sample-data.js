@@ -13,109 +13,106 @@ module.exports = function(app) {
 
   var Menu        = app.models.menus;  // @TODO update recipe model name
 
-  var accounts = [
-	{
-	  name: 'john',	
-	  email: 'john.doe@ibm.com',
-	  password: 'john',
-	  created_at: new Date(),
-	  updated_at: new Date(),
-	},
-	{
-	  name: 'jane',
-	  email: 'jane.doe@ibm.com',
-	  password: 'jane',
-	  created_at: new Date(),
-	  updated_at: new Date(),
-	},
-	{
-	  name: 'admin',
-	  email: 'admin@ibm.com',
-	  password: 'admin',
-	  created_at: new Date(),
-	  updated_at: new Date(),
-
-	}
-  ];
-
-	accounts.forEach(function(element) {
-	    // console.log(element);
-
-	    User.findOrCreate({
-	      where: {
-	        name: element.name,
-	        email: element.email,
-	      }
-	    }, element,
-	    function (err, user) {
-	      if (err) throw err;
-	      // console.log("+ " + log.id);
-	      // callback();
-
-	      if (user.name == 'admin'){
-      		// create the admin role
-
-      			// console.log(user);
-
-      			// commented due to laziness moving this code to automigrate.
-			    // Role.create({
-			    //   name: 'admin'
-			    // }, function(err, role) {
-			    //   if (err) throw err;
-
-			    //   console.log('Created role:', role);
-
-			    //   //make admin an admin role
-			    //   role.principals.create({
-			    //     principalType: RoleMapping.USER,
-			    //     principalId: user.id 
-			    //   }, function(err, principal) {
-			    //     if (err) throw err;
-
-			    //     console.log('Created principal:', principal);
-			    //   });
-			    // });
-
-	      }
 
 
-	    });
+ //  var accounts = [
+	// {
+	//   name: 'john',	
+	//   email: 'john.doe@ibm.com',
+	//   password: 'john',
+	//   created_at: new Date(),
+	//   updated_at: new Date(),
+	// },
+	// {
+	//   name: 'jane',
+	//   email: 'jane.doe@ibm.com',
+	//   password: 'jane',
+	//   created_at: new Date(),
+	//   updated_at: new Date(),
+	// },
+	// {
+	//   name: 'admin',
+	//   email: 'admin@ibm.com',
+	//   password: 'admin',
+	//   created_at: new Date(),
+	//   updated_at: new Date(),
 
-	});
+	// }
+ //  ];
 
-	saveRecipe(app, Recipe);
-	saveIngredients(app, Ingredient);
+	// accounts.forEach(function(element) {
+	//     // console.log(element);
+
+	//     User.findOrCreate({
+	//       where: {
+	//         name: element.name,
+	//         email: element.email,
+	//       }
+	//     }, element,
+	//     function (err, user) {
+	//       if (err) throw err;
+	//       // console.log("+ " + log.id);
+	//       // callback();
+
+	//       if (user.name == 'admin'){
+ //      		// create the admin role
+
+ //      			// console.log(user);
+
+ //      			// commented due to laziness moving this code to automigrate.
+	// 		    // Role.create({
+	// 		    //   name: 'admin'
+	// 		    // }, function(err, role) {
+	// 		    //   if (err) throw err;
+
+	// 		    //   console.log('Created role:', role);
+
+	// 		    //   //make admin an admin role
+	// 		    //   role.principals.create({
+	// 		    //     principalType: RoleMapping.USER,
+	// 		    //     principalId: user.id 
+	// 		    //   }, function(err, principal) {
+	// 		    //     if (err) throw err;
+
+	// 		    //     console.log('Created principal:', principal);
+	// 		    //   });
+	// 		    // });
+
+	//       }
+
+
+	//     });
+
+	// });
+
+	importUsers(app, User, Role, RoleMapping);
+	// saveRecipe(app, Recipe);
+	// saveIngredients(app, Ingredient);
 
 	saveMenu(app, Menu);
 };
 
-function importMenu(app){
-
-	var menus = Menu();
 
 
 
-}
+function importUsers(app, User, Role, RoleMapping){
 
-
-function importUsers(app){
-
-  var User        = app.models.UserModel;
-  var Role        = app.models.Role;
-  var RoleMapping = app.models.RoleMapping;
+  // var User        = app.models.UserModel;
+  // var Role        = app.models.Role;
+  // var RoleMapping = app.models.RoleMapping;
 
   var accounts = [
 	{
 	  name: 'john',	
 	  email: 'john.doe@ibm.com',
-	  password: 'john',
+	  password: 'john1',
 	  created_at: new Date(),
 	  updated_at: new Date(),
 	},
 	{
 	  name: 'jane',
 	  email: 'jane.doe@ibm.com',
-	  password: 'jane',
+	  password: 'jane1',
 	  created_at: new Date(),
 	  updated_at: new Date(),
 	},
@@ -180,10 +177,7 @@ function Recipes1() {
 
 	var recipe1 = 
 		{ 
-			// customerId: "2", 
-			// ing:[ "6", "7", "8" ],
-			 // id: "1989",
-			  // name: "Crock Pot Roast12",
+			
 			  title: "Crock Pot Roast12",
 			  ingredients: 
 			  [{
@@ -233,11 +227,9 @@ return recipe1;
 
 function Recipes2() {
 
-		var recipe2 = 		{ 
-			// customerId: "1", 
-			// ing:[ "7", "8", "9" ],
-			 // id: "1990",
-			  // name: "Crock Pot Roast1",
+		var recipe2 = 		
+		{ 
+			
 			  title: "Crock Pot Roast1",
 			  img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
 			  ingredients: 
@@ -381,9 +373,7 @@ function Menu(){
 	var menus = [
 
 	{ 
-	// customerId: "2", 
-	// id: "6", 
-		// rec: ["1989","1990"], 
+
 		title: "string", 
 		date: "December 17, 2003 03:24:00",
 		desc: "string", 
@@ -391,13 +381,11 @@ function Menu(){
 			Recipes1()
 		],
 
-		created_at:"December 17, 2003 03:24:00",
-		updated_at:"December 17, 2003 03:24:00"
+		// created_at:"December 17, 2003 03:24:00",
+		// updated_at:"December 17, 2003 03:24:00"
 	},
     { 
-      // customerId: "1", 
-      // id: "10",
-      // rec: ["1980", "1990"], 
+      
       title: "string", 
       date: "December 17, 2003 03:24:00", 
       desc: "string", 
@@ -405,8 +393,8 @@ function Menu(){
       	Recipes1(), Recipes2()
       ],
 
-      created_at:"December 19, 2003 03:24:00",
-      updated_at:"December 19, 2003 03:24:00"
+      // created_at:"December 19, 2003 03:24:00",
+      // updated_at:"December 19, 2003 03:24:00"
   	},
     {
       title:"string1",
@@ -416,10 +404,9 @@ function Menu(){
       	Recipes1(),Recipes1(),Recipes2()
       ],
 
-      created_at:"2003-12-17T11:24:00.000Z",
-      updated_at:"2003-12-17T11:24:00.000Z",
-      // customerId:2,
-      // id:3
+      // created_at:"2003-12-17T11:24:00.000Z",
+      // updated_at:"2003-12-17T11:24:00.000Z",
+ 
   	},
     {
       title:"string2",
@@ -429,10 +416,9 @@ function Menu(){
       	Recipes1(), Recipes2(), Recipes2()
       ],
 
-      created_at:"2017-05-17T11:24:00.000Z",
-      updated_at:"2017-05-17T11:24:00.000Z",
-      // customerId:1,
-      // id:4
+      // created_at:"2017-05-17T11:24:00.000Z",
+      // updated_at:"2017-05-17T11:24:00.000Z",
+   
   	},
     {
       title:"string3",
@@ -442,10 +428,9 @@ function Menu(){
       	Recipes2()
       ],
 
-      created_at:"2017-05-25T11:24:00.000Z",
-      updated_at:"2017-05-25T11:24:00.000Z",
-      // customerId:1,
-      // id:5
+      // created_at:"2017-05-25T11:24:00.000Z",
+      // updated_at:"2017-05-25T11:24:00.000Z",
+  
   	}
 	];
 
@@ -475,7 +460,7 @@ function saveMenu (app, Menu){
 	      // callback();
 
       	console.log(menu);
-      	
+
       	var recipe1 = Recipes1();
       	Recipe.finOrCreate({
       		where:{

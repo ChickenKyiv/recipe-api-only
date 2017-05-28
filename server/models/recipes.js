@@ -18,6 +18,14 @@ module.exports = function(recipes) {
     		ctx.data.updated_at = new Date();	
     	}
 
+    	// if( ctx.isNewInstance ){
+    	// 	ctx.instance.created_at = new Date();
+    	// 	ctx.instance.updated_at = new Date();
+    	// } else {
+    	// 	ctx.data.updated_at = new Date();	
+    	// }
+    	
+
     	
     	console.log('---updated---');
     	console.log( ctx.instance );
