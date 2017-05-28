@@ -16,22 +16,22 @@ module.exports = function(app) {
 	  name: 'john',	
 	  email: 'john.doe@ibm.com',
 	  password: 'john',
-	  created_at: new Date(),
-	  updated_at: new Date(),
+	  // created_at: new Date(),
+	  // updated_at: new Date(),
 	},
 	{
 	  name: 'jane',
 	  email: 'jane.doe@ibm.com',
 	  password: 'jane',
-	  created_at: new Date(),
-	  updated_at: new Date(),
+	  // created_at: new Date(),
+	  // updated_at: new Date(),
 	},
 	{
 	  name: 'admin',
 	  email: 'admin@ibm.com',
 	  password: 'admin',
-	  created_at: new Date(),
-	  updated_at: new Date(),
+	  // created_at: new Date(),
+	  // updated_at: new Date(),
 
 	}
   ];
@@ -96,22 +96,22 @@ function importUsers(app){
 	  name: 'john',	
 	  email: 'john.doe@ibm.com',
 	  password: 'john',
-	  created_at: new Date(),
-	  updated_at: new Date(),
+	  // created_at: new Date(),
+	  // updated_at: new Date(),
 	},
 	{
 	  name: 'jane',
 	  email: 'jane.doe@ibm.com',
 	  password: 'jane',
-	  created_at: new Date(),
-	  updated_at: new Date(),
+	  // created_at: new Date(),
+	  // updated_at: new Date(),
 	},
 	{
 	  name: 'admin',
 	  email: 'admin@ibm.com',
 	  password: 'admin',
-	  created_at: new Date(),
-	  updated_at: new Date(),
+	  // created_at: new Date(),
+	  // updated_at: new Date(),
 
 	}
   ];
@@ -209,8 +209,8 @@ function Recipes() {
 			  total_time   :"3h",
 			  recipe_yield :"8",
 			   img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg","url": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
-			   created_at:"December 17, 2003 03:24:00",
-			   updated_at:"December 17, 2003 03:24:00"
+			   // created_at:"December 17, 2003 03:24:00",
+			   // updated_at:"December 17, 2003 03:24:00"
 			},
 		{ 
 			customerId: "1", 
@@ -252,8 +252,8 @@ function Recipes() {
 			  prep_time    :"PT30M",
 			  total_time   :"PT3H",
 			  recipe_yield :"8",
-			  created_at:"December 17, 2003 03:24:00",
-			  updated_at:"December 17, 2003 03:24:00"
+			  // created_at:"December 17, 2003 03:24:00",
+			  // updated_at:"December 17, 2003 03:24:00"
 	}
 	];
 
@@ -293,8 +293,8 @@ type: "simple",
 units: "1 teaspoon",
 done: "0",
 delete: "0", 
-created_at: "2017-05-20T16:36:50.843Z", 
-updated_at: "2017-05-20T16:36:50.843Z",
+// created_at: "2017-05-20T16:36:50.843Z", 
+// updated_at: "2017-05-20T16:36:50.843Z",
 recipesId: [{'5928d6ddcef3be0530f8bdff'},{}]
 },
 { 
@@ -304,8 +304,8 @@ recipesId: [{'5928d6ddcef3be0530f8bdff'},{}]
      type: "complex",
       units: "17 tablespoons + 0.25 cup",
       done: "0","delete": "0", 
-     created_at: "2017-05-20T16:36:50.843Z", 
-      updated_at: "2017-05-20T16:36:50.843Z",
+     // created_at: "2017-05-20T16:36:50.843Z", 
+      // updated_at: "2017-05-20T16:36:50.843Z",
       // recipesId: '5928d6ddcef3be0530f8bdff'
   },
   { 
@@ -316,8 +316,8 @@ recipesId: [{'5928d6ddcef3be0530f8bdff'},{}]
       units: "1 teaspoon",
       done: "0",
       delete: "0", 
-      created_at: "2017-05-20T16:36:50.843Z", 
-      updated_at: "2017-05-20T16:36:50.843Z",
+      // created_at: "2017-05-20T16:36:50.843Z", 
+      // updated_at: "2017-05-20T16:36:50.843Z",
       recipesId: '5928d6ddcef3be0530f8be00'
   },
   { 
@@ -327,8 +327,8 @@ recipesId: [{'5928d6ddcef3be0530f8bdff'},{}]
       type: "simple",
       units: "5 teaspoons",
       done: "0","delete": "0", 
-      created_at: "2017-05-20T16:36:50.843Z", 
-      updated_at: "2017-05-20T16:36:50.843Z",
+      // created_at: "2017-05-20T16:36:50.843Z", 
+      // updated_at: "2017-05-20T16:36:50.843Z",
       recipesId: '5928d6ddcef3be0530f8bdff',
   }
 	];
@@ -367,8 +367,8 @@ title: "string",
 date: "December 17, 2003 03:24:00",
  desc: "string", 
  recipes: "{}",
-  created_at:"December 17, 2003 03:24:00",
-  updated_at:"December 17, 2003 03:24:00"
+  // created_at:"December 17, 2003 03:24:00",
+  // updated_at:"December 17, 2003 03:24:00"
 },
       { 
       	customerId: "1", 
@@ -378,16 +378,16 @@ date: "December 17, 2003 03:24:00",
       date: "December 17, 2003 03:24:00", 
       desc: "string", 
       recipes: "{}", 
-      created_at:"December 17, 2003 03:24:00",
-      updated_at:"December 17, 2003 03:24:00"
+      // created_at:"December 17, 2003 03:24:00",
+      // updated_at:"December 17, 2003 03:24:00"
   },
     {
       	title:"string1",
       date:"2003-12-17T11:24:00.000Z",
       desc:"string1",
       recipes:"{}",
-      created_at:"2003-12-17T11:24:00.000Z",
-      updated_at:"2003-12-17T11:24:00.000Z",
+      // created_at:"2003-12-17T11:24:00.000Z",
+      // updated_at:"2003-12-17T11:24:00.000Z",
       customerId:2,
       id:3
   },
@@ -396,8 +396,8 @@ date: "December 17, 2003 03:24:00",
       date:"2003-12-17T11:24:00.000Z",
       desc:"string2",
       recipes:"{}",
-      created_at:"2003-12-17T11:24:00.000Z",
-      updated_at:"2003-12-17T11:24:00.000Z",
+      // created_at:"2003-12-17T11:24:00.000Z",
+      // updated_at:"2003-12-17T11:24:00.000Z",
       customerId:1,
       id:4
   },
@@ -406,8 +406,8 @@ date: "December 17, 2003 03:24:00",
       date:"2003-12-17T11:24:00.000Z",
       desc:"string2",
       recipes:"{}",
-      created_at:"2003-12-17T11:24:00.000Z",
-      updated_at:"2003-12-17T11:24:00.000Z",
+      // created_at:"2003-12-17T11:24:00.000Z",
+      // updated_at:"2003-12-17T11:24:00.000Z",
       customerId:1,
       id:5
   }
@@ -454,8 +454,8 @@ function Grocery(){
 		img: "string", 
 		desc: "string",
 		 slug: "string", 
-		 created_at: "2017-05-20T16:36:50.843Z", 
-		 updated_at: "2017-05-20T16:36:50.843Z"
+		 // created_at: "2017-05-20T16:36:50.843Z", 
+		 // updated_at: "2017-05-20T16:36:50.843Z"
 		}
 	];
 	
