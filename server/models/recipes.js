@@ -6,10 +6,18 @@ module.exports = function(recipes) {
 		'name', 'img', 'url', 'title', 'ingredients', 
 		'directions', 'prep_time', 'total_time', 'recipe_yield'
 		);
-  // user.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
-  // user.validatesInclusionOf('gender', {in: ['male', 'female']});
-  // user.validatesExclusionOf('domain', {in: ['www', 'billing', 'admin']});
-  // user.validatesNumericalityOf('age', {int: true});
-  // user.validatesUniquenessOf('email', {message: 'email is not unique'});
+
+
+    recipes.observe("before save", function (ctx, next) {
+    	console.log( ctx.instance );
+    	ctx.instance.created_at = new Date();
+    	ctx.instance.updated_at = new Date();
+    	console.log('---updated---');
+    	console.log( ctx.instance );
+    	// @TODO add check if this update - we don't need to fill created_at field
+
+    	next();
+  });
+
 
 };
