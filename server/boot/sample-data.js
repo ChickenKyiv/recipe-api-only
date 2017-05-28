@@ -310,11 +310,10 @@ function Menu1(){
 		date: "December 17, 2003 03:24:00",
 		desc: "string", 
 		recipes: [
-			// Recipes1()
+			
 		],
 
-		// created_at:"December 17, 2003 03:24:00",
-		// updated_at:"December 17, 2003 03:24:00"
+		
 	},
     { 
       
@@ -322,22 +321,18 @@ function Menu1(){
       date: "December 17, 2003 03:24:00", 
       desc: "string", 
       recipes: [
-      	// Recipes1(), Recipes2()
+      	
       ],
 
-      // created_at:"December 19, 2003 03:24:00",
-      // updated_at:"December 19, 2003 03:24:00"
   	},
     {
       title:"string1",
       date:"2003-12-17T11:24:00.000Z",
       desc:"string1",
       recipes: [
-      	// Recipes1(),Recipes1(),Recipes2()
+   
       ],
 
-      // created_at:"2003-12-17T11:24:00.000Z",
-      // updated_at:"2003-12-17T11:24:00.000Z",
  
   	},
     {
@@ -345,11 +340,9 @@ function Menu1(){
       date:"2017-05-17T11:24:00.000Z",
       desc:"string2",
       recipes: [
-      	// Recipes1(), Recipes2(), Recipes2()
+      
       ],
 
-      // created_at:"2017-05-17T11:24:00.000Z",
-      // updated_at:"2017-05-17T11:24:00.000Z",
    
   	},
     {
@@ -357,16 +350,13 @@ function Menu1(){
       date:"2017-05-28T11:24:00.000Z",
       desc:"string3",
       recipes: [
-      	// Recipes2()
+      	
       ],
 
-      // created_at:"2017-05-25T11:24:00.000Z",
-      // updated_at:"2017-05-25T11:24:00.000Z",
   
   	}
 	];
 
-	// console.log( menus );
 	return menus;       
     
 };
@@ -380,9 +370,6 @@ function saveMenu(app, Menu, Recipe){
 	// console.log( menus );
 	// console.log( Recipe );
 
-	// Menu.updateAttributes({recipes: [ recipe ]}, function(err, menu){
-				  //   		if (err) throw err;
-  				// })
 
 
 	menus.forEach(function(element) {
@@ -396,8 +383,7 @@ function saveMenu(app, Menu, Recipe){
 	    }, element,
 	    function (err, menu) {
 	      if (err) throw err;
-	      // console.log("+ " + log.id);
-	      // callback();
+	     
 
 	      	// console.log(menu);
 	      	saveRecipe(app, Recipe);
@@ -405,11 +391,7 @@ function saveMenu(app, Menu, Recipe){
 
 
 	      	var recipe1 = Recipes1();
-	      	// var recipe2 = Recipes2();
 	      	
-	      	// [ recipe1, recipe2 ].forEach(function(element) {
-
-	      	// });
 
 	      	Recipe.findOrCreate({
 	      		where:{
@@ -421,20 +403,12 @@ function saveMenu(app, Menu, Recipe){
 	      		// console.log(recipe.id);
 
 
-	      		// menu.recipes.push( recipe );
 	      		
 	      		menu.updateAttributes({recipes: [ recipe ]}, function(err, menu){
 				    		if (err) throw err;
   				});
 
-	     //  		Menu.updateAttributes({recipes: [ recipe ]}, function(err, menu){
-				  //   		if (err) throw err;
-  				// })
-
-	      	// 	Menu.updateAttribute('recipes', [ recipe ], function(err, menu){
-				    // if (err) throw err;
-	      	// 	})
-
+	     
 
 	      		// console.log(menu);
 
@@ -442,7 +416,7 @@ function saveMenu(app, Menu, Recipe){
 	      			var recipe2 = Recipes2();
 	      			Recipe.findOrCreate({where:{name:recipe2.name}},recipe2, function(element){
 
-	      				// menu.recipes.push( element, element );
+	      				
 	      				var arr = menu.recipes;
 	      				arr.push( element, element );
 
@@ -452,7 +426,7 @@ function saveMenu(app, Menu, Recipe){
 
 	      			});
 
-	      			// menu.recipes.push( Recipes2(), Recipes2() );
+	      			
 
 	      		}	
 
