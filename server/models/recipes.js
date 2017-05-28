@@ -19,8 +19,6 @@ module.exports = function(recipes) {
     	}
 
     	
-    	// ctx.instance.created_at = new Date();
-    	// ctx.instance.updated_at = new Date();
     	console.log('---updated---');
     	console.log( ctx.instance );
     	// @TODO add check if this update - we don't need to fill created_at field
