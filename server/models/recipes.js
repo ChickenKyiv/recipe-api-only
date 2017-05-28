@@ -8,10 +8,18 @@ module.exports = function(recipes) {
 		);
 
 
-    recipes.observe("before save", function (ctx, next) {
+    recipes.observe("before save", function updateTimestamp(ctx, next) {
     	console.log( ctx.instance );
-    	ctx.instance.created_at = new Date();
-    	ctx.instance.updated_at = new Date();
+    	if( ctx.instance ){
+    		ctx.instance.created_at = new Date();
+    		ctx.instance.updated_at = new Date();
+    	} else {
+    		ctx.instance.updated_at = new Date();	
+    	}
+
+    	
+    	// ctx.instance.created_at = new Date();
+    	// ctx.instance.updated_at = new Date();
     	console.log('---updated---');
     	console.log( ctx.instance );
     	// @TODO add check if this update - we don't need to fill created_at field
