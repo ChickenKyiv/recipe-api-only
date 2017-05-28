@@ -15,75 +15,6 @@ module.exports = function(app) {
 
 
 
- //  var accounts = [
-	// {
-	//   name: 'john',	
-	//   email: 'john.doe@ibm.com',
-	//   password: 'john',
-	//   created_at: new Date(),
-	//   updated_at: new Date(),
-	// },
-	// {
-	//   name: 'jane',
-	//   email: 'jane.doe@ibm.com',
-	//   password: 'jane',
-	//   created_at: new Date(),
-	//   updated_at: new Date(),
-	// },
-	// {
-	//   name: 'admin',
-	//   email: 'admin@ibm.com',
-	//   password: 'admin',
-	//   created_at: new Date(),
-	//   updated_at: new Date(),
-
-	// }
- //  ];
-
-	// accounts.forEach(function(element) {
-	//     // console.log(element);
-
-	//     User.findOrCreate({
-	//       where: {
-	//         name: element.name,
-	//         email: element.email,
-	//       }
-	//     }, element,
-	//     function (err, user) {
-	//       if (err) throw err;
-	//       // console.log("+ " + log.id);
-	//       // callback();
-
-	//       if (user.name == 'admin'){
- //      		// create the admin role
-
- //      			// console.log(user);
-
- //      			// commented due to laziness moving this code to automigrate.
-	// 		    // Role.create({
-	// 		    //   name: 'admin'
-	// 		    // }, function(err, role) {
-	// 		    //   if (err) throw err;
-
-	// 		    //   console.log('Created role:', role);
-
-	// 		    //   //make admin an admin role
-	// 		    //   role.principals.create({
-	// 		    //     principalType: RoleMapping.USER,
-	// 		    //     principalId: user.id 
-	// 		    //   }, function(err, principal) {
-	// 		    //     if (err) throw err;
-
-	// 		    //     console.log('Created principal:', principal);
-	// 		    //   });
-	// 		    // });
-
-	//       }
-
-
-	//     });
-
-	// });
 
 	// importUsers(app, User, Role, RoleMapping);
 
@@ -219,8 +150,7 @@ function Recipes1() {
 			  total_time   :"3h",
 			  recipe_yield :"8",
 			   img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg","url": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
-			   // created_at:"December 17, 2003 03:24:00",
-			   // updated_at:"December 17, 2003 03:24:00"
+			
 			};
 
 return recipe1;
@@ -268,8 +198,7 @@ function Recipes2() {
 			  prep_time    :"PT30M",
 			  total_time   :"PT3H",
 			  recipe_yield :"8",
-			  // created_at:"December 17, 2003 03:24:00",
-			  // updated_at:"December 17, 2003 03:24:00"
+			
 	};
 	
 
