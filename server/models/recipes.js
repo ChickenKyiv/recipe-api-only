@@ -3,13 +3,20 @@
 module.exports = function(recipes) {
 
 	recipes.validatesPresenceOf(
-		'name', 'img', 'url', 'title', 'ingredients', 
+		'img', 'url', 'title', 'ingredients', 
 		'directions', 'prep_time', 'total_time', 'recipe_yield'
 		);
-  // user.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
-  // user.validatesInclusionOf('gender', {in: ['male', 'female']});
-  // user.validatesExclusionOf('domain', {in: ['www', 'billing', 'admin']});
-  // user.validatesNumericalityOf('age', {int: true});
-  // user.validatesUniquenessOf('email', {message: 'email is not unique'});
+  
+    recipes.observe("before save", function updateTimestamp(ctx, next) {
+
+    	if( ctx.isNewInstance ){
+    		ctx.instance.created_at = new Date();
+    		ctx.instance.updated_at = new Date();
+    	} 
+
+
+
+    	next();
+  });
 
 };
