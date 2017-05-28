@@ -25,7 +25,7 @@
     "dataSource": "recipeDS",
     "public": true
   },
-  "menus": {
+  "MenuModel": {
     "dataSource": "recipeDS",
     "public": true
   },

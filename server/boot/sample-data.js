@@ -11,14 +11,14 @@ module.exports = function(app) {
   var Recipe      = app.models.recipes; // @TODO update recipe model name
   var Ingredient  = app.models.ingredients; // @TODO update ingredients model name
 
-  var Menu        = app.models.menus;  // @TODO update recipe model name
+  var Menu        = app.models.MenuModel;  
 
 
 
 
 	// importUsers(app, User, Role, RoleMapping);
 
-	saveMenu (app, Menu, Recipe);
+	// saveMenu (app, Menu, Recipe);
 
 	// saveRecipe(app, Recipe);
 	// saveIngredients(app, Ingredient);

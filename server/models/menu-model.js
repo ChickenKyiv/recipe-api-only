@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = function(Menus) {
+module.exports = function(Menumodel) {
 	//@TODO update this, 'cause we've updated relations
-	Menus.validatesPresenceOf('title', 'date', 'desc');
+	Menumodel.validatesPresenceOf('title', 'date', 'desc');
 
 
-	Menus.observe("after save", function (ctx, next) {
+	Menumodel.observe("after save", function (ctx, next) {
 
 		// console.log( ctx.instance.rec );
 
@@ -39,15 +39,13 @@ module.exports = function(Menus) {
 
 
 
-	Menus.observe("before save", function updateTimestamp(ctx, next) {
+	Menumodel.observe("before save", function updateTimestamp(ctx, next) {
     	// console.log( ctx.instance );
 
     	if( ctx.isNewInstance ){
     		ctx.instance.created_at = new Date();
     		ctx.instance.updated_at = new Date();
-    	} else {
-    		ctx.data.updated_at = new Date();	
-    	}
+    	} 
     	// @TODO updated_at at update not working for now
 
     	// console.log('---updated---');
@@ -56,5 +54,12 @@ module.exports = function(Menus) {
 
     	next();
   });
+
+	Menumodel.observe("update", function (ctx, next) {
+
+		console.log('--update--');
+		next();
+
+	});
 
 };
