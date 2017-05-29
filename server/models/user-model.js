@@ -7,7 +7,7 @@ module.exports = function(Usermodel) {
   Usermodel.validatesUniquenessOf('email', {message: 'email is not unique'});
 
 
-    Usermodel.observe("before save", function updateTimestamp(ctx, next) {
+  Usermodel.observe("before save", function updateTimestamp(ctx, next) {
  
     	if( ctx.isNewInstance ){
     		ctx.instance.created_at = new Date();
@@ -21,5 +21,5 @@ module.exports = function(Usermodel) {
   	ctx.instance.updated_at = new Date();
   	next();
   });
-  
+
 };
