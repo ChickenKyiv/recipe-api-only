@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Grocery) {
+module.exports = function(Grocerymodel) {
 	Grocery.validatesPresenceOf('departments', 'img', 'desc', 'slug');
 };

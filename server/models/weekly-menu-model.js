@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Weeklymenu) {
+module.exports = function(Weeklymenumodel) {
 // @TODO add validation messages
 };

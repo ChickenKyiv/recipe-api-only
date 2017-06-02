@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Customer) {
+module.exports = function(Customermodel) {
 
 };

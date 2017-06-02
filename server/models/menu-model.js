@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(Menus) {
+module.exports = function(Menumodel) {
 	//@TODO update this, 'cause we've updated relations
 	Menus.validatesPresenceOf('title', 'date', 'desc', 'recipes');
 
