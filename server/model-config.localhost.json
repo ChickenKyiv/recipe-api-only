@@ -13,7 +13,7 @@
       "./mixins"
     ]
   },
-  "departments": {
+  "DepartmentModel": {
     "dataSource": "recipeDS",
     "public": true
   },
@@ -33,12 +33,10 @@
     "dataSource": "recipeDS",
     "public": true
   },
-
   "WeeklyMenuModel": {
     "dataSource": "recipeDS",
     "public": true
   },
-
   "User": {
     "dataSource": "recipeDS",
     "public": false
