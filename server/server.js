@@ -3,7 +3,30 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 
+// frontend related part
+// var bodyParser = require('body-parser');
+// var path = require('path');
+
 var app = module.exports = loopback();
+
+// frontend related part
+// app.middleware('initial', bodyParser.urlencoded({ extended: true }));
+
+// app.set('view engine', 'ejs'); // LoopBack comes with EJS out-of-box
+// app.set('json spaces', 2); // format json responses for easier viewing
+
+// // must be set to serve views properly when starting the app via `lb run` from
+// // the project root
+// app.set('views', path.resolve(__dirname, 'views'));
+
+// // use loopback.token middleware on all routes
+// // setup gear for authentication using cookie (access_token)
+// // Note: requires cookie-parser (defined in middleware.json)
+// app.use(loopback.token({  
+//   model: app.models.accessToken,
+//   currentUserLiteral: 'me',
+// }));
+
 
 app.start = function() {
   // start the web server
