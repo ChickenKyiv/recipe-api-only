@@ -6,7 +6,8 @@ module.exports = function getSamplesData (cb){
 	{
 		ing:["6", "7", "8" ],
 		departments: [
-		{"id": "1",
+		{
+			"id": "1",
 		 "name": "BAKERY/BREAD",
 		  "items": [
 		  {
@@ -16,7 +17,7 @@ module.exports = function getSamplesData (cb){
 		  units: "1 teaspoon",
 		  done: "0",
 		  delete: "0"
-		}
+			}
 		  ]
 		},{
 			id: "2",
@@ -34,9 +35,9 @@ module.exports = function getSamplesData (cb){
 		], 
 		img: "string", 
 		desc: "string",
-		 slug: "string", 
-		 // created_at: "2017-05-20T16:36:50.843Z", 
-		 // updated_at: "2017-05-20T16:36:50.843Z"
+		slug: "string", 
+
+
 		}
 	];
 
