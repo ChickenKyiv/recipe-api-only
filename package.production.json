@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
+    "lint": "eslint .",
     "start": "node server/server.js",
+    "posttest": "npm run lint && nsp check",
     "watch": "nodemon server/server.js",
     "test": "mocha",
     "populate": "node bin/import-samples.js"
