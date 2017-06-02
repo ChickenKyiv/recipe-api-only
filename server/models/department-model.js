@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = function(Departmentmodel) {
-	Department.validatesPresenceOf('name', 'items');
+	Departmentmodel.validatesPresenceOf('name', 'items');
 };

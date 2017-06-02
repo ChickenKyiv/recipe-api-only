@@ -2,14 +2,14 @@
 
 module.exports = function(Menumodel) {
 	//@TODO update this, 'cause we've updated relations
-	Menus.validatesPresenceOf('title', 'date', 'desc', 'recipes');
+	Menumodel.validatesPresenceOf('title', 'date', 'desc', 'recipes');
 
 
-	Menus.observe("after save", function (ctx, next) {
+	Menumodel.observe("after save", function (ctx, next) {
 
 		// console.log( ctx.instance.rec );
 
-       Menus.app.models.Email.send({
+       Menumodel.app.models.Email.send({
 	    to: 'arthur.tkachenko.netweight@gmail.com',
 	    from: 'noreply@loopback.loop',
 	    subject: 'Thank you for adding to menu ',
@@ -21,9 +21,9 @@ module.exports = function(Menumodel) {
 		
 
 		//not working, right now. Above we're using similar, but easy way to test notifications
-		// Menus.app.models.recipes.findById(ctx.instance.rec, function (err, recipe) {
+		// Menumodel.app.models.Recipemodel.findById(ctx.instance.rec, function (err, recipe) {
 
-		//   Menus.app.models.Email.send({
+		//   Menumodel.app.models.Email.send({
 		//     to: 'arthur.tkachenko.netweight@gmail.com',
 		//     from: 'noreply@loopback.loop',
 		//     subject: 'Thank you for adding to menu your recipe ' + recipe.name,

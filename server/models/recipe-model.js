@@ -2,13 +2,13 @@
 
 module.exports = function(Recipemodel) {
 
-	recipes.validatesPresenceOf(
+	Recipemodel.validatesPresenceOf(
 		'img', 'url', 'title', 'ingredients', 
 		'directions', 'prep_time', 'total_time',
 		'recipe_yield'
 		);
   
-    recipes.observe("before save", function updateTimestamp(ctx, next) {
+    Recipemodel.observe("before save", function updateTimestamp(ctx, next) {
 
     	if( ctx.isNewInstance ){
     		ctx.instance.created_at = new Date();
