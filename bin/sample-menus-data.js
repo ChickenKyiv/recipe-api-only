@@ -2,49 +2,64 @@
 
 module.exports = function getSampleData (cb){
 
-	// video frames 
-	var adminVideos = [
-	{
-		title : 'Logan Epic Kill',
-		url   : 'https://youtu.be/G1aSAQ1CibQ?t=1m26s',
-		desc  : 'LOGAN Official International Red Band Trailer #1 (2017) Hugh Jackman Wolverine Marvel Movie HD',
-		start : 86,
-		end   : 89,
-		step  : 1,
-		slug  : 'G1aSAQ1CibQ',
 
-	},
-	{
-		title : 'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
-		url   : 'https://youtu.be/Lt-U_t2pUHI?t=41s',
-		desc  : 'Witness the power of the Sorcerer Supreme',
-		start : 41,
-		end   : 51,
-		step  : 1,
-		slug  : 'Lt-U_t2pUHI',
-	
-	},
-	{
-		title : 'Black Panther Featurette',
-		url   : 'https://youtu.be/Q88JeXtKMDY?t=44s',
-		desc  : 'Black Panther\'s role in a featurette for Marvel\'s "Captain America: Civil War"',
-		start : 44,
-		end   : 54,
-		step  : 1,
-		slug  : 'Q88JeXtKMDY',
-		
-	},
-	{
-		title : 'Jessica Jones Mirror Cracking',
-		url   : 'https://youtu.be/nWHUjuJ8zxE?t=1m31s',
-		desc  : 'She is a complex character, with problems',
-		start : 91,
-		end   : 97,
-		step  : 1,
-		slug  : 'nWHUjuJ8zxE',
-	
-	}
+	var menus = [
+
+{ 
+	customerId: "2", 
+id: "6", 
+rec: ["1989","1990"], 
+title: "string", 
+date: "December 17, 2003 03:24:00",
+ desc: "string", 
+ recipes: "{}",
+  // created_at:"December 17, 2003 03:24:00",
+  // updated_at:"December 17, 2003 03:24:00"
+},
+      { 
+      	customerId: "1", 
+      id: "10",
+      rec: ["1980", "1990"], 
+      title: "string", 
+      date: "December 17, 2003 03:24:00", 
+      desc: "string", 
+      recipes: "{}", 
+      // created_at:"December 17, 2003 03:24:00",
+      // updated_at:"December 17, 2003 03:24:00"
+  },
+    {
+      	title:"string1",
+      date:"2003-12-17T11:24:00.000Z",
+      desc:"string1",
+      recipes:"{}",
+      // created_at:"2003-12-17T11:24:00.000Z",
+      // updated_at:"2003-12-17T11:24:00.000Z",
+      customerId:2,
+      id:3
+  },
+    {
+      	title:"string2",
+      date:"2003-12-17T11:24:00.000Z",
+      desc:"string2",
+      recipes:"{}",
+      // created_at:"2003-12-17T11:24:00.000Z",
+      // updated_at:"2003-12-17T11:24:00.000Z",
+      customerId:1,
+      id:4
+  },
+    {
+      	title:"string2",
+      date:"2003-12-17T11:24:00.000Z",
+      desc:"string2",
+      recipes:"{}",
+      // created_at:"2003-12-17T11:24:00.000Z",
+      // updated_at:"2003-12-17T11:24:00.000Z",
+      customerId:1,
+      id:5
+  }
 	];
 
-	return cb(adminVideos);
+
+
+	return cb(menus);
 };

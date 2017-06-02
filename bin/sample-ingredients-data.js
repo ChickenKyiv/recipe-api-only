@@ -2,49 +2,52 @@
 
 module.exports = function getSampleData (cb){
 
-	// video frames 
-	var adminVideos = [
-	{
-		title : 'Logan Epic Kill',
-		url   : 'https://youtu.be/G1aSAQ1CibQ?t=1m26s',
-		desc  : 'LOGAN Official International Red Band Trailer #1 (2017) Hugh Jackman Wolverine Marvel Movie HD',
-		start : 86,
-		end   : 89,
-		step  : 1,
-		slug  : 'G1aSAQ1CibQ',
+	var ingredients = [
+	{ 
+	
+		name: "black pepper",
+		recipe_id: ["1", "2"],
+		type: "simple",
+		units: "1 teaspoon",
+		done: "0",
+		delete: "0", 
 
+		recipesId: '5928d6ddcef3be0530f8bdff'
 	},
-	{
-		title : 'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
-		url   : 'https://youtu.be/Lt-U_t2pUHI?t=41s',
-		desc  : 'Witness the power of the Sorcerer Supreme',
-		start : 41,
-		end   : 51,
-		step  : 1,
-		slug  : 'Lt-U_t2pUHI',
-	
+	{ 
+  	
+      name: "extra-virgin olive oil",
+      recipe_id: ["1", "2", "3", "4"],
+      type: "complex",
+      units: "17 tablespoons + 0.25 cup",
+      done: "0","delete": "0", 
+     
+      recipesId: '5928d6ddcef3be0530f8bdff'
+  	},
+  	{ 
+      
+      name: "kosher salt",
+      recipe_id: ["5", "6", "7", "8"],
+      type: "simple",
+      units: "1 teaspoon",
+      done: "0",
+      delete: "0", 
+
+      recipesId: '5928d6ddcef3be0530f8be00'
 	},
-	{
-		title : 'Black Panther Featurette',
-		url   : 'https://youtu.be/Q88JeXtKMDY?t=44s',
-		desc  : 'Black Panther\'s role in a featurette for Marvel\'s "Captain America: Civil War"',
-		start : 44,
-		end   : 54,
-		step  : 1,
-		slug  : 'Q88JeXtKMDY',
-		
-	},
-	{
-		title : 'Jessica Jones Mirror Cracking',
-		url   : 'https://youtu.be/nWHUjuJ8zxE?t=1m31s',
-		desc  : 'She is a complex character, with problems',
-		start : 91,
-		end   : 97,
-		step  : 1,
-		slug  : 'nWHUjuJ8zxE',
-	
+	{ 
+      
+      name: "kosher salt and freshly ground black",
+      recipe_id: ["1", "2", "3", "4"],
+      type: "simple",
+      units: "5 teaspoons",
+      done: "0","delete": "0", 
+     
+      recipesId: '5928d6ddcef3be0530f8bdff',
 	}
 	];
 
-	return cb(adminVideos);
+
+
+	return cb(ingredients);
 };

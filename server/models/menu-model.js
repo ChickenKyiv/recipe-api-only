@@ -37,4 +37,16 @@ module.exports = function(Menumodel) {
 		next();
 	});
 
+	Menumodel.observe("before save", function updateTimestamp(ctx, next) {
+
+    	if( ctx.isNewInstance ){
+    		ctx.instance.created_at = new Date();
+    		ctx.instance.updated_at = new Date();
+    	} 
+
+
+
+    	next();
+  });
+
 };
