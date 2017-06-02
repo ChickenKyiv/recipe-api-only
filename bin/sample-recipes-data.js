@@ -2,52 +2,96 @@
 
 module.exports = function getSampleData (cb){
 
-	var recipes
-
-	// video frames 
-	var adminVideos = [
-	{
-		title : 'Logan Epic Kill',
-		url   : 'https://youtu.be/G1aSAQ1CibQ?t=1m26s',
-		desc  : 'LOGAN Official International Red Band Trailer #1 (2017) Hugh Jackman Wolverine Marvel Movie HD',
-		start : 86,
-		end   : 89,
-		step  : 1,
-		slug  : 'G1aSAQ1CibQ',
-
+	var recipes = [
+	{ 
+		customerId: "2", 
+		ing:[ "6", "7", "8" ],
+		 // id: "1989",
+		  name: "Crock Pot Roast12",
+		  title: "Crock Pot Roast12",
+		  ingredients: 
+		  [{
+		  	quantity: "1",
+		  name: " beef roast",
+		  type: "Meat"
+		},
+		  {
+		  	quantity: "1 package",
+		  name: "brown gravy mix",
+		  type: "Baking"
+		},
+		  {
+		  	quantity: "1 package",
+		  name: "dried Italian salad dressing mix",
+		  type: "Condiments"
+		},
+	  {
+	  	quantity: "1 package",
+	  name: "dry ranch dressing mix",
+	  type: "Condiments"
+		},
+	  {
+	  	quantity: "1/2 cup",
+	  name: "water",
+	  type: "Drinks"
+		}
+		],
+	  directions: [
+		 "Place beef roast in crock pot.",
+		  "Mix the dried mixes together in a bowl and sprinkle over the roast.",
+		  "Pour the water around the roast.",
+		  "Cook on low for 7-9 hours."
+	  ],  
+	  prep_time    :"30min",
+	  total_time   :"3h",
+	  recipe_yield :"8",
+	  img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg","url": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
+	  
+	  
 	},
-	{
-		title : 'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
-		url   : 'https://youtu.be/Lt-U_t2pUHI?t=41s',
-		desc  : 'Witness the power of the Sorcerer Supreme',
-		start : 41,
-		end   : 51,
-		step  : 1,
-		slug  : 'Lt-U_t2pUHI',
-	
-	},
-	{
-		title : 'Black Panther Featurette',
-		url   : 'https://youtu.be/Q88JeXtKMDY?t=44s',
-		desc  : 'Black Panther\'s role in a featurette for Marvel\'s "Captain America: Civil War"',
-		start : 44,
-		end   : 54,
-		step  : 1,
-		slug  : 'Q88JeXtKMDY',
-		
-	},
-	{
-		title : 'Jessica Jones Mirror Cracking',
-		url   : 'https://youtu.be/nWHUjuJ8zxE?t=1m31s',
-		desc  : 'She is a complex character, with problems',
-		start : 91,
-		end   : 97,
-		step  : 1,
-		slug  : 'nWHUjuJ8zxE',
+	{ 
+		customerId: "1", 
+		ing:[ "7", "8", "9" ],
+	 // id: "1990",
+	  name: "Crock Pot Roast1",
+	  title: "Crock Pot Roast1",
+	  img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
+	  ingredients: 
+	  [
+	  {
+	  	quantity: "1",
+	  name: " beef roast"
+		},
+	  {
+	  	quantity: "1 package",
+	  name: "brown gravy mix"
+		},
+	  {
+	  	quantity: "1 package",
+	  name: "dried Italian salad dressing mix"
+		},
+	  {
+	  	quantity: "1 package",
+	  name: "dry ranch dressing mix"
+		},
+	  {
+	  	quantity: "1/2 cup",
+	  name: "water"
+		}
+	  ],
+	  directions: [
+	  	"Place beef roast in crock pot.",
+	  	"Mix the dried mixes together in a bowl and sprinkle over the roast.",
+	  	"Pour the water around the roast.",
+	  	"Cook on low for 7-9 hours."
+	  ],
+	  prep_time    :"PT30M",
+	  total_time   :"PT3H",
+	  recipe_yield :"8",
+	  
 	
 	}
 	];
-
 
 
 	return cb(recipes);
