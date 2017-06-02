@@ -7,7 +7,7 @@ module.exports = function getSampleData (cb){
 		customerId: "2", 
 		ing:[ "6", "7", "8" ],
 		 // id: "1989",
-		  name: "Crock Pot Roast12",
+		  // name: "Crock Pot Roast12",
 		  title: "Crock Pot Roast12",
 		  ingredients: 
 		  [{
@@ -53,7 +53,7 @@ module.exports = function getSampleData (cb){
 		customerId: "1", 
 		ing:[ "7", "8", "9" ],
 	 // id: "1990",
-	  name: "Crock Pot Roast1",
+	  // name: "Crock Pot Roast1",
 	  title: "Crock Pot Roast1",
 	  img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
 	  ingredients: 

@@ -8,11 +8,12 @@ module.exports = function getSamplesData (cb){
 
 		departments: [
 		{
-			"id": "1",
-		 "name": "BAKERY/BREAD",
-		  "items": [
+			id: "1",
+		 name: "BAKERY/BREAD",
+		  items: [
 		  {
-		  	id: "6","name": "black pepper",
+		  	id: "6",
+		  	name: "black pepper",
 		  	recipeId: ["1", "2"],
 		  	type: "simple",
 		  	units: "1 teaspoon",

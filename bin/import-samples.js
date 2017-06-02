@@ -83,8 +83,59 @@ var Menu        = app.models.MenuModel;
 // });
 
 
-groceries(function(array){
+// groceries(function(array){
 
 
+
+// });
+
+ingredients(function(array){
+
+	Ingredient.create(array)
+	.then(function(ingredients){
+		// just first recipe
+		Recipe.findOne({
+			fields:'id',
+			where: { title:'Crock Pot Roast1' }
+		})
+		.then(function(result){
+
+			ingredients.forEach(function(ingredients){
+			 	ingredients.updateAttribute('userId', result.id);
+			})
+
+
+		});
 	
+		console.log(ingredients);
+
+	})
+	.catch(function(err){
+		throw err;
+	})
+
+});
+
+menus(function(array) {
+	
+	Menu.create(array)
+		.then(function(menus){
+
+			Recipe.find({
+				fields: 'id'
+			})
+			.then(function(recipeIds){
+				console.log(recipeIds);
+
+				menus.forEach(function(menu){
+					menu.updateAttribute('rec', recipeIds);
+				});
+				console.log(menus);
+
+			});
+
+
+
+		});
+
 });
