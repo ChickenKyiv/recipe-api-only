@@ -1,46 +1,26 @@
 {
-  "name": "recipes",
-  "plural": "recipe",
+  "name": "MenuModel",
+  "plural": "menu",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "name": {
-      "type": "string",
-      "required": true
-    },
-    "img": {
-      "type": "string",
-      "required": true
-    },
-    "url": {
-      "type": "string",
-      "required": true
-    },
     "title": {
       "type": "string",
       "required": true
     },
-    "ingredients": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "desc": {
+      "type": "string",
+      "required": true
+    },
+    "recipes": {
       "type": "object",
-      "required": true
-    },
-    "directions": {
-      "type": "object",
-      "required": true
-    },
-    "prep_time": {
-      "type": "string",
-      "required": true
-    },
-    "total_time": {
-      "type": "string",
-      "required": true
-    },
-    "recipe_yield": {
-      "type": "string",
       "required": true
     },
     "created_at": {
@@ -54,9 +34,9 @@
   },
   "validations": [],
   "relations": {
-    "ing": {
+    "rec": {
       "type": "hasMany",
-      "model": "ingredients",
+      "model": "recipes",
       "foreignKey": ""
     }
   },
@@ -66,12 +46,6 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
-    },
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW"
     },
     {
       "accessType": "*",

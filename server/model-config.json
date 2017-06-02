@@ -17,23 +17,23 @@
     "dataSource": "recipeDS",
     "public": true
   },
-  "groceries": {
+  "GroceryModel": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "ingredients": {
+  "IngredientModel": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "menus": {
+  "MenuModel": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "recipes": {
+  "RecipeModel": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "weekly-menu": {
+  "WeeklyMenuModel": {
     "dataSource": "recipeDS",
     "public": true
   },
