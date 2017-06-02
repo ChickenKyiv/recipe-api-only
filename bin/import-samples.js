@@ -4,18 +4,23 @@ var path        = require('path');
 
 let app         = require(path.resolve(__dirname, '../server/server'));
 
-var Promise     = require('bluebird');
-
 let accounts    = require(path.resolve(__dirname, 'sample-users-data'));
 
-let videos      = require(path.resolve(__dirname, 'sample-videos-data'));
+let recipes     = require(path.resolve(__dirname, 'sample-recipes-data'));
 
+let menus       = require(path.resolve(__dirname, 'sample-menus-data'));
+
+let ingredients = require(path.resolve(__dirname, 'sample-ingredients-data'));
 
 var User        = app.models.UserModel;
 var Role        = app.models.Role;
 var RoleMapping = app.models.RoleMapping;
 
-var Video       = app.models.VideoModel;
+
+var Recipe      = app.models.RecipeModel; 
+var Ingredient  = app.models.IngredientModel;
+
+var Menu        = app.models.MenuModel;
 
 
 accounts(function(array){

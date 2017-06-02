@@ -8,7 +8,7 @@ var database = app.datasources.recipeDS;
 var lbTables = [
 	'User', 'AccessToken', 'ACL', 'RoleMapping',
 	'Role', 'UserModel', 
-	'menus', 'ingredients', 'groceries', 'departments'
+	'MenuModel', 'IngredientModel', 'GroceryModel', 'DepartmentModel'
 ];
 
 //creating loopback necessary tables if no exists

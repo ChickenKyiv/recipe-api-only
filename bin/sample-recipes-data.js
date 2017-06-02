@@ -2,6 +2,8 @@
 
 module.exports = function getSampleData (cb){
 
+	var recipes
+
 	// video frames 
 	var adminVideos = [
 	{
@@ -46,5 +48,7 @@ module.exports = function getSampleData (cb){
 	}
 	];
 
-	return cb(adminVideos);
+
+
+	return cb(recipes);
 };
