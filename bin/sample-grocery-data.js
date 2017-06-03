@@ -4,7 +4,7 @@ module.exports = function getSamplesData (cb){
 
 	var grocery = [
 	{
-		ing:["6", "7", "8" ],
+		// ing:["6", "7", "8" ],
 
 		departments: [
 		{
@@ -14,7 +14,7 @@ module.exports = function getSamplesData (cb){
 		  {
 		  	id: "6",
 		  	name: "black pepper",
-		  	recipeId: ["1", "2"],
+		  	// recipeId: ["1", "2"],
 		  	type: "simple",
 		  	units: "1 teaspoon",
 		  	done: "0",
@@ -28,7 +28,7 @@ module.exports = function getSamplesData (cb){
 			items: [{
 				"id": "6",
 				name: "black pepper",
-				recipeId: ["1", "2"],
+				// recipeId: ["1", "2"],
 				type: "simple",
 				units: "1 teaspoon",
 				done: "0","delete": "0"

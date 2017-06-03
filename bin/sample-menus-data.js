@@ -8,29 +8,29 @@ module.exports = function getSampleData (cb){
 	{ 
 		customerId: "2", 
 		// id: "6", 
-		rec: ["1989","1990"], 
+		// rec: ["1989","1990"], 
 		title: "string", 
 		date: "December 17, 2003 03:24:00",
 		desc: "string", 
-		recipes: "{}",
+		recipes: ["1989","1990"],
 
 
 	},
 	{ 
 		customerId: "1", 
 		// id: "10",
-		rec: ["1980", "1990"], 
+		// rec: ["1980", "1990"], 
 		title: "string", 
 		date: "December 17, 2003 03:24:00", 
 		desc: "string", 
-		recipes: "{}", 
+		recipes: ["1980", "1990"], 
 
 	},
     {
 		title:"string1",
 		date:"2003-12-17T11:24:00.000Z",
 		desc:"string1",
-		recipes:"{}",
+		recipes: [],
 
 		customerId:2,
 		// id:3
@@ -39,7 +39,7 @@ module.exports = function getSampleData (cb){
 		title:"string2",
 		date:"2003-12-17T11:24:00.000Z",
 		desc:"string2",
-		recipes:"{}",
+		recipes: [],
 
 		customerId:1,
 		// id:4
@@ -48,7 +48,7 @@ module.exports = function getSampleData (cb){
 		title:"string2",
 		date:"2003-12-17T11:24:00.000Z",
 		desc:"string2",
-		recipes:"{}",
+		recipes: [],
 
 		customerId:1,
 		// id:5
