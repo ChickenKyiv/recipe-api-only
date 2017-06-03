@@ -62,41 +62,38 @@ module.exports = function(MenuModel) {
 		MenuModel.findById(menuId)
 		.then(function(menu){
 			console.log( menu.recipes );
-
+			// @TODO change to custom method on recipe model
 			return RecipeModel.find({
-				where:{id: menu.recipes}
+				where:{
+					id: menu.recipes
+				},
+				fields: [
+					'img', 'url', 'title', 
+
+		    	]       
 			})
 			.then(function(recipes){
 			// 	menu.recipes = recipes;
 			// console.log(menu);
 			// return menu;
-			})
+			// or cb(recipes);
+			});
 
-			
+
 
 
 		})
-
-		UserModel.exists(userId, function(err, user){
-		  if(err){ cb(err); }
-
-		  VideoModel.find({
-		    where: {
-		      userId: userId
-		    },
-		    fields: [
-		      'title', 'url', 'desc',
-		      'start', 'end', 'step'
-		    ]       
-		    
-		  }, cb);
+		.catch(function(err){
+			if(err){ cb(err); }
 		});
+
+
 
 	};
 
 	MenuModel.remoteMethod('listRecipesShort', {
 		accepts: {
-		  arg: 'id',
+		  arg: 'menuId',
 		  type: 'string'
 		},
 		returns: {
