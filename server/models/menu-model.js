@@ -62,7 +62,19 @@ module.exports = function(MenuModel) {
 		MenuModel.findById(menuId)
 		.then(function(menu){
 			console.log( menu.recipes );
+
+			return RecipeModel.find({
+				where:{id: menu.recipes}
+			})
+			.then(function(recipes){
+			// 	menu.recipes = recipes;
+			// console.log(menu);
+			// return menu;
+			})
+
 			
+
+
 		})
 
 		UserModel.exists(userId, function(err, user){
