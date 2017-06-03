@@ -7,18 +7,19 @@ module.exports = function getSampleData (cb){
 		  name: 'john',	
 		  email: 'john.doe@ibm.com',
 		  password: 'john1',
-
+		  // menus: [],
 		},
 		{
 		  name: 'jane',
 		  email: 'jane.doe@ibm.com',
 		  password: 'jane1',
+		  // menus: [],
 		},
 		{
 		  name: 'admin',
 		  email: 'admin@ibm.com',
 		  password: 'admin',
-
+		  // menus: [],
 		}
   	];
 

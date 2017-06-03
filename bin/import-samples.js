@@ -86,7 +86,20 @@ videos(function(array){
 groceries(function(array){
 
 	Grocery.create(array)
-	.then()
+	.then(function(groceries){
+
+		Department.find({})
+		.then(function(departments){
+
+			groceries.forEach(function(grocery){
+			 	grocery.updateAttribute('department', departments);
+			})
+		})
+		.catch(function(err){
+			throw err;
+		});
+
+	});
 
 });
 
@@ -138,5 +151,17 @@ menus(function(array) {
 
 
 		});
+
+});
+
+departments(function(array){
+
+	Department.create(array)
+	.then(function(departments){
+		console.log(departments);
+	})
+	.catch(function(err){
+		throw err;
+	});
 
 });
