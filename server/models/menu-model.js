@@ -1,15 +1,15 @@
 'use strict';
 
-module.exports = function(Menumodel) {
+module.exports = function(MenuModel) {
 	//@TODO update this, 'cause we've updated relations
-	Menumodel.validatesPresenceOf('title', 'date', 'desc', 'recipes');
+	MenuModel.validatesPresenceOf('title', 'date', 'desc', 'recipes');
 
 
-	Menumodel.observe("after save", function (ctx, next) {
+	MenuModel.observe("after save", function (ctx, next) {
 
 		// console.log( ctx.instance.rec );
 
-       Menumodel.app.models.Email.send({
+       MenuModel.app.models.Email.send({
 	    to: 'arthur.tkachenko.netweight@gmail.com',
 	    from: 'noreply@loopback.loop',
 	    subject: 'Thank you for adding to menu ',
@@ -21,9 +21,9 @@ module.exports = function(Menumodel) {
 		
 
 		//not working, right now. Above we're using similar, but easy way to test notifications
-		// Menumodel.app.models.Recipemodel.findById(ctx.instance.rec, function (err, recipe) {
+		// MenuModel.app.models.Recipemodel.findById(ctx.instance.rec, function (err, recipe) {
 
-		//   Menumodel.app.models.Email.send({
+		//   MenuModel.app.models.Email.send({
 		//     to: 'arthur.tkachenko.netweight@gmail.com',
 		//     from: 'noreply@loopback.loop',
 		//     subject: 'Thank you for adding to menu your recipe ' + recipe.name,
@@ -37,7 +37,7 @@ module.exports = function(Menumodel) {
 		next();
 	});
 
-	Menumodel.observe("before save", function updateTimestamp(ctx, next) {
+	MenuModel.observe("before save", function updateTimestamp(ctx, next) {
 
 		if( ctx.isNewInstance ){
 			ctx.instance.created_at = new Date();
@@ -49,9 +49,52 @@ module.exports = function(Menumodel) {
 		next();
 	});
 
-	Menumodel.observe('update', function(ctx, next){
+	MenuModel.observe('update', function(ctx, next){
 		ctx.instance.updated_at = new Date();
 		next();
+	});
+
+	// method list attached menus with recipes, short version
+
+	MenuModel.listRecipesShort = function(menuId, cb){
+		var RecipeModel = VideoModel.app.models.RecipeModel;
+
+		MenuModel.findById(menuId)
+		.then(function(menu){
+			console.log( menu.recipes );
+			
+		})
+
+		UserModel.exists(userId, function(err, user){
+		  if(err){ cb(err); }
+
+		  VideoModel.find({
+		    where: {
+		      userId: userId
+		    },
+		    fields: [
+		      'title', 'url', 'desc',
+		      'start', 'end', 'step'
+		    ]       
+		    
+		  }, cb);
+		});
+
+	};
+
+	MenuModel.remoteMethod('listRecipesShort', {
+		accepts: {
+		  arg: 'id',
+		  type: 'string'
+		},
+		returns: {
+		  arg: 'menus',
+		  type: 'array'
+		},
+		http: {
+		  path: '/menu/list/recipes/short',
+		  verb: 'get'
+		}
 	});
 
 	

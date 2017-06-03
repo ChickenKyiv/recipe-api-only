@@ -58,7 +58,7 @@ module.exports = function(Usermodel) {
   // method list attached menus
   // attachMenusToUserObject
   Usermodel.attach = function(cb){
-    Usermodel.fin
+    Usermodel.find({},function(){});
   };
 
   Usermodel.getMenuId = function(userId, cb){
@@ -81,9 +81,9 @@ module.exports = function(Usermodel) {
   });
 
   Usermodel.listMenu = function(userId, cb){
-
+    var MenuModel = VideoModel.app.models.MenuModel;
     Usermodel.getMenuId(userId, function(err, menusArray){
-      Menumodel.find({where:{id:menusArray}},function(err, menus){
+      MenuModel.find({where:{id:menusArray}},function(err, menus){
         console.log( menus ) ;
         // cb(menus)
       });
