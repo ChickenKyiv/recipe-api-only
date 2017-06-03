@@ -27,7 +27,7 @@ module.exports = function(RecipeModel) {
 
     // method list attached recipes with ingredients
     RecipeModel.listIngredients = function(recipeId, cb){
-        var IngredientModel = VideoModel.app.models.IngredientModel;
+        var IngredientModel = RecipeModel.app.models.IngredientModel;
 
         RecipeModel.findById(recipeId)
         .then(function(recipe){
@@ -56,6 +56,21 @@ module.exports = function(RecipeModel) {
 
 
     };
+
+    RecipeModel.remoteMethod('listIngredients', {
+        accepts: {
+          arg: 'recipeId',
+          type: 'string'
+        },
+        returns: {
+          arg: 'menus',
+          type: 'array'
+        },
+        http: {
+          path: '/recipe/list/ingredients',
+          verb: 'get'
+        }
+    });
 
 
 };

@@ -1,13 +1,13 @@
 'use strict';
 
-module.exports = function(Usermodel) {
+module.exports = function(UserModel) {
 
-  Usermodel.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
+  UserModel.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
   
-  Usermodel.validatesUniquenessOf('email', {message: 'email is not unique'});
+  UserModel.validatesUniquenessOf('email', {message: 'email is not unique'});
 // Usermodel.validatesNumericalityOf('start', {int: true});
 
-  Usermodel.observe("before save", function updateTimestamp(ctx, next) {
+  UserModel.observe("before save", function updateTimestamp(ctx, next) {
  
     	if( ctx.isNewInstance ){
     		ctx.instance.created_at = new Date();
@@ -17,15 +17,15 @@ module.exports = function(Usermodel) {
     	next();
   });
 
-  Usermodel.observe('update', function(ctx, next){
+  UserModel.observe('update', function(ctx, next){
   	ctx.instance.updated_at = new Date();
   	next();
   });
 
-  Usermodel.log = function(userId, options) {
+  UserModel.log = function(userId, options) {
     
     // IMPORTANT: forward the options arg
-    return Usermodel.findById(userId, null, options)
+    return UserModel.findById(userId, null, options)
               .then(function(data){
                 const token = options && options.accessToken;
                 const userId = token && token.userId;
@@ -38,7 +38,7 @@ module.exports = function(Usermodel) {
 
   };
 
-  Usermodel.remoteMethod('log', {
+  UserModel.remoteMethod('log', {
     accepts: [{
       arg: 'userId',
       type: 'string',
@@ -57,14 +57,14 @@ module.exports = function(Usermodel) {
 
   // method list attached menus
   // attachMenusToUserObject
-  Usermodel.attach = function(cb){
+  UserModel.attach = function(cb){
     Usermodel.find({},function(){});
   };
 
-  Usermodel.getMenuId = function(userId, cb){
-    return Usermodel.findOne(userId, { fields:'menu' }, cb);
+  UserModel.getMenuId = function(userId, cb){
+    return UserModel.findOne(userId, { fields:'menu' }, cb);
   }
-  Usermodel.remoteMethod('getMenuId', {
+  UserModel.remoteMethod('getMenuId', {
     description: '',
     accepts: {
       arg: 'userId',
@@ -80,9 +80,9 @@ module.exports = function(Usermodel) {
     }
   });
 
-  Usermodel.listMenu = function(userId, cb){
-    var MenuModel = VideoModel.app.models.MenuModel;
-    Usermodel.getMenuId(userId, function(err, menusArray){
+  UserModel.listMenu = function(userId, cb){
+    var MenuModel = UserModel.app.models.MenuModel;
+    UserModel.getMenuId(userId, function(err, menusArray){
       MenuModel.find({where:{id:menusArray}},function(err, menus){
         console.log( menus ) ;
         // cb(menus)
@@ -92,7 +92,7 @@ module.exports = function(Usermodel) {
     // VideoModel.find({}, cb);
   };
 
-  Usermodel.remoteMethod('listMenu', {
+  UserModel.remoteMethod('listMenu', {
     description: '',
     accepts: {
       arg: 'userId',

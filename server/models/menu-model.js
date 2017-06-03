@@ -54,6 +54,9 @@ module.exports = function(MenuModel) {
 		next();
 	});
 
+	// menu, fully equiped??
+
+
 	// method list attached menus with recipes, short version
 
 	MenuModel.listRecipesShort = function(menuId, cb){
