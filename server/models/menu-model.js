@@ -109,6 +109,57 @@ module.exports = function(MenuModel) {
 	
   // method list attached menus with recipes
 
+
+
   // method list attached menus with groceries
+	MenuModel.listGroceries = function(menuId, cb){
+		var GroceryModel = VideoModel.app.models.GroceryModel;
+
+		MenuModel.findById(menuId)
+		.then(function(menu){
+			console.log( menu.recipes );
+			// @TODO change to custom method on recipe model
+			return GroceryModel.find({
+				where:{
+					// id: menu.recipes
+				},
+				// fields: [
+				// 	'img', 'url', 'title', 
+
+		  //   	]       
+			})
+			.then(function(groceries){
+			// 	menu.recipes = recipes;
+			// console.log(menu);
+			// return menu;
+			// or cb(recipes);
+			});
+
+
+
+
+		})
+		.catch(function(err){
+			if(err){ cb(err); }
+		});
+
+
+
+	};
+
+	MenuModel.remoteMethod('listGroceries', {
+		accepts: {
+		  arg: 'menuId',
+		  type: 'string'
+		},
+		returns: {
+		  arg: 'menus',
+		  type: 'array'
+		},
+		http: {
+		  path: '/menu/list/grocery',
+		  verb: 'get'
+		}
+	});
 
 };
