@@ -6,4 +6,12 @@ module.exports = function(Weeklymenumodel) {
 // 		'img', 'url', 'title', 'ingredients', 
 		
 // 		);
+  // Usermodel.observe('update', function(ctx, next){
+  // 	ctx.instance.updated_at = new Date();
+  // 	next();
+  // });
+
+  // method list attached menus with recipes
+
+  // method list attached menus with groceries
 };

@@ -39,14 +39,24 @@ module.exports = function(Menumodel) {
 
 	Menumodel.observe("before save", function updateTimestamp(ctx, next) {
 
-    	if( ctx.isNewInstance ){
-    		ctx.instance.created_at = new Date();
-    		ctx.instance.updated_at = new Date();
-    	} 
+		if( ctx.isNewInstance ){
+			ctx.instance.created_at = new Date();
+			ctx.instance.updated_at = new Date();
+		} 
 
 
 
-    	next();
-  });
+		next();
+	});
+
+	Menumodel.observe('update', function(ctx, next){
+		ctx.instance.updated_at = new Date();
+		next();
+	});
+
+	
+  // method list attached menus with recipes
+
+  // method list attached menus with groceries
 
 };

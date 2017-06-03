@@ -6,7 +6,7 @@ module.exports = function(Ingredientmodel) {
 		'name', 'recipe_id', 'type', 'done', 'delete'
 	);
 
-	Ingredientmodel.observe("before save", function updateTimestamp(ctx, next) {
+    Ingredientmodel.observe("before save", function updateTimestamp(ctx, next) {
 
     	if( ctx.isNewInstance ){
     		ctx.instance.created_at = new Date();
@@ -16,6 +16,16 @@ module.exports = function(Ingredientmodel) {
 
 
     	next();
-  });
+    });
+
+    Ingredientmodel.observe('update', function(ctx, next){
+        ctx.instance.updated_at = new Date();
+        next();
+    });
+
+
+  // method list attached ingredients by departments
+
+  // method list attached ingredients with unit convertion and additions
 	
 };

@@ -18,6 +18,13 @@ module.exports = function(Recipemodel) {
 
 
     	next();
-  });
+    });
+
+    Recipemodel.observe('update', function(ctx, next){
+        ctx.instance.updated_at = new Date();
+        next();
+    });
+
+    // method list attached recipes with ingredients
 
 };
