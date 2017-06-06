@@ -14,6 +14,7 @@ let ingredients = require(path.resolve(__dirname, 'sample-ingredients-data'));
 
 let groceries   = require(path.resolve(__dirname, 'sample-grocery-data'));
 
+
 var User        = app.models.UserModel;
 var Role        = app.models.Role;
 var RoleMapping = app.models.RoleMapping;
@@ -33,7 +34,7 @@ accounts(function(array){
 		.then(function(users){
 			// console.log(users);
 
-			User.findOne({fields:'id', where: { name:'admin' }})
+			// User.findOne({fields:'id', where: { name:'admin' }})
 				.then(function(result){
 					
 					Role.create({ name:'admin' })
@@ -50,6 +51,7 @@ accounts(function(array){
 							throw err;
 						})
 				})		
+			User.assign();
 
 		})
 		.catch(function(err){
@@ -65,16 +67,17 @@ videos(function(array){
 	Video.create(array)
 		 .then(function(videos){
 
-		 	User.findOne({fields:'id', where: { name:'admin' }})
-				.then(function(result){
+		 	// User.findOne({fields:'id', where: { name:'admin' }})
+				// .then(function(result){
 
-					videos.forEach(function(video){
-				 		video.updateAttribute('userId', result.id);
-				 	})
+				// 	videos.forEach(function(video){
+				//  		video.updateAttribute('userId', result.id);
+				//  	})
 
 
-				});
+				// });
 
+			User.addVideos(videos);	
 		 		
 		 		console.log(videos);
 
@@ -82,22 +85,23 @@ videos(function(array){
 
 });
 
-
+	
 groceries(function(array){
 
 	Grocery.create(array)
 	.then(function(groceries){
 
-		Department.find({})
-		.then(function(departments){
+		// Department.find({})
+		// .then(function(departments){
 
-			groceries.forEach(function(grocery){
-			 	grocery.updateAttribute('department', departments);
-			})
-		})
-		.catch(function(err){
-			throw err;
-		});
+		// 	groceries.forEach(function(grocery){
+		// 	 	grocery.updateAttribute('department', departments);
+		// 	})
+		// })
+		// .catch(function(err){
+		// 	throw err;
+		// });
+		Department.addGrocery(groceries);
 
 	});
 
@@ -120,6 +124,8 @@ ingredients(function(array){
 
 
 		});
+
+		Recipe.addIngredients(ingredients);
 	
 		console.log(ingredients);
 

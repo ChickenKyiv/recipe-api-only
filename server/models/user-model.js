@@ -106,6 +106,51 @@ module.exports = function(UserModel) {
     }
   });
 
+  // assign admin role to admin user
+  UserModel.assign = function(){
+
+    var RoleModel   = UserModel.app.models.RoleModel;
+    var RoleMapping = UserModel.app.models.RoleMappingModel;
+
+    UserModel.findOne({fields:'id', where: { name:'admin' }})
+      .then(function(result){
+        
+        RoleModel.create({ name:'admin' })
+          .then(function(role){
+
+            role.principals.create({
+                  principalType: RoleMapping.USER,
+                  principalId: result.id
+              }, function(err, principal){
+                console.log('Principal', principal);
+              });
+          })
+          .catch(function(err){
+            throw err;
+          })
+      });        
+  };
+
+
+  UserModel.addVideos = function (videos) {
+      UserModel.findOne({
+        fields:'id', where: { name:'admin' }
+      })
+     .then(function(result){
+
+        videos.forEach(function(video){
+          video.updateAttribute('userId', result.id);
+        })
+
+      });
+
+  };
+
+
+  
+
+
+
   // VideoModel.listVideosByUser = function(userId, cb){
   //   var UserModel = VideoModel.app.models.UserModel;
 
