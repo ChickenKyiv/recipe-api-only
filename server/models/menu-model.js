@@ -111,6 +111,10 @@ module.exports = function(MenuModel) {
 
 		console.log(query);
 
+		return MenuModel.find(query).then(function(menus){
+			console.log(menus);
+		})
+
 	};
 
 
