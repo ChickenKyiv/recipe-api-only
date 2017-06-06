@@ -71,6 +71,14 @@ module.exports = function(IngredientModel) {
         }
     });
 
+    IngredientModel.findByIds = function(ingredientIds, cb){
+        return IngredientModel.find({
+                where:{
+                    id: ingredientIds
+                }       
+            }).then(cb);
+    };
+
   // method list attached ingredients with unit convertion and additions
 	// RecipeModel.listIngredients = function(recipeId, cb){
  //        var IngredientModel = RecipeModel.app.models.IngredientModel;

@@ -29,4 +29,38 @@ module.exports = function(DepartmentModel) {
   };
 
 
+  DepartmentModel.fetch = function(){
+  	var GroceryModel = DepartmentModel.app.models.DepartmentModel;
+  	var IngredientModel = DepartmentModel.app.models.IngredientModel;
+
+  	DepartmentModel.find({})
+  	.then(function(departments){
+  		departments.forEach(function(department){
+  			console.log(department.ingredients);
+
+  			var ingredientsId = department.ingredients;
+  			IngredientModel.find({
+                where:{
+                    id: recipe.ingredients
+                }       
+            })
+            .then(function(ingredients){
+
+            	console.log( ingredients );
+
+            })
+            .catch(function(err){
+            	throw err;
+            });
+
+  		});
+  	})
+  	.catch(function(err){
+  		throw err;
+  	});
+  };
+
+
+
+
 };
