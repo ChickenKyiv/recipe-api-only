@@ -94,6 +94,57 @@ module.exports = function(MenuModel) {
 
 	};
 
+	MenuModel.MenuRecipesIngredients = function(menuId, cb){
+		var RecipeModel = VideoModel.app.models.RecipeModel;
+
+		MenuModel.findById(menuId)
+		.then(function(menu){
+			console.log( menu.recipes );
+			// @TODO change to custom method on recipe model
+			return RecipeModel.find({
+				where:{
+					id: menu.recipes
+				},
+				fields: [
+					'img', 'url', 'title', 
+
+		    	]       
+			})
+			.then(function(recipes){
+			// 	menu.recipes = recipes;
+			// console.log(menu);
+			// return menu;
+			// or cb(recipes);
+
+				// console.log(recipes.ingredients);
+				 IngredientModel.find({
+	                where:{
+	                    id: recipe.ingredients
+	                }       
+	            })
+	            .then(function(ingredients){
+	            //  recipe.ingredients = ingredients;
+	            // console.log(recipe);
+	            // return recipe;
+	            // or cb(ingredients);
+	            });
+
+
+			});
+
+
+
+
+		})
+		.catch(function(err){
+			if(err){ cb(err); }
+		});
+
+
+
+	};
+
+
 	MenuModel.remoteMethod('listRecipesShort', {
 		accepts: {
 		  arg: 'menuId',
