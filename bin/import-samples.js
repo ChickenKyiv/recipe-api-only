@@ -141,18 +141,20 @@ menus(function(array) {
 	Menu.create(array)
 		.then(function(menus){
 
-			Recipe.find({
-				fields: 'id'
-			})
-			.then(function(recipeIds){
-				console.log(recipeIds);
+			// Recipe.find({
+			// 	fields: 'id'
+			// })
+			// .then(function(recipeIds){
+			// 	console.log(recipeIds);
 
-				menus.forEach(function(menu){
-					menu.updateAttribute('rec', recipeIds);
-				});
-				console.log(menus);
+			// 	menus.forEach(function(menu){
+			// 		menu.updateAttribute('rec', recipeIds);
+			// 	});
+			// 	console.log(menus);
 
-			});
+			// });
+
+			Recipe.attachToMenu(menus);
 
 
 

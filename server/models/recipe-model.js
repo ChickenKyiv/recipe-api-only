@@ -73,4 +73,23 @@ module.exports = function(RecipeModel) {
     });
 
 
+    RecipeModel.attachToMenu = function(menus){
+
+        RecipeModel.find({
+            fields: 'id'
+        })
+        .then(function(recipeIds){
+            console.log(recipeIds);
+
+            menus.forEach(function(menu){
+                menu.updateAttribute('rec', recipeIds);
+            });
+            console.log(menus);
+
+        });
+
+
+    };
+
+
 };
