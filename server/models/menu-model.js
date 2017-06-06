@@ -94,6 +94,26 @@ module.exports = function(MenuModel) {
 
 	};
 
+	MenuModel.orderByDate = function(order){
+
+		if(order){ // DESC
+			var query = {
+			  order: 'date DESC',
+			  limit: 3
+			};
+
+		} else { //ASC
+			var query = {
+			  order: 'date ASC',
+			  limit: 3
+			};
+		}
+
+		console.log(query);
+
+	};
+
+
 	MenuModel.MenuRecipesIngredients = function(menuId, cb){
 		var RecipeModel = VideoModel.app.models.RecipeModel;
 
