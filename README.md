@@ -27,3 +27,16 @@ Use this reference for adding such a functionality: https://github.com/optis/loo
 
 
 https://recipe-api-loopback.herokuapp.com/
+
+
+Free Menu
+GET ONLY right now
+recipe/id/ingredients
+grocery/id/departments
+menu/id/grocery
+departments/id/ingredients
+users/id/menu/id
+
+Menu filter by date ASC/DESC
+
+@TODO Search 
