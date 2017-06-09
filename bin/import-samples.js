@@ -66,29 +66,6 @@ var Menu        = app.models.MenuModel;
 // });
 
 
-// videos(function(array){
-
-// 	Video.create(array)
-// 		 .then(function(videos){
-
-// 		 	// User.findOne({fields:'id', where: { name:'admin' }})
-// 				// .then(function(result){
-
-// 				// 	videos.forEach(function(video){
-// 				//  		video.updateAttribute('userId', result.id);
-// 				//  	})
-
-
-// 				// });
-
-// 			User.addVideos(videos);	
-		 		
-// 		 		console.log(videos);
-
-// 		 })
-
-// });
-
 	
 // groceries(function(array){
 

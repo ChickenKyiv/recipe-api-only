@@ -97,7 +97,7 @@ module.exports = function(MenuModel) {
 
 	};
 
-	MenuModel.orderByDate = function(order){
+	MenuModel.orderByDate = function(order, cb){
 
 		if(order == 'desc'){ // DESC
 			var query = {
@@ -110,15 +110,24 @@ module.exports = function(MenuModel) {
 		if(order == 'asc') { //ASC
 			var query = {
 			  order: 'date ASC',
+			  fields:['title', 'date','description', 'recipes']
 			  // limit: 3
 			};
 		}
 
-		console.log(query);
+		// console.log(query);
 
-		return MenuModel.find(query).then(function(menus){
-			console.log(menus);
-		})
+		// return MenuModel.find(query,cb);
+		// return 
+		MenuModel.find(query, cb);
+		// MenuModel.find(query).then(cb);
+		// return 
+		// MenuModel.find(query).then(function(menus){
+		// 	console.log(menus);
+		// 	cb(menus);
+		// })
+				// MenuModel.find(query,cb);
+		// VideoModel.find({}, cb);
 
 	};
 
