@@ -102,6 +102,7 @@ module.exports = function(MenuModel) {
 		if(order == 'desc'){ // DESC
 			var query = {
 			  order: 'date DESC',
+			   fields:['title', 'date','description', 'recipes']
 			  // limit: 3
 			};
 
