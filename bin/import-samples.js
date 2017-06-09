@@ -183,6 +183,8 @@ menus(function(array) {
 
 			Recipe.attachToMenu(menus);
 
+			// console.log(menus);
+
 
 
 		});
