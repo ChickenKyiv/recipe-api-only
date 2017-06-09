@@ -179,7 +179,7 @@ module.exports = function(MenuModel) {
 		  type: 'array'
 		},
 		http: {
-		  path: '/menu/list/recipes/short',
+		  path: '/list/recipes/short',
 		  verb: 'get'
 		}
 	});
@@ -227,7 +227,7 @@ module.exports = function(MenuModel) {
 		  type: 'array'
 		},
 		http: {
-		  path: '/menu/list/recipes',
+		  path: '/list/recipes',
 		  verb: 'get'
 		}
 	});
@@ -279,7 +279,7 @@ module.exports = function(MenuModel) {
 		  type: 'array'
 		},
 		http: {
-		  path: '/menu/list/grocery',
+		  path: '/list/grocery',
 		  verb: 'get'
 		}
 	});
