@@ -18,8 +18,8 @@ let menus       = require(path.resolve(__dirname, 'sample-menus-data'));
 
 
 var User        = app.models.UserModel;
-var Role        = app.models.Role;
-var RoleMapping = app.models.RoleMapping;
+// var Role        = app.models.Role;
+// var RoleMapping = app.models.RoleMapping;
 
 
 var Recipe      = app.models.RecipeModel; 
@@ -39,22 +39,22 @@ accounts(function(array){
 			// console.log(users);
 
 			// User.findOne({fields:'id', where: { name:'admin' }})
-				.then(function(result){
+			// 	.then(function(result){
 					
-					Role.create({ name:'admin' })
-						.then(function(role){
+			// 		Role.create({ name:'admin' })
+			// 			.then(function(role){
 
-							role.principals.create({
-						        principalType: RoleMapping.USER,
-						        principalId: result.id
-						    }, function(err, principal){
-						    	console.log('Principal', principal);
-						    });
-						})
-						.catch(function(err){
-							throw err;
-						})
-				})		
+			// 				role.principals.create({
+			// 			        principalType: RoleMapping.USER,
+			// 			        principalId: result.id
+			// 			    }, function(err, principal){
+			// 			    	console.log('Principal', principal);
+			// 			    });
+			// 			})
+			// 			.catch(function(err){
+			// 				throw err;
+			// 			})
+			// 	});		
 			User.assign();
 
 		})

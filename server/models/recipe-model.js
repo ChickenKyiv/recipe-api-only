@@ -80,12 +80,12 @@ module.exports = function(RecipeModel) {
         })
         .then(function(recipeIds){
             console.log(recipeIds);
-
+            console.log('-------');
             menus.forEach(function(menu){
-                menu.updateAttribute('rec', recipeIds);
+                menu.updateAttribute('recipes', recipeIds);
             });
             console.log(menus);
-
+            console.log('-------');
         });
 
 

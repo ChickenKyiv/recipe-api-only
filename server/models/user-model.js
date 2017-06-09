@@ -63,7 +63,8 @@ module.exports = function(UserModel) {
 
   UserModel.getMenuId = function(userId, cb){
     return UserModel.findOne(userId, { fields:'menu' }, cb);
-  }
+  };
+
   UserModel.remoteMethod('getMenuId', {
     description: '',
     accepts: {
@@ -109,13 +110,13 @@ module.exports = function(UserModel) {
   // assign admin role to admin user
   UserModel.assign = function(){
 
-    var RoleModel   = UserModel.app.models.RoleModel;
+    var Role        = UserModel.app.models.Role;
     var RoleMapping = UserModel.app.models.RoleMappingModel;
 
     UserModel.findOne({fields:'id', where: { name:'admin' }})
       .then(function(result){
         
-        RoleModel.create({ name:'admin' })
+        Role.create({ name:'admin' })
           .then(function(role){
 
             role.principals.create({

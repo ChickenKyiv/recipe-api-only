@@ -12,7 +12,8 @@ module.exports = function getSampleData (cb){
 		title: "string", 
 		date: "December 17, 2003 03:24:00",
 		desc: "string", 
-		recipes: ["1989","1990"],
+		recipes: [],
+		// recipes: ["1989","1990"],
 
 
 	},
@@ -23,7 +24,8 @@ module.exports = function getSampleData (cb){
 		title: "string", 
 		date: "December 17, 2003 03:24:00", 
 		desc: "string", 
-		recipes: ["1980", "1990"], 
+		recipes: [],
+		// recipes: ["1980", "1990"], 
 
 	},
     {
