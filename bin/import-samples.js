@@ -118,54 +118,29 @@ var Menu        = app.models.MenuModel;
 // });
 
 
-recipes(function(array){
+// recipes(function(array){
 
-	// console.log(Recipe);
-
-
-	Recipe.create(array)
-		 .then(function(recipes){
-
-		 	// User.findOne({fields:'id', where: { name:'admin' }})
-				// .then(function(result){
-
-				// 	videos.forEach(function(video){
-				//  		video.updateAttribute('userId', result.id);
-				//  	})
+// 	// console.log(Recipe);
 
 
-				// });
+// 	Recipe.create(array)
+// 		 .then(function(recipes){
 
-			// User.addVideos(videos);	
+		 	
+
+// 			// User.addVideos(videos);	
 		 		
-		 		// console.log(recipes);
+// 		 		// console.log(recipes);
 
-		 }).catch(function(err){throw err;});
-});
+// 		 }).catch(function(err){throw err;});
+// });
 
 menus(function(array) {
 	
 	Menu.create(array)
 		.then(function(menus){
 
-			// Recipe.find({
-			// 	fields: 'id'
-			// })
-			// .then(function(recipeIds){
-			// 	console.log(recipeIds);
-
-			// 	menus.forEach(function(menu){
-			// 		menu.updateAttribute('rec', recipeIds);
-			// 	});
-			// 	console.log(menus);
-
-			// });
-
 			Recipe.attachToMenu();
-
-			// console.log(menus);
-
-
 
 		});
 
