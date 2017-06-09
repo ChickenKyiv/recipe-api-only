@@ -10,9 +10,11 @@ let recipes     = require(path.resolve(__dirname, 'sample-recipes-data'));
 
 let menus       = require(path.resolve(__dirname, 'sample-menus-data'));
 
-let ingredients = require(path.resolve(__dirname, 'sample-ingredients-data'));
+// let ingredients = require(path.resolve(__dirname, 'sample-ingredients-data'));
 
-let groceries   = require(path.resolve(__dirname, 'sample-grocery-data'));
+// let groceries   = require(path.resolve(__dirname, 'sample-grocery-data'));
+
+// let departments = require(path.resolve(__dirname, 'sample-departments-data'));
 
 
 var User        = app.models.UserModel;
@@ -21,10 +23,12 @@ var RoleMapping = app.models.RoleMapping;
 
 
 var Recipe      = app.models.RecipeModel; 
-var Ingredient  = app.models.IngredientModel;
+// var Ingredient  = app.models.IngredientModel;
 
 var Menu        = app.models.MenuModel;
-var Grocery     = app.models.GroceryModel;
+// var Grocery     = app.models.GroceryModel;
+
+// var Department  = app.models.DepartmentModel;
 
 accounts(function(array){
 
@@ -62,10 +66,85 @@ accounts(function(array){
 });
 
 
-videos(function(array){
+// videos(function(array){
 
-	Video.create(array)
-		 .then(function(videos){
+// 	Video.create(array)
+// 		 .then(function(videos){
+
+// 		 	// User.findOne({fields:'id', where: { name:'admin' }})
+// 				// .then(function(result){
+
+// 				// 	videos.forEach(function(video){
+// 				//  		video.updateAttribute('userId', result.id);
+// 				//  	})
+
+
+// 				// });
+
+// 			User.addVideos(videos);	
+		 		
+// 		 		console.log(videos);
+
+// 		 })
+
+// });
+
+	
+// groceries(function(array){
+
+// 	Grocery.create(array)
+// 	.then(function(groceries){
+
+// 		// Department.find({})
+// 		// .then(function(departments){
+
+// 		// 	groceries.forEach(function(grocery){
+// 		// 	 	grocery.updateAttribute('department', departments);
+// 		// 	})
+// 		// })
+// 		// .catch(function(err){
+// 		// 	throw err;
+// 		// });
+// 		Department.addGrocery(groceries);
+
+// 	});
+
+// });
+
+// ingredients(function(array){
+
+// 	Ingredient.create(array)
+// 	.then(function(ingredients){
+// 		// just first recipe
+// 		Recipe.findOne({
+// 			fields:'id',
+// 			where: { title:'Crock Pot Roast1' }
+// 		})
+// 		.then(function(result){
+
+// 			ingredients.forEach(function(ingredients){
+// 			 	ingredients.updateAttribute('userId', result.id);
+// 			})
+
+
+// 		});
+
+// 		Recipe.addIngredients(ingredients);
+	
+// 		console.log(ingredients);
+
+// 	})
+// 	.catch(function(err){
+// 		throw err;
+// 	})
+
+// });
+
+
+recipes(function(array){
+
+	Recipe.create(array)
+		 .then(function(recipes){
 
 		 	// User.findOne({fields:'id', where: { name:'admin' }})
 				// .then(function(result){
@@ -77,63 +156,11 @@ videos(function(array){
 
 				// });
 
-			User.addVideos(videos);	
+			// User.addVideos(videos);	
 		 		
-		 		console.log(videos);
+		 		console.log(recipes);
 
-		 })
-
-});
-
-	
-groceries(function(array){
-
-	Grocery.create(array)
-	.then(function(groceries){
-
-		// Department.find({})
-		// .then(function(departments){
-
-		// 	groceries.forEach(function(grocery){
-		// 	 	grocery.updateAttribute('department', departments);
-		// 	})
-		// })
-		// .catch(function(err){
-		// 	throw err;
-		// });
-		Department.addGrocery(groceries);
-
-	});
-
-});
-
-ingredients(function(array){
-
-	Ingredient.create(array)
-	.then(function(ingredients){
-		// just first recipe
-		Recipe.findOne({
-			fields:'id',
-			where: { title:'Crock Pot Roast1' }
-		})
-		.then(function(result){
-
-			ingredients.forEach(function(ingredients){
-			 	ingredients.updateAttribute('userId', result.id);
-			})
-
-
-		});
-
-		Recipe.addIngredients(ingredients);
-	
-		console.log(ingredients);
-
-	})
-	.catch(function(err){
-		throw err;
-	})
-
+		 });
 });
 
 menus(function(array) {
@@ -162,14 +189,14 @@ menus(function(array) {
 
 });
 
-departments(function(array){
+// departments(function(array){
 
-	Department.create(array)
-	.then(function(departments){
-		console.log(departments);
-	})
-	.catch(function(err){
-		throw err;
-	});
+// 	Department.create(array)
+// 	.then(function(departments){
+// 		console.log(departments);
+// 	})
+// 	.catch(function(err){
+// 		throw err;
+// 	});
 
-});
+// });

@@ -96,16 +96,18 @@ module.exports = function(MenuModel) {
 
 	MenuModel.orderByDate = function(order){
 
-		if(order){ // DESC
+		if(order == 'desc'){ // DESC
 			var query = {
 			  order: 'date DESC',
-			  limit: 3
+			  // limit: 3
 			};
 
-		} else { //ASC
+		}
+
+		if(order == 'asc') { //ASC
 			var query = {
 			  order: 'date ASC',
-			  limit: 3
+			  // limit: 3
 			};
 		}
 
@@ -116,6 +118,21 @@ module.exports = function(MenuModel) {
 		})
 
 	};
+
+	MenuModel.remoteMethod('orderByDate', {
+		accepts: {
+		  arg: 'order',
+		  type: 'string'
+		},
+		returns: {
+		  arg: 'menus',
+		  type: 'array'
+		},
+		http: {
+		  path: '/filter/date',
+		  verb: 'get'
+		}
+	});
 
 
 	MenuModel.MenuRecipesIngredients = function(menuId, cb){

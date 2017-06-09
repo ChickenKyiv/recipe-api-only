@@ -132,19 +132,19 @@ module.exports = function(UserModel) {
   };
 
 
-  UserModel.addVideos = function (videos) {
-      UserModel.findOne({
-        fields:'id', where: { name:'admin' }
-      })
-     .then(function(result){
+  // UserModel.addVideos = function (videos) {
+  //     UserModel.findOne({
+  //       fields:'id', where: { name:'admin' }
+  //     })
+  //    .then(function(result){
 
-        videos.forEach(function(video){
-          video.updateAttribute('userId', result.id);
-        })
+  //       videos.forEach(function(video){
+  //         video.updateAttribute('userId', result.id);
+  //       })
 
-      });
+  //     });
 
-  };
+  // };
 
 
   
