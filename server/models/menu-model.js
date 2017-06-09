@@ -118,17 +118,8 @@ module.exports = function(MenuModel) {
 
 		// console.log(query);
 
-		// return MenuModel.find(query,cb);
-		// return 
 		MenuModel.find(query, cb);
-		// MenuModel.find(query).then(cb);
-		// return 
-		// MenuModel.find(query).then(function(menus){
-		// 	console.log(menus);
-		// 	cb(menus);
-		// })
-				// MenuModel.find(query,cb);
-		// VideoModel.find({}, cb);
+		
 
 	};
 
