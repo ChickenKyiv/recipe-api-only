@@ -15,13 +15,13 @@
       "type": "date",
       "required": true
     },
-    "desc": {
+    "description": {
       "type": "string",
       "required": true
     },
     "recipes": {
       "type": "object",
-      "required": true
+      "required": false
     },
     "created_at": {
       "type": "date",
@@ -34,11 +34,7 @@
   },
   "validations": [],
   "relations": {
-    "rec": {
-      "type": "hasMany",
-      "model": "recipes",
-      "foreignKey": ""
-    }
+    
   },
   "acls": [
     {

@@ -111,7 +111,7 @@ module.exports = function(UserModel) {
   UserModel.assign = function(){
 
     var Role        = UserModel.app.models.Role;
-    var RoleMapping = UserModel.app.models.RoleMappingModel;
+    var RoleMapping = UserModel.app.models.RoleMapping;
 
     UserModel.findOne({fields:'id', where: { name:'admin' }})
       .then(function(result){

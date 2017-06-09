@@ -30,40 +30,40 @@ var Menu        = app.models.MenuModel;
 
 // var Department  = app.models.DepartmentModel;
 
-accounts(function(array){
+// accounts(function(array){
 
 
 
-	User.create(array)
-		.then(function(users){
-			// console.log(users);
+// 	User.create(array)
+// 		.then(function(users){
+// 			// console.log(users);
 
-			// User.findOne({fields:'id', where: { name:'admin' }})
-			// 	.then(function(result){
+// 			// User.findOne({fields:'id', where: { name:'admin' }})
+// 			// 	.then(function(result){
 					
-			// 		Role.create({ name:'admin' })
-			// 			.then(function(role){
+// 			// 		Role.create({ name:'admin' })
+// 			// 			.then(function(role){
 
-			// 				role.principals.create({
-			// 			        principalType: RoleMapping.USER,
-			// 			        principalId: result.id
-			// 			    }, function(err, principal){
-			// 			    	console.log('Principal', principal);
-			// 			    });
-			// 			})
-			// 			.catch(function(err){
-			// 				throw err;
-			// 			})
-			// 	});		
-			User.assign();
+// 			// 				role.principals.create({
+// 			// 			        principalType: RoleMapping.USER,
+// 			// 			        principalId: result.id
+// 			// 			    }, function(err, principal){
+// 			// 			    	console.log('Principal', principal);
+// 			// 			    });
+// 			// 			})
+// 			// 			.catch(function(err){
+// 			// 				throw err;
+// 			// 			})
+// 			// 	});		
+// 			User.assign();
 
-		})
-		.catch(function(err){
-			throw err;
-		})
+// 		})
+// 		.catch(function(err){
+// 			throw err;
+// 		})
 
 
-});
+// });
 
 
 // videos(function(array){
@@ -143,6 +143,9 @@ accounts(function(array){
 
 recipes(function(array){
 
+	// console.log(Recipe);
+
+
 	Recipe.create(array)
 		 .then(function(recipes){
 
@@ -158,9 +161,9 @@ recipes(function(array){
 
 			// User.addVideos(videos);	
 		 		
-		 		console.log(recipes);
+		 		// console.log(recipes);
 
-		 });
+		 }).catch(function(err){throw err;});
 });
 
 menus(function(array) {
@@ -181,7 +184,7 @@ menus(function(array) {
 
 			// });
 
-			Recipe.attachToMenu(menus);
+			Recipe.attachToMenu();
 
 			// console.log(menus);
 

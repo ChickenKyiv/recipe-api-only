@@ -2,21 +2,24 @@
 
 module.exports = function(MenuModel) {
 	//@TODO update this, 'cause we've updated relations
-	MenuModel.validatesPresenceOf('title', 'date', 'desc', 'recipes');
+	MenuModel.validatesPresenceOf(
+		'title', 'date', 'description' 
+		// 'recipes'
+		);
 
 
 	MenuModel.observe("after save", function (ctx, next) {
 
 		// console.log( ctx.instance.rec );
 
-       MenuModel.app.models.Email.send({
-	    to: 'arthur.tkachenko.netweight@gmail.com',
-	    from: 'noreply@loopback.loop',
-	    subject: 'Thank you for adding to menu ',
-	    html: '<p>We confirm - menu was saved</p>'
-	  }, function (err, mail) {
-	    console.log('email sent!');
-	  });
+   //     MenuModel.app.models.Email.send({
+	  //   to: 'arthur.tkachenko.netweight@gmail.com',
+	  //   from: 'noreply@loopback.loop',
+	  //   subject: 'Thank you for adding to menu ',
+	  //   html: '<p>We confirm - menu was saved</p>'
+	  // }, function (err, mail) {
+	  //   console.log('email sent!');
+	  // });
 
 		
 

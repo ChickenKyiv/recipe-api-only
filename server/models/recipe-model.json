@@ -7,18 +7,12 @@
     "validateUpsert": true
   },
   "properties": {
-    "name": {
-      "type": "string",
-      "required": true
-    },
+    
     "img": {
       "type": "string",
       "required": true
     },
-    "url": {
-      "type": "string",
-      "required": true
-    },
+   
     "title": {
       "type": "string",
       "required": true
@@ -54,11 +48,7 @@
   },
   "validations": [],
   "relations": {
-    "ing": {
-      "type": "hasMany",
-      "model": "ingredients",
-      "foreignKey": ""
-    }
+    
   },
   "acls": [
     {

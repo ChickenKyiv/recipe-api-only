@@ -3,7 +3,9 @@
 module.exports = function(RecipeModel) {
 
 	RecipeModel.validatesPresenceOf(
-		'img', 'url', 'title', 'ingredients', 
+		'img', 
+        // 'url',
+         'title', 'ingredients', 
 		'directions', 'prep_time', 'total_time',
 		'recipe_yield'
 		);
@@ -73,19 +75,43 @@ module.exports = function(RecipeModel) {
     });
 
 
-    RecipeModel.attachToMenu = function(menus){
-
+    RecipeModel.attachToMenu = function(){
+        var MenuModel = RecipeModel.app.models.MenuModel;
+    // var RoleMapping = UserModel.app.models.RoleMapping;
         RecipeModel.find({
             fields: 'id'
         })
         .then(function(recipeIds){
             console.log(recipeIds);
-            console.log('-------');
-            menus.forEach(function(menu){
-                menu.updateAttribute('recipes', recipeIds);
+
+            // recipeIds.forEach(function(element){
+            //     element.id
+            // });
+
+
+            var result = Object.keys(recipeIds).map(function(e) {
+              return recipeIds[e].id;
             });
-            console.log(menus);
-            console.log('-------');
+
+            console.log(result);
+            // console.log('-------');
+
+            MenuModel.find({})
+            .then(function(menus){
+                console.log(menus);
+                console.log('-------');
+
+                menus.forEach(function(menu){
+                    menu.updateAttribute('recipes', result);
+                });    
+                console.log(menus);
+                console.log('-------');
+            })
+            
+
+            
+        }).catch(function(err){
+            throw err;
         });
 
 

@@ -4,7 +4,7 @@ module.exports = function getSampleData (cb){
 
 	var recipes = [
 	{ 
-		customerId: "2", 
+		// customerId: "2", 
 		// ing:[ "6", "7", "8" ],
 		// ingredients: [ "6", "7", "8" ],
 		 // id: "1989",
@@ -51,7 +51,7 @@ module.exports = function getSampleData (cb){
 	  
 	},
 	{ 
-		customerId: "1", 
+		// customerId: "1", 
 		// ing:[ "7", "8", "9" ],
 		// ingredients: [ "6", "7", "8" ],
 	 // id: "1990",
