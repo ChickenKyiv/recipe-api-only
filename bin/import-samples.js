@@ -26,9 +26,9 @@ var Recipe      = app.models.RecipeModel;
 // var Ingredient  = app.models.IngredientModel;
 
 var Menu        = app.models.MenuModel;
-// var Grocery     = app.models.GroceryModel;
+var Grocery     = app.models.GroceryModel;
 
-// var Department  = app.models.DepartmentModel;
+var Department  = app.models.DepartmentModel;
 
 // accounts(function(array){
 
@@ -66,27 +66,6 @@ var Menu        = app.models.MenuModel;
 // });
 
 
-	
-// groceries(function(array){
-
-// 	Grocery.create(array)
-// 	.then(function(groceries){
-
-// 		// Department.find({})
-// 		// .then(function(departments){
-
-// 		// 	groceries.forEach(function(grocery){
-// 		// 	 	grocery.updateAttribute('department', departments);
-// 		// 	})
-// 		// })
-// 		// .catch(function(err){
-// 		// 	throw err;
-// 		// });
-// 		Department.addGrocery(groceries);
-
-// 	});
-
-// });
 
 // ingredients(function(array){
 
@@ -146,14 +125,27 @@ menus(function(array) {
 
 });
 
-// departments(function(array){
+departments(function(array){
 
-// 	Department.create(array)
-// 	.then(function(departments){
-// 		console.log(departments);
-// 	})
-// 	.catch(function(err){
-// 		throw err;
-// 	});
+	Department.create(array)
+	.then(function(departments){
+		console.log(departments);
+	})
+	.catch(function(err){
+		throw err;
+	});
 
-// });
+});
+
+	
+groceries(function(array){
+
+	Grocery.create(array)
+	.then(function(groceries){
+
+	
+		Department.addGrocery(groceries);
+
+	});
+
+});

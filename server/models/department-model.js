@@ -9,7 +9,7 @@ module.exports = function(DepartmentModel) {
 	});
 
 
-    DepartmentModel.addGrocery = function (groceries) {
+  DepartmentModel.prototype.addGrocery = function (groceries) {
 		var GroceryModel =  DepartmentModel.app.models.GroceryModel;    	
 
       DepartmentModel.find({})
