@@ -2,6 +2,19 @@
 
 module.exports = function(UserModel) {
 
+  // Usermodel.validatesPresenceOf('username');
+  // Usermodel.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
+    
+  // var re = /^(([^<>()[\]\\.,;:\s@\"]-(\.[^<>()[\]\\.,;:\s@\"]-)*)|(\".-\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]-\.)-[a-zA-Z]{2,}))$/;
+
+  // UserModel.validatesFormatOf('email', {with: re, message: 'Must provide a valid email'});
+  // if (!(UserModel.settings.realmRequired || UserModel.settings.realmDelimiter)) {
+  //   UserModel.validatesUniquenessOf('email', {message: 'Email already exists'});
+  //   UserModel.validatesUniquenessOf('username', {message: 'User already exists'});
+  // }
+
+
+
   UserModel.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
   
   UserModel.validatesUniquenessOf('email', {message: 'email is not unique'});
