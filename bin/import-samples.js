@@ -30,9 +30,8 @@ var Grocery     = app.models.GroceryModel;
 
 var Department  = app.models.DepartmentModel;
 
+
 accounts(function(array){
-
-
 
 	User.create(array)
 		.then(function(users){
@@ -44,7 +43,6 @@ accounts(function(array){
 			throw err;
 		})
 
-
 });
 
 
@@ -52,7 +50,6 @@ accounts(function(array){
 
 
 recipes(function(array){
-
 
 	Recipe.create(array)
 		 .then(function(recipes){
@@ -65,19 +62,6 @@ ingredients(function(array){
 
 	Ingredient.create(array)
 	.then(function(ingredients){
-		// just first recipe
-		Recipe.findOne({
-			fields:'id',
-			where: { title:'Crock Pot Roast1' }
-		})
-		.then(function(result){
-
-			ingredients.forEach(function(ingredients){
-			 	ingredients.updateAttribute('userId', result.id);
-			})
-
-
-		});
 
 		Recipe.addIngredients(ingredients);
 	
@@ -119,7 +103,6 @@ groceries(function(array){
 
 	Grocery.create(array)
 	.then(function(groceries){
-
 	
 		Department.addGrocery(groceries);
 
