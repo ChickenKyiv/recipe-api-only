@@ -5,15 +5,25 @@ module.exports = function getSampleData (){
    
      var holidays    = [
      {
-          "id":"holiday-christmas","name":"Christmas","type":"holiday","description":"Christmas",
-     "searchValue":"holiday^holiday-christmas","localesAvailableIn":["en-US"]
+          "id":"holiday-christmas",
+          "name":"Christmas",
+          "type":"holiday",
+          "description":"Christmas",
+     "searchValue":"holiday^holiday-christmas",
+     "localesAvailableIn":["en-US"]
      },
      {
-          "id":"holiday-thanksgiving","name":"Thanksgiving","type":"holiday","description":"Thanksgiving",
-     "searchValue":"holiday^holiday-thanksgiving","localesAvailableIn":["en-US"]
+          "id":"holiday-thanksgiving",
+          "name":"Thanksgiving",
+          "type":"holiday",
+          "description":"Thanksgiving",
+     "searchValue":"holiday^holiday-thanksgiving",
+     "localesAvailableIn":["en-US"]
      },
      {
-          "id":"holiday-summer","name":"Summer","type":"holiday","description":"Summer",
+          "id":"holiday-summer",
+          "name":"Summer","type":"holiday",
+          "description":"Summer",
      "searchValue":"holiday^holiday-summer","localesAvailableIn":["en-US"]
      },
      {
