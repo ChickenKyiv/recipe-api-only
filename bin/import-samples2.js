@@ -19,6 +19,14 @@ let getExampleVideos = require(path.resolve(__dirname, 'sample-examples-video-da
 
 let casesList        = require(path.resolve(__dirname, 'sample-examples-list'));
 
+let getAllergy  = require(path.resolve(__dirname, 'allergy'));;
+let getCourses  = require(path.resolve(__dirname, 'courses'));;
+let getCuisine  = require(path.resolve(__dirname, 'cuisine'));;
+let getDiets    = require(path.resolve(__dirname, 'diet'));;
+let getHolidays = require(path.resolve(__dirname, 'holidays'));;
+
+
+//models
 var User        = server.models.UserModel;
 
 var Video       = server.models.VideoModel;
