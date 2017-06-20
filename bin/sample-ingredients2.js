@@ -1,3 +1,8 @@
+'use strict';
+
+
+module.exports = function getSampleData (){
+   
 var ingredient  = [
 	{"searchValue":"salt","description":"salt","term":"salt"},
 	{"searchValue":"butter","description":"butter","term":"butter"},
@@ -1603,3 +1608,8 @@ var ingredient  = [
 	{"searchValue":"Barritts Ginger Beer","description":"Barritts Ginger Beer","term":"Barritts Ginger Beer"},
 	{"searchValue":"absolut mandrin","description":"absolut mandrin","term":"absolut mandrin"}
 	];
+
+    
+  	return ingredient;
+
+};
