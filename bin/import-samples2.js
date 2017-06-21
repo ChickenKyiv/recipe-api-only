@@ -93,7 +93,7 @@ var Holiday =  server.models.HolidayModel;
 // results.cuisines
 // results.courses
 // results.allergies
-// results.department
+// results.departments
 // results.groceries
 
 		attachVideosToUsers(results.users, results.videos, function(err){
@@ -116,16 +116,26 @@ var Holiday =  server.models.HolidayModel;
 		// attachExampleVideosToAdmin(results.users, results.examples4, function(err){
 		// 	console.log('>examples4 attached to admin');
 		// });
-attachRecipeToUsers();
-attachRecipeToUsers();
-attachIngredientsToRecipes();
-attachRecipesToMenu();
-attachDepartmentsToGroceries();
-attachAllergiesToRecipes();
-attachCoursesToRecipes();
-attachCuisinesToRecipes();
-attachDietsToRecipes();
-attachHolidaysToRecipes();
+
+// attachRecipeToUsers();
+
+		attachRecipeToUsers(results.recipes, results.users, cb);
+		attachMenusToUsers(results.menus, results.users, cb)
+		attachIngredientsToRecipes(results.ingredients, results.recipes, cb);
+
+		attachRecipesToMenu(results.recipes, results.menus, cb);
+
+		attachDepartmentsToGroceries(results.departments, results.groceries, cb);
+
+		attachAllergiesToRecipes(results.allergies, results.recipes, cb);
+
+		attachCoursesToRecipes(results.courses, results.recipes, cb);
+
+		attachCuisinesToRecipes(results.cuisines, results.recipes, cb);
+
+		attachDietsToRecipes(results.diets, results.recipes, cb);
+
+		attachHolidaysToRecipes(results.holidays, results.recipes, cb);
 
 	});
 
@@ -307,5 +317,4 @@ function attachHolidaysToRecipes(){
 // 	// });
 
 // };
-
 
