@@ -48,24 +48,32 @@ Free Menu Release:
 
 GET http://localhost:3000/api/menu?access_token=%token%
 Get list with all created menus(with recipe Ids)
-![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack API Explorer1.png)
-![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack API Explorer2.png)
+
+![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack%20API%20Explorer1.png)
+
+![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack%20API%20Explorer2.png)
 
 GET http://localhost:3000/api/menu/593ac56c2c941720bc3091b1?access_token=%token%
 Get one menu by Id
-![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack API Explorer3.png)
-![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack API Explorer4.png)
+
+![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack%20API%20Explorer3.png)
+
+![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack%20API%20Explorer4.png)
 
 
 GET http://localhost:3000/api/recipe?access_token=%token%
 Get list with all created recipes
-![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack API Explorer5.png)
-![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack API Explorer6.png)
+
+![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack%20API%20Explorer5.png)
+
+![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack%20API%20Explorer6.png)
 
 GET http://localhost:3000/api/recipe/593abe383199170e50a5272d?access_token=%token%
 Get one recipe by Id
-![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack API Explorer7.png)
-![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack API Explorer8.png)
+
+![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack%20API%20Explorer7.png)
+
+![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack%20API%20Explorer8.png)
 
 GET 
 Get ingredients and display them in list view with directions and link to recipy by recipeId
