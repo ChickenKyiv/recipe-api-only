@@ -23,13 +23,6 @@ let getDepartments   = require(path.resolve(__dirname, 'sample-departments-data'
 
 let getUsers         = require(path.resolve(__dirname, 'sample-users-data'));
 
-let getVideos        = require(path.resolve(__dirname, 'sample-videos-data'));
-
-// let getExamples  = require(path.resolve(__dirname, 'sample-examples-cases-data'));
-
-let getExampleVideos = require(path.resolve(__dirname, 'sample-examples-video-data'));
-
-let casesList        = require(path.resolve(__dirname, 'sample-examples-list'));
 
 let getAllergy  = require(path.resolve(__dirname, 'allergy'));
 let getCourses  = require(path.resolve(__dirname, 'courses'));
@@ -142,127 +135,127 @@ function createUsers(cb){
 	});
 };
 
-function createRecipes(cb){
-	// database.automigrate('RecipeModel', function(err){
-	// 	if (err) return cb(err);
 
-	// 	Video.create(getVideos(), cb);
-	// });
+
+let getUsers         = require(path.resolve(__dirname, 'sample-users-data'));
+
+let getRecipes       = require(path.resolve(__dirname, 'sample-recipes-data'));
+
+let getMenus         = require(path.resolve(__dirname, 'sample-menus-data'));
+
+let getIngredients   = require(path.resolve(__dirname, 'sample-ingredients-data'));
+
+let getGroceries     = require(path.resolve(__dirname, 'sample-grocery-data'));
+
+let getDepartments   = require(path.resolve(__dirname, 'sample-departments-data'));
+
+// let getUsers         = require(path.resolve(__dirname, 'sample-users-data'));
+
+
+let getAllergy  = require(path.resolve(__dirname, 'allergy'));
+let getCourses  = require(path.resolve(__dirname, 'courses'));
+let getCuisine  = require(path.resolve(__dirname, 'cuisine'));
+let getDiets    = require(path.resolve(__dirname, 'diet'));
+let getHolidays = require(path.resolve(__dirname, 'holidays'));
+
+function createRecipes(cb){
+	database.automigrate('RecipeModel', function(err){
+		if (err) return cb(err);
+
+		Recipe.create(getRecipes(), cb);
+	});
 };
 
 function createIngredients(cb){
-	// database.automigrate('IngredientModel', function(err){
-	// 	if (err) return cb(err);
+	database.automigrate('IngredientModel', function(err){
+		if (err) return cb(err);
 
-	// 	var examples = getExampleVideos();
-	// 	Examples.create(getVideos(), cb);
-	// });
+		Ingredient.create(getIngredients(), cb);
+	});
 };
 
 
 function createMenus(cb){
-	// database.autoupdate('MenuModel', function(err){
-	// 	if (err) return cb(err);
+	database.autoupdate('MenuModel', function(err){
+		if (err) return cb(err);
 
-	// 	var examples = getExampleVideos();
-	// 	// Video.create(getExampleVideos(), cb);
-	// 	Video.create(examples[0], cb);
-	// 	// Video.create(examples[1], cb);
-	// 	// Video.create(examples[2], cb);
-	// 	// Video.create(examples[3], cb);
-	// });
+	
+	
+		Menu.create(getMenus(), cb);
+	
+	});
 };
 
 function createGroceries(cb){
-	// database.autoupdate('GroceryModel', function(err){
-	// 	if (err) return cb(err);
+	database.autoupdate('GroceryModel', function(err){
+		if (err) return cb(err);
 
-	// 	var examples = getExampleVideos();
-	// 	// Video.create(getExampleVideos(), cb);
-	// 	// Video.create(examples[0], cb);
-	// 	Video.create(examples[1], cb);
-	// 	// Video.create(examples[2], cb);
-	// 	// Video.create(examples[3], cb);
-	// });
+	
+	
+		Grocery.create(getGroceries(), cb);
+	
+	});
 };
 
 function createDepartments(cb){
-	// database.autoupdate('DepartmentModel', function(err){
-	// 	if (err) return cb(err);
+	database.autoupdate('DepartmentModel', function(err){
+		if (err) return cb(err);
 
-	// 	var examples = getExampleVideos();
-	// 	// Video.create(getExampleVideos(), cb);
-	// 	// Video.create(examples[0], cb);
-	// 	// Video.create(examples[1], cb);
-	// 	Video.create(examples[2], cb);
-	// 	// Video.create(examples[3], cb);
-	// });
+	
+	
+		Department.create(getDepartments(), cb);
+	
+	});
 };
 
 function createAllergies(cb){
-	// database.autoupdate('AllergyModel', function(err){
-	// 	if (err) return cb(err);
+	database.autoupdate('AllergyModel', function(err){
+		if (err) return cb(err);
 
-	// 	var examples = getExampleVideos();
-	// 	// Video.create(getExampleVideos(), cb);
-	// 	// Video.create(examples[0], cb);
-	// 	// Video.create(examples[1], cb);
-	// 	// Video.create(examples[2], cb);
-	// 	Video.create(examples[3], cb);
-	// });
+	
+	
+		Allergy.create(getAllergy(), cb);
+	});
 };
 
 function createCourses(cb){
-	// database.autoupdate('CourseModel', function(err){
-	// 	if (err) return cb(err);
+	database.autoupdate('CourseModel', function(err){
+		if (err) return cb(err);
 
-	// 	var examples = getExampleVideos();
-	// 	// Video.create(getExampleVideos(), cb);
-	// 	// Video.create(examples[0], cb);
-	// 	// Video.create(examples[1], cb);
-	// 	// Video.create(examples[2], cb);
-	// 	Video.create(examples[3], cb);
-	// });
+	
+	
+		Course.create(getCourses(), cb);
+	});
 };
 
 function createCuisines(cb){
-	// database.autoupdate('CuisineModel', function(err){
-	// 	if (err) return cb(err);
+	database.autoupdate('CuisineModel', function(err){
+		if (err) return cb(err);
 
-	// 	var examples = getExampleVideos();
-	// 	// Video.create(getExampleVideos(), cb);
-	// 	// Video.create(examples[0], cb);
-	// 	// Video.create(examples[1], cb);
-	// 	// Video.create(examples[2], cb);
-	// 	Video.create(examples[3], cb);
-	// });
+	
+	
+		Cuisine.create(getCuisine(), cb);
+	});
 };
 
 function createDiets(cb){
-	// database.autoupdate('DietModel', function(err){
-	// 	if (err) return cb(err);
+	database.autoupdate('DietModel', function(err){
+		if (err) return cb(err);
 
-	// 	var examples = getExampleVideos();
-	// 	// Video.create(getExampleVideos(), cb);
-	// 	// Video.create(examples[0], cb);
-	// 	// Video.create(examples[1], cb);
-	// 	// Video.create(examples[2], cb);
-	// 	Video.create(examples[3], cb);
-	// });
+	
+	
+		Diet.create(getDiets(), cb);
+	});
 };
 
 function createHolidays(cb){
-	// database.autoupdate('HolidayModel', function(err){
-	// 	if (err) return cb(err);
+	database.autoupdate('HolidayModel', function(err){
+		if (err) return cb(err);
 
-	// 	var examples = getExampleVideos();
-	// 	// Video.create(getExampleVideos(), cb);
-	// 	// Video.create(examples[0], cb);
-	// 	// Video.create(examples[1], cb);
-	// 	// Video.create(examples[2], cb);
-	// 	Video.create(examples[3], cb);
-	// });
+		Holiday.create(getHolidays(), cb);
+	});
 };
+
 
 
 // function createCases(cb){
