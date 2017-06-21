@@ -102,7 +102,7 @@ module.exports = function(MenuModel) {
 		if(order == 'desc' || order == 'DESC' ){ // DESC
 			var query = {
 			  order: 'date DESC',
-			   fields:['title', 'date','description', 'recipes']
+			  fields:['title', 'date','description', 'recipes']
 			  // limit: 3
 			};
 
@@ -126,7 +126,8 @@ module.exports = function(MenuModel) {
 	MenuModel.remoteMethod('orderByDate', {
 		accepts: {
 		  arg: 'order',
-		  type: 'string'
+		  type: 'string',
+		  description: 'For params use \'asc\' or \'desc\' for filtration'
 		},
 		returns: {
 		  arg: 'menus',
@@ -136,19 +137,19 @@ module.exports = function(MenuModel) {
 		  path: '/filter/date',
 		  verb: 'get'
 		},
-		description: 'For params use asc or desc for filtration'
+		
 	});
 
-	MenuModel.lastMenu = function(order, cb){
+	MenuModel.lastMenu = function(cb){
 
-		if(order == 'desc' || order == 'DESC' ){ // DESC
+		// if(order == 'desc' || order == 'DESC' ){ // DESC
 			var query = {
 			  order: 'date DESC',
-			   fields:['title', 'date','description', 'recipes']
+			  fields:['title', 'date','description', 'recipes']
 			  // limit: 3
 			};
 
-		}
+		// }
 
 		// console.log(query);
 
@@ -170,22 +171,23 @@ module.exports = function(MenuModel) {
 	});
 
 
-	MenuModel.remoteMethod('previousWeekMenu', {
-		accepts: {
-		  arg: 'menuId',
-		  type: 'string'
-		},
-		returns: {
-		  arg: 'menu',
-		  type: 'object'
-		},
-		http: {
-		  path: '/last',
-		  verb: 'get'
-		},
-		description: 'Pass current opened MenuId, to get previous published Menu (like menuId-1)'
+	// MenuModel.remoteMethod('previousWeekMenu', {
+	// 	accepts: {
+	// 	  arg: 'menuId',
+	// 	  type: 'string',
+	// 	  description: 'Pass current opened MenuId, to get previous published Menu (like menuId-1)'
+	// 	},
+	// 	returns: {
+	// 	  arg: 'menu',
+	// 	  type: 'object'
+	// 	},
+	// 	http: {
+	// 	  path: '/last',
+	// 	  verb: 'get'
+	// 	},
 		
-	});
+		
+	// });
 		
 
 

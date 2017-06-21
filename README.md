@@ -61,6 +61,10 @@ Get one menu by Id
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack%20API%20Explorer4.png)
 
 
+GET http://localhost:3000/api/menu/last?access_token=%token%
+Get only one latest published menu
+![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack%20API%20Explorer9.png)
+
 GET http://localhost:3000/api/recipe?access_token=%token%
 Get list with all created recipes
 
@@ -77,3 +81,5 @@ Get one recipe by Id
 
 GET 
 Get ingredients and display them in list view with directions and link to recipy by recipeId
+
+
