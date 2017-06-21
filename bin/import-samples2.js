@@ -35,13 +35,13 @@ let getHolidays = require(path.resolve(__dirname, 'holidays'));
 var User        = server.models.UserModel;
 
 
-var Recipe      = app.models.RecipeModel; 
-var Ingredient  = app.models.IngredientModel;
+var Recipe      = server.models.RecipeModel; 
+var Ingredient  = server.models.IngredientModel;
 
-var Menu        = app.models.MenuModel;
-var Grocery     = app.models.GroceryModel;
+var Menu        = server.models.MenuModel;
+var Grocery     = server.models.GroceryModel;
 
-var Department  = app.models.DepartmentModel;
+var Department  = server.models.DepartmentModel;
 
 var Allergy =  server.models.AllergyModel;
 
@@ -135,28 +135,6 @@ function createUsers(cb){
 	});
 };
 
-
-
-let getUsers         = require(path.resolve(__dirname, 'sample-users-data'));
-
-let getRecipes       = require(path.resolve(__dirname, 'sample-recipes-data'));
-
-let getMenus         = require(path.resolve(__dirname, 'sample-menus-data'));
-
-let getIngredients   = require(path.resolve(__dirname, 'sample-ingredients-data'));
-
-let getGroceries     = require(path.resolve(__dirname, 'sample-grocery-data'));
-
-let getDepartments   = require(path.resolve(__dirname, 'sample-departments-data'));
-
-// let getUsers         = require(path.resolve(__dirname, 'sample-users-data'));
-
-
-let getAllergy  = require(path.resolve(__dirname, 'allergy'));
-let getCourses  = require(path.resolve(__dirname, 'courses'));
-let getCuisine  = require(path.resolve(__dirname, 'cuisine'));
-let getDiets    = require(path.resolve(__dirname, 'diet'));
-let getHolidays = require(path.resolve(__dirname, 'holidays'));
 
 function createRecipes(cb){
 	database.automigrate('RecipeModel', function(err){
