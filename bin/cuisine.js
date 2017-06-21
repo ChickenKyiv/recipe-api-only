@@ -5,8 +5,12 @@ module.exports = function getSampleData (){
    
      var cuisine     = [
      {
-          "id":"cuisine-american","name":"American","type":"cuisine",
-     "description":"American","searchValue":"cuisine^cuisine-american","localesAvailableIn":["en-US"]
+          "id":"cuisine-american",
+          "name":"American",
+          "type":"cuisine",
+     "description":"American",
+     "searchValue":"cuisine^cuisine-american",
+     "localesAvailableIn":["en-US"]
  },
      {
           "id":"cuisine-kid-friendly","name":"Kid-Friendly","type":"cuisine",

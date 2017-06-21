@@ -6,9 +6,12 @@ module.exports = function getSampleData (){
 
      var diet        = [
      {
-          "id":"388","shortDescription":"Lacto vegetarian","longDescription":"Lacto vegetarian",
+          "id":"388",
+          "shortDescription":"Lacto vegetarian",
+          "longDescription":"Lacto vegetarian",
           "searchValue":"388^Lacto vegetarian",
-     "type":"diet","localesAvailableIn":["en-US"]
+     "type":"diet",
+     "localesAvailableIn":["en-US"]
  },
      {
           "id":"389","shortDescription":"Ovo vegetarian","longDescription":"Ovo vegetarian",

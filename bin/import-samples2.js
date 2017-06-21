@@ -43,7 +43,6 @@ var Grocery     = app.models.GroceryModel;
 
 var Department  = app.models.DepartmentModel;
 
-
 var Allergy =  server.models.AllergyModel;
 
 var Course  =  server.models.CourseModel;
@@ -67,11 +66,11 @@ var Holiday =  server.models.HolidayModel;
 		groceries   : async.apply(createGroceries),
 		departments : async.apply(createDepartments),
 
-		allergies    : async.apply(createAllergies)
-		courses      : async.apply(createCourses)
-		cuisines     : async.apply(createCuisines)
-		diets        : async.apply(createDiets)
-		holidays     : async.apply(createHolidays)
+		allergies   : async.apply(createAllergies)
+		courses     : async.apply(createCourses)
+		cuisines    : async.apply(createCuisines)
+		diets       : async.apply(createDiets)
+		holidays    : async.apply(createHolidays)
 
 	}, function(err, results){
 		if( err ) throw err;
@@ -88,6 +87,7 @@ var Holiday =  server.models.HolidayModel;
 		// console.log(results.cuisines);
 		// console.log(results.diets);
 		// console.log(results.holidays);
+
 // results.holidays
 // results.diets
 // results.cuisines
@@ -258,19 +258,6 @@ function createHolidays(cb){
 
 
 
-// function createCases(cb){
-// 	database.automigrate('ExampleModel', function(err){
-// 		if (err) return cb(err);
-
-// 		var examples = getExampleVideos();
-// 		// Video.create(getExampleVideos(), cb);
-// 		// Video.create(examples[0], cb);
-// 		// Video.create(examples[1], cb);
-// 		// Video.create(examples[2], cb);
-// 		Video.create(examples[3], cb);
-// 	});
-// };
-
 
 //attaching recipes to admin user
 function attachRecipeToUsers(users, videos, cb){
@@ -322,7 +309,7 @@ function attachDietsToRecipes(){
 };
 
 function attachHolidaysToRecipes(){
-	
+
 };
 
 

@@ -5,8 +5,12 @@ module.exports = function getSampleData (){
    
      var courses     = [
      {
-          "id":"course-Main Dishes","name":"Main Dishes","type":"course","description":"Main Dishes",
-          "searchValue":"course^course-Main Dishes","localesAvailableIn":["en-US"]
+          "id":"course-Main Dishes",
+          "name":"Main Dishes",
+          "type":"course",
+          "description":"Main Dishes",
+          "searchValue":"course^course-Main Dishes",
+          "localesAvailableIn":["en-US"]
      },
      {
           "id":"course-Desserts","name":"Desserts","type":"course","description":"Desserts",
