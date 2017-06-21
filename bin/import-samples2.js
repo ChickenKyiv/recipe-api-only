@@ -116,8 +116,16 @@ var Holiday =  server.models.HolidayModel;
 		// attachExampleVideosToAdmin(results.users, results.examples4, function(err){
 		// 	console.log('>examples4 attached to admin');
 		// });
-
-
+attachRecipeToUsers();
+attachRecipeToUsers();
+attachIngredientsToRecipes();
+attachRecipesToMenu();
+attachDepartmentsToGroceries();
+attachAllergiesToRecipes();
+attachCoursesToRecipes();
+attachCuisinesToRecipes();
+attachDietsToRecipes();
+attachHolidaysToRecipes();
 
 	});
 

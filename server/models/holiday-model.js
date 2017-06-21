@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Holidaymodel) {
+module.exports = function(HolidayModel) {
 
 };
