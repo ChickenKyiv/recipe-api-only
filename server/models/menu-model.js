@@ -63,7 +63,7 @@ module.exports = function(MenuModel) {
 	// method list attached menus with recipes, short version
 
 	MenuModel.listRecipesShort = function(menuId, cb){
-		var RecipeModel = VideoModel.app.models.RecipeModel;
+		var RecipeModel = MenuModel.app.models.RecipeModel;
 
 		MenuModel.findById(menuId)
 		.then(function(menu){
@@ -140,7 +140,7 @@ module.exports = function(MenuModel) {
 
 
 	MenuModel.MenuRecipesIngredients = function(menuId, cb){
-		var RecipeModel = VideoModel.app.models.RecipeModel;
+		var RecipeModel = MenuModel.app.models.RecipeModel;
 
 		MenuModel.findById(menuId)
 		.then(function(menu){
@@ -208,7 +208,7 @@ module.exports = function(MenuModel) {
 	
   // method list attached menus with recipes
 	MenuModel.listRecipes = function(menuId, cb){
-		var RecipeModel = VideoModel.app.models.RecipeModel;
+		var RecipeModel = MenuModel.app.models.RecipeModel;
 
 		MenuModel.findById(menuId)
 		.then(function(menu){
@@ -256,7 +256,7 @@ module.exports = function(MenuModel) {
 
   // method list attached menus with groceries
 	MenuModel.listGroceries = function(menuId, cb){
-		var GroceryModel = VideoModel.app.models.GroceryModel;
+		var GroceryModel = MenuModel.app.models.GroceryModel;
 
 		MenuModel.findById(menuId)
 		.then(function(menu){
