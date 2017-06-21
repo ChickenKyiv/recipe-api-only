@@ -33,7 +33,6 @@
     "dataSource": "recipeDS",
     "public": true
   },
-
   "User": {
     "dataSource": "recipeDS",
     "public": false
@@ -59,6 +58,26 @@
     "public": false
   },
   "UserModel": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Allergy": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "CourseModel": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "CuisineModel": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "HolidayModel": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "DietModel": {
     "dataSource": "recipeDS",
     "public": true
   }

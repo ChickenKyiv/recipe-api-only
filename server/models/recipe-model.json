@@ -7,12 +7,10 @@
     "validateUpsert": true
   },
   "properties": {
-    
     "img": {
       "type": "string",
       "required": true
     },
-   
     "title": {
       "type": "string",
       "required": true
@@ -47,9 +45,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    
-  },
+  "relations": {},
   "acls": [
     {
       "accessType": "*",

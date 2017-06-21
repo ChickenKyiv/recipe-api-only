@@ -1,34 +1,24 @@
 {
-  "name": "MenuModel",
-  "plural": "menu",
+  "name": "DietModel",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "title": {
+    "short_description": {
       "type": "string",
       "required": true
     },
-    "date": {
-      "type": "date",
-      "required": true
-    },
-    "description": {
+    "long_description": {
       "type": "string",
       "required": true
     },
-    "recipes": {
-      "type": "object",
-      "required": false
+    "searchValue": {
+      "type": "string"
     },
-    "created_at": {
-      "type": "date",
-      "required": true
-    },
-    "updated_at": {
-      "type": "date",
+    "type": {
+      "type": "string",
       "required": true
     }
   },
