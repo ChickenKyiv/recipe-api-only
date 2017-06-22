@@ -12,7 +12,7 @@ module.exports = function(MenuModel) {
 
 		// console.log( ctx.instance.rec );
 
-   //     MenuModel.app.models.Email.send({
+   //     MenuModel.app.models.EmailModel.send({
 	  //   to: 'arthur.tkachenko.netweight@gmail.com',
 	  //   from: 'noreply@loopback.loop',
 	  //   subject: 'Thank you for adding to menu ',
@@ -22,11 +22,26 @@ module.exports = function(MenuModel) {
 	  // });
 
 		
-
+	  	// console.log( ctx.instance );
+	  	// understand what we get at inctance object
 		//not working, right now. Above we're using similar, but easy way to test notifications
 		// MenuModel.app.models.Recipemodel.findById(ctx.instance.rec, function (err, recipe) {
 
-		//   MenuModel.app.models.Email.send({
+		//   MenuModel.app.models.EmailModel.send({
+		//     to: 'arthur.tkachenko.netweight@gmail.com',
+		//     from: 'noreply@loopback.loop',
+		//     subject: 'Thank you for adding to menu your recipe ' + recipe.name,
+		//     html: '<p>We confirm your recipe with name <strong>' + recipe.name + '</strong> was saved</p>'
+		//   }, function (err, mail) {
+		//     console.log('email sent!');
+		//   });
+
+		// });
+
+
+		// MenuModel.app.models.Recipemodel.findById(ctx.instance.rec, function (err, recipe) {
+
+		//   MenuModel.app.models.EmailModel.send({
 		//     to: 'arthur.tkachenko.netweight@gmail.com',
 		//     from: 'noreply@loopback.loop',
 		//     subject: 'Thank you for adding to menu your recipe ' + recipe.name,
@@ -97,6 +112,22 @@ module.exports = function(MenuModel) {
 
 	};
 
+	MenuModel.remoteMethod('listRecipesShort', {
+		accepts: {
+		  arg: 'menuId',
+		  type: 'string'
+		},
+		returns: {
+		  arg: 'menus',
+		  type: 'array'
+		},
+		http: {
+		  path: '/list/recipes/short',
+		  verb: 'get'
+		}
+	});
+
+
 	MenuModel.orderByDate = function(order, cb){
 
 		if(order == 'desc' || order == 'DESC' ){ // DESC
@@ -125,12 +156,12 @@ module.exports = function(MenuModel) {
 
 	MenuModel.remoteMethod('orderByDate', {
 		accepts: {
-		  arg: 'order',
+		  arg : 'order',
 		  type: 'string',
 		  description: 'For params use \'asc\' or \'desc\' for filtration'
 		},
 		returns: {
-		  arg: 'menus',
+		  arg : 'menus',
 		  type: 'array'
 		},
 		http: {
@@ -140,14 +171,42 @@ module.exports = function(MenuModel) {
 		
 	});
 
-	MenuModel.lastMenu = function(cb){
+	MenuModel.lastMenu = function(menuId = false, cb){
 
-		// if(order == 'desc' || order == 'DESC' ){ // DESC
-			var query = {
+		var query = {};	
+
+		if ( menuId ) {
+
+			MenuModel.findById(menuId, {fields:['id','date']}, function(err, menu){
+
+				// console.log(menu);
+
+				query = { 
+					where: {
+						date: { lt: menu.date },
+						id:   { lt: menu.id },
+					},
+					// limit: 1
+				};
+
+			});
+
+
+			console.log( query );
+
+			
+
+		} else {
+
+			query = {
 			  order: 'date DESC',
 			  fields:['title', 'date','description', 'recipes']
-			  // limit: 3
+			  // limit: 1
 			};
+			console.log(query);
+		}
+
+			
 
 		// }
 
@@ -158,7 +217,11 @@ module.exports = function(MenuModel) {
 	};
 
 	MenuModel.remoteMethod('lastMenu', {
-
+		accepts: {
+		  arg: 'menuId',
+		  type: 'string',
+		  description: 'Pass current opened MenuId, to get previous published Menu (like menuId-1)'
+		},
 		returns: {
 		  arg: 'menu',
 		  type: 'object'
@@ -171,63 +234,45 @@ module.exports = function(MenuModel) {
 	});
 
 
-	// MenuModel.remoteMethod('previousWeekMenu', {
-	// 	accepts: {
-	// 	  arg: 'menuId',
-	// 	  type: 'string',
-	// 	  description: 'Pass current opened MenuId, to get previous published Menu (like menuId-1)'
-	// 	},
-	// 	returns: {
-	// 	  arg: 'menu',
-	// 	  type: 'object'
-	// 	},
-	// 	http: {
-	// 	  path: '/last',
-	// 	  verb: 'get'
-	// 	},
-		
-		
-	// });
-		
-
 
 	MenuModel.MenuRecipesIngredients = function(menuId, cb){
 		var RecipeModel = MenuModel.app.models.RecipeModel;
 
 		MenuModel.findById(menuId)
 		.then(function(menu){
+
 			console.log( menu.recipes );
 			// @TODO change to custom method on recipe model
-			return RecipeModel.find({
-				where:{
-					id: menu.recipes
-				},
-				fields: [
-					'img', 'url', 'title', 
+			// return RecipeModel.find({
+			// 	where:{
+			// 		id: menu.recipes
+			// 	},
+			// 	fields: [
+			// 		'img', 'url', 'title', 
 
-		    	]       
-			})
-			.then(function(recipes){
-			// 	menu.recipes = recipes;
-			// console.log(menu);
-			// return menu;
-			// or cb(recipes);
+		 //    	]       
+			// })
+			// .then(function(recipes){
+			// // 	menu.recipes = recipes;
+			// // console.log(menu);
+			// // return menu;
+			// // or cb(recipes);
 
-				// console.log(recipes.ingredients);
-				 IngredientModel.find({
-	                where:{
-	                    id: recipe.ingredients
-	                }       
-	            })
-	            .then(function(ingredients){
-	            //  recipe.ingredients = ingredients;
-	            // console.log(recipe);
-	            // return recipe;
-	            // or cb(ingredients);
-	            });
+			// 	// console.log(recipes.ingredients);
+			// 	IngredientModel.find({
+	  //               where:{
+	  //                   id: recipe.ingredients
+	  //               }       
+	  //           })
+	  //           .then(function(ingredients){
+	  //           //  recipe.ingredients = ingredients;
+	  //           // console.log(recipe);
+	  //           // return recipe;
+	  //           // or cb(ingredients);
+	  //           });
 
 
-			});
+			// });
 
 
 
@@ -242,7 +287,8 @@ module.exports = function(MenuModel) {
 	};
 
 
-	MenuModel.remoteMethod('listRecipesShort', {
+
+	MenuModel.remoteMethod('MenuRecipesIngredients', {
 		accepts: {
 		  arg: 'menuId',
 		  type: 'string'
@@ -252,13 +298,14 @@ module.exports = function(MenuModel) {
 		  type: 'array'
 		},
 		http: {
-		  path: '/list/recipes/short',
+		  path: '/full',
 		  verb: 'get'
 		}
 	});
 
+
 	
-  // method list attached menus with recipes
+  // method list attached menus with recipes only
 	MenuModel.listRecipes = function(menuId, cb){
 		var RecipeModel = MenuModel.app.models.RecipeModel;
 
@@ -307,6 +354,7 @@ module.exports = function(MenuModel) {
 
 
   // method list attached menus with groceries
+  
 	MenuModel.listGroceries = function(menuId, cb){
 		var GroceryModel = MenuModel.app.models.GroceryModel;
 

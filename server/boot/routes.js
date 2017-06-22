@@ -10,6 +10,7 @@ var request = require('request');
 module.exports = function(app) {
 
   var router  = app.loopback.Router();
+  
   // var request = require('request');
   // var Video   = app.models.VideoModel;
   
