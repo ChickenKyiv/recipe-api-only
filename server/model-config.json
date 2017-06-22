@@ -53,10 +53,6 @@
     "dataSource": "recipeDS",
     "public": false
   },
-  "Email": {
-    "dataSource": "mailgun",
-    "public": false
-  },
   "UserModel": {
     "dataSource": "recipeDS",
     "public": true
@@ -80,5 +76,9 @@
   "DietModel": {
     "dataSource": "recipeDS",
     "public": true
+  },
+  "EmailModel": {
+    "dataSource": "mailgun",
+    "public": false
   }
 }
