@@ -79,6 +79,9 @@ Get one recipe by Id
 
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/gh-pages/LoopBack%20API%20Explorer8.png)
 
+GET recipe/:id/full
+Get recipe with all necessary data like ingredients. @TODO Later add stuff like allergies, etc.
+
 GET 
 Get ingredients and display them in list view with directions and link to recipy by recipeId
 

@@ -55,4 +55,30 @@ module.exports = function(GroceryModel) {
 
 	};
 
+	GroceryModel.groceryListForMenu = function(menuId, cb){
+
+		var MenuModel = GroceryModel.app.models.MenuModel;
+
+		MenuModel.MenuRecipesIngredients(menuId, function(data){
+			// @TODO test this "data" attribute
+			console.log(data);
+		})
+
+	};
+
+	GroceryModel.remoteMethod('groceryListForMenu', {
+		accepts: {
+		  arg: 'menuId',
+		  type: 'string'
+		},
+		returns: {
+		  arg: 'groceries',
+		  type: 'array'
+		},
+		http: {
+		  path: '/menu',
+		  verb: 'get'
+		}
+	});
+
 };

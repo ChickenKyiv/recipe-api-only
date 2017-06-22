@@ -42,7 +42,7 @@ module.exports = function(RecipeModel) {
             })
             .then(function(ingredients){
             //  recipe.ingredients = ingredients;
-            // console.log(recipe);
+            console.log(ingredients);
             // return recipe;
             // or cb(ingredients);
             });
