@@ -117,43 +117,40 @@ var Holiday =  server.models.HolidayModel;
 		});
 
 		attachRecipesToMenu(results.recipes, results.menus, function(err){
-			console.log('>models create sucessfully');
+			console.log('>recipes create sucessfully');
 		});
 
 		attachIngredientsToRecipes(results.ingredients, results.recipes, function(err){
-			console.log('>models create sucessfully');
+			console.log('>ingredients create sucessfully');
 		});
 
 
-		
+		attachDepartmentsToGroceries(results.departments, results.groceries, function(err){
+			console.log('>departments create sucessfully');
+		});
+
+		attachAllergiesToRecipes(results.allergies, results.recipes, function(err){
+			console.log('>allergies create sucessfully');
+		});
 
 
-		// attachDepartmentsToGroceries(results.departments, results.groceries, function(err){
-		// 	console.log('>models create sucessfully');
-		// });
-
-		// attachAllergiesToRecipes(results.allergies, results.recipes, function(err){
-		// 	console.log('>models create sucessfully');
-		// });
+		attachCoursesToRecipes(results.courses, results.recipes, function(err){
+			console.log('>courses create sucessfully');
+		});
 
 
-		// attachCoursesToRecipes(results.courses, results.recipes, function(err){
-		// 	console.log('>models create sucessfully');
-		// });
+		attachCuisinesToRecipes(results.cuisines, results.recipes, function(err){
+			console.log('>cuisines create sucessfully');
+		});
+
+		attachDietsToRecipes(results.diets, results.recipes, function(err){
+			console.log('>diets create sucessfully');
+		});
 
 
-		// attachCuisinesToRecipes(results.cuisines, results.recipes, function(err){
-		// 	console.log('>models create sucessfully');
-		// });
-
-		// attachDietsToRecipes(results.diets, results.recipes, function(err){
-		// 	console.log('>models create sucessfully');
-		// });
-
-
-		// attachHolidaysToRecipes(results.holidays, results.recipes, function(err){
-		// 	console.log('>models create sucessfully');
-		// });
+		attachHolidaysToRecipes(results.holidays, results.recipes, function(err){
+			console.log('>models create sucessfully');
+		});
 
 	});
 
@@ -316,29 +313,53 @@ function attachIngredientsToRecipes(ingredients, recipes, cb){
 };
 
 
-
 function attachDepartmentsToGroceries(departments, groceries, cb){
-
+	var arrayWithIds = idsOnly(departments);
+	groceries.forEach(function(grocery){
+		grocery.updateAttribute('departments', arrayWithIds);
+		// console.log(recipe.userId);
+	});
 };
 
 function attachAllergiesToRecipes(allergies, recipes, cb){
-
+	var arrayWithIds = idsOnly(allergies);
+	recipes.forEach(function(recipe){
+		recipe.updateAttribute('allergies', arrayWithIds);
+		// console.log(recipe.userId);
+	});
 };
 
 function attachCoursesToRecipes(courses, recipes, cb){
-
+	var arrayWithIds = idsOnly(courses);
+	recipes.forEach(function(recipe){
+		recipe.updateAttribute('courses', arrayWithIds);
+		// console.log(recipe.userId);
+	});
 };
 
 function attachCuisinesToRecipes(cuisines, recipes, cb){
-
+	var arrayWithIds = idsOnly(cuisines);
+	recipes.forEach(function(recipe){
+		recipe.updateAttribute('cuisines', arrayWithIds);
+		// console.log(recipe.userId);
+	});
+};
 };
 
-function attachDietsToRecipes(){
-
+function attachDietsToRecipes(diets, recipes, cb){
+	var arrayWithIds = idsOnly(diets);
+	recipes.forEach(function(recipe){
+		recipe.updateAttribute('diets', arrayWithIds);
+		// console.log(recipe.userId);
+	});
 };
 
-function attachHolidaysToRecipes(){
-
+function attachHolidaysToRecipes(holidays, recipes, cb){
+	var arrayWithIds = idsOnly(holidays);
+	recipes.forEach(function(recipe){
+		recipe.updateAttribute('holidays', arrayWithIds);
+		// console.log(recipe.userId);
+	});
 };
 
 function idsOnly(array){
@@ -349,14 +370,4 @@ function idsOnly(array){
 
 	return result;    
 
-}
-
-// function attachExampleVideosToAdmin(users, exampleVideos, cb){
-
-// 	// exampleVideos.forEach(function(video){
-// 	// 	video.updateAttribute('userId', users[2].id);
-// 	// 	// console.log(video.userId);
-// 	// });
-
-// };
-
+};

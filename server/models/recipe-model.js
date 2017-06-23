@@ -116,38 +116,38 @@ module.exports = function(RecipeModel) {
 
     // };
 
-    RecipeModel.addIngredients = function(){
-        var IngredientModel = RecipeModel.app.models.IngredientModel;
+    // RecipeModel.addIngredients = function(){
+    //     var IngredientModel = RecipeModel.app.models.IngredientModel;
 
-        IngredientModel.find({
-            fields:'id'         
-        })
-        .then(function(ingredientIds){
-            console.log(ingredientIds);
+    //     IngredientModel.find({
+    //         fields:'id'         
+    //     })
+    //     .then(function(ingredientIds){
+    //         console.log(ingredientIds);
 
-            var result = Object.keys(ingredientIds).map(function(e) {
-              return ingredientIds[e].id;
-            });
+    //         var result = Object.keys(ingredientIds).map(function(e) {
+    //           return ingredientIds[e].id;
+    //         });
 
-            // console.log(result);
-            // console.log('-------');
+    //         // console.log(result);
+    //         // console.log('-------');
 
-            RecipeModel.find({})
-            .then(function(recipes){
-                // console.log(recipes);
-                // console.log('-------');
+    //         RecipeModel.find({})
+    //         .then(function(recipes){
+    //             // console.log(recipes);
+    //             // console.log('-------');
 
-                recipes.forEach(function(recipe){
-                    recipe.updateAttribute('ingredients', result);
-                });    
-                // console.log(recipes);
-                // console.log('-------');
-            });
+    //             recipes.forEach(function(recipe){
+    //                 recipe.updateAttribute('ingredients', result);
+    //             });    
+    //             // console.log(recipes);
+    //             // console.log('-------');
+    //         });
 
 
-        }); 
+    //     }); 
 
-    };
+    // };
 
             
 
