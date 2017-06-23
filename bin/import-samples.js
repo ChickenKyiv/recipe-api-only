@@ -75,37 +75,37 @@ ingredients(function(array){
 });
 
 
-menus(function(array) {
+// menus(function(array) {
 	
-	Menu.create(array)
-		.then(function(menus){
+// 	Menu.create(array)
+// 		.then(function(menus){
 
-			Recipe.attachToMenu();
+// 			Recipe.attachToMenu();
 
-		});
+// 		});
 
-});
+// });
 
-departments(function(array){
+// departments(function(array){
 
-	Department.create(array)
-	.then(function(departments){
-		console.log(departments);
-	})
-	.catch(function(err){
-		throw err;
-	});
+// 	Department.create(array)
+// 	.then(function(departments){
+// 		console.log(departments);
+// 	})
+// 	.catch(function(err){
+// 		throw err;
+// 	});
 
-});
+// });
 
 	
-groceries(function(array){
+// groceries(function(array){
 
-	Grocery.create(array)
-	.then(function(groceries){
+// 	Grocery.create(array)
+// 	.then(function(groceries){
 	
-		Department.addGrocery(groceries);
+// 		Department.addGrocery(groceries);
 
-	});
+// 	});
 
-});
+// });

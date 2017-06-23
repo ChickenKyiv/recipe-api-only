@@ -33,8 +33,8 @@ module.exports = function(RecipeModel) {
 
         RecipeModel.findById(recipeId)
         .then(function(recipe){
-            
-            // console.log( recipe.ingredients );
+
+            console.log( recipe.ingredients );
             // @TODO change to custom method on recipe model
             IngredientModel.find({
                 where:{
@@ -63,11 +63,11 @@ module.exports = function(RecipeModel) {
           required: true
         },
         returns: {
-          arg: 'menus',
+          arg: 'ingredients',
           type: 'array'
         },
         http: {
-          path: '/recipe/:id/list/ingredients',
+          path: '/:id/list/ingredients',
           verb: 'get'
         }
     });

@@ -16,7 +16,7 @@ module.exports = function(DepartmentModel) {
       .then(function(departments){
 
 		groceries.forEach(function(grocery){
-		 	grocery.updateAttribute('department', departments);
+		 	grocery.updateAttribute('departments', departments);
 		})
 
 

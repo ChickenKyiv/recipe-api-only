@@ -3,7 +3,7 @@
 module.exports = function(IngredientModel) {
     //@TODO add to done & delete default false
 	IngredientModel.validatesPresenceOf(
-		'name', 'recipe_id', 'type', 'done', 'delete'
+		'name', 'type', 'done', 'delete'
 	);
 
     IngredientModel.observe("before save", function updateTimestamp(ctx, next) {
@@ -22,6 +22,7 @@ module.exports = function(IngredientModel) {
         ctx.instance.updated_at = new Date();
         next();
     });
+
 
     // method when Deparments use array of ingredients and move it inside departments array
 

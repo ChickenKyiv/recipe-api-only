@@ -11,31 +11,32 @@ module.exports = function getSampleData (cb){
 		  // name: "Crock Pot Roast12",
 		  title: "Crock Pot Roast12",
 		  ingredients: 
-		  [{
-		  	quantity: "1",
-		  name: " beef roast",
-		  type: "Meat"
-		},
-		  {
-		  	quantity: "1 package",
-		  name: "brown gravy mix",
-		  type: "Baking"
-		},
-		  {
-		  	quantity: "1 package",
-		  name: "dried Italian salad dressing mix",
-		  type: "Condiments"
-		},
-	  {
-	  	quantity: "1 package",
-	  name: "dry ranch dressing mix",
-	  type: "Condiments"
-		},
-	  {
-	  	quantity: "1/2 cup",
-	  name: "water",
-	  type: "Drinks"
-		}
+		  [
+		//   {
+		//   	quantity: "1",
+		//   name: " beef roast",
+		//   type: "Meat"
+		// },
+		//   {
+		//   	quantity: "1 package",
+		//   name: "brown gravy mix",
+		//   type: "Baking"
+		// },
+		//   {
+		//   	quantity: "1 package",
+		//   name: "dried Italian salad dressing mix",
+		//   type: "Condiments"
+		// },
+	 //  {
+	 //  	quantity: "1 package",
+	 //  name: "dry ranch dressing mix",
+	 //  type: "Condiments"
+		// },
+	 //  {
+	 //  	quantity: "1/2 cup",
+	 //  name: "water",
+	 //  type: "Drinks"
+		// }
 		],
 	  directions: [
 		 "Place beef roast in crock pot.",
