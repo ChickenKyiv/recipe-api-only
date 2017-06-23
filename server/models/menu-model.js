@@ -157,7 +157,8 @@ module.exports = function(MenuModel) {
 		accepts: {
 		  arg : 'order',
 		  type: 'string',
-		  description: 'For params use \'asc\' or \'desc\' for filtration'
+		  description: 'For params use \'asc\' or \'desc\' for filtration',
+		  required: true
 		},
 		returns: {
 		  arg : 'menus',
@@ -219,7 +220,8 @@ module.exports = function(MenuModel) {
 		accepts: {
 		  arg: 'menuId',
 		  type: 'string',
-		  description: 'Pass current opened MenuId, to get previous published Menu (like menuId-1)'
+		  description: 'Pass current opened MenuId, to get previous published Menu (like menuId-1)',
+		  required:false
 		},
 		returns: {
 		  arg: 'menu',
@@ -233,7 +235,8 @@ module.exports = function(MenuModel) {
 	});
 
 
-
+	// @TODO I want to return whole collection, when we have a menu object with all elements, inside
+	// but I'm return only recipes for now
 	MenuModel.MenuRecipesIngredients = function(menuId, cb){
 		var RecipeModel = MenuModel.app.models.RecipeModel;
 
@@ -251,42 +254,8 @@ module.exports = function(MenuModel) {
 					'img', 'url', 'title', 'ingredients'
 
 		    	]       
-			})
-			.then(function(recipes){
-
-
-
-				menu.recipes = recipes;
-				// console.log(menu);
-				cb(menu);
-
-			// return menu;
-			// or cb(recipes);
-
-				// console.log(recipes);
-				// recipes.forEach(function(recipe){
-					// console.log(recipe)
-					// console.log(recipe.ingredients)
-				// });
-				// console.log(recipes);
-
-				// IngredientModel.find({
-	   //              where:{
-	   //                  id: recipe.ingredients
-	   //              }       
-	   //          })
-	   //          .then(function(ingredients){
-	   //          //  recipe.ingredients = ingredients;
-	   //          // console.log(recipe);
-	   //          // return recipe;
-	   //          // or cb(ingredients);
-	   //          });
-
-
-			});
-
-
-
+			},cb);
+			
 
 
 
@@ -304,14 +273,15 @@ module.exports = function(MenuModel) {
 	MenuModel.remoteMethod('MenuRecipesIngredients', {
 		accepts: {
 		  arg: 'menuId',
-		  type: 'string'
+		  type: 'string',
+		  required: true
 		},
 		returns: {
-		  arg: 'menu',
+		  arg: 'recipes',
 		  type: 'array'
 		},
 		http: {
-		  path: '/full',
+		  path: '/:id/full',
 		  verb: 'get'
 		}
 	});
