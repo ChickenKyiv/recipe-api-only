@@ -120,9 +120,9 @@ var Holiday =  server.models.HolidayModel;
 			console.log('>models create sucessfully');
 		});
 
-		// attachIngredientsToRecipes(results.ingredients, results.recipes, function(err){
-		// 	console.log('>models create sucessfully');
-		// });
+		attachIngredientsToRecipes(results.ingredients, results.recipes, function(err){
+			console.log('>models create sucessfully');
+		});
 
 
 		
@@ -308,7 +308,11 @@ function attachRecipesToMenu(recipes, menus, cb){
 };
 
 function attachIngredientsToRecipes(ingredients, recipes, cb){
-
+	var arrayWithIds = idsOnly(ingredients);
+	recipes.forEach(function(recipe){
+		recipe.updateAttribute('ingredients', arrayWithIds);
+		// console.log(recipe.userId);
+	});
 };
 
 
