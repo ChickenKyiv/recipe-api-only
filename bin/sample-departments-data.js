@@ -4,7 +4,7 @@ module.exports = function getSamplesData (cb){
 
 	var departments = [
 		{
-			id: "1",
+			// id: "1",
 		 name: "BAKERY/BREAD",
 		  items: [
 		  {
@@ -19,7 +19,7 @@ module.exports = function getSamplesData (cb){
 		  ]
 		},
 		{
-			id: "2",
+			// id: "2",
 			name: "BAKING",
 			items: [{
 				"id": "6",

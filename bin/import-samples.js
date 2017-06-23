@@ -31,48 +31,48 @@ var Grocery     = app.models.GroceryModel;
 var Department  = app.models.DepartmentModel;
 
 
-accounts(function(array){
+// accounts(function(array){
 
-	User.create(array)
-		.then(function(users){
+// 	User.create(array)
+// 		.then(function(users){
 			
-			User.assign();
+// 			User.assign();
 
-		})
-		.catch(function(err){
-			throw err;
-		})
+// 		})
+// 		.catch(function(err){
+// 			throw err;
+// 		})
 
-});
-
-
+// });
 
 
 
-recipes(function(array){
-
-	Recipe.create(array)
-		 .then(function(recipes){
-
-		 }).catch(function(err){throw err;});
-});
 
 
-ingredients(function(array){
+// recipes(function(array){
 
-	Ingredient.create(array)
-	.then(function(ingredients){
+// 	Recipe.create(array)
+// 		 .then(function(recipes){
 
-		Recipe.addIngredients(ingredients);
+// 		 }).catch(function(err){throw err;});
+// });
+
+
+// ingredients(function(array){
+
+// 	Ingredient.create(array)
+// 	.then(function(ingredients){
+
+// 		Recipe.addIngredients(ingredients);
 	
-		console.log(ingredients);
+// 		console.log(ingredients);
 
-	})
-	.catch(function(err){
-		throw err;
-	})
+// 	})
+// 	.catch(function(err){
+// 		throw err;
+// 	})
 
-});
+// });
 
 
 // menus(function(array) {
@@ -99,13 +99,13 @@ ingredients(function(array){
 // });
 
 	
-// groceries(function(array){
+groceries(function(array){
 
-// 	Grocery.create(array)
-// 	.then(function(groceries){
+	Grocery.create(array)
+	.then(function(groceries){
 	
-// 		Department.addGrocery(groceries);
+		Department.addGrocery(groceries);
 
-// 	});
+	});
 
-// });
+});

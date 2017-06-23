@@ -17,7 +17,7 @@
     },
     "ingredients": {
       "type": "object",
-      "required": true
+      "required": false
     },
     "directions": {
       "type": "object",

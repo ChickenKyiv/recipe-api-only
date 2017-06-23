@@ -5,7 +5,8 @@ module.exports = function(RecipeModel) {
 	RecipeModel.validatesPresenceOf(
 		'img', 
         // 'url',
-         'title', 'ingredients', 
+         'title', 
+         // 'ingredients', 
 		'directions', 'prep_time', 'total_time',
 		'recipe_yield'
 		);
@@ -80,7 +81,7 @@ module.exports = function(RecipeModel) {
             fields: 'id'
         })
         .then(function(recipeIds){
-            console.log(recipeIds);
+            // console.log(recipeIds);
 
             // recipeIds.forEach(function(element){
             //     element.id
@@ -91,19 +92,19 @@ module.exports = function(RecipeModel) {
               return recipeIds[e].id;
             });
 
-            console.log(result);
+            // console.log(result);
             // console.log('-------');
 
             MenuModel.find({})
             .then(function(menus){
-                console.log(menus);
-                console.log('-------');
+                // console.log(menus);
+                // console.log('-------');
 
                 menus.forEach(function(menu){
                     menu.updateAttribute('recipes', result);
                 });    
-                console.log(menus);
-                console.log('-------');
+                // console.log(menus);
+                // console.log('-------');
             })
             
 
@@ -116,9 +117,9 @@ module.exports = function(RecipeModel) {
     };
 
     RecipeModel.addIngredients = function(){
-        var IngredientsModel = RecipeModel.app.models.IngredientsModelModel;
+        var IngredientModel = RecipeModel.app.models.IngredientModel;
 
-        IngredientsModel.find({
+        IngredientModel.find({
             fields:'id'         
         })
         .then(function(ingredientIds){
@@ -128,19 +129,19 @@ module.exports = function(RecipeModel) {
               return ingredientIds[e].id;
             });
 
-            console.log(result);
+            // console.log(result);
             // console.log('-------');
 
             RecipeModel.find({})
             .then(function(recipes){
-                console.log(recipes);
-                console.log('-------');
+                // console.log(recipes);
+                // console.log('-------');
 
-                recipes.forEach(function(menu){
-                    recipes.updateAttribute('ingredients', result);
+                recipes.forEach(function(recipe){
+                    recipe.updateAttribute('ingredients', result);
                 });    
-                console.log(recipes);
-                console.log('-------');
+                // console.log(recipes);
+                // console.log('-------');
             });
 
 

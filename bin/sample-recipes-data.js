@@ -61,26 +61,26 @@ module.exports = function getSampleData (cb){
 	  img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
 	  ingredients: 
 	  [
-	  {
-	  	quantity: "1",
-	  name: " beef roast"
-		},
-	  {
-	  	quantity: "1 package",
-	  name: "brown gravy mix"
-		},
-	  {
-	  	quantity: "1 package",
-	  name: "dried Italian salad dressing mix"
-		},
-	  {
-	  	quantity: "1 package",
-	  name: "dry ranch dressing mix"
-		},
-	  {
-	  	quantity: "1/2 cup",
-	  name: "water"
-		}
+	 //  {
+	 //  	quantity: "1",
+	 //  name: " beef roast"
+		// },
+	 //  {
+	 //  	quantity: "1 package",
+	 //  name: "brown gravy mix"
+		// },
+	 //  {
+	 //  	quantity: "1 package",
+	 //  name: "dried Italian salad dressing mix"
+		// },
+	 //  {
+	 //  	quantity: "1 package",
+	 //  name: "dry ranch dressing mix"
+		// },
+	 //  {
+	 //  	quantity: "1/2 cup",
+	 //  name: "water"
+		// }
 	  ],
 	  directions: [
 	  	"Place beef roast in crock pot.",

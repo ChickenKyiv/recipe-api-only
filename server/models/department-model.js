@@ -1,12 +1,26 @@
 'use strict';
 
 module.exports = function(DepartmentModel) {
-	DepartmentModel.validatesPresenceOf('name', 'items');
+	DepartmentModel.validatesPresenceOf(
+    'name', 'items'
+  );
 
 	DepartmentModel.observe('update', function(ctx, next){
 		ctx.instance.updated_at = new Date();
 		next();
 	});
+
+    DepartmentModel.observe("before save", function updateTimestamp(ctx, next) {
+
+    if( ctx.isNewInstance ){
+      ctx.instance.created_at = new Date();
+      ctx.instance.updated_at = new Date();
+    } 
+
+
+
+    next();
+  });
 
 
   DepartmentModel.prototype.addGrocery = function (groceries) {
@@ -15,9 +29,9 @@ module.exports = function(DepartmentModel) {
       DepartmentModel.find({})
       .then(function(departments){
 
-		groceries.forEach(function(grocery){
-		 	grocery.updateAttribute('departments', departments);
-		})
+    		groceries.forEach(function(grocery){
+    		 	grocery.updateAttribute('departments', departments);
+    		})
 
 
       })

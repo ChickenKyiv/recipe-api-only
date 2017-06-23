@@ -2,11 +2,24 @@
 
 module.exports = function(GroceryModel) {
 	GroceryModel.validatesPresenceOf(
-		'departments', 'img', 'desc', 'slug'
+		// 'departments',
+		'img', 'desc', 'slug'
 	);
 
 	GroceryModel.observe('update', function(ctx, next){
 		ctx.instance.updated_at = new Date();
+		next();
+	});
+
+	GroceryModel.observe("before save", function updateTimestamp(ctx, next) {
+
+		if( ctx.isNewInstance ){
+			ctx.instance.created_at = new Date();
+			ctx.instance.updated_at = new Date();
+		} 
+
+
+
 		next();
 	});
 
