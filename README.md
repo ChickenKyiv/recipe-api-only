@@ -85,4 +85,11 @@ Get recipe with all necessary data like ingredients. @TODO Later add stuff like 
 GET 
 Get ingredients and display them in list view with directions and link to recipy by recipeId
 
+Filter By Published Date: ASC/DESC
+
+
+
+GET /menu/full
+
+
 

@@ -25,8 +25,7 @@ module.exports = function(MenuModel) {
 	  	// console.log( ctx.instance );
 	  	// understand what we get at inctance object
 		//not working, right now. Above we're using similar, but easy way to test notifications
-		// MenuModel.app.models.Recipemodel.findById(ctx.instance.rec, function (err, recipe) {
-
+		
 		//   MenuModel.app.models.EmailModel.send({
 		//     to: 'arthur.tkachenko.netweight@gmail.com',
 		//     from: 'noreply@loopback.loop',
@@ -36,7 +35,7 @@ module.exports = function(MenuModel) {
 		//     console.log('email sent!');
 		//   });
 
-		// });
+		
 
 
 		// MenuModel.app.models.Recipemodel.findById(ctx.instance.rec, function (err, recipe) {
@@ -241,38 +240,52 @@ module.exports = function(MenuModel) {
 		MenuModel.findById(menuId)
 		.then(function(menu){
 
-			console.log( menu.recipes );
+			// console.log( menu.recipes );
 			// @TODO change to custom method on recipe model
-			// return RecipeModel.find({
-			// 	where:{
-			// 		id: menu.recipes
-			// 	},
-			// 	fields: [
-			// 		'img', 'url', 'title', 
+			//  
+			RecipeModel.find({
+				where:{
+					id: { inq:menu.recipes }
+				},
+				fields: [
+					'img', 'url', 'title', 'ingredients'
 
-		 //    	]       
-			// })
-			// .then(function(recipes){
-			// // 	menu.recipes = recipes;
-			// // console.log(menu);
-			// // return menu;
-			// // or cb(recipes);
-
-			// 	// console.log(recipes.ingredients);
-			// 	IngredientModel.find({
-	  //               where:{
-	  //                   id: recipe.ingredients
-	  //               }       
-	  //           })
-	  //           .then(function(ingredients){
-	  //           //  recipe.ingredients = ingredients;
-	  //           // console.log(recipe);
-	  //           // return recipe;
-	  //           // or cb(ingredients);
-	  //           });
+		    	]       
+			})
+			.then(function(recipes){
 
 
-			// });
+
+				menu.recipes = recipes;
+				// console.log(menu);
+				cb(menu);
+
+			// return menu;
+			// or cb(recipes);
+
+				// console.log(recipes);
+				// recipes.forEach(function(recipe){
+					// console.log(recipe)
+					// console.log(recipe.ingredients)
+				// });
+				// console.log(recipes);
+
+				// IngredientModel.find({
+	   //              where:{
+	   //                  id: recipe.ingredients
+	   //              }       
+	   //          })
+	   //          .then(function(ingredients){
+	   //          //  recipe.ingredients = ingredients;
+	   //          // console.log(recipe);
+	   //          // return recipe;
+	   //          // or cb(ingredients);
+	   //          });
+
+
+			});
+
+
 
 
 
@@ -294,7 +307,7 @@ module.exports = function(MenuModel) {
 		  type: 'string'
 		},
 		returns: {
-		  arg: 'menus',
+		  arg: 'menu',
 		  type: 'array'
 		},
 		http: {
@@ -354,7 +367,7 @@ module.exports = function(MenuModel) {
 
 
   // method list attached menus with groceries
-  
+
 	MenuModel.listGroceries = function(menuId, cb){
 		var GroceryModel = MenuModel.app.models.GroceryModel;
 
