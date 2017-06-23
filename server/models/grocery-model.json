@@ -9,7 +9,7 @@
   "properties": {
     "departments": {
       "type": "object",
-      "required": true
+      "required": false
     },
     "img": {
       "type": "string"
@@ -32,11 +32,7 @@
   },
   "validations": [],
   "relations": {
-    "ing": {
-      "type": "hasMany",
-      "model": "ingredients",
-      "foreignKey": ""
-    }
+    
   },
   "acls": [
 

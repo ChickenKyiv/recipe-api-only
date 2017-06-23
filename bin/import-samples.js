@@ -103,7 +103,7 @@ groceries(function(array){
 
 	Grocery.create(array)
 	.then(function(groceries){
-	
+		// console.log(groceries);
 		Department.addGrocery(groceries);
 
 	});

@@ -23,6 +23,7 @@ module.exports = function(GroceryModel) {
 		next();
 	});
 
+	// @TODO not sure what i mean by this.
 	GroceryModel.fetch = function(){
 		IngredientModel = GroceryModel.app.models.IngredientModel;
 
@@ -68,28 +69,48 @@ module.exports = function(GroceryModel) {
 
 	};
 
-	GroceryModel.groceryListForMenu = function(menuId, cb){
+	// @TODO right now this method will work fine for Free menu branch
+	// GroceryModel.groceryListForMenu = function(menuId, cb){
+	GroceryModel.groceryListForMenu = function(groceryId, cb){
 
-		var MenuModel = GroceryModel.app.models.MenuModel;
+		var DepartmentModel = GroceryModel.app.models.DepartmentModel;
 
-		MenuModel.MenuRecipesIngredients(menuId, function(data){
-			// @TODO test this "data" attribute
-			console.log(data);
+		// MenuModel.MenuRecipesIngredients(menuId, function(data){
+		// 	// @TODO test this "data" attribute
+		// 	console.log(data);
+		// })
+
+		GroceryModel.findById(groceryId)
+		.then(function(grocery){
+
+			DepartmentModel.find({
+				where:{
+					id: { inq:grocery.departments }
+				},
+				// fields: []       
+			},cb);
+
 		})
+		.catch(function(err){
+			if(err){ cb(err); }
+		});
 
 	};
 
 	GroceryModel.remoteMethod('groceryListForMenu', {
 		accepts: {
-		  arg: 'menuId',
-		  type: 'string'
+		  // arg: 'menuId',
+		  arg: 'groceryId',
+		  type: 'string',
+		  required: true
 		},
 		returns: {
-		  arg: 'groceries',
+		  arg: 'departments',
 		  type: 'array'
 		},
 		http: {
 		  path: '/menu',
+  		  // path: '/:id/menu',
 		  verb: 'get'
 		}
 	});
