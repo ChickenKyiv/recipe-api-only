@@ -33,19 +33,16 @@ module.exports = function(RecipeModel) {
 
         RecipeModel.findById(recipeId)
         .then(function(recipe){
-            console.log( recipe.ingredients );
+            
+            // console.log( recipe.ingredients );
             // @TODO change to custom method on recipe model
-            return IngredientModel.find({
+            IngredientModel.find({
                 where:{
-                    id: recipe.ingredients
-                }       
-            })
-            .then(function(ingredients){
-            //  recipe.ingredients = ingredients;
-            console.log(ingredients);
-            // return recipe;
-            // or cb(ingredients);
-            });
+                    id: { inq:recipe.ingredients }
+                },
+                // fields : ['fieldname']       
+            }, cb);
+            
 
 
 
@@ -62,14 +59,15 @@ module.exports = function(RecipeModel) {
     RecipeModel.remoteMethod('listIngredients', {
         accepts: {
           arg: 'recipeId',
-          type: 'string'
+          type: 'string',
+          required: true
         },
         returns: {
           arg: 'menus',
           type: 'array'
         },
         http: {
-          path: '/recipe/list/ingredients',
+          path: '/recipe/:id/list/ingredients',
           verb: 'get'
         }
     });
@@ -77,7 +75,7 @@ module.exports = function(RecipeModel) {
 
     RecipeModel.attachToMenu = function(){
         var MenuModel = RecipeModel.app.models.MenuModel;
-    // var RoleMapping = UserModel.app.models.RoleMapping;
+        
         RecipeModel.find({
             fields: 'id'
         })
