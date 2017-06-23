@@ -82,9 +82,10 @@ Get one recipe by Id
 GET recipe/:id/full
 Get recipe with all necessary data like ingredients. @TODO Later add stuff like allergies, etc.
 
-GET 
+GET http://localhost:3000/api/grocery/menu?groceryId=594d45227741a0312874c465&access_token=%token%
 Get ingredients and display them in list view with directions and link to recipy by recipeId
 
+GET /menu/filter/date
 Filter By Published Date: ASC/DESC
 
 

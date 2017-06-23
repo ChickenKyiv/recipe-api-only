@@ -74,47 +74,47 @@ module.exports = function(RecipeModel) {
     });
 
 
-    RecipeModel.attachToMenu = function(){
-        var MenuModel = RecipeModel.app.models.MenuModel;
+    // RecipeModel.attachToMenu = function(){
+    //     var MenuModel = RecipeModel.app.models.MenuModel;
         
-        RecipeModel.find({
-            fields: 'id'
-        })
-        .then(function(recipeIds){
-            // console.log(recipeIds);
+    //     RecipeModel.find({
+    //         fields: 'id'
+    //     })
+    //     .then(function(recipeIds){
+    //         // console.log(recipeIds);
 
-            // recipeIds.forEach(function(element){
-            //     element.id
-            // });
+    //         // recipeIds.forEach(function(element){
+    //         //     element.id
+    //         // });
 
 
-            var result = Object.keys(recipeIds).map(function(e) {
-              return recipeIds[e].id;
-            });
+    //         var result = Object.keys(recipeIds).map(function(e) {
+    //           return recipeIds[e].id;
+    //         });
 
-            // console.log(result);
-            // console.log('-------');
+    //         // console.log(result);
+    //         // console.log('-------');
 
-            MenuModel.find({})
-            .then(function(menus){
-                // console.log(menus);
-                // console.log('-------');
+    //         MenuModel.find({})
+    //         .then(function(menus){
+    //             // console.log(menus);
+    //             // console.log('-------');
 
-                menus.forEach(function(menu){
-                    menu.updateAttribute('recipes', result);
-                });    
-                // console.log(menus);
-                // console.log('-------');
-            })
+    //             menus.forEach(function(menu){
+    //                 menu.updateAttribute('recipes', result);
+    //             });    
+    //             // console.log(menus);
+    //             // console.log('-------');
+    //         })
             
 
             
-        }).catch(function(err){
-            throw err;
-        });
+    //     }).catch(function(err){
+    //         throw err;
+    //     });
 
 
-    };
+    // };
 
     RecipeModel.addIngredients = function(){
         var IngredientModel = RecipeModel.app.models.IngredientModel;

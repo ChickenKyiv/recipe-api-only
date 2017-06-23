@@ -33,6 +33,8 @@ let getHolidays = require(path.resolve(__dirname, 'holidays'));
 
 //models
 var User        = server.models.UserModel;
+var Role        = server.models.Role;
+var RoleMapping = server.models.RoleMapping;
 
 
 var Recipe      = server.models.RecipeModel; 
@@ -96,46 +98,62 @@ var Holiday =  server.models.HolidayModel;
 // results.departments
 // results.groceries
 
+		assignAdmin(results.users[2], function(err){
+			console.log('>admin role create sucessfully');
+		});
+
 		attachVideosToUsers(results.users, results.videos, function(err){
 			console.log('>models create sucessfully');
 		});
 
 
-		// attachExampleVideosToAdmin(results.users, results.examples1, function(err){
-		// 	console.log('>examples1 attached to admin');
+		attachRecipeToUsers(results.users, results.recipes, function(err){
+			console.log('>models create sucessfully');
+		});
+
+
+		attachMenusToUsers(results.users, results.menus, function(err){
+			console.log('>models create sucessfully');
+		});
+
+		attachRecipesToMenu(results.recipes, results.menus, function(err){
+			console.log('>models create sucessfully');
+		});
+
+		// attachIngredientsToRecipes(results.ingredients, results.recipes, function(err){
+		// 	console.log('>models create sucessfully');
 		// });
 
-		// attachExampleVideosToAdmin(results.users, results.examples2, function(err){
-		// 	console.log('>examples2 attached to admin');
+
+		
+
+
+		// attachDepartmentsToGroceries(results.departments, results.groceries, function(err){
+		// 	console.log('>models create sucessfully');
 		// });
 
-		// attachExampleVideosToAdmin(results.users, results.examples3, function(err){
-		// 	console.log('>examples3 attached to admin');
+		// attachAllergiesToRecipes(results.allergies, results.recipes, function(err){
+		// 	console.log('>models create sucessfully');
 		// });
 
-		// attachExampleVideosToAdmin(results.users, results.examples4, function(err){
-		// 	console.log('>examples4 attached to admin');
+
+		// attachCoursesToRecipes(results.courses, results.recipes, function(err){
+		// 	console.log('>models create sucessfully');
 		// });
 
-// attachRecipeToUsers();
 
-		attachRecipeToUsers(results.recipes, results.users, cb);
-		attachMenusToUsers(results.menus, results.users, cb)
-		attachIngredientsToRecipes(results.ingredients, results.recipes, cb);
+		// attachCuisinesToRecipes(results.cuisines, results.recipes, function(err){
+		// 	console.log('>models create sucessfully');
+		// });
 
-		attachRecipesToMenu(results.recipes, results.menus, cb);
+		// attachDietsToRecipes(results.diets, results.recipes, function(err){
+		// 	console.log('>models create sucessfully');
+		// });
 
-		attachDepartmentsToGroceries(results.departments, results.groceries, cb);
 
-		attachAllergiesToRecipes(results.allergies, results.recipes, cb);
-
-		attachCoursesToRecipes(results.courses, results.recipes, cb);
-
-		attachCuisinesToRecipes(results.cuisines, results.recipes, cb);
-
-		attachDietsToRecipes(results.diets, results.recipes, cb);
-
-		attachHolidaysToRecipes(results.holidays, results.recipes, cb);
+		// attachHolidaysToRecipes(results.holidays, results.recipes, function(err){
+		// 	console.log('>models create sucessfully');
+		// });
 
 	});
 
@@ -153,6 +171,27 @@ function createUsers(cb){
 	});
 };
 
+function assignAdmin(admin, cb){
+	
+	database.automigrate('Role', function(err){
+		if (err) return cb(err);
+
+		Role.create({ name:'admin' })
+		.then(function(role){
+
+			role.principals.create({
+                  principalType: RoleMapping.USER,
+                  principalId: admin.id
+              }, function(err, principal){
+                console.log('Principal', principal);
+              });
+
+		})
+		.catch(function(err){
+            throw err;
+          });
+	});	
+};
 
 function createRecipes(cb){
 	database.automigrate('RecipeModel', function(err){
@@ -170,13 +209,10 @@ function createIngredients(cb){
 	});
 };
 
-
 function createMenus(cb){
 	database.autoupdate('MenuModel', function(err){
 		if (err) return cb(err);
 
-	
-	
 		Menu.create(getMenus(), cb);
 	
 	});
@@ -186,8 +222,6 @@ function createGroceries(cb){
 	database.autoupdate('GroceryModel', function(err){
 		if (err) return cb(err);
 
-	
-	
 		Grocery.create(getGroceries(), cb);
 	
 	});
@@ -197,8 +231,6 @@ function createDepartments(cb){
 	database.autoupdate('DepartmentModel', function(err){
 		if (err) return cb(err);
 
-	
-	
 		Department.create(getDepartments(), cb);
 	
 	});
@@ -208,8 +240,6 @@ function createAllergies(cb){
 	database.autoupdate('AllergyModel', function(err){
 		if (err) return cb(err);
 
-	
-	
 		Allergy.create(getAllergy(), cb);
 	});
 };
@@ -218,8 +248,6 @@ function createCourses(cb){
 	database.autoupdate('CourseModel', function(err){
 		if (err) return cb(err);
 
-	
-	
 		Course.create(getCourses(), cb);
 	});
 };
@@ -228,8 +256,6 @@ function createCuisines(cb){
 	database.autoupdate('CuisineModel', function(err){
 		if (err) return cb(err);
 
-	
-	
 		Cuisine.create(getCuisine(), cb);
 	});
 };
@@ -238,8 +264,6 @@ function createDiets(cb){
 	database.autoupdate('DietModel', function(err){
 		if (err) return cb(err);
 
-	
-	
 		Diet.create(getDiets(), cb);
 	});
 };
@@ -256,33 +280,38 @@ function createHolidays(cb){
 
 
 //attaching recipes to admin user
-function attachRecipeToUsers(users, videos, cb){
+// @TODO not important function
+function attachRecipeToUsers(users, recipes, cb){
 
-	// videos.forEach(function(video){
-	// 	video.updateAttribute('userId', users[2].id);
-	// 	console.log(video.userId);
-	// });
+	recipes.forEach(function(recipe){
+		recipe.updateAttribute('userId', users[2].id);
+		// console.log(recipe.userId);
+	});
 
-	// Video.updateAttribute('userId', users[0].id);
 };
 
-function attachMenusToUsers(users, videos, cb){
+function attachMenusToUsers(users, menus, cb){
 
-	// videos.forEach(function(video){
-	// 	video.updateAttribute('userId', users[2].id);
-	// 	console.log(video.userId);
-	// });
+	menus.forEach(function(menu){
+		menu.updateAttribute('userId', users[2].id);
+		// console.log(recipe.userId);
+	});
+	
+};
 
-	// Video.updateAttribute('userId', users[0].id);
+function attachRecipesToMenu(recipes, menus, cb){
+	var arrayWithIds = idsOnly(recipes);
+	menus.forEach(function(menu){
+		menu.updateAttribute('recipes', arrayWithIds);
+		// console.log(recipe.userId);
+	});
 };
 
 function attachIngredientsToRecipes(ingredients, recipes, cb){
 
 };
 
-function attachRecipesToMenu(recipes, menus, cb){
 
-};
 
 function attachDepartmentsToGroceries(departments, groceries, cb){
 
@@ -308,6 +337,15 @@ function attachHolidaysToRecipes(){
 
 };
 
+function idsOnly(array){
+
+	var result = Object.keys(array).map(function(e) {
+		return array[e].id;
+    });
+
+	return result;    
+
+}
 
 // function attachExampleVideosToAdmin(users, exampleVideos, cb){
 
