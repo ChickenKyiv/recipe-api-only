@@ -23,30 +23,7 @@ module.exports = function(DepartmentModel) {
   });
 
 
-  DepartmentModel.addGrocery = function (groceries) {
 
-      DepartmentModel.find({
-
-      })
-      .then(function(departments){
-
-        // console.log(departments);
-        var result = Object.keys(departments).map(function(e) {
-              return departments[e].id;
-        });
-        // console.log(result);
-    		groceries.forEach(function(grocery){
-    		 	grocery.updateAttribute('departments', result);
-    		})
-        // console.log(groceries);
-
-      })
-  		.catch(function(err){
-  			throw err;
-  		});
-
-
-  };
 
 
   DepartmentModel.fetch = function(){
