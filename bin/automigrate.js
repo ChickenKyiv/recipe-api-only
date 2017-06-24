@@ -10,7 +10,9 @@ var lbTables = [
 	'Role', 
 	// custom tables
 	'UserModel', 'MenuModel', 'IngredientModel',
-	'GroceryModel', 'DepartmentModel', 'RecipeModel'
+	'GroceryModel', 'DepartmentModel', 'RecipeModel',
+	'Allergy', 'CourseModel', 'CuisineModel', 'DietModel', 'HolidayModel'
+
 ];
 
 //creating loopback necessary tables if no exists
