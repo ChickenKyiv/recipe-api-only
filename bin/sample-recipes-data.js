@@ -97,5 +97,5 @@ module.exports = function getSampleData (cb){
 	];
 
 
-	return cb(recipes);
+	return recipes;
 };

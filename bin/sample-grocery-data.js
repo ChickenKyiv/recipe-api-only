@@ -44,6 +44,6 @@ module.exports = function getSamplesData (cb){
 		}
 	];
 
-	return cb(grocery);
+	return grocery;
 
 };

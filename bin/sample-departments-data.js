@@ -33,6 +33,6 @@ module.exports = function getSamplesData (cb){
 		}
 	];
 
-	return cb(departments);
+	return departments;
 
 };

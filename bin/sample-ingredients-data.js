@@ -51,5 +51,5 @@ module.exports = function getSampleData (cb){
 
 
 
-	return cb(ingredients);
+	return ingredients;
 };

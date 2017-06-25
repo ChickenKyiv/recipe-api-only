@@ -75,5 +75,5 @@ module.exports = function getSampleData (cb){
 
 
 
-	return cb(menus);
+	return menus;
 };
