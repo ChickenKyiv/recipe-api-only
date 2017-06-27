@@ -4,6 +4,11 @@ Great Loopback REST API tutorial: https://github.com/optis/loopback-rest-api
 
 Note: **This repository is going through heavy development currently and should not be used in production unless you know what you are doing**
 
+
+
+[![Join the chat at https://gitter.im/recipe-api-questions/Lobby](https://badges.gitter.im/recipe-api-questions/Lobby.svg)](https://gitter.im/recipe-api-questions/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
 Links, that's important for me:
 
 http://localhost:3000/explorer/#!/recipes/recipes_find
@@ -93,7 +98,3 @@ Filter By Published Date: ASC/DESC
 GET /menu/full
 
 
-
-
-
-[![Join the chat at https://gitter.im/recipe-api-questions/Lobby](https://badges.gitter.im/recipe-api-questions/Lobby.svg)](https://gitter.im/recipe-api-questions/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
