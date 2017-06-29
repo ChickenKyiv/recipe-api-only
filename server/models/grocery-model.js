@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function(GroceryModel) {
+
 	GroceryModel.validatesPresenceOf(
 		// 'departments',
 		'img', 'desc', 'slug'
@@ -22,6 +23,7 @@ module.exports = function(GroceryModel) {
 
 		next();
 	});
+
 
 	// @TODO not sure what i mean by this.
 	GroceryModel.fetch = function(){
@@ -70,46 +72,47 @@ module.exports = function(GroceryModel) {
 	};
 
 	// @TODO right now this method will work fine for Free menu branch
-	// GroceryModel.groceryListForMenu = function(menuId, cb){
-	GroceryModel.groceryListForMenu = function(groceryId, cb){
+	GroceryModel.groceryListForMenu = function(menuId, cb){
 
-		var DepartmentModel = GroceryModel.app.models.DepartmentModel;
 
-		// MenuModel.MenuRecipesIngredients(menuId, function(data){
-		// 	// @TODO test this "data" attribute
-		// 	console.log(data);
-		// })
+		// var DepartmentModel = GroceryModel.app.models.DepartmentModel;
 
-		GroceryModel.findById(groceryId)
-		.then(function(grocery){
-
-			DepartmentModel.find({
-				where:{
-					id: { inq:grocery.departments }
-				},
-				// fields: []       
-			},cb);
-
-		})
-		.catch(function(err){
-			if(err){ cb(err); }
+		MenuModel.MenuRecipesIngredients(menuId, function(data){
+			// @TODO test this "data" attribute
+			console.log(data);
 		});
+
+		
+
+		// GroceryModel.findById(groceryId)
+		// .then(function(grocery){
+
+		// 	DepartmentModel.find({
+		// 		where:{
+		// 			id: { inq:grocery.departments }
+		// 		},
+		// 		// fields: []       
+		// 	},cb);
+
+		// })
+		// .catch(function(err){
+		// 	if(err){ cb(err); }
+		// });
 
 	};
 
 	GroceryModel.remoteMethod('groceryListForMenu', {
 		accepts: {
-		  // arg: 'menuId',
-		  arg: 'groceryId',
+		  arg: 'menuId',
 		  type: 'string',
 		  required: true
 		},
 		returns: {
-		  arg: 'departments',
+		  arg: 'groceries',
 		  type: 'array'
 		},
 		http: {
-		  path: '/menu',
+		  path: '/menu/:id',
   		  // path: '/:id/menu',
 		  verb: 'get'
 		}

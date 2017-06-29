@@ -12,15 +12,6 @@ module.exports = function(MenuModel) {
 
 		// console.log( ctx.instance.rec );
 
-   //     MenuModel.app.models.EmailModel.send({
-	  //   to: 'arthur.tkachenko.netweight@gmail.com',
-	  //   from: 'noreply@loopback.loop',
-	  //   subject: 'Thank you for adding to menu ',
-	  //   html: '<p>We confirm - menu was saved</p>'
-	  // }, function (err, mail) {
-	  //   console.log('email sent!');
-	  // });
-
 		
 	  	// console.log( ctx.instance );
 	  	// understand what we get at inctance object
@@ -60,9 +51,6 @@ module.exports = function(MenuModel) {
 			ctx.instance.created_at = new Date();
 			ctx.instance.updated_at = new Date();
 		} 
-
-
-
 		next();
 	});
 
