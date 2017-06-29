@@ -71,7 +71,7 @@ module.exports = function(MenuModel) {
 		.then(function(menu){
 			console.log( menu.recipes );
 			// @TODO change to custom method on recipe model
-			return RecipeModel.find({
+			RecipeModel.find({
 				where:{
 					id: menu.recipes
 				},
@@ -85,6 +85,7 @@ module.exports = function(MenuModel) {
 			// console.log(menu);
 			// return menu;
 			// or cb(recipes);
+				cb(null, recipes);
 			});
 
 
@@ -165,7 +166,9 @@ module.exports = function(MenuModel) {
 
 		if ( menuId ) {
 
-			MenuModel.findById(menuId, {fields:['id','date']}, function(err, menu){
+			MenuModel.findById(menuId, {
+				fields:['id','date']
+			}, function(err, menu){
 
 				// console.log(menu);
 
@@ -332,15 +335,16 @@ module.exports = function(MenuModel) {
 		.then(function(menu){
 
 			//what we'll want to get in the end
-			var array = [
-				departments: [
-					'department-name' : [
-						{
-							'ingredient-name', 'recipeId'
-						}
-					]
-				]
-			];
+			// var array = {
+			// 	departments: {
+			// 		'department-name' : [
+			// 			{
+			// 				'ingredient-name',
+			// 				'recipeId'
+			// 			}
+			// 		]
+			// 	}
+			// };
 
 
 			
