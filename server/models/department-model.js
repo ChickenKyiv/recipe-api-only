@@ -76,12 +76,12 @@ module.exports = function(DepartmentModel) {
 
 
 
-  DepartmentModel.findById(departmentId, {
-      fields: 'items'
-    },function(err, result){
-      cb(null, result.items);
+    DepartmentModel.findById(departmentId, {
+        fields: 'items'
+      },function(err, result){
+        cb(null, result.items);
 
-    });
+      });
     
       
 

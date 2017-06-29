@@ -29,7 +29,7 @@ module.exports = function(RecipeModel) {
     });
 
     // method list attached recipes with ingredients
-    RecipeModel.listIngredients = function(recipeId, includeRecipeId = false, cb){
+    RecipeModel.listIngredients = function(recipeId, cb){
         var IngredientModel = RecipeModel.app.models.IngredientModel;
 
         RecipeModel.findById(recipeId)
@@ -38,7 +38,7 @@ module.exports = function(RecipeModel) {
             console.log( recipe.ingredients );
             // @TODO change to custom method on recipe model
 
-            if( !includeRecipeId ){
+            // if( !includeRecipeId ){
 
 
 
@@ -50,18 +50,20 @@ module.exports = function(RecipeModel) {
                 }, cb);
 
             
-            } else {
+            // } else {
 
-                IngredientModel.find({
-                    where:{
-                        id: { inq:recipe.ingredients }
-                    },
-                    // fields : ['fieldname']       
-                }, function(err, ingredients){
+            //     IngredientModel.find({
+            //         where:{
+            //             id: { inq:recipe.ingredients }
+            //         },
+            //         // fields : ['fieldname']       
+            //     }, function(err, ingredients){
 
-                });                
 
-            }
+
+            //     });                
+
+            // }
 
 
 
@@ -83,8 +85,8 @@ module.exports = function(RecipeModel) {
         returns: {
           arg:  'ingredients',
           type: 'array',
-          arg:  'recipeId',
-          type: 'number'
+          // arg:  'recipeId',
+          // type: 'number'
         },
         http: {
           path: '/:id/list/ingredients',
@@ -92,7 +94,52 @@ module.exports = function(RecipeModel) {
         }
     });
 
+    // inner method only right now
+    RecipeModel.listIngredientsExtended = function(recipeId, cb){
+        var IngredientModel = RecipeModel.app.models.IngredientModel;
 
+        RecipeModel.findById(recipeId)
+        .then(function(recipe){
+
+            console.log( recipe.ingredients );
+
+
+                IngredientModel.find({
+                    where:{
+                        id: { inq:recipe.ingredients }
+                    },
+                    // fields : ['fieldname']       
+                }, function(err, ingredients){
+
+                    // var data = {
+                    //     recipeId: recipeId,
+                    //     ingredients: ingredients 
+                    // };
+
+                    var data = [];
+
+                    ingredients.forEach(function(ingredient){
+                        ingredient.recipeId = recipeId;
+                        data[] = ingredient;
+                    });
+
+                    console.log(data);
+
+                    cb(null, data);
+                    
+                });                
+
+
+
+
+        })
+        .catch(function(err){
+            if(err){ cb(err); }
+        });
+
+
+
+    };
    
 
             

@@ -284,16 +284,14 @@ module.exports = function(MenuModel) {
 		.then(function(menu){
 			console.log( menu.recipes );
 			// @TODO change to custom method on recipe model
-			return RecipeModel.find({
+			RecipeModel.find({
 				where:{
 					id: menu.recipes
 				}       
 			})
 			.then(function(recipes){
-			// 	menu.recipes = recipes;
-			// console.log(menu);
-			// return menu;
-			// or cb(recipes);
+			
+				cb(null, recipes);
 			});
 
 
@@ -327,7 +325,8 @@ module.exports = function(MenuModel) {
   // method list attached menus with groceries
 
 	MenuModel.listGroceries = function(menuId, cb){
-		var GroceryModel = MenuModel.app.models.GroceryModel;
+		var GroceryModel    = MenuModel.app.models.GroceryModel;
+		var DepartmentModel = MenuModel.app.models.DepartmentModel;
 
 		MenuModel.findById(menuId)
 		.then(function(menu){
@@ -349,11 +348,31 @@ module.exports = function(MenuModel) {
 			console.log( recipeIds );
 
 
-			listIngredients
+			recipeIds.forEach(function(recipeId){
+
+				RecipeModel.listIngredientsExtended(recipeId, function(ingredients){
+					console.log(ingredients);
+					console.log('---------');
+				})
+
+			});
 
 
 
-			RecipeModel.
+			var ingredientIds = [];
+
+
+			DepartmentModel.find({
+				where : {
+					ingredientIds: {
+						inq : ingredientIds
+					}
+				}
+			}).then(function(departments){
+
+			});
+
+			// RecipeModel.listIngredientsExtended()
 
 			// @TODO change to custom method on recipe model
 			// return GroceryModel.find({
@@ -364,13 +383,13 @@ module.exports = function(MenuModel) {
 				// 	'img', 'url', 'title', 
 
 		  //   	]       
-			})
-			.then(function(groceries){
-			// 	menu.recipes = recipes;
-			// console.log(menu);
-			// return menu;
-			// or cb(recipes);
-			});
+			// })
+			// .then(function(groceries){
+			// // 	menu.recipes = recipes;
+			// // console.log(menu);
+			// // return menu;
+			// // or cb(recipes);
+			// });
 
 
 
