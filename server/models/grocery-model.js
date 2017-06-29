@@ -71,7 +71,8 @@ module.exports = function(GroceryModel) {
 
 	};
 
-	// @TODO right now this method will work fine for Free menu branch
+	// @TODO if we have empty menuId then we need to get groceries for the latest(read current active menu);
+
 	GroceryModel.groceryListForMenu = function(menuId, cb){
 
 
@@ -82,7 +83,7 @@ module.exports = function(GroceryModel) {
 			console.log(data);
 		});
 
-		
+
 
 		// GroceryModel.findById(groceryId)
 		// .then(function(grocery){

@@ -29,7 +29,7 @@ module.exports = function(RecipeModel) {
     });
 
     // method list attached recipes with ingredients
-    RecipeModel.listIngredients = function(recipeId, cb){
+    RecipeModel.listIngredients = function(recipeId, includeRecipeId = false, cb){
         var IngredientModel = RecipeModel.app.models.IngredientModel;
 
         RecipeModel.findById(recipeId)
@@ -37,14 +37,31 @@ module.exports = function(RecipeModel) {
 
             console.log( recipe.ingredients );
             // @TODO change to custom method on recipe model
-            IngredientModel.find({
-                where:{
-                    id: { inq:recipe.ingredients }
-                },
-                // fields : ['fieldname']       
-            }, cb);
-            
 
+            if( !includeRecipeId ){
+
+
+
+                IngredientModel.find({
+                    where:{
+                        id: { inq:recipe.ingredients }
+                    },
+                    // fields : ['fieldname']       
+                }, cb);
+
+            
+            } else {
+
+                IngredientModel.find({
+                    where:{
+                        id: { inq:recipe.ingredients }
+                    },
+                    // fields : ['fieldname']       
+                }, function(err, ingredients){
+
+                });                
+
+            }
 
 
 
@@ -64,8 +81,10 @@ module.exports = function(RecipeModel) {
           required: true
         },
         returns: {
-          arg: 'ingredients',
-          type: 'array'
+          arg:  'ingredients',
+          type: 'array',
+          arg:  'recipeId',
+          type: 'number'
         },
         http: {
           path: '/:id/list/ingredients',
