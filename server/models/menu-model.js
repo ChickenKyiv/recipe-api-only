@@ -331,12 +331,35 @@ module.exports = function(MenuModel) {
 
 		MenuModel.findById(menuId)
 		.then(function(menu){
-			console.log( menu.recipes );
+
+			//what we'll want to get in the end
+			var array = [
+				departments: [
+					'department-name' : [
+						{
+							'ingredient-name', 'recipeId'
+						}
+					]
+				]
+			];
+
+
+			
+			var recipeIds = menu.recipes;
+			console.log( recipeIds );
+
+
+			listIngredients
+
+
+
+			RecipeModel.
+
 			// @TODO change to custom method on recipe model
-			return GroceryModel.find({
-				where:{
-					// id: menu.recipes
-				},
+			// return GroceryModel.find({
+			// 	where:{
+			// 		// id: menu.recipes
+			// 	},
 				// fields: [
 				// 	'img', 'url', 'title', 
 

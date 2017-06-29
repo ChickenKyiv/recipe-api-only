@@ -99,3 +99,6 @@ Filter By Published Date: ASC/DESC
 GET /menu/full
 
 
+grocery/menu/:id
+recipe/:id/list/ingredients
+http://localhost:3000/api/recipe/{id}/list/ingredients?recipeId=594d3b97fef8430a3c5eff8d&access_token=y2GcakK5pffy5LSueSdEQ8i40bkoSQixgZKMwImlyEsMLCrbk4ktjoV0OuxmnWNF
