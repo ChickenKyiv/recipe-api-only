@@ -422,4 +422,71 @@ module.exports = function(MenuModel) {
 		}
 	});
 
+	// Recipe order
+	// This is a first, simple version of this method.
+	// We're assuming that we have 1 recipe per day.
+	// So if we have [ 'monday': RecipeOne, 'tuesday': RecipeTwo ]
+	// when we change an order, other recipes change their order by bubble sorting
+	MenuModel.recipeOrder = function(menuId, cb){
+		var RecipeModel = MenuModel.app.models.RecipeModel;
+
+		// MenuModel.findById(menuId)
+		// .then(function(menu){
+		// 	console.log( menu.recipes );
+		// 	// @TODO change to custom method on recipe model
+		// 	RecipeModel.find({
+		// 		where:{
+		// 			id: menu.recipes
+		// 		}       
+		// 	})
+		// 	.then(function(recipes){
+			
+		// 		cb(null, recipes);
+		// 	});
+
+
+
+
+		// })
+		// .catch(function(err){
+		// 	if(err){ cb(err); }
+		// });
+
+
+
+	};
+
+	MenuModel.removeRecipeFromMenu = function(menuId, recipeId, cb){
+
+		var RecipeModel = MenuModel.app.models.RecipeModel;
+
+		MenuModel.findById(menuId)
+		.then(function(menu){
+			console.log( menu.recipes );
+
+			var array =  menu.recipes ;
+			var index = array.indexOf(recipeId);
+			if (index > -1) {
+			    array.splice(index, 1);
+			}
+			console.log(recipeId);
+			// @TODO think about this case: I have menu with 2 recipes with equial IDs. For Monday and Friday, for example.
+			// we need to cover this case later.
+
+			// @TODO change to custom method on recipe model
+			// RecipeModel.find({
+			// 	where:{
+			// 		id: menu.recipes
+			// 	}       
+			// })
+			// .then(function(recipes){
+			
+			// 	cb(null, recipes);
+			// });
+			console.log(menu.recipes);
+			menu.updateAttribute('recipes', array);
+			console.log(menu.recipes);
+
+	}
+
 };

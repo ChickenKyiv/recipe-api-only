@@ -34,7 +34,7 @@ module.exports = function(IngredientModel) {
         .then(function(recipe){
             console.log( recipe.ingredients );
             // @TODO change to custom method on recipe model
-            return IngredientModel.find({
+            IngredientModel.find({
                 where:{
                     id: recipe.ingredients
                 }       
@@ -43,7 +43,7 @@ module.exports = function(IngredientModel) {
             //  recipe.ingredients = ingredients;
             // console.log(recipe);
             // return recipe;
-            // or cb(ingredients);
+                cb(null, ingredients);
             });
 
 
@@ -73,7 +73,7 @@ module.exports = function(IngredientModel) {
     });
 
     IngredientModel.findByIds = function(ingredientIds, cb){
-        return IngredientModel.find({
+        IngredientModel.find({
                 where:{
                     id: ingredientIds
                 }       

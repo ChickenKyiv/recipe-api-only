@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Emailmodel) {
+module.exports = function(EmailModel) {
 
 };
