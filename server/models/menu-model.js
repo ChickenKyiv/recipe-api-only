@@ -486,7 +486,9 @@ module.exports = function(MenuModel) {
 			console.log(menu.recipes);
 			menu.updateAttribute('recipes', array);
 			console.log(menu.recipes);
-
+			cb(null, menu);
+			
+		});	
 	}
 
 };
