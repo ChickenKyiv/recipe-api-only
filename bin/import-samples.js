@@ -1,12 +1,12 @@
 'use strict';
 
 
-var path        = require('path');
-var async       = require('async');
+var path            = require('path');
+var async           = require('async');
 
-let server      = require(path.resolve(__dirname, '../server/server'));
+let server          = require(path.resolve(__dirname, '../server/server'));
 
-var database    = server.datasources.videoDS;
+var database        = server.datasources.recipeDS;
 
 
 let getUsers        = require(path.resolve(__dirname, 'sample-users-data'));

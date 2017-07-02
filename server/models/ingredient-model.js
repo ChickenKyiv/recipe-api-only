@@ -6,9 +6,9 @@ module.exports = function(IngredientModel) {
 		// 'name', 'type', 
         // 'done', 'delete'
 
-        'term'
-        'description'
-        'searchValue'
+        'term',
+        'description',
+        'searchValue',
 	);
 
     IngredientModel.observe("before save", function updateTimestamp(ctx, next) {
