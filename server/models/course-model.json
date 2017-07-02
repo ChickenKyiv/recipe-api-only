@@ -17,6 +17,10 @@
     "description": {
       "type": "string",
       "required": true
+    },
+    "searchValue": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

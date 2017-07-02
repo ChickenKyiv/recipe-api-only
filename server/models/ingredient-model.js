@@ -3,7 +3,12 @@
 module.exports = function(IngredientModel) {
     //@TODO add to done & delete default false
 	IngredientModel.validatesPresenceOf(
-		'name', 'type', 'done', 'delete'
+		// 'name', 'type', 
+        // 'done', 'delete'
+
+        'term'
+        'description'
+        'searchValue'
 	);
 
     IngredientModel.observe("before save", function updateTimestamp(ctx, next) {
@@ -11,8 +16,10 @@ module.exports = function(IngredientModel) {
     	if( ctx.isNewInstance ){
     		ctx.instance.created_at = new Date();
     		ctx.instance.updated_at = new Date();
-    	} 
 
+            ctx.instance.done   = false;
+            ctx.instance.delete = false;            
+    	} 
 
 
     	next();

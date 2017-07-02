@@ -6,15 +6,19 @@
     "validateUpsert": true
   },
   "properties": {
-    "short_description": {
+    "shortDescription": {
       "type": "string",
       "required": true
     },
-    "long_description": {
+    "longDescription": {
       "type": "string",
       "required": true
     },
     "type": {
+      "type": "string",
+      "required": true
+    },
+    "searchValue": {
       "type": "string",
       "required": true
     }

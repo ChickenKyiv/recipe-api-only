@@ -15,13 +15,14 @@ let getRecipes      = require(path.resolve(__dirname, 'sample-recipes-data'));
 
 let getMenus        = require(path.resolve(__dirname, 'sample-menus-data'));
 
-let getIngredients  = require(path.resolve(__dirname, 'sample-ingredients-data'));
+let getIngredients  = require(path.resolve(__dirname, 'sample-ingredients2'));
+// let getIngredients  = require(path.resolve(__dirname, 'sample-ingredients-data'));
 
 let getGroceries    = require(path.resolve(__dirname, 'sample-grocery-data'));
 
 let getDepartments  = require(path.resolve(__dirname, 'sample-departments-data'));
 
-let getUsers        = require(path.resolve(__dirname, 'sample-users-data'));
+// let getUsers        = require(path.resolve(__dirname, 'sample-users-data'));
 
 
 let getAllergy  = require(path.resolve(__dirname, 'allergy'));
@@ -66,10 +67,10 @@ var Holiday =  server.models.HolidayModel;
 		groceries   : async.apply(createGroceries),
 		departments : async.apply(createDepartments),
 
-		allergies   : async.apply(createAllergies)
-		courses     : async.apply(createCourses)
-		cuisines    : async.apply(createCuisines)
-		diets       : async.apply(createDiets)
+		allergies   : async.apply(createAllergies),
+		courses     : async.apply(createCourses),
+		cuisines    : async.apply(createCuisines),
+		diets       : async.apply(createDiets),
 		holidays    : async.apply(createHolidays)
 
 	}, function(err, results){

@@ -1,5 +1,6 @@
 {
-  "name": "HolidayModel",
+  "name": "IngredientModel2",
+  "plural": "ingredient",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -10,21 +11,34 @@
       "type": "string",
       "required": true
     },
+
     "type": {
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "string",
+    "done": {
+      "type": "boolean",
+      "default": "0"
+    },
+    "delete": {
+      "type": "boolean",
+      "default": "0"
+    },
+    "created_at": {
+      "type": "date",
       "required": true
     },
-     "searchValue": {
-      "type": "string",
+    "updated_at": {
+      "type": "date",
       "required": true
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+  
+  },
+  "acls": [
+    
+  ],
   "methods": {}
 }

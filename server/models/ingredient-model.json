@@ -7,20 +7,26 @@
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "term": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "searchValue": {
       "type": "string",
       "required": true
     },
 
-    "type": {
-      "type": "string",
-      "required": true
-    },
     "done": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": false
     },
     "delete": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": false
     },
     "created_at": {
       "type": "date",
