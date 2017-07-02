@@ -120,7 +120,8 @@ module.exports = function(RecipeModel) {
 
                     ingredients.forEach(function(ingredient){
                         ingredient.recipeId = recipeId;
-                        data[] = ingredient;
+                        data.push(ingredient);
+                         // = ingredient;
                     });
 
                     console.log(data);
