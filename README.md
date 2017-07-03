@@ -32,21 +32,12 @@ Note: Upload images are not supported right now. If you want to display images, 
 Use this reference for adding such a functionality: https://github.com/optis/loopback-rest-api#storage
 
 
-https://recipe-api-loopback.herokuapp.com/
+[Live Recipe API server](https://recipe-api-loopback.herokuapp.com/) (down at this moment)
 
 
 
-![Search filters](https://github.com/atherdon/recipe-api-only/blob/master/SEARCH.md)
+[Search filters](https://github.com/atherdon/recipe-api-only/blob/master/SEARCH.md)
 
-Free Menu
-GET ONLY right now
-recipe/id/ingredients
-grocery/id/departments
-menu/id/grocery
-departments/id/ingredients
-users/id/menu/id
-
-Menu filter by date ASC/DESC
 
 @TODO Search 
 
