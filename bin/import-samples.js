@@ -46,7 +46,7 @@ var Grocery     = server.models.GroceryModel;
 
 var Department  = server.models.DepartmentModel;
 
-var Allergy =  server.models.AllergyModel;
+var Allergy =  server.models.Allergy; //@TODO
 
 var Course  =  server.models.CourseModel;
 
@@ -233,7 +233,7 @@ function createDepartments(cb){
 };
 
 function createAllergies(cb){
-	database.autoupdate('AllergyModel', function(err){
+	database.autoupdate('Allergy', function(err){ // @TODO
 		if (err) return cb(err);
 
 		Allergy.create(getAllergy(), cb);

@@ -8,6 +8,7 @@ var database = app.datasources.recipeDS;
 var lbTables = [
 	'User', 'AccessToken', 'ACL', 'RoleMapping',
 	'Role', 
+	
 	// custom tables
 	'UserModel', 'MenuModel', 'IngredientModel',
 	'GroceryModel', 'DepartmentModel', 'RecipeModel',

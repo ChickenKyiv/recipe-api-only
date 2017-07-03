@@ -5,7 +5,7 @@ module.exports = function getSampleData (){
    
      var allergy     = [
           {
-               "id":"393",
+               // "id":"393",
                "shortDescription":"Gluten-Free",
                "longDescription":"Gluten-Free",
                "searchValue":"393^Gluten-Free",
@@ -13,7 +13,7 @@ module.exports = function getSampleData (){
                "localesAvailableIn":["en-US"]
           },
           {
-               "id":"394",
+               // "id":"394",
                "shortDescription":"Peanut-Free",
                "longDescription":"Peanut-Free",
                "searchValue":"394^Peanut-Free",
@@ -21,7 +21,7 @@ module.exports = function getSampleData (){
                "localesAvailableIn":["en-US"]
           },
           {
-               "id":"398",
+               // "id":"398",
                "shortDescription":"Seafood-Free",
                "longDescription":"Seafood-Free",
                "searchValue":"398^Seafood-Free",
@@ -29,7 +29,7 @@ module.exports = function getSampleData (){
                "localesAvailableIn":["en-US"]
           },
           {
-               "id":"399",
+               // "id":"399",
                "shortDescription":"Sesame-Free",
                "longDescription":"Sesame-Free",
                "searchValue":"399^Sesame-Free",
@@ -37,27 +37,33 @@ module.exports = function getSampleData (){
                "localesAvailableIn":["en-US"]
           },
           {
-               "id":"400","shortDescription":"Soy-Free","longDescription":"Soy-Free",
+               // "id":"400",
+               "shortDescription":"Soy-Free","longDescription":"Soy-Free",
                "searchValue":"400^Soy-Free","type":"allergy","localesAvailableIn":["en-US"]
           },
           {
-               "id":"396","shortDescription":"Dairy-Free","longDescription":"Dairy-Free",
+               // "id":"396",
+               "shortDescription":"Dairy-Free","longDescription":"Dairy-Free",
                "searchValue":"396^Dairy-Free","type":"allergy","localesAvailableIn":["en-US"]
           },
           {
-               "id":"397","shortDescription":"Egg-Free","longDescription":"Egg-Free",
+               // "id":"397",
+               "shortDescription":"Egg-Free","longDescription":"Egg-Free",
                "searchValue":"397^Egg-Free","type":"allergy","localesAvailableIn":["en-US"]
           },
           {
-               "id":"401","shortDescription":"Sulfite-Free","longDescription":"Sulfite-Free",
+               // "id":"401",
+               "shortDescription":"Sulfite-Free","longDescription":"Sulfite-Free",
                "searchValue":"401^Sulfite-Free","type":"allergy","localesAvailableIn":["en-US"]
           },
           {
-               "id":"395","shortDescription":"Tree Nut-Free","longDescription":"Tree Nut-Free",
+               // "id":"395",
+               "shortDescription":"Tree Nut-Free","longDescription":"Tree Nut-Free",
                "searchValue":"395^Tree Nut-Free","type":"allergy","localesAvailableIn":["en-US"]
           },
           {
-               "id":"392","shortDescription":"Wheat-Free","longDescription":"Wheat-Free",
+               // "id":"392",
+               "shortDescription":"Wheat-Free","longDescription":"Wheat-Free",
                "searchValue":"392^Wheat-Free","type":"allergy","localesAvailableIn":["en-US"]
           }
      ];
