@@ -35,6 +35,9 @@ Use this reference for adding such a functionality: https://github.com/optis/loo
 https://recipe-api-loopback.herokuapp.com/
 
 
+
+![Search filters](https://github.com/atherdon/recipe-api-only/blob/master/SEARCH.md)
+
 Free Menu
 GET ONLY right now
 recipe/id/ingredients
