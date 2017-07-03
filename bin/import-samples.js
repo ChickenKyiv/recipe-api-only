@@ -101,9 +101,9 @@ var Holiday =  server.models.HolidayModel;
 			console.log('>admin role create sucessfully');
 		});
 
-		attachVideosToUsers(results.users, results.videos, function(err){
-			console.log('>models create sucessfully');
-		});
+		// attachVideosToUsers(results.users, results.videos, function(err){
+		// 	console.log('>models create sucessfully');
+		// });
 
 
 		attachRecipeToUsers(results.users, results.recipes, function(err){
