@@ -43,10 +43,10 @@ http://localhost:3000/api/recipe?filter[ilike][name]=%Pork%
 propose to add example at REST link on https://loopback.io/doc/en/lb3/Where-filter.html#ilike-and-nilike  
 
 **Long query**
-http://localhost:3000/api/recipe?filter[where][and][0][name]=Pork
-&filter[where][and][1][ingredients][name]=chicken
-&filter[where][and][2][cousine][cousineId]=cousineId
-&filter[where][and][3][course][courseId]=courseId
-&filter[where][and][4][holiday][holidayId]=holidayId
-&filter[where][and][5][allergy][allergyId]=allergyId
-&filter[where][and][6][diet][dietId]=dietId
+http://localhost:3000/api/recipe?filter[where][and][0][name]=Pork  
+&filter[where][and][1][ingredients][name]=chicken  
+&filter[where][and][2][cousine][cousineId]=cousineId  
+&filter[where][and][3][course][courseId]=courseId  
+&filter[where][and][4][holiday][holidayId]=holidayId  
+&filter[where][and][5][allergy][allergyId]=allergyId  
+&filter[where][and][6][diet][dietId]=dietId  
