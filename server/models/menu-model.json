@@ -30,6 +30,23 @@
     "updated_at": {
       "type": "date",
       "required": true
+    },
+
+    "status": {
+      "type": "string",
+      "required": false
+    },
+    "types": {
+      "type": "string",
+      "required": false
+    },
+    "notes": {
+      "type": "date",
+      "required": false
+    },
+    "groceryId": {
+      "type": "string",
+      "required": false
     }
   },
   "validations": [],
