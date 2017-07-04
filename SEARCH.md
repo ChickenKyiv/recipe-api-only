@@ -4,7 +4,7 @@ http://localhost:3000/api/ingredients?filter[where][name]=chicken  **not working
 http://localhost:3000/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][inq]=pasta  **not working**  
 http://localhost:3000/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][nin]=pasta  **not working**  
 
-**As we updated Model fields - worked urls below**
+**As we updated Model fields - worked urls below**  
 http://localhost:3000/api/ingredient?filter[where][term]=chicken&access_token=%token%  
 http://localhost:3000/api/ingredient?filter[where][term][inq]=chicken&filter[where][term][inq]=pasta&&access_token=%token
 %  
