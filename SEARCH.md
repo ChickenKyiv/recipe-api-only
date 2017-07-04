@@ -1,8 +1,14 @@
 **Ingredients search - add relations with Recipes**
 
-http://localhost:3000/api/ingredients?filter[where][name]=chicken  
-http://localhost:3000/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][inq]=pasta  
-http://localhost:3000/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][nin]=pasta  
+http://localhost:3000/api/ingredients?filter[where][name]=chicken  **not working**  
+http://localhost:3000/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][inq]=pasta  **not working**  
+http://localhost:3000/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][nin]=pasta  **not working**  
+
+**As we updated Model fields - worked urls below**
+http://localhost:3000/api/ingredient?filter[where][term]=chicken&access_token=%token%  
+http://localhost:3000/api/ingredient?filter[where][term][inq]=chicken&filter[where][term][inq]=pasta&&access_token=%token
+%  
+http://localhost:3000/api/ingredient?filter[where][term][nin]=chicken&filter[where][term][nin]=pasta&filter[limit]=10&access_token=%token%  
 
 **Cousines search - Add relations with Recipes**
 http://localhost:3000/api/cousine?filter[where][id]=cousineId  
