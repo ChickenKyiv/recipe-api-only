@@ -13,6 +13,9 @@ let getUsers        = require(path.resolve(__dirname, 'sample-users-data'));
 
 let getRecipes      = require(path.resolve(__dirname, 'sample-recipes-data'));
 
+// recipes for search
+let getRecipes2     = require(path.resolve(__dirname, 'sample-recipes-search-data'));
+
 let getMenus        = require(path.resolve(__dirname, 'sample-menus-data'));
 
 let getIngredients  = require(path.resolve(__dirname, 'sample-ingredients2'));
@@ -150,6 +153,9 @@ var Holiday =  server.models.HolidayModel;
 		attachHolidaysToRecipes(results.holidays, results.recipes, function(err){
 			console.log('>models create sucessfully');
 		});
+
+
+		// attach data to recipes
 
 
 	});
