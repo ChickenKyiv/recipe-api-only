@@ -151,6 +151,7 @@ var Holiday =  server.models.HolidayModel;
 			console.log('>models create sucessfully');
 		});
 
+
 	});
 
 
@@ -305,6 +306,10 @@ function attachRecipesToMenu(recipes, menus, cb){
 
 function attachIngredientsToRecipes(ingredients, recipes, cb){
 	var arrayWithIds = idsOnly(ingredients);
+
+	// only first 10 elements attach
+	arrayWithIds = arrayWithIds.slice(0, 10);
+
 	recipes.forEach(function(recipe){
 		recipe.updateAttribute('ingredients', arrayWithIds);
 		
