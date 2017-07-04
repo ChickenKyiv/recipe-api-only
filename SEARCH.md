@@ -11,9 +11,9 @@ http://localhost:3000/api/ingredient?filter[where][term][inq]=chicken&filter[whe
 http://localhost:3000/api/ingredient?filter[where][term][nin]=chicken&filter[where][term][nin]=pasta&filter[limit]=10&access_token=%token%  
 
 **Cousines search - Add relations with Recipes**
-http://localhost:3000/api/cousine?filter[where][id]=cousineId  
-http://localhost:3000/api/cousine?filter[where][id][inq]=cousineId&filter[where][id][inq]=cousineId  
-http://localhost:3000/api/cousine?filter[where][id][inq]=cousineId&filter[where][id][nin]=cousineId  
+http://localhost:3000/api/cousine?filter[where][id]=cousineId  **not working**  
+http://localhost:3000/api/cousine?filter[where][id][inq]=cousineId&filter[where][id][inq]=cousineId  **not working**  
+http://localhost:3000/api/cousine?filter[where][id][inq]=cousineId&filter[where][id][nin]=cousineId  **not working**  
 
 **Courses search - Add relations with Recipes**
 http://localhost:3000/api/course?filter[where][id]=courseId  
