@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server/server.js",
     "watch": "nodemon server/server.js",
-    "test": "mocha",
+    "test" : "mocha",
     "populate": "node bin/import-samples.js"
   },
   "dependencies": {
