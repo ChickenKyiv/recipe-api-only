@@ -55,7 +55,10 @@
   },
   "UserModel": {
     "dataSource": "recipeDS",
-    "public": true
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true,
+    }
   },
   "Allergy": {
     "dataSource": "recipeDS",
