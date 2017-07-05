@@ -26,7 +26,7 @@ let getGroceries    = require(path.resolve(__dirname, 'sample-grocery-data'));
 let getDepartments  = require(path.resolve(__dirname, 'sample-departments-data'));
 
 // let getUsers        = require(path.resolve(__dirname, 'sample-users-data'));
-
+let nutritions  = require(path.resolve(__dirname, 'nutritions'));
 
 let getAllergy  = require(path.resolve(__dirname, 'allergy'));
 let getCourses  = require(path.resolve(__dirname, 'courses'));
