@@ -13,15 +13,20 @@ var app = module.exports = loopback();
 // app.middleware('initial', bodyParser.urlencoded({ extended: true }));
 
 // app.set('view engine', 'ejs'); // LoopBack comes with EJS out-of-box
+// app.set('view engine', 'pug');
 // app.set('json spaces', 2); // format json responses for easier viewing
 
-// // must be set to serve views properly when starting the app via `lb run` from
-// // the project root
+// must be set to serve views properly when starting the app via `lb run` from
+// the project root
 // app.set('views', path.resolve(__dirname, 'views'));
 
-// // use loopback.token middleware on all routes
-// // setup gear for authentication using cookie (access_token)
-// // Note: requires cookie-parser (defined in middleware.json)
+// in client/public we store static files right now.
+// var staticDir = path.join(__dirname + '/../client/public');
+// app.use(express.static(staticDir));
+
+// use loopback.token middleware on all routes
+// setup gear for authentication using cookie (access_token)
+// Note: requires cookie-parser (defined in middleware.json)
 // app.use(loopback.token({  
 //   model: app.models.accessToken,
 //   currentUserLiteral: 'me',
