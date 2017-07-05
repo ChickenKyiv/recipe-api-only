@@ -31,11 +31,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    
-  },
-  "acls": [
-
-  ],
+  "relations": {},
+  "acls": [],
   "methods": {}
 }

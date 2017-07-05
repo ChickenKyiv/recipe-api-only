@@ -19,7 +19,7 @@
       "type": "string",
       "required": true
     },
-     "searchValue": {
+    "searchValue": {
       "type": "string",
       "required": true
     }

@@ -83,5 +83,9 @@
   "EmailModel": {
     "dataSource": "mailgun",
     "public": false
+  },
+  "NutritionsModel": {
+    "dataSource": "recipeDS",
+    "public": true
   }
 }

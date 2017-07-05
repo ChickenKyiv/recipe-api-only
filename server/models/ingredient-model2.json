@@ -11,7 +11,6 @@
       "type": "string",
       "required": true
     },
-
     "type": {
       "type": "string",
       "required": true
@@ -34,11 +33,7 @@
     }
   },
   "validations": [],
-  "relations": {
-  
-  },
-  "acls": [
-    
-  ],
+  "relations": {},
+  "acls": [],
   "methods": {}
 }

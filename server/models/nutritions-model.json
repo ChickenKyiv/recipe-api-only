@@ -1,0 +1,56 @@
+{
+  "name": "NutritionsModel",
+  "plural": "nutritions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "calories": {
+      "type": "number"
+    },
+    "fat_calories": {
+      "type": "number"
+    },
+    "total_fat": {
+      "type": "number"
+    },
+    "sat_fat": {
+      "type": "number"
+    },
+    "trans_fat": {
+      "type": "number"
+    },
+    "sodium": {
+      "type": "number"
+    },
+    "total_carb": {
+      "type": "number"
+    },
+    "fibers": {
+      "type": "number"
+    },
+    "sugars": {
+      "type": "number"
+    },
+    "proteins": {
+      "type": "number"
+    },
+    "vitamins": {
+      "type": [
+        "object"
+      ]
+    },
+    "calcium": {
+      "type": "number"
+    },
+    "iron": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

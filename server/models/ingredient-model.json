@@ -19,7 +19,6 @@
       "type": "string",
       "required": true
     },
-
     "done": {
       "type": "boolean",
       "required": false
@@ -38,11 +37,7 @@
     }
   },
   "validations": [],
-  "relations": {
-  
-  },
-  "acls": [
-    
-  ],
+  "relations": {},
+  "acls": [],
   "methods": {}
 }

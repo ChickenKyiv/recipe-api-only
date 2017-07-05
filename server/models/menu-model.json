@@ -31,7 +31,6 @@
       "type": "date",
       "required": true
     },
-
     "status": {
       "type": "string",
       "required": false
