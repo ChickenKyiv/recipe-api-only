@@ -57,7 +57,7 @@
     "dataSource": "recipeDS",
     "public": true,
     "options": {
-      "emailVerificationRequired": true,
+      "emailVerificationRequired": true
     }
   },
   "Allergy": {
