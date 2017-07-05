@@ -89,6 +89,30 @@ module.exports = function(UserModel) {
     }
   });
 
+  // @TODO finish and test how this method works
+  UserModel.updateSubscription = function(userId, subscription){
+
+    UserModel.findById(userId)
+      .then(function(userInstance){
+
+        userInstance.subscription(subscription);
+        if(true){
+
+          UserModel.app.models.EmailModel.send({
+            to     : userInstance.email,
+            from   : userInstance.email, // @TODO i think this is not a good way to todo
+            subject: 'Subscription was updated',
+            html   :html
+          }, function(err){
+            if (err) return console.log('> user subscription was not updated');
+            console.log('> updated subscription for ', userInstance.name);
+          });  
+
+        }
+
+      });
+
+  };
 
   // UserModel.validatesPresenceOf('username');
   // UserModel.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
