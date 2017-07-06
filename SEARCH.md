@@ -16,13 +16,15 @@ http://localhost:3000/api/cousine?filter[where][id][inq]=cousineId&filter[where]
 http://localhost:3000/api/cousine?filter[where][id][inq]=cousineId&filter[where][id][nin]=cousineId  **not working**  
 
 **Courses search - Add relations with Recipes**
-http://localhost:3000/api/course?filter[where][id]=courseId  
-http://localhost:3000/api/course?filter[where][id][inq]=courseId&filter[where][id][inq]=courseId  
-http://localhost:3000/api/course?filter[where][id][inq]=courseId&filter[where][id][nin]=courseId  
+http://localhost:3000/api/course?filter[where][id]=courseId  **working**
+http://localhost:3000/api/course?filter[where][id][inq]=courseId&filter[where][id][inq]=courseId  **working**
+http://localhost:3000/api/course?filter[where][id][inq]=courseId&filter[where][id][nin]=courseId  **working**
+
+http://localhost:3000/api/course?filter[where][name]=Appetizers&access_token=%token% **working**  
 
 **Holidays search - Add relations with Recipes**
-http://localhost:3000/api/holiday?filter[where][id]=holidayId  
-http://localhost:3000/api/holiday?filter[where][id][inq]=holidayId&filter[where][id][inq]=holidayId  
+http://localhost:3000/api/holiday?filter[where][id]=holidayId  **working**  
+http://localhost:3000/api/holiday?filter[where][id][inq]=holidayId&filter[where][id][inq]=holidayId  **working**
 http://localhost:3000/api/holiday?filter[where][id][inq]=holidayId&filter[where][id][nin]=holidayId  
 
 **Allergies search - Add relations with Recipes**
