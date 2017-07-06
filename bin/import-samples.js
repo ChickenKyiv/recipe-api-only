@@ -127,6 +127,13 @@ var Holiday =  server.models.HolidayModel;
 		});
 
 
+		attachDepartmentsToIngredients(results.departments, results.ingredients, function(err){
+			console.log('>departments attached to ingredients ');
+		});
+
+
+
+		// @TODO remove this function, when departments will work 
 		attachDepartmentsToGroceries(results.departments, results.groceries, function(err){
 			console.log('>departments create sucessfully');
 		});
@@ -321,6 +328,30 @@ function attachIngredientsToRecipes(ingredients, recipes, cb){
 		
 	});
 };
+
+
+function attachDepartmentsToIngredients(departments, ingredients, cb){
+
+	var first  = ingredients.splice(0, 15);
+	var second = ingredients.splice(16, 31);
+	var third  = ingredients.splice(32, 100); 
+
+	var arrayWithIds = idsOnly(departments);
+
+	first.forEach(function(ingredient){
+		ingredient.updateAttribute('departmentId', arrayWithIds[0]);
+	});
+
+	second.forEach(function(ingredient){
+		ingredient.updateAttribute('departmentId', arrayWithIds[1]);
+	});
+
+	third.forEach(function(ingredient){
+		ingredient.updateAttribute('departmentId', arrayWithIds[2]);
+	});
+
+};
+
 
 
 function attachDepartmentsToGroceries(departments, groceries, cb){
