@@ -60,7 +60,7 @@
       "emailVerificationRequired": true
     }
   },
-  "Allergy": {
+  "AllergyModel": {
     "dataSource": "recipeDS",
     "public": true
   },
