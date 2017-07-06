@@ -26,7 +26,7 @@ let getGroceries    = require(path.resolve(__dirname, 'sample-grocery-data'));
 let getDepartments  = require(path.resolve(__dirname, 'sample-departments-data'));
 
 // let getUsers        = require(path.resolve(__dirname, 'sample-users-data'));
-let nutritions  = require(path.resolve(__dirname, 'nutritions'));
+let getNutritions  = require(path.resolve(__dirname, 'nutritions'));
 
 let getAllergy  = require(path.resolve(__dirname, 'allergy'));
 let getCourses  = require(path.resolve(__dirname, 'courses'));
@@ -59,6 +59,8 @@ var Diet    =  server.models.DietModel;
 
 var Holiday =  server.models.HolidayModel;
 
+var Nutritions = server.models.NutritionsModel;
+
 
 
 	async.parallel({
@@ -74,7 +76,9 @@ var Holiday =  server.models.HolidayModel;
 		courses     : async.apply(createCourses),
 		cuisines    : async.apply(createCuisines),
 		diets       : async.apply(createDiets),
-		holidays    : async.apply(createHolidays)
+		holidays    : async.apply(createHolidays),
+
+		nutritions  : async.apply(createNutritions)
 
 	}, function(err, results){
 		if( err ) throw err;
@@ -131,7 +135,9 @@ var Holiday =  server.models.HolidayModel;
 			console.log('>departments attached to ingredients ');
 		});
 
-
+		attachNutritionsToRecipes(results.nutritions, results.recipes, function(err){
+			console.log('>nutritions attached to recipes');
+		});
 
 		// @TODO remove this function, when departments will work 
 		attachDepartmentsToGroceries(results.departments, results.groceries, function(err){
@@ -287,7 +293,13 @@ function createHolidays(cb){
 };
 
 
+function createNutritions(cb){
+	database.autoupdate('NutritionsModel', function(err){
+		if (err) return cb(err);
 
+		Nutritions.create(getNutritions(), cb);
+	});
+};
 
 //attaching recipes to admin user
 // @TODO not important function
@@ -356,6 +368,14 @@ function attachDepartmentsToIngredients(departments, ingredients, cb){
 
 };
 
+function attachNutritionsToRecipes(nutritions, recipes, cb){
+	var first  = recipes[0];
+	var second = recipes[1];
+
+	first.updateAttribute('nutritions', nutritions[0]);
+	second.updateAttribute('nutritions', nutritions[1]);
+	cb();
+};
 
 
 function attachDepartmentsToGroceries(departments, groceries, cb){
