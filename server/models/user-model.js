@@ -165,7 +165,7 @@ module.exports = function(UserModel) {
 
 
     });
-
+next();
 
   });
 
@@ -179,6 +179,7 @@ module.exports = function(UserModel) {
       redirectTo: '/', 
       redirectToLinkText: 'Log in'
     });
+    next();
 
   });
 
@@ -207,6 +208,7 @@ module.exports = function(UserModel) {
       redirectTo : '/',
       redirectToLinkText: 'Log in'
     });
+    next();
   });
 
   UserModel.afterRemote('setPassword', function(ctx, userInstance, next){
@@ -216,6 +218,7 @@ module.exports = function(UserModel) {
       redirectTo : '/',
       redirectToLinkText: 'Log in'
     });
+    next();
   });
 
   UserModel.observe("before save", function updateTimestamp(ctx, next) {
@@ -232,6 +235,9 @@ module.exports = function(UserModel) {
     ctx.instance.updated_at = new Date();
     next();
   });
+
+
+
 
 
 };

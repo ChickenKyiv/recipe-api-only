@@ -1,5 +1,5 @@
 {
-  "name": "Allergy",
+  "name": "AllergyModel",
   "plural": "allergy",
   "base": "PersistedModel",
   "idInjection": true,

@@ -333,10 +333,18 @@ function attachIngredientsToRecipes(ingredients, recipes, cb){
 	var arrayWithIds = idsOnly(ingredients);
 
 	// only first 10 elements attach
-	arrayWithIds = arrayWithIds.slice(0, 10);
+	var first10  = arrayWithIds.slice(0, 10);
+	var second10 = arrayWithIds.slice(11, 21);
 
-	recipes.forEach(function(recipe){
-		recipe.updateAttribute('ingredients', arrayWithIds);
+	recipes.forEach(function(recipe, index){
+
+		if (index % 2 === 0){
+			recipe.updateAttribute('ingredients', first10);
+		} else {
+			recipe.updateAttribute('ingredients', second10);
+		}
+
+		// recipe.updateAttribute('ingredients', arrayWithIds);
 		
 	});
 };
