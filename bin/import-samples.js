@@ -338,6 +338,10 @@ function attachDepartmentsToIngredients(departments, ingredients, cb){
 
 	var arrayWithIds = idsOnly(departments);
 
+	console.log(arrayWithIds[0]);
+	console.log(arrayWithIds[1]);
+	console.log(arrayWithIds[2]);
+	
 	first.forEach(function(ingredient){
 		ingredient.updateAttribute('departmentId', arrayWithIds[0]);
 	});
