@@ -139,7 +139,7 @@ var Nutritions = server.models.NutritionsModel;
 			console.log('>nutritions attached to recipes');
 		});
 
-		// @TODO remove this function, when departments will work 
+		//:todo remove this function, when departments will work 
 		attachDepartmentsToGroceries(results.departments, results.groceries, function(err){
 			console.log('>departments create sucessfully');
 		});
@@ -253,7 +253,7 @@ function createDepartments(cb){
 };
 
 function createAllergies(cb){
-	database.autoupdate('Allergy', function(err){ // @TODO
+	database.autoupdate('AllergyModel', function(err){ 
 		if (err) return cb(err);
 
 		Allergy.create(getAllergy(), cb);
@@ -302,7 +302,7 @@ function createNutritions(cb){
 };
 
 //attaching recipes to admin user
-// @TODO not important function
+//:todo not important function
 function attachRecipeToUsers(users, recipes, cb){
 
 	recipes.forEach(function(recipe){
