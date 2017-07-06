@@ -49,7 +49,7 @@ var Grocery     = server.models.GroceryModel;
 
 var Department  = server.models.DepartmentModel;
 
-var Allergy =  server.models.Allergy; //@TODO
+var Allergy =  server.models.AllergyModel;
 
 var Course  =  server.models.CourseModel;
 
