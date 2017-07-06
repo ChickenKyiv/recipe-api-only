@@ -10,6 +10,10 @@ module.exports = function(server) {
   router.get('/login',    userController.getLogin);
   router.post('/login',   userController.postLogin);
   router.get('/verified', userController.verified);
+  router.get('/logout', userController.getLogout);
+  router.post('/request-password-reset', userController.postResetPassword);
+  router.get('/reset-password', userController.getResetPassword);
+  
 
   
 
