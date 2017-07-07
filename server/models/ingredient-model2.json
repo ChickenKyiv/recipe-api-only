@@ -15,6 +15,9 @@
       "type": "string",
       "required": true
     },
+    "units": {
+      
+    }
     
   },
   "validations": [],

@@ -32,15 +32,8 @@
   },
   "validations": [],
   "relations": {
-    "departmentsList": {
-      "type": "referencesMany",
-      "model": "DepartmentModel",
-      "foreignKey": "departmentIds",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    }
+    
+    
   },
   "acls": [],
   "methods": {}

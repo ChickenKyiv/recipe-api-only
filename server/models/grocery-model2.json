@@ -8,16 +8,7 @@
   },
   "properties": {
 
-    "img": {
-      "type": "string"
-    },
-    "desc": {
-      "type": "string"
-    },
-    "slug": {
-      "type": "string",
-      "required": true
-    },
+
 
   },
   "validations": [],
