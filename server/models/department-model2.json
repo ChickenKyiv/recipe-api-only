@@ -1,6 +1,6 @@
 {
-  "name": "IngredientModel2",
-  "plural": "ingredient2",
+  "name": "DepartmentModel2",
+  "plural": "department2",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -11,15 +11,7 @@
       "type": "string",
       "required": true
     },
-    "type": {
-      "type": "string",
-      "required": true
-    },
-    "units": {
-      "type": "string",
-      "required": true
-    }
-    
+
   },
   "validations": [],
   "relations": {},
