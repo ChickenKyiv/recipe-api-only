@@ -130,12 +130,12 @@ function attachDepartmentsToGroceries(departments, groceries){
 
 function attachIngredientsToRecipes(ingredients, recipes){
 
-	var first  = ingredients.splice(0, 2);
-	var second = ingredients.splice(2, 2);
+	// var first  = ingredients.splice(0, 2);
+	// var second = ingredients.splice(2, 2);
 	
 
-	var one = idsOnly(first);
-	var two = idsOnly(second);
+	var one = idsOnly([ingredients[0],ingredients[1]]);
+	var two = idsOnly([ingredients[2],ingredients[3]]);
 
 	recipes[0].updateAttribute('ingArr', one);
 
