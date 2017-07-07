@@ -45,7 +45,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "nutritionsModels": {
+      "type": "hasOne",
+      "model": "NutritionsModel",
+      "foreignKey": ""
+    }
+  },
   "acls": [
     {
       "accessType": "*",
