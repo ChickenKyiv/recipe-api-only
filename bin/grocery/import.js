@@ -84,7 +84,7 @@ function attachDepartmentsToIngredients(departments, ingredients, cb){
 	var second = ingredients.splice(2, 4);
 	console.log(ingredients.splice(2, 4));
 	console.log(ingredients.splice(2, 2));
-	// var third  = ingredients.splice(32, 100); 
+
 
 	var arrayWithIds = idsOnly(departments);
 
@@ -100,9 +100,7 @@ function attachDepartmentsToIngredients(departments, ingredients, cb){
 		ingredient.updateAttribute('depId', arrayWithIds[1]);
 	});
 
-	// third.forEach(function(ingredient){
-	// 	ingredient.updateAttribute('departmentId', arrayWithIds[2]);
-	// });
+
 
 	console.log(first);
 	console.log(second);
