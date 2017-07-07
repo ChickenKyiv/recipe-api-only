@@ -103,4 +103,5 @@ function createIngredients(cb){
   });
 };
 
-module.exports = 
+module.exports.attachIngredientsToRecipes = attachIngredientsToRecipes;
+module.exports.createIngredients = createIngredients;

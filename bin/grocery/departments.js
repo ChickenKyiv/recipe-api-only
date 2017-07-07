@@ -2,7 +2,7 @@
 
 
 var Department  = server.models.DepartmentModel2;
-function getDepartments (cb){
+function getDepartments(){
 
 	var departments = [
 		{
@@ -89,4 +89,6 @@ function attachDepartmentsToGroceries(departments, groceries){
 	// console.log(groceries);
 };
 
-module.exports = 
+module.exports.createDepartments = createDepartments;
+module.exports.attachDepartmentsToIngredients = attachDepartmentsToIngredients;
+module.exports.attachDepartmentsToGroceries = attachDepartmentsToGroceries

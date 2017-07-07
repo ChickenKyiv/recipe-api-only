@@ -3,7 +3,7 @@
 
 var Grocery     = server.models.GroceryModel2;
 
-function getGroceries (cb){
+function getGroceries(){
 
 	var grocery = [
 		{
@@ -40,4 +40,4 @@ function idsOnly(array){
 };
 
 
-module.exports = 
+module.exports.createGroceries = createGroceries;

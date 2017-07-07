@@ -4,7 +4,7 @@
 
 var Recipe      = server.models.RecipeModel2;
 
- function getRecipes (cb){
+ function getRecipes(){
 
 	var recipes = [
 	{ 
@@ -57,4 +57,4 @@ function createRecipes(cb){
 	});
 };
 
-module.exports = 
+module.exports.createRecipes = createRecipes;
