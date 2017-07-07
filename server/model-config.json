@@ -99,5 +99,9 @@
   "IngredientModel2": {
     "dataSource": "recipeDS",
     "public": true
+  },
+  "RecipeModel2": {
+    "dataSource": "recipeDS",
+    "public": true
   }
 }

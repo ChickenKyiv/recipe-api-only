@@ -7,7 +7,7 @@
     "watch": "nodemon server/server.js",
     "test": "mocha",
     "populate": "node bin/import-samples.js",
-    "grocery" : "node bin//grocery/import.js",
+    "grocery" : "node bin//grocery/import.js"
   },
   "dependencies": {
     "compression": "^1.0.3",
