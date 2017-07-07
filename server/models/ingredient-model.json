@@ -35,14 +35,19 @@
       "type": "date",
       "required": true
     },
-
     "departmentId": {
       "type": "string",
       "required": false
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "depzzz": {
+      "type": "hasOne",
+      "model": "DepartmentModel",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

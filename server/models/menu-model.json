@@ -39,7 +39,6 @@
       "type": "string",
       "required": false
     },
-    
     "notes": {
       "type": "date",
       "required": false
