@@ -145,5 +145,11 @@ module.exports = function getSampleData (){
 };
 
 
+function createCuisines(cb){
+     database.autoupdate('CuisineModel', function(err){
+          if (err) return cb(err);
 
+          Cuisine.create(getCuisine(), cb);
+     });
+};
 

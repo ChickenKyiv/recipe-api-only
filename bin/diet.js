@@ -49,3 +49,11 @@ module.exports = function getSampleData (){
      
 };
      
+
+function createDiets(cb){
+     database.autoupdate('DietModel', function(err){
+          if (err) return cb(err);
+
+          Diet.create(getDiets(), cb);
+     });
+};     

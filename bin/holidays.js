@@ -97,3 +97,12 @@ module.exports = function getSampleData (){
      return holidays;
 
 };
+
+
+function createHolidays(cb){
+     database.autoupdate('HolidayModel', function(err){
+          if (err) return cb(err);
+
+          Holiday.create(getHolidays(), cb);
+     });
+};

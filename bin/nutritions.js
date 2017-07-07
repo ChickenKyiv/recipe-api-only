@@ -50,3 +50,10 @@ module.exports = function getSampleData (){
 
 };
 
+function createNutritions(cb){
+	database.autoupdate('NutritionsModel', function(err){
+		if (err) return cb(err);
+
+		Nutritions.create(getNutritions(), cb);
+	});
+};
