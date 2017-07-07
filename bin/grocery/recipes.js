@@ -1,6 +1,10 @@
 'use strict';
 
-module.exports = function getSampleData (cb){
+
+
+var Recipe      = server.models.RecipeModel2;
+
+ function getRecipes (cb){
 
 	var recipes = [
 	{ 
@@ -42,3 +46,15 @@ module.exports = function getSampleData (cb){
 
 	return recipes;
 };
+
+
+
+function createRecipes(cb){
+	database.automigrate('RecipeModel2', function(err){
+		if (err) return cb(err);
+
+		Recipe.create(getRecipes(), cb);
+	});
+};
+
+module.exports = 

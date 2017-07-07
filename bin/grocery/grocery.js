@@ -1,6 +1,9 @@
 'use strict';
 
-module.exports = function getSamplesData (cb){
+
+var Grocery     = server.models.GroceryModel2;
+
+function getGroceries (cb){
 
 	var grocery = [
 		{
@@ -16,3 +19,25 @@ module.exports = function getSamplesData (cb){
 	return grocery;
 
 };
+
+function createGroceries(cb){
+	database.autoupdate('GroceryModel2', function(err){
+		if (err) return cb(err);
+
+		Grocery.create(getGroceries(), cb);
+	
+	});
+};
+
+function idsOnly(array){
+
+  var result = Object.keys(array).map(function(e) {
+    return array[e].id;
+    });
+
+  return result;    
+
+};
+
+
+module.exports = 
