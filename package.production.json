@@ -1,5 +1,5 @@
 {
-  "name": "recipe-api",
+  "name": "Recipe API",
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "posttest": "npm run lint && nsp check",
     "watch": "nodemon server/server.js",
     "test": "mocha",
-    "populate": "node bin/import-samples.js"
+    "populate": "node bin/import-samples.js",
+    "grocery" : "node bin//grocery/import.js",
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -35,5 +36,5 @@
     "url": "https://github.com/atherdon/recipe-api-only"
   },
   "license": "UNLICENSED",
-  "description": "recipe-api"
+  "description": "Recipe API"
 }
