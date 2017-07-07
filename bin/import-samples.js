@@ -83,26 +83,7 @@ var Nutritions = server.models.NutritionsModel;
 	}, function(err, results){
 		if( err ) throw err;
 
-		// console.log(results);
-		// console.log(results.users);
-		// console.log(results.recipes);
-		// console.log(results.ingredients);
-		// console.log(results.menus);
-		// console.log(results.groceries);
-		// console.log(results.departments);
-		// console.log(results.allergies);
-		// console.log(results.courses);
-		// console.log(results.cuisines);
-		// console.log(results.diets);
-		// console.log(results.holidays);
-
-// results.holidays
-// results.diets
-// results.cuisines
-// results.courses
-// results.allergies
-// results.departments
-// results.groceries
+	
 
 		assignAdmin(results.users[2], function(err){
 			console.log('>admin role create sucessfully');
@@ -134,6 +115,7 @@ var Nutritions = server.models.NutritionsModel;
 		attachDepartmentsToIngredients(results.departments, results.ingredients, function(err){
 			console.log('>departments attached to ingredients ');
 		});
+
 
 		attachNutritionsToRecipes(results.nutritions, results.recipes, function(err){
 			console.log('>nutritions attached to recipes');
@@ -376,6 +358,7 @@ function attachDepartmentsToIngredients(departments, ingredients, cb){
 
 };
 
+
 function attachNutritionsToRecipes(nutritions, recipes, cb){
 	var first  = recipes[0];
 	var second = recipes[1];
@@ -383,7 +366,16 @@ function attachNutritionsToRecipes(nutritions, recipes, cb){
 	first.updateAttribute('nutritions', nutritions[0]);
 	second.updateAttribute('nutritions', nutritions[1]);
 	cb();
+
+
+	var first  = recipes[0];
+	var second = recipes[1];
+
+	first.updateAttribute('nutritions', nutritions[0]);
+	second.updateAttribute('nutritions', nutritions[1]);
+	cb();
 };
+
 
 
 function attachDepartmentsToGroceries(departments, groceries, cb){
