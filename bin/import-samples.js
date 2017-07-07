@@ -234,13 +234,13 @@ function createDepartments(cb){
 	});
 };
 
-function createAllergies(cb){
-	database.autoupdate('AllergyModel', function(err){ 
-		if (err) return cb(err);
+// function createAllergies(cb){
+// 	database.autoupdate('AllergyModel', function(err){ 
+// 		if (err) return cb(err);
 
-		Allergy.create(getAllergy(), cb);
-	});
-};
+// 		Allergy.create(getAllergy(), cb);
+// 	});
+// };
 
 function createCourses(cb){
 	database.autoupdate('CourseModel', function(err){

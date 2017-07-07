@@ -43,6 +43,7 @@
         "forceId": false
       }
   },
+},
   "acls": [
     {
       "accessType": "*",

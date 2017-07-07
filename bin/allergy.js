@@ -1,7 +1,9 @@
 'use strict';
 
+var Allergy =  server.models.AllergyModel;
 
-module.exports = function getSampleData (){
+
+function getAllergy (){
    
      var allergy     = [
           {
@@ -71,3 +73,13 @@ module.exports = function getSampleData (){
   	return allergy;
 
 };
+
+function createAllergies(cb){
+     database.autoupdate('AllergyModel', function(err){ 
+          if (err) return cb(err);
+
+          Allergy.create(getAllergy(), cb);
+     });
+};
+
+module.exports.createAllergies = createAllergies; 
