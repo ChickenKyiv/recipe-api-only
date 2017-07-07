@@ -16,7 +16,7 @@ let getGroceries    = require(path.resolve(__dirname, 'grocery'));
 let getDepartments  = require(path.resolve(__dirname, 'departments'));
 
 
-var Ingredients = server.models.IngredientModel2;
+var Ingredient  = server.models.IngredientModel2;
 var Grocery     = server.models.GroceryModel2;
 
 var Department  = server.models.DepartmentModel2;
@@ -43,16 +43,16 @@ async.parallel({
 		// 	console.log('>departments attached to ingredients ');
 		// });
 
-		// //:todo remove this function, when departments will work 
-		// attachDepartmentsToGroceries(results.departments, results.groceries, function(err){
-		// 	console.log('>departments create sucessfully');
-		// });
+		//:todo remove this function, when departments will work 
+		attachDepartmentsToGroceries(results.departments, results.groceries, function(err){
+			console.log('>departments create sucessfully');
+		});
 
 	}
 );
 
 function createIngredients(cb){
-	database.automigrate('IngredientModel', function(err){
+	database.automigrate('IngredientModel2', function(err){
 		if (err) return cb(err);
 
 		Ingredient.create(getIngredients(), cb);
@@ -60,7 +60,7 @@ function createIngredients(cb){
 };
 
 function createDepartments(cb){
-	database.autoupdate('DepartmentModel', function(err){
+	database.autoupdate('DepartmentModel2', function(err){
 		if (err) return cb(err);
 
 		Department.create(getDepartments(), cb);
@@ -69,7 +69,7 @@ function createDepartments(cb){
 };
 
 function createGroceries(cb){
-	database.autoupdate('GroceryModel', function(err){
+	database.autoupdate('GroceryModel2', function(err){
 		if (err) return cb(err);
 
 		Grocery.create(getGroceries(), cb);
@@ -104,10 +104,22 @@ function createGroceries(cb){
 
 // };
 
-// function attachDepartmentsToGroceries(departments, groceries, cb){
-// 	var arrayWithIds = idsOnly(departments);
-// 	groceries.forEach(function(grocery){
-// 		grocery.updateAttribute('departments', arrayWithIds);
+function attachDepartmentsToGroceries(departments, groceries, cb){
+	var arrayWithIds = idsOnly(departments);
+
+	groceries.forEach(function(grocery){
+		grocery.updateAttribute('departmentIds', arrayWithIds);
 		
-// 	});
-// };
+	});
+	console.log(groceries);
+};
+
+function idsOnly(array){
+
+	var result = Object.keys(array).map(function(e) {
+		return array[e].id;
+    });
+
+	return result;    
+
+};

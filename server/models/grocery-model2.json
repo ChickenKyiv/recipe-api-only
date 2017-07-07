@@ -7,9 +7,10 @@
     "validateUpsert": true
   },
   "properties": {
-
-
-
+    "title": {
+      "type": "string",
+      "required": true
+    }
   },
   "validations": [],
   "relations": {

@@ -11,10 +11,15 @@
       "type": "string",
       "required": true
     }
-
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "ingzzzz": {
+      "type": "belongsTo",
+      "model": "IngredientModel2",
+      "foreignKey": "ingId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

@@ -6,7 +6,7 @@ module.exports = function getSamplesData (cb){
 		{
 
 			
-		
+			'title':"Ultimate Grocery List"
 
 
 

@@ -87,5 +87,17 @@
   "NutritionsModel": {
     "dataSource": "recipeDS",
     "public": true
+  },
+  "DepartmentModel2": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "GroceryModel2": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "IngredientModel2": {
+    "dataSource": "recipeDS",
+    "public": true
   }
 }
