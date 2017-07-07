@@ -39,9 +39,9 @@ async.parallel({
 	}, function(err, results){
 		if( err ) throw err; 
 
-		console.log(results.ingredients);
-		console.log(results.departments);
-		console.log(results.groceries);
+		// console.log(results.ingredients);
+		// console.log(results.departments);
+		// console.log(results.groceries);
 
 		attachDepartmentsToIngredients(results.departments, results.ingredients);
 
@@ -91,10 +91,10 @@ function createRecipes(cb){
 
 function attachDepartmentsToIngredients(departments, ingredients){
 
-	var first  = ingredients.splice(0, 2);
-	var second = ingredients.splice(2, 2);
-	console.log(ingredients.splice(2, 4));
-	console.log(ingredients.splice(2, 2));
+	var first  = ingredients.slice(0, 2);
+	var second = ingredients.slice(1, 3);
+	// console.log(ingredients.splice(2, 4));
+	// console.log(ingredients.splice(2, 2));
 
 
 	var arrayWithIds = idsOnly(departments);
@@ -113,8 +113,8 @@ function attachDepartmentsToIngredients(departments, ingredients){
 
 
 
-	console.log(first);
-	console.log(second);
+	// console.log(first);
+	// console.log(second);
 
 };
 
@@ -125,17 +125,18 @@ function attachDepartmentsToGroceries(departments, groceries){
 		grocery.updateAttribute('departmentIds', arrayWithIds);
 		
 	});
-	console.log(groceries);
+	// console.log(groceries);
 };
 
 function attachIngredientsToRecipes(ingredients, recipes){
 
-	// var first  = ingredients.splice(0, 2);
-	// var second = ingredients.splice(2, 2);
-	
+	var first  = ingredients.slice(0, 2);
+	var second = ingredients.slice(1, 3);
+	console.log(first)	;
+	console.log(second)	;
 
-	var one = idsOnly([ingredients[0],ingredients[1]]);
-	var two = idsOnly([ingredients[2],ingredients[3]]);
+	var one = idsOnly(first);
+	var two = idsOnly(second);
 
 	recipes[0].updateAttribute('ingArr', one);
 
