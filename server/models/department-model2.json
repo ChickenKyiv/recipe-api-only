@@ -13,13 +13,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "ingzzzz": {
-      "type": "belongsTo",
-      "model": "IngredientModel2",
-      "foreignKey": "ingId"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

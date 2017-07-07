@@ -16,7 +16,7 @@
   "relations": {
     "departmentsList": {
       "type": "referencesMany",
-      "model": "DepartmentModel",
+      "model": "DepartmentModel2",
       "foreignKey": "departmentIds",
       "options": {
         "validate": true,

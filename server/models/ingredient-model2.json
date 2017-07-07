@@ -21,7 +21,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "depzz": {
+      "type": "belongsTo",
+      "model": "DepartmentModel2",
+      "foreignKey": "depId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

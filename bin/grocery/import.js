@@ -39,9 +39,9 @@ async.parallel({
 		console.log(results.departments);
 		console.log(results.groceries);
 
-		// attachDepartmentsToIngredients(results.departments, results.ingredients, function(err){
-		// 	console.log('>departments attached to ingredients ');
-		// });
+		attachDepartmentsToIngredients(results.departments, results.ingredients, function(err){
+			console.log('>departments attached to ingredients ');
+		});
 
 		//:todo remove this function, when departments will work 
 		attachDepartmentsToGroceries(results.departments, results.groceries, function(err){
@@ -78,31 +78,36 @@ function createGroceries(cb){
 };
 
 
-// function attachDepartmentsToIngredients(departments, ingredients, cb){
+function attachDepartmentsToIngredients(departments, ingredients, cb){
 
-// 	var first  = ingredients.splice(0, 15);
-// 	var second = ingredients.splice(16, 31);
-// 	var third  = ingredients.splice(32, 100); 
+	var first  = ingredients.splice(0, 2);
+	var second = ingredients.splice(2, 4);
+	console.log(ingredients.splice(2, 4));
+	console.log(ingredients.splice(2, 2));
+	// var third  = ingredients.splice(32, 100); 
 
-// 	var arrayWithIds = idsOnly(departments);
+	var arrayWithIds = idsOnly(departments);
 
-// 	console.log(arrayWithIds[0]);
-// 	console.log(arrayWithIds[1]);
-// 	console.log(arrayWithIds[2]);
+	// console.log(arrayWithIds[0]);
+	// console.log(arrayWithIds[1]);
+	// console.log(arrayWithIds[2]);
 	
-// 	first.forEach(function(ingredient){
-// 		ingredient.updateAttribute('departmentId', arrayWithIds[0]);
-// 	});
+	first.forEach(function(ingredient){
+		ingredient.updateAttribute('depId', arrayWithIds[0]);
+	});
 
-// 	second.forEach(function(ingredient){
-// 		ingredient.updateAttribute('departmentId', arrayWithIds[1]);
-// 	});
+	second.forEach(function(ingredient){
+		ingredient.updateAttribute('depId', arrayWithIds[1]);
+	});
 
-// 	third.forEach(function(ingredient){
-// 		ingredient.updateAttribute('departmentId', arrayWithIds[2]);
-// 	});
+	// third.forEach(function(ingredient){
+	// 	ingredient.updateAttribute('departmentId', arrayWithIds[2]);
+	// });
 
-// };
+	console.log(first);
+	console.log(second);
+
+};
 
 function attachDepartmentsToGroceries(departments, groceries, cb){
 	var arrayWithIds = idsOnly(departments);
