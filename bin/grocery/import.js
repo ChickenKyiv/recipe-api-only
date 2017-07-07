@@ -4,7 +4,7 @@
 var path            = require('path');
 var async           = require('async');
 
-let server          = require(path.resolve(__dirname, '../server/server'));
+let server          = require(path.resolve(__dirname, '../../server/server'));
 
 var database        = server.datasources.recipeDS;
 
