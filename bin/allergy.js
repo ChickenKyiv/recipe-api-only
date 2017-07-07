@@ -82,4 +82,23 @@ function createAllergies(cb){
      });
 };
 
+function attachAllergiesToRecipes(allergies, recipes, cb){
+     var arrayWithIds = idsOnly(allergies);
+     recipes.forEach(function(recipe){
+          recipe.updateAttribute('allergies', arrayWithIds);
+          
+     });
+};
+
+function idsOnly(array){
+
+     var result = Object.keys(array).map(function(e) {
+          return array[e].id;
+    });
+
+     return result;    
+
+};
 module.exports.createAllergies = createAllergies; 
+module.exports.attachAllergiesToRecipes = attachAllergiesToRecipes;
+

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function getSampleData (cb){
+function getUsers(){
 
 	var accounts = [	
 		{
@@ -25,4 +25,39 @@ module.exports = function getSampleData (cb){
 
   	return accounts;
 
-}
+};
+
+function createUsers(cb){
+	// console.log(users);
+	database.automigrate('UserModel', function(err){
+		if (err) return cb(err);
+
+		User.create(getUsers(), cb);
+	});
+};
+
+function assignAdmin(admin){
+	
+	database.automigrate('Role', function(err){
+		if (err) return cb(err);
+
+		Role.create({ name:'admin' })
+		.then(function(role){
+
+			role.principals.create({
+                  principalType: RoleMapping.USER,
+                  principalId: admin.id
+              }, function(err, principal){
+                console.log('Principal', principal);
+              });
+
+		})
+		.catch(function(err){
+            throw err;
+          });
+	});	
+};
+
+
+module.exports.createUsers = createUsers;
+module.exports.assignAdmin = assignAdmin;

@@ -1,7 +1,8 @@
 'use strict';
 
+var Course  =  server.models.CourseModel;
 
-module.exports = function getSampleData (){
+function getCourses (){
    
      var courses     = [
      {
@@ -78,4 +79,33 @@ module.exports = function getSampleData (){
 
 
 };
-    	
+
+function createCourses(cb){
+     database.autoupdate('CourseModel', function(err){
+          if (err) return cb(err);
+
+          Course.create(getCourses(), cb);
+     });
+};
+
+
+function attachCoursesToRecipes(courses, recipes, cb){
+     var arrayWithIds = idsOnly(courses);
+     recipes.forEach(function(recipe){
+          recipe.updateAttribute('courses', arrayWithIds);
+          
+     });
+};
+
+module.exports.createCourses = createCourses;    	
+module.exports.attachCoursesToRecipes = attachCoursesToRecipes;
+
+function idsOnly(array){
+
+     var result = Object.keys(array).map(function(e) {
+          return array[e].id;
+    });
+
+     return result;    
+
+};

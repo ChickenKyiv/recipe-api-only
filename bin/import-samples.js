@@ -86,9 +86,7 @@ var Nutritions = server.models.NutritionsModel;
 
 	
 
-		assignAdmin(results.users[2], function(err){
-			console.log('>admin role create sucessfully');
-		});
+		assignAdmin(results.users[2]);
 
 		// attachVideosToUsers(results.users, results.videos, function(err){
 		// 	console.log('>models create sucessfully');
@@ -161,36 +159,7 @@ var Nutritions = server.models.NutritionsModel;
 
 
 
-function createUsers(cb){
-	// console.log(users);
-	database.automigrate('UserModel', function(err){
-		if (err) return cb(err);
 
-		User.create(getUsers(), cb);
-	});
-};
-
-function assignAdmin(admin, cb){
-	
-	database.automigrate('Role', function(err){
-		if (err) return cb(err);
-
-		Role.create({ name:'admin' })
-		.then(function(role){
-
-			role.principals.create({
-                  principalType: RoleMapping.USER,
-                  principalId: admin.id
-              }, function(err, principal){
-                console.log('Principal', principal);
-              });
-
-		})
-		.catch(function(err){
-            throw err;
-          });
-	});	
-};
 
 function createRecipes(cb){
 	database.automigrate('RecipeModel', function(err){
