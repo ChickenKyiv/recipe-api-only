@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function getSampleData (cb){
+function getMenus(){
 
 	var x = new Date();
 	  x.setDate(1);
@@ -18,10 +18,10 @@ module.exports = function getSampleData (cb){
 		
 		date: prev_month,
 		description: "string", 
-		recipes: [],
+		// recipes: [],
 		notes: "This is notes6",
 		
-		groceryId: ""
+		// groceryId: ""
 
 	},
 	{ 
@@ -31,40 +31,40 @@ module.exports = function getSampleData (cb){
 		
 		date: prev_month2,
 		description: "string", 
-		recipes: [],
+		// recipes: [],
 		notes: "This is notes5",
 		 
-		groceryId: ""
+		// groceryId: ""
 	},
     {
 		title:"string1",
 		
 		date: prev_month2,
 		description:"string1",
-		recipes: [],
+		// recipes: [],
 		notes: "This is notes4",
 		
-		groceryId: ""
+		// groceryId: ""
 	},
     {
 		title:"string2",
 		
 		date: new Date(),
 		description:"string2",
-		recipes: [],
+		// recipes: [],
 		notes: "This is notes3",
 		
-		groceryId: ""
+		// groceryId: ""
 	},
     {
 		title:"string2",
 		
 		date: prev_month3,
 		description:"string2",
-		recipes: [],
+		// recipes: [],
 		notes: "This is notes2",
 		
-		groceryId: ""
+		// groceryId: ""
 	}
 	];
 
@@ -72,3 +72,44 @@ module.exports = function getSampleData (cb){
 
 	return menus;
 };
+
+function createMenus(cb){
+	database.autoupdate('MenuModel', function(err){
+		if (err) return cb(err);
+
+		Menu.create(getMenus(), cb);
+	
+	});
+};
+
+function attachMenusToUsers(users, menus){
+
+	menus.forEach(function(menu){
+		menu.updateAttribute('userId', users[2].id);
+		
+	});
+	
+};
+
+function attachRecipesToMenu(recipes, menus){
+	var arrayWithIds = idsOnly(recipes);
+	menus.forEach(function(menu){
+		menu.updateAttribute('recipes', arrayWithIds);
+		
+	});
+};
+
+
+function idsOnly(array){
+
+     var result = Object.keys(array).map(function(e) {
+          return array[e].id;
+    });
+
+     return result;    
+
+};
+
+module.exports.createMenus = createMenus;
+module.exports.attachMenusToUsers = attachMenusToUsers;
+module.exports.attachRecipesToMenu = attachRecipesToMenu;

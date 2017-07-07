@@ -28,8 +28,9 @@ let getDepartments  = require(path.resolve(__dirname, 'sample-departments-data')
 // let getUsers        = require(path.resolve(__dirname, 'sample-users-data'));
 let getNutritions  = require(path.resolve(__dirname, 'nutritions'));
 
-let getAllergy  = require(path.resolve(__dirname, 'allergy'));
-let getCourses  = require(path.resolve(__dirname, 'courses'));
+let Allergy  = require(path.resolve(__dirname, 'allergy'));
+let Courses  = require(path.resolve(__dirname, 'courses'));
+
 let getCuisine  = require(path.resolve(__dirname, 'cuisine'));
 let getDiets    = require(path.resolve(__dirname, 'diet'));
 let getHolidays = require(path.resolve(__dirname, 'holidays'));
@@ -49,9 +50,9 @@ var Grocery     = server.models.GroceryModel;
 
 var Department  = server.models.DepartmentModel;
 
-var Allergy =  server.models.AllergyModel;
+// var Allergy =  server.models.AllergyModel;
 
-var Course  =  server.models.CourseModel;
+// var Course  =  server.models.CourseModel;
 
 var Cuisine =  server.models.CuisineModel;
 
@@ -207,14 +208,7 @@ function createIngredients(cb){
 	});
 };
 
-function createMenus(cb){
-	database.autoupdate('MenuModel', function(err){
-		if (err) return cb(err);
 
-		Menu.create(getMenus(), cb);
-	
-	});
-};
 
 function createGroceries(cb){
 	database.autoupdate('GroceryModel', function(err){
@@ -242,13 +236,13 @@ function createDepartments(cb){
 // 	});
 // };
 
-function createCourses(cb){
-	database.autoupdate('CourseModel', function(err){
-		if (err) return cb(err);
+// function createCourses(cb){
+// 	database.autoupdate('CourseModel', function(err){
+// 		if (err) return cb(err);
 
-		Course.create(getCourses(), cb);
-	});
-};
+// 		Course.create(getCourses(), cb);
+// 	});
+// };
 
 function createCuisines(cb){
 	database.autoupdate('CuisineModel', function(err){
@@ -294,22 +288,7 @@ function attachRecipeToUsers(users, recipes, cb){
 
 };
 
-function attachMenusToUsers(users, menus, cb){
 
-	menus.forEach(function(menu){
-		menu.updateAttribute('userId', users[2].id);
-		
-	});
-	
-};
-
-function attachRecipesToMenu(recipes, menus, cb){
-	var arrayWithIds = idsOnly(recipes);
-	menus.forEach(function(menu){
-		menu.updateAttribute('recipes', arrayWithIds);
-		
-	});
-};
 
 function attachIngredientsToRecipes(ingredients, recipes, cb){
 	var arrayWithIds = idsOnly(ingredients);
@@ -386,21 +365,15 @@ function attachDepartmentsToGroceries(departments, groceries, cb){
 	});
 };
 
-function attachAllergiesToRecipes(allergies, recipes, cb){
-	var arrayWithIds = idsOnly(allergies);
-	recipes.forEach(function(recipe){
-		recipe.updateAttribute('allergies', arrayWithIds);
-		
-	});
-};
 
-function attachCoursesToRecipes(courses, recipes, cb){
-	var arrayWithIds = idsOnly(courses);
-	recipes.forEach(function(recipe){
-		recipe.updateAttribute('courses', arrayWithIds);
+
+// function attachCoursesToRecipes(courses, recipes, cb){
+// 	var arrayWithIds = idsOnly(courses);
+// 	recipes.forEach(function(recipe){
+// 		recipe.updateAttribute('courses', arrayWithIds);
 		
-	});
-};
+// 	});
+// };
 
 function attachCuisinesToRecipes(cuisines, recipes, cb){
 	var arrayWithIds = idsOnly(cuisines);
