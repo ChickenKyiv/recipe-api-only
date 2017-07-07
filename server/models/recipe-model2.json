@@ -1,0 +1,52 @@
+{
+  "name": "RecipeModel2",
+  "plural": "recipe",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+   
+    
+    "directions": {
+      "type": "object",
+      "required": true
+    },
+    "prep_time": {
+      "type": "string",
+      "required": true
+    },
+    "total_time": {
+      "type": "string",
+      "required": true
+    },
+    "recipe_yield": {
+      "type": "string",
+      "required": true
+    }
+    
+  },
+  "validations": [],
+  "relations": {
+    "nutritionsModels": {
+      "type": "hasOne",
+      "model": "NutritionsModel",
+      "foreignKey": ""
+    },
+    "ingredientList": {
+      "type": "referencesMany",
+      "model": "IngredientModel2",
+      "foreignKey": "ingArr",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+    
+  },
+  "acls": [
+    
+  ],
+  "methods": {}
+}
