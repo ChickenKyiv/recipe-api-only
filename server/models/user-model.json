@@ -33,7 +33,16 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "menuList": {
+      "type": "referencesMany",
+      "model": "MenuModel",
+      "foreignKey": "menus",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+  },
   "acls": [
     {
       "accessType": "*",
