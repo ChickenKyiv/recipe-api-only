@@ -213,38 +213,38 @@ function createDepartments(cb){
 // 	});
 // };
 
-function createCuisines(cb){
-	database.autoupdate('CuisineModel', function(err){
-		if (err) return cb(err);
+// function createCuisines(cb){
+// 	database.autoupdate('CuisineModel', function(err){
+// 		if (err) return cb(err);
 
-		Cuisine.create(getCuisine(), cb);
-	});
-};
+// 		Cuisine.create(getCuisine(), cb);
+// 	});
+// };
 
-function createDiets(cb){
-	database.autoupdate('DietModel', function(err){
-		if (err) return cb(err);
+// function createDiets(cb){
+// 	database.autoupdate('DietModel', function(err){
+// 		if (err) return cb(err);
 
-		Diet.create(getDiets(), cb);
-	});
-};
+// 		Diet.create(getDiets(), cb);
+// 	});
+// };
 
-function createHolidays(cb){
-	database.autoupdate('HolidayModel', function(err){
-		if (err) return cb(err);
+// function createHolidays(cb){
+// 	database.autoupdate('HolidayModel', function(err){
+// 		if (err) return cb(err);
 
-		Holiday.create(getHolidays(), cb);
-	});
-};
+// 		Holiday.create(getHolidays(), cb);
+// 	});
+// };
 
 
-function createNutritions(cb){
-	database.autoupdate('NutritionsModel', function(err){
-		if (err) return cb(err);
+// function createNutritions(cb){
+// 	database.autoupdate('NutritionsModel', function(err){
+// 		if (err) return cb(err);
 
-		Nutritions.create(getNutritions(), cb);
-	});
-};
+// 		Nutritions.create(getNutritions(), cb);
+// 	});
+// };
 
 //attaching recipes to admin user
 //:todo not important function
@@ -307,22 +307,6 @@ function attachDepartmentsToIngredients(departments, ingredients, cb){
 };
 
 
-function attachNutritionsToRecipes(nutritions, recipes, cb){
-	var first  = recipes[0];
-	var second = recipes[1];
-
-	first.updateAttribute('nutritions', nutritions[0]);
-	second.updateAttribute('nutritions', nutritions[1]);
-	cb();
-
-
-	var first  = recipes[0];
-	var second = recipes[1];
-
-	first.updateAttribute('nutritions', nutritions[0]);
-	second.updateAttribute('nutritions', nutritions[1]);
-	cb();
-};
 
 
 

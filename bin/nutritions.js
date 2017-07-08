@@ -57,3 +57,20 @@ function createNutritions(cb){
 		Nutritions.create(getNutritions(), cb);
 	});
 };
+
+function attachNutritionsToRecipes(nutritions, recipes, cb){
+	var first  = recipes[0];
+	var second = recipes[1];
+
+	first.updateAttribute('nutritions', nutritions[0]);
+	second.updateAttribute('nutritions', nutritions[1]);
+	cb();
+
+
+	var first  = recipes[0];
+	var second = recipes[1];
+
+	first.updateAttribute('nutritions', nutritions[0]);
+	second.updateAttribute('nutritions', nutritions[1]);
+	cb();
+};

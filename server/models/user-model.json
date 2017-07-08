@@ -34,6 +34,7 @@
   },
   "validations": [],
   "relations": {
+
     "menuList": {
       "type": "referencesMany",
       "model": "MenuModel",
@@ -42,8 +43,9 @@
         "validate": true,
         "forceId": false
       }
+    }
+    
   },
-},
   "acls": [
     {
       "accessType": "*",
