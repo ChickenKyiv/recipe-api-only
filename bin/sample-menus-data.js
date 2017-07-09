@@ -27,40 +27,40 @@ function getMenus(){
 	{ 
 
 		 
-		title: "string", 
+		title: "string1", 
 		
 		date: prev_month2,
-		description: "string", 
+		description: "string1", 
 		// recipes: [],
 		notes: "This is notes5",
 		 
 		// groceryId: ""
 	},
     {
-		title:"string1",
+		title:"string2",
 		
 		date: prev_month2,
-		description:"string1",
+		description:"string2",
 		// recipes: [],
 		notes: "This is notes4",
 		
 		// groceryId: ""
 	},
     {
-		title:"string2",
+		title:"string3",
 		
 		date: new Date(),
-		description:"string2",
-		// recipes: [],
+		description:"string3",
+	
 		notes: "This is notes3",
 		
 		// groceryId: ""
 	},
     {
-		title:"string2",
+		title:"string4",
 		
 		date: prev_month3,
-		description:"string2",
+		description:"string4",
 		// recipes: [],
 		notes: "This is notes2",
 		
@@ -84,12 +84,23 @@ function createMenus(cb){
 
 function attachMenusToUsers(users, menus){
 
-	menus.forEach(function(menu){
-		menu.updateAttribute('userId', users[2].id);
+	// menus.forEach(function(menu){
+	// 	menu.updateAttribute('userId', users[2].id);
+		
+	// });
+
+	users.forEach(function(user){
+		user.updateAttribute('userId', menus);
 		
 	});
+
+
+
 	
 };
+
+
+
 
 function attachRecipesToMenu(recipes, menus){
 	var arrayWithIds = idsOnly(recipes);

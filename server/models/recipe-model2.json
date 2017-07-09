@@ -34,7 +34,7 @@
       "model": "NutritionsModel",
       "foreignKey": ""
     },
-    "ingredientList": {
+    "ingredients": {
       "type": "referencesMany",
       "model": "IngredientModel2",
       "foreignKey": "ingArr",
