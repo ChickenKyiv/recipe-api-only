@@ -1,5 +1,5 @@
 {
-  "name": "EmailModel",
+  "name": "email",
   "base": "Email",
   "idInjection": true,
   "options": {

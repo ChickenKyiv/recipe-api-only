@@ -1,5 +1,5 @@
 {
-  "name": "NutritionsModel",
+  "name": "Nutritions",
   "plural": "nutritions",
   "base": "PersistedModel",
   "idInjection": true,

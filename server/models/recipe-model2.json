@@ -1,5 +1,5 @@
 {
-  "name": "RecipeModel2",
+  "name": "Recipe2",
   "plural": "recipe2",
   "base": "PersistedModel",
   "idInjection": true,

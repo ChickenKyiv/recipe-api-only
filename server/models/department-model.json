@@ -1,5 +1,5 @@
 {
-  "name": "DepartmentModel",
+  "name": "Department",
   "plural": "department",
   "base": "PersistedModel",
   "idInjection": true,

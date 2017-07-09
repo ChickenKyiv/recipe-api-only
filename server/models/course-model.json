@@ -1,5 +1,5 @@
 {
-  "name": "CourseModel",
+  "name": "Course",
   "plural": "course",
   "base": "PersistedModel",
   "idInjection": true,

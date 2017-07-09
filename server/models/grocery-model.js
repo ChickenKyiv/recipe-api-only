@@ -1,18 +1,18 @@
 'use strict';
 
-module.exports = function(GroceryModel) {
+module.exports = function(Grocery) {
 
-	GroceryModel.validatesPresenceOf(
+	Grocery.validatesPresenceOf(
 		// 'departments',
 		'img', 'desc', 'slug'
 	);
 
-	GroceryModel.observe('update', function(ctx, next){
+	Grocery.observe('update', function(ctx, next){
 		ctx.instance.updated_at = new Date();
 		next();
 	});
 
-	GroceryModel.observe("before save", function updateTimestamp(ctx, next) {
+	Grocery.observe("before save", function updateTimestamp(ctx, next) {
 
 		if( ctx.isNewInstance ){
 			ctx.instance.created_at = new Date();
@@ -26,12 +26,12 @@ module.exports = function(GroceryModel) {
 
 
 	// @TODO not sure what i mean by this.
-	GroceryModel.fetch = function(){
-		IngredientModel = GroceryModel.app.models.IngredientModel;
+	Grocery.fetch = function(){
+		Ingredient = Grocery.app.models.Ingredient;
 
-		DepartmentModel = GroceryModel.app.models.DepartmentModel;
+		Department = Grocery.app.models.Department;
 
-		GroceryModel.find({})
+		Grocery.find({})
 		.then(function(groceries){
 			console.log(groceries);
 
@@ -51,7 +51,7 @@ module.exports = function(GroceryModel) {
 		 		
 		 		// })
 
-		 		IngredientModel.findByIds(grocery.ingredients)
+		 		Ingredient.findByIds(grocery.ingredients)
 		 		.then(function(ingredients){		 			
 		 			// console.log(ingredients);
 		 		})
@@ -60,7 +60,7 @@ module.exports = function(GroceryModel) {
 
 			groceries.forEach(function(grocery){
 		 		// console.log(grocery.ingredients);
-		 		IngredientModel.findByIds(grocery.ingredients)
+		 		Ingredient.findByIds(grocery.ingredients)
 		 		.then(function(ingredients){		 			
 		 			// console.log(ingredients);
 		 		})
@@ -73,12 +73,12 @@ module.exports = function(GroceryModel) {
 
 	// @TODO if we have empty menuId then we need to get groceries for the latest(read current active menu);
 
-	GroceryModel.groceryListForMenu = function(menuId, cb){
+	Grocery.groceryListForMenu = function(menuId, cb){
 
 
-		// var DepartmentModel = GroceryModel.app.models.DepartmentModel;
+		var Menu = Grocery.app.models.Menu;
 
-		MenuModel.MenuRecipesIngredients(menuId, function(data){
+		Menu.MenuRecipesIngredients(menuId, function(data){
 			// @TODO test this "data" attribute
 			console.log(data);
 		});
@@ -102,7 +102,7 @@ module.exports = function(GroceryModel) {
 
 	};
 
-	GroceryModel.remoteMethod('groceryListForMenu', {
+	Grocery.remoteMethod('groceryListForMenu', {
 		accepts: {
 		  arg: 'menuId',
 		  type: 'string',

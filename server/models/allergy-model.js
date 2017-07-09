@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(AllergyModel) {
+module.exports = function(Allergy) {
 
 };

@@ -1,5 +1,5 @@
 {
-  "name": "CuisineModel",
+  "name": "Cuisine",
   "plural": "cuisine",
   "base": "PersistedModel",
   "idInjection": true,

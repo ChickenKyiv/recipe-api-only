@@ -1,5 +1,5 @@
 {
-  "name": "GroceryModel",
+  "name": "Grocery",
   "plural": "grocery",
   "base": "PersistedModel",
   "idInjection": true,

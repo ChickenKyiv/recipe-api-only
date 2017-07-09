@@ -1,5 +1,5 @@
 {
-  "name": "HolidayModel",
+  "name": "Holiday",
   "plural": "holiday",
   "base": "PersistedModel",
   "idInjection": true,

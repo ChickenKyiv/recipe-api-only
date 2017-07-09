@@ -53,54 +53,55 @@
     "dataSource": "recipeDS",
     "public": false
   },
-  "UserModel": {
+  "user": {
     "dataSource": "recipeDS",
     "public": true,
     "options": {
       "emailVerificationRequired": true
     }
   },
-  "AllergyModel": {
+  "Allergy": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "CourseModel": {
+  "Course": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "CuisineModel": {
+  "Cuisine": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "HolidayModel": {
+  "Holiday": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "DietModel": {
+  "Diet": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "EmailModel": {
+  "Email": {
     "dataSource": "mailgun",
     "public": false
   },
-  "NutritionsModel": {
+  "Nutritions": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "DepartmentModel2": {
+
+  "Department2": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "GroceryModel2": {
+  "Grocery2": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "IngredientModel2": {
+  "Ingredient2": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "RecipeModel2": {
+  "Recipe2": {
     "dataSource": "recipeDS",
     "public": true
   }
