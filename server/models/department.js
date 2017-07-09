@@ -1,16 +1,16 @@
 'use strict';
 
 module.exports = function(Department) {
-	DepartmentModel.validatesPresenceOf(
+	Department.validatesPresenceOf(
     'name', 'items'
   );
 
-	DepartmentModel.observe('update', function(ctx, next){
+	Department.observe('update', function(ctx, next){
 		ctx.instance.updated_at = new Date();
 		next();
 	});
 
-    DepartmentModel.observe("before save", function updateTimestamp(ctx, next) {
+    Department.observe("before save", function updateTimestamp(ctx, next) {
 
     if( ctx.isNewInstance ){
       ctx.instance.created_at = new Date();
@@ -26,17 +26,17 @@ module.exports = function(Department) {
 
 
 
-  DepartmentModel.fetch = function(){
-  	var GroceryModel = DepartmentModel.app.models.DepartmentModel;
-  	var IngredientModel = DepartmentModel.app.models.IngredientModel;
+  Department.fetch = function(){
+  	var Grocery = Department.app.models.Grocery;
+  	var Ingredient = Department.app.models.Ingredient;
 
-  	DepartmentModel.find({})
+  	Department.find({})
   	.then(function(departments){
   		departments.forEach(function(department){
   			console.log(department.ingredients);
 
   			var ingredientsId = department.ingredients;
-  			IngredientModel.find({
+  			Ingredient.find({
                 where:{
                     id: recipe.ingredients
                 }       
@@ -59,7 +59,7 @@ module.exports = function(Department) {
 
 
   // department/:id/ingredients
-  DepartmentModel.IngredientsByDepartment = function(departmentId, cb){
+  Department.IngredientsByDepartment = function(departmentId, cb){
 
     // var IngredientModel = DepartmentModel.app.models.IngredientModel;
 
@@ -76,7 +76,7 @@ module.exports = function(Department) {
 
 
 
-    DepartmentModel.findById(departmentId, {
+    Department.findById(departmentId, {
         fields: 'items'
       },function(err, result){
         cb(null, result.items);
@@ -91,7 +91,7 @@ module.exports = function(Department) {
 
 
 
-  DepartmentModel.remoteMethod('IngredientsByDepartment', {
+  Department.remoteMethod('IngredientsByDepartment', {
     accepts: {
       arg: 'departmentId',
       type: 'string',

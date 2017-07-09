@@ -2,7 +2,7 @@
 
 module.exports = function(Ingredient2) {
     //@TODO add to done & delete default false
-	// IngredientModel.validatesPresenceOf(
+	// Ingredient2.validatesPresenceOf(
 	// 	// 'name', 'type', 
  //        // 'done', 'delete'
 
@@ -36,10 +36,10 @@ module.exports = function(Ingredient2) {
 
   	// by passing recipeId we'll get all Ingredients, related to this recipe 
   	// and Departments, related to Ingredients.
-    IngredientModel2.listDepartments = function(recipeId, cb){
-        var RecipeModel2 = IngredientModel2.app.models.RecipeModel2; //:todo
+    Ingredient2.listDepartments = function(recipeId, cb){
+        var Recipe2 = Ingredient2.app.models.Recipe2; //:todo
 
-        RecipeModel2.findById(recipeId, {
+        Recipe2.findById(recipeId, {
         	// include: 'ingredientList'
         	// include: {IngredientModel2: 'department'}
         }, function(recipe){
@@ -78,7 +78,7 @@ module.exports = function(Ingredient2) {
 
 
     };
-    IngredientModel2.remoteMethod('listIngredients', {
+    Ingredient2.remoteMethod('listIngredients', {
         accepts: {
           arg: 'recipeId',
           type: 'string'

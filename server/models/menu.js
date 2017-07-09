@@ -2,13 +2,13 @@
 
 module.exports = function(Menu) {
 	//@TODO update this, 'cause we've updated relations
-	MenuModel.validatesPresenceOf(
+	Menu.validatesPresenceOf(
 		'title', 'date', 'description' 
 		// 'recipes'
 		);
 
 
-	MenuModel.observe("after save", function (ctx, next) {
+	Menu.observe("after save", function (ctx, next) {
 
 		// console.log( ctx.instance.rec );
 
@@ -45,7 +45,7 @@ module.exports = function(Menu) {
 		next();
 	});
 
-	MenuModel.observe("before save", function updateTimestamp(ctx, next) {
+	Menu.observe("before save", function updateTimestamp(ctx, next) {
 
 		if( ctx.isNewInstance ){
 			ctx.instance.created_at = new Date();
@@ -54,7 +54,7 @@ module.exports = function(Menu) {
 		next();
 	});
 
-	MenuModel.observe('update', function(ctx, next){
+	Menu.observe('update', function(ctx, next){
 		ctx.instance.updated_at = new Date();
 		next();
 	});
@@ -64,14 +64,14 @@ module.exports = function(Menu) {
 
 	// method list attached menus with recipes, short version
 
-	MenuModel.listRecipesShort = function(menuId, cb){
-		var RecipeModel = MenuModel.app.models.RecipeModel;
+	Menu.listRecipesShort = function(menuId, cb){
+		var Recipe = Menu.app.models.Recipe;
 
-		MenuModel.findById(menuId)
+		Menu.findById(menuId)
 		.then(function(menu){
 			console.log( menu.recipes );
 			// @TODO change to custom method on recipe model
-			RecipeModel.find({
+			Recipe.find({
 				where:{
 					id: menu.recipes
 				},
@@ -100,7 +100,7 @@ module.exports = function(Menu) {
 
 	};
 
-	MenuModel.remoteMethod('listRecipesShort', {
+	Menu.remoteMethod('listRecipesShort', {
 		accepts: {
 		  arg: 'menuId',
 		  type: 'string'
@@ -116,7 +116,7 @@ module.exports = function(Menu) {
 	});
 
 
-	MenuModel.orderByDate = function(order, cb){
+	Menu.orderByDate = function(order, cb){
 
 		if(order == 'desc' || order == 'DESC' ){ // DESC
 			var query = {
@@ -137,12 +137,12 @@ module.exports = function(Menu) {
 
 		// console.log(query);
 
-		MenuModel.find(query, cb);
+		Menu.find(query, cb);
 		
 
 	};
 
-	MenuModel.remoteMethod('orderByDate', {
+	Menu.remoteMethod('orderByDate', {
 		accepts: {
 		  arg : 'order',
 		  type: 'string',
@@ -160,13 +160,13 @@ module.exports = function(Menu) {
 		
 	});
 
-	MenuModel.lastMenu = function(menuId = false, cb){
+	Menu.lastMenu = function(menuId = false, cb){
 
 		var query = {};	
 
 		if ( menuId ) {
 
-			MenuModel.findById(menuId, {
+			Menu.findById(menuId, {
 				fields:['id','date']
 			}, function(err, menu){
 
@@ -182,7 +182,7 @@ module.exports = function(Menu) {
 
 
 console.log( query );
-MenuModel.findOne(query, cb);
+Menu.findOne(query, cb);
 
 			});
 
@@ -200,7 +200,7 @@ MenuModel.findOne(query, cb);
 			  // limit: 1
 			};
 			console.log(query);
-			MenuModel.findOne(query, cb);
+			Menu.findOne(query, cb);
 		}
 
 			
@@ -213,7 +213,7 @@ MenuModel.findOne(query, cb);
 		
 	};
 
-	MenuModel.remoteMethod('lastMenu', {
+	Menu.remoteMethod('lastMenu', {
 		accepts: {
 		  arg: 'menuId',
 		  type: 'string',
@@ -234,16 +234,16 @@ MenuModel.findOne(query, cb);
 
 	// @TODO I want to return whole collection, when we have a menu object with all elements, inside
 	// but I'm return only recipes for now
-	MenuModel.MenuRecipesIngredients = function(menuId, cb){
-		var RecipeModel = MenuModel.app.models.RecipeModel;
+	Menu.MenuRecipesIngredients = function(menuId, cb){
+		var Recipe = Menu.app.models.Recipe;
 
-		MenuModel.findById(menuId)
+		Menu.findById(menuId)
 		.then(function(menu){
 
 			// console.log( menu.recipes );
 			// @TODO change to custom method on recipe model
 			//  
-			RecipeModel.find({
+			Recipe.find({
 				where:{
 					id: { inq:menu.recipes }
 				},
@@ -267,7 +267,7 @@ MenuModel.findOne(query, cb);
 
 
 
-	MenuModel.remoteMethod('MenuRecipesIngredients', {
+	Menu.remoteMethod('MenuRecipesIngredients', {
 		accepts: {
 		  arg: 'menuId',
 		  type: 'string',
@@ -286,14 +286,14 @@ MenuModel.findOne(query, cb);
 
 	
   // method list attached menus with recipes only
-	MenuModel.listRecipes = function(menuId, cb){
-		var RecipeModel = MenuModel.app.models.RecipeModel;
+	Menu.listRecipes = function(menuId, cb){
+		var Recipe = Menu.app.models.Recipe;
 
-		MenuModel.findById(menuId)
+		Menu.findById(menuId)
 		.then(function(menu){
 			console.log( menu.recipes );
 			// @TODO change to custom method on recipe model
-			RecipeModel.find({
+			Recipe.find({
 				where:{
 					id: menu.recipes
 				}       
@@ -315,7 +315,7 @@ MenuModel.findOne(query, cb);
 
 	};
 
-	MenuModel.remoteMethod('listRecipes', {
+	Menu.remoteMethod('listRecipes', {
 		accepts: {
 		  arg: 'menuId',
 		  type: 'string'
@@ -333,11 +333,11 @@ MenuModel.findOne(query, cb);
 
   // method list attached menus with groceries
 
-	MenuModel.listGroceries = function(menuId, cb){
-		var GroceryModel    = MenuModel.app.models.GroceryModel;
-		var DepartmentModel = MenuModel.app.models.DepartmentModel;
+	Menu.listGroceries = function(menuId, cb){
+		var Grocery    = Menu.app.models.Grocery;
+		var Department = Menu.app.models.Department;
 
-		MenuModel.findById(menuId)
+		Menu.findById(menuId)
 		.then(function(menu){
 
 			//what we'll want to get in the end
@@ -360,7 +360,7 @@ MenuModel.findOne(query, cb);
 
 			recipeIds.forEach(function(recipeId){
 
-				RecipeModel.listIngredientsExtended(recipeId, function(ingredients){
+				Recipe.listIngredientsExtended(recipeId, function(ingredients){
 					console.log(ingredients);
 					console.log('---------');
 				})
@@ -372,7 +372,7 @@ MenuModel.findOne(query, cb);
 			var ingredientIds = [];
 
 
-			DepartmentModel.find({
+			Department.find({
 				where : {
 					ingredientIds: {
 						inq : ingredientIds
@@ -413,7 +413,7 @@ MenuModel.findOne(query, cb);
 
 	};
 
-	MenuModel.remoteMethod('listGroceries', {
+	Menu.remoteMethod('listGroceries', {
 		accepts: {
 		  arg: 'menuId',
 		  type: 'string'
@@ -433,8 +433,8 @@ MenuModel.findOne(query, cb);
 	// We're assuming that we have 1 recipe per day.
 	// So if we have [ 'monday': RecipeOne, 'tuesday': RecipeTwo ]
 	// when we change an order, other recipes change their order by bubble sorting
-	MenuModel.recipeOrder = function(menuId, cb){
-		var RecipeModel = MenuModel.app.models.RecipeModel;
+	Menu.recipeOrder = function(menuId, cb){
+		var Recipe = Menu.app.models.Recipe;
 
 		// MenuModel.findById(menuId)
 		// .then(function(menu){
@@ -462,11 +462,11 @@ MenuModel.findOne(query, cb);
 
 	};
 
-	MenuModel.removeRecipeFromMenu = function(menuId, recipeId, cb){
+	Menu.removeRecipeFromMenu = function(menuId, recipeId, cb){
 
-		var RecipeModel = MenuModel.app.models.RecipeModel;
+		var Recipe = Menu.app.models.Recipe;
 
-		MenuModel.findById(menuId)
+		Menu.findById(menuId)
 		.then(function(menu){
 			console.log( menu.recipes );
 

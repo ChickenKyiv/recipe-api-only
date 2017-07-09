@@ -3,7 +3,7 @@
 module.exports = function(Ingredient) {
     
     //@TODO add to done & delete default false
-	IngredientModel.validatesPresenceOf(
+	Ingredient.validatesPresenceOf(
 		// 'name', 'type', 
         // 'done', 'delete'
 
@@ -12,7 +12,7 @@ module.exports = function(Ingredient) {
         'searchValue',
 	);
 
-    IngredientModel.observe("before save", function updateTimestamp(ctx, next) {
+    Ingredient.observe("before save", function updateTimestamp(ctx, next) {
 
     	if( ctx.isNewInstance ){
     		ctx.instance.created_at = new Date();
@@ -26,7 +26,7 @@ module.exports = function(Ingredient) {
     	next();
     });
 
-    IngredientModel.observe('update', function(ctx, next){
+    Ingredient.observe('update', function(ctx, next){
         ctx.instance.updated_at = new Date();
         next();
     });
@@ -35,14 +35,14 @@ module.exports = function(Ingredient) {
     // method when Deparments use array of ingredients and move it inside departments array
 
   // method list attached ingredients by departments
-    IngredientModel.listDepartments = function(ingredientId, cb){
-        var DepartmentModel = IngredientModel.app.models.DepartmentModel;
+    Ingredient.listDepartments = function(ingredientId, cb){
+        var DepartmentModel = Ingredient.app.models.DepartmentModel;
 
-        IngredientModel.findById(ingredientId)
+        Ingredient.findById(ingredientId)
         .then(function(recipe){
             console.log( recipe.ingredients );
             // @TODO change to custom method on recipe model
-            IngredientModel.find({
+            Ingredient.find({
                 where:{
                     id: recipe.ingredients
                 }       
@@ -65,7 +65,7 @@ module.exports = function(Ingredient) {
 
 
     };
-    IngredientModel.remoteMethod('listIngredients', {
+    Ingredient.remoteMethod('listIngredients', {
         accepts: {
           arg: 'recipeId',
           type: 'string'
@@ -80,8 +80,8 @@ module.exports = function(Ingredient) {
         }
     });
 
-    IngredientModel.findByIds = function(ingredientIds, cb){
-        IngredientModel.find({
+    Ingredient.findByIds = function(ingredientIds, cb){
+        Ingredient.find({
                 where:{
                     id: ingredientIds
                 }       

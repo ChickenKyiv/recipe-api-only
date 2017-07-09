@@ -2,7 +2,7 @@
 
 module.exports = function(Recipe) {
 
-	RecipeModel.validatesPresenceOf(
+	Recipe.validatesPresenceOf(
 		'img', 
         // 'url',
          'title', 
@@ -11,7 +11,7 @@ module.exports = function(Recipe) {
 		'recipe_yield'
 		);
   
-    RecipeModel.observe("before save", function updateTimestamp(ctx, next) {
+    Recipe.observe("before save", function updateTimestamp(ctx, next) {
 
     	if( ctx.isNewInstance ){
     		ctx.instance.created_at = new Date();
@@ -23,16 +23,16 @@ module.exports = function(Recipe) {
     	next();
     });
 
-    RecipeModel.observe('update', function(ctx, next){
+    Recipe.observe('update', function(ctx, next){
         ctx.instance.updated_at = new Date();
         next();
     });
 
     // method list attached recipes with ingredients
-    RecipeModel.listIngredients = function(recipeId, cb){
-        var IngredientModel = RecipeModel.app.models.IngredientModel;
+    Recipe.listIngredients = function(recipeId, cb){
+        var Ingredient = Recipe.app.models.Ingredient;
 
-        RecipeModel.findById(recipeId)
+        Recipe.findById(recipeId)
         .then(function(recipe){
 
             console.log( recipe.ingredients );
@@ -42,7 +42,7 @@ module.exports = function(Recipe) {
 
 
 
-                IngredientModel.find({
+                Ingredient.find({
                     where:{
                         id: { inq:recipe.ingredients }
                     },
@@ -76,7 +76,7 @@ module.exports = function(Recipe) {
 
     };
 
-    RecipeModel.remoteMethod('listIngredients', {
+    Recipe.remoteMethod('listIngredients', {
         accepts: {
           arg: 'recipeId',
           type: 'string',
@@ -95,16 +95,16 @@ module.exports = function(Recipe) {
     });
 
     // inner method only right now
-    RecipeModel.listIngredientsExtended = function(recipeId, cb){
-        var IngredientModel = RecipeModel.app.models.IngredientModel;
+    Recipe.listIngredientsExtended = function(recipeId, cb){
+        var Ingredient = RecipeModel.app.models.Ingredient;
 
-        RecipeModel.findById(recipeId)
+        Recipe.findById(recipeId)
         .then(function(recipe){
 
             console.log( recipe.ingredients );
 
 
-                IngredientModel.find({
+                Recipe.find({
                     where:{
                         id: { inq:recipe.ingredients }
                     },
