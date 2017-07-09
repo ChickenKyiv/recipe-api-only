@@ -38,6 +38,15 @@ async.parallel({
 		// console.log(results.departments);
 		// console.log(results.groceries);
 
+		//Users
+
+		//Recipes
+
+		//Menu
+
+		
+
+
 		Departments.attachDepartmentsToIngredients(
 			results.departments, results.ingredients
 			);
