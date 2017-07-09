@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(RecipeModel) {
+module.exports = function(Recipe) {
 
 	RecipeModel.validatesPresenceOf(
 		'img', 

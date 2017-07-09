@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(IngredientModel2) {
+module.exports = function(Ingredient2) {
     //@TODO add to done & delete default false
 	// IngredientModel.validatesPresenceOf(
 	// 	// 'name', 'type', 
