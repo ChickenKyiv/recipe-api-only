@@ -31,35 +31,44 @@ module.exports = function(IngredientModel) {
     });
 
 
-    // method when Deparments use array of ingredients and move it inside departments array
-
+  // method when Deparments use array of ingredients and move it inside departments array
   // method list attached ingredients by departments
-    IngredientModel.listDepartments = function(ingredientId, cb){
-        var DepartmentModel = IngredientModel.app.models.DepartmentModel;
 
-        IngredientModel.findById(ingredientId)
-        .then(function(recipe){
-            console.log( recipe.ingredients );
-            // @TODO change to custom method on recipe model
-            IngredientModel.find({
-                where:{
-                    id: recipe.ingredients
-                }       
-            })
-            .then(function(ingredients){
-            //  recipe.ingredients = ingredients;
-            // console.log(recipe);
-            // return recipe;
-                cb(null, ingredients);
-            });
+  	// by passing recipeId we'll get all Ingredients, related to this recipe 
+  	// and Departments, related to Ingredients.
+    IngredientModel.listDepartments = function(recipeId, cb){
+        var RecipeModel2 = IngredientModel.app.models.RecipeModel2; //:todo
 
-
-
-
+        RecipeModel2.findById(recipeId,{
+        	include: {IngredientModel2: 'department'}
         })
-        .catch(function(err){
-            if(err){ cb(err); }
+        .then(function(recipe){
+        	console.log(recipe);
         });
+
+        // IngredientModel.findById(ingredientId)
+        // .then(function(recipe){
+        //     console.log( recipe.ingredients );
+        //     // @TODO change to custom method on recipe model
+        //     IngredientModel.find({
+        //         where:{
+        //             id: recipe.ingredients
+        //         }       
+        //     })
+        //     .then(function(ingredients){
+        //     //  recipe.ingredients = ingredients;
+        //     // console.log(recipe);
+        //     // return recipe;
+        //         cb(null, ingredients);
+        //     });
+
+
+
+
+        // })
+        // .catch(function(err){
+        //     if(err){ cb(err); }
+        // });
 
 
 
@@ -70,11 +79,11 @@ module.exports = function(IngredientModel) {
           type: 'string'
         },
         returns: {
-          arg: 'menus',
+          arg: 'menus', //:todo
           type: 'array'
         },
         http: {
-          path: '/recipe/list/ingredients',
+          path: '/recipe/list/departments',
           verb: 'get'
         }
     });
