@@ -22,7 +22,7 @@
   },
   "validations": [],
   "relations": {
-    "depzz": {
+    "department": {
       "type": "belongsTo",
       "model": "DepartmentModel2",
       "foreignKey": "depId"

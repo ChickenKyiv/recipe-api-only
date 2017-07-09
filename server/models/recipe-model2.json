@@ -29,7 +29,7 @@
   },
   "validations": [],
   "relations": {
-    "nutritionsModels": {
+    "nutritions": {
       "type": "hasOne",
       "model": "NutritionsModel",
       "foreignKey": ""

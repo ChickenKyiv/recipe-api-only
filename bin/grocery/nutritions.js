@@ -1,7 +1,8 @@
 'use strict';
 
+var Nutritions = server.models.NutritionsModel;
 
-module.exports = function getSampleData (){
+function getNutritions(){
    
     var nutritions = [
         {
@@ -58,7 +59,7 @@ function createNutritions(cb){
 	});
 };
 
-function attachNutritionsToRecipes(nutritions, recipes, cb){
+function attachNutritionsToRecipes(nutritions, recipes){
 	var first  = recipes[0];
 	var second = recipes[1];
 
@@ -72,5 +73,9 @@ function attachNutritionsToRecipes(nutritions, recipes, cb){
 
 	first.updateAttribute('nutritions', nutritions[0]);
 	second.updateAttribute('nutritions', nutritions[1]);
-	cb();
+	
 };
+
+
+module.exports.createNutritions = createNutritions;
+module.exports.attachNutritionsToRecipes = attachNutritionsToRecipes;
