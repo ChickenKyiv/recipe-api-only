@@ -1,6 +1,6 @@
 'use strict';
 
-var Ingredient  = server.models.Ingredient2;
+var Ingredient  = server.models.Ingredient;
 var relation    = 'ingredients';
 
 function getIngredients(){
@@ -61,9 +61,9 @@ function attachIngredientsToRecipes(ingredients, recipes){
   var one = idsOnly(first);
   var two = idsOnly(second);
 
-  recipes[0].updateAttribute('ingArr', one);
+  recipes[0].updateAttribute(relation, one);
 
-  recipes[1].updateAttribute('ingArr', two);
+  recipes[1].updateAttribute(relation, two);
 
   console.log(recipes);
 
@@ -97,7 +97,7 @@ function idsOnly(array){
 };
 
 function createIngredients(cb){
-  database.automigrate('Ingredient2', function(err){
+  database.automigrate('Ingredient', function(err){
     if (err) return cb(err);
 
     Ingredient.create(getIngredients(), cb);

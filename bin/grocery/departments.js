@@ -1,38 +1,27 @@
 'use strict';
 
 
-var Department  = server.models.Department2;
+var Department  = server.models.Department;
+var relation1    = 'departmentId';
+var relation2    = 'departmentIds';
+
+
 function getDepartments(){
 
 	var departments = [
 		{
 	
 		 name: "BAKERY/BREAD",
-		  // items: [
-		 //  {
-		 //  	id: "6",
-		 //  	name: "black pepper",
-		 //  	// recipeId: ["1", "2"],
-		 //  	type: "simple",
-		 //  	units: "1 teaspoon",
-		 //  	done: "0",
-		 //  	delete: "0"
-			// }
-		  // ]
+		  items: [
+		
+		  ]
 		},
 		{
 		
 			name: "BAKING",
-			// items: [
-			// {
-			// 	"id": "6",
-			// 	name: "black pepper",
-			// 	// recipeId: ["1", "2"],
-			// 	type: "simple",
-			// 	units: "1 teaspoon",
-			// 	done: "0","delete": "0"
-			// }
-			// ]
+			items: [
+			
+			]
 		}
 	];
 
@@ -41,7 +30,7 @@ function getDepartments(){
 };
 
 function createDepartments(cb){
-	database.autoupdate('Department2', function(err){
+	database.autoupdate('Department', function(err){
 		if (err) return cb(err);
 
 		Department.create(getDepartments(), cb);
@@ -65,11 +54,11 @@ function attachDepartmentsToIngredients(departments, ingredients){
 	// console.log(arrayWithIds[2]);
 	
 	first.forEach(function(ingredient){
-		ingredient.updateAttribute('depId', arrayWithIds[0]);
+		ingredient.updateAttribute(relation1, arrayWithIds[0]);
 	});
 
 	second.forEach(function(ingredient){
-		ingredient.updateAttribute('depId', arrayWithIds[1]);
+		ingredient.updateAttribute(relation1, arrayWithIds[1]);
 	});
 
 
@@ -83,7 +72,7 @@ function attachDepartmentsToGroceries(departments, groceries){
 	var arrayWithIds = idsOnly(departments);
 
 	groceries.forEach(function(grocery){
-		grocery.updateAttribute('departmentIds', arrayWithIds);
+		grocery.updateAttribute(relation2, arrayWithIds);
 		
 	});
 	// console.log(groceries);

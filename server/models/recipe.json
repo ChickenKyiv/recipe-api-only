@@ -46,11 +46,21 @@
   },
   "validations": [],
   "relations": {
-    "nutritionsModels": {
+    "nutritions": {
       "type": "hasOne",
       "model": "NutritionsModel",
       "foreignKey": ""
+    },
+    "ingredients": {
+      "type": "referencesMany",
+      "model": "IngredientModel2",
+      "foreignKey": "ingArr",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
     }
+    
   },
   "acls": [
     {

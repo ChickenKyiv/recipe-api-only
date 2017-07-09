@@ -1,7 +1,7 @@
 'use strict';
 
 
-var Grocery     = server.models.Grocery2;
+var Grocery     = server.models.Grocery;
 
 function getGroceries(){
 
@@ -9,9 +9,11 @@ function getGroceries(){
 		{
 
 			
-			'title':"Ultimate Grocery List"
-
-
+			title:"Ultimate Grocery List",
+			img  : false,
+			desc : false,
+			slug : false //:todo do we need this fields?
+ 
 
 		}
 	];
@@ -21,7 +23,7 @@ function getGroceries(){
 };
 
 function createGroceries(cb){
-	database.autoupdate('Grocery2', function(err){
+	database.autoupdate('Grocery', function(err){
 		if (err) return cb(err);
 
 		Grocery.create(getGroceries(), cb);

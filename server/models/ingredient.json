@@ -35,13 +35,20 @@
       "type": "date",
       "required": true
     },
-    "departmentIdzzz": {
+    
+    "type": {
       "type": "string",
       "required": false
-    }
+    },
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "department": {
+      "type": "belongsTo",
+      "model": "DepartmentModel",
+      "foreignKey": "departmentId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
