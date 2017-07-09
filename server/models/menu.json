@@ -19,10 +19,7 @@
       "type": "string",
       "required": true
     },
-    "recipes": {
-      "type": "object",
-      "required": false
-    },
+    
     "created_at": {
       "type": "date",
       "required": true
@@ -43,13 +40,24 @@
       "type": "date",
       "required": false
     },
-    "groceryId": {
-      "type": "string",
-      "required": false
-    }
+ 
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "recipes": {
+      "type": "referencesMany",
+      "model": "Recipe",
+      "foreignKey": "recipes",
+      "options": {
+        "validate": true,
+        "forceId": false
+      },
+    "grocery": {
+      "type": "belongsTo",
+      "model": "Grocery",
+      "foreignKey": "groceryId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

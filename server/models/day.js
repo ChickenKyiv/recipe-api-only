@@ -1,1 +1,5 @@
-day.js
+'use strict';
+
+module.exports = function(Day) {
+
+};
