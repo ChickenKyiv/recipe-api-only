@@ -1,6 +1,7 @@
 'use strict';
 
-var Ingredient  = server.models.IngredientModel2;
+var Ingredient  = server.models.Ingredient2;
+var relation    = 'ingredients';
 
 function getIngredients(){
 
@@ -96,7 +97,7 @@ function idsOnly(array){
 };
 
 function createIngredients(cb){
-  database.automigrate('IngredientModel2', function(err){
+  database.automigrate('Ingredient2', function(err){
     if (err) return cb(err);
 
     Ingredient.create(getIngredients(), cb);

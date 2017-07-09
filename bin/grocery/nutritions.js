@@ -1,6 +1,7 @@
 'use strict';
 
-var Nutritions = server.models.NutritionsModel;
+var Nutritions = server.models.Nutritions;
+var relation    = 'nutritions';
 
 function getNutritions(){
    
@@ -52,7 +53,7 @@ function getNutritions(){
 };
 
 function createNutritions(cb){
-	database.autoupdate('NutritionsModel', function(err){
+	database.autoupdate('Nutritions', function(err){
 		if (err) return cb(err);
 
 		Nutritions.create(getNutritions(), cb);

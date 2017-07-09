@@ -1,7 +1,8 @@
 'use strict';
 
-
-module.exports = function getSampleData (){
+var relation    = 'nutritions';
+module.exports = 
+function getSampleData (){
    
      var cuisine     = [
      {
@@ -146,7 +147,7 @@ module.exports = function getSampleData (){
 
 
 function createCuisines(cb){
-     database.autoupdate('CuisineModel', function(err){
+     database.autoupdate('Cuisine', function(err){
           if (err) return cb(err);
 
           Cuisine.create(getCuisine(), cb);

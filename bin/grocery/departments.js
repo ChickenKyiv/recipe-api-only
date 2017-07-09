@@ -1,7 +1,7 @@
 'use strict';
 
 
-var Department  = server.models.DepartmentModel2;
+var Department  = server.models.Department2;
 function getDepartments(){
 
 	var departments = [
@@ -41,7 +41,7 @@ function getDepartments(){
 };
 
 function createDepartments(cb){
-	database.autoupdate('DepartmentModel2', function(err){
+	database.autoupdate('Department2', function(err){
 		if (err) return cb(err);
 
 		Department.create(getDepartments(), cb);

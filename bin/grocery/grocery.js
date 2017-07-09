@@ -1,7 +1,7 @@
 'use strict';
 
 
-var Grocery     = server.models.GroceryModel2;
+var Grocery     = server.models.Grocery2;
 
 function getGroceries(){
 
@@ -21,7 +21,7 @@ function getGroceries(){
 };
 
 function createGroceries(cb){
-	database.autoupdate('GroceryModel2', function(err){
+	database.autoupdate('Grocery2', function(err){
 		if (err) return cb(err);
 
 		Grocery.create(getGroceries(), cb);

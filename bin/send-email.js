@@ -13,7 +13,7 @@ var app = require('../server/server.js');
 var yourEmailAddress = 'arthur.tkachenko.netweight@gmail.com';
 // var yourEmailAddress = dsConfig.emailDs.transports[0].auth.user;
 
-app.models.EmailModel.send({
+app.models.email.send({
   to: yourEmailAddress,  // your email address
   // to: null,  // your email address
   from: 'no-reply@github.com', // your email address
@@ -26,7 +26,7 @@ app.models.EmailModel.send({
   console.log('> email sent successfully');
 });
 
-// loopback.Email.send({
+// loopback.email.send({
 //     to: "to@to.com",
 //     from: "fron@from.com",
 //     subject: "subject",

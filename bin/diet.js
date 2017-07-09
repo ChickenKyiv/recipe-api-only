@@ -1,7 +1,10 @@
 'use strict';
 
+var relation    = 'nutritions';
+module.exports = 
 
-module.exports = function getSampleData (){
+
+function getSampleData (){
    
 
      var diet        = [
@@ -51,7 +54,7 @@ module.exports = function getSampleData (){
      
 
 function createDiets(cb){
-     database.autoupdate('DietModel', function(err){
+     database.autoupdate('Diet', function(err){
           if (err) return cb(err);
 
           Diet.create(getDiets(), cb);

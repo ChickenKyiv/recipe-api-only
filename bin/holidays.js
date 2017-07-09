@@ -1,7 +1,10 @@
 'use strict';
 
+var relation    = 'nutritions';
+module.exports = 
 
-module.exports = function getSampleData (){
+
+function getSampleData (){
    
      var holidays    = [
      {
@@ -100,7 +103,7 @@ module.exports = function getSampleData (){
 
 
 function createHolidays(cb){
-     database.autoupdate('HolidayModel', function(err){
+     database.autoupdate('Holiday', function(err){
           if (err) return cb(err);
 
           Holiday.create(getHolidays(), cb);

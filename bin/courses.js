@@ -1,6 +1,7 @@
 'use strict';
 
-var Course  =  server.models.CourseModel;
+var Course  =  server.models.Course;
+var relation    = 'nutritions';
 
 function getCourses (){
    
@@ -81,7 +82,7 @@ function getCourses (){
 };
 
 function createCourses(cb){
-     database.autoupdate('CourseModel', function(err){
+     database.autoupdate('Course', function(err){
           if (err) return cb(err);
 
           Course.create(getCourses(), cb);
