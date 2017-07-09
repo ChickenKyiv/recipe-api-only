@@ -1,0 +1,33 @@
+{
+  "name": "Day",
+  "plural": "day",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "string",
+      "required": true
+    }
+    
+  },
+  "validations": [],
+  "relations": {
+  	"recipes": {
+      "type": "referencesMany",
+      "model": "Recipe",
+      "foreignKey": "recipes",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+  },
+  "acls": [],
+  "methods": {}
+}

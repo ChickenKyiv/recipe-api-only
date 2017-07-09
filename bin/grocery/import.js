@@ -8,7 +8,7 @@ let server          = require(path.resolve(__dirname, '../../server/server'));
 
 var database        = server.datasources.recipeDS;
 
-
+//include middleware
 let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
 
 let Groceries    = require(path.resolve(__dirname, 'grocery'));
@@ -16,6 +16,8 @@ let Groceries    = require(path.resolve(__dirname, 'grocery'));
 let Departments  = require(path.resolve(__dirname, 'departments'));
 
 let Recipes      = require(path.resolve(__dirname, 'recipes'));
+
+
 
 async.parallel({
 	
