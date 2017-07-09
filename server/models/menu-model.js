@@ -180,10 +180,14 @@ module.exports = function(MenuModel) {
 					// limit: 1
 				};
 
+
+console.log( query );
+MenuModel.findOne(query, cb);
+
 			});
 
 
-			console.log( query );
+			
 
 			
 
@@ -191,10 +195,12 @@ module.exports = function(MenuModel) {
 
 			query = {
 			  order: 'date DESC',
-			  fields:['title', 'date','description', 'recipes']
+			  // fields: ['title', 'date','description', 'recipes', 'id']
+			  fields:['id','date']
 			  // limit: 1
 			};
 			console.log(query);
+			MenuModel.findOne(query, cb);
 		}
 
 			
@@ -203,7 +209,7 @@ module.exports = function(MenuModel) {
 
 		// console.log(query);
 
-		MenuModel.findOne(query, cb);
+		
 		
 	};
 
