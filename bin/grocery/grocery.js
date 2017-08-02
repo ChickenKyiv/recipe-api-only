@@ -1,6 +1,6 @@
 'use strict';
 
-
+let server          = require(path.resolve(__dirname, '../../server/server'));
 var Grocery     = server.models.Grocery;
 
 function getGroceries(){
