@@ -1,8 +1,8 @@
 'use strict';
-
-let server          = require(path.resolve(__dirname, '../../server/server'));
+var path       = require('path');
+let server     = require(path.resolve(__dirname, '../../server/server'));
 var Nutritions = server.models.Nutritions;
-var relation    = 'nutritions';
+var relation   = 'nutritions';
 
 function getNutritions(){
    
