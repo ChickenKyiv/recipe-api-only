@@ -62,4 +62,14 @@ function createRecipes(cb){
 	});
 };
 
+function idsOnly(array){
+
+  var result = Object.keys(array).map(function(e) {
+    return array[e].id;
+    });
+
+  return result;    
+
+};
+
 module.exports.createRecipes = createRecipes;

@@ -71,6 +71,16 @@ function attachDepartmentsToIngredients(departments, ingredients){
 
 };
 
+function idsOnly(array){
+
+  var result = Object.keys(array).map(function(e) {
+    return array[e].id;
+    });
+
+  return result;    
+
+};
+
 function attachDepartmentsToGroceries(departments, groceries){
 	var arrayWithIds = idsOnly(departments);
 
@@ -80,6 +90,8 @@ function attachDepartmentsToGroceries(departments, groceries){
 	});
 	// console.log(groceries);
 };
+
+
 
 module.exports.createDepartments = createDepartments;
 module.exports.attachDepartmentsToIngredients = attachDepartmentsToIngredients;

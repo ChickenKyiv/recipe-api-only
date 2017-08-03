@@ -80,7 +80,15 @@ function attachNutritionsToRecipes(nutritions, recipes){
 	second.updateAttribute('nutritions', nutritions[1]);
 	
 };
+function idsOnly(array){
 
+  var result = Object.keys(array).map(function(e) {
+    return array[e].id;
+    });
+
+  return result;    
+
+};
 
 module.exports.createNutritions = createNutritions;
 module.exports.attachNutritionsToRecipes = attachNutritionsToRecipes;
