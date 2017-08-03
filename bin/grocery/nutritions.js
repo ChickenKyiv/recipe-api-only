@@ -1,6 +1,9 @@
 'use strict';
+
 var path       = require('path');
 let server     = require(path.resolve(__dirname, '../../server/server'));
+var database   = server.datasources.groceryDS;
+
 var Nutritions = server.models.Nutritions;
 var relation   = 'nutritions';
 

@@ -6,7 +6,7 @@ var async           = require('async');
 
 let server          = require(path.resolve(__dirname, '../../server/server'));
 
-var database        = server.datasources.recipeDS;
+// var database        = server.datasources.recipeDS;
 
 //include middleware
 let Ingredients  = require(path.resolve(__dirname, 'ingredients'));

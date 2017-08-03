@@ -2,6 +2,8 @@
 
 var path        = require('path');
 let server      = require(path.resolve(__dirname, '../../server/server'));
+var database    = server.datasources.groceryDS;
+
 var Recipe      = server.models.Recipe2;
 var relation    = 'ingredients';
 
