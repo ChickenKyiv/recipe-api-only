@@ -2,6 +2,9 @@
 
 # Free Menu Release #
 
+### Basic structure
+![alt text](https://github.com/atherdon/recipe-api-only/blob/master/img.jpg)
+
 GET http://localhost:3000/api/menu?access_token=%token%
 Get list with all created menus(with recipe Ids)
 
