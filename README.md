@@ -72,6 +72,6 @@ http://localhost:3000/api/ingredient?filter[where][name][like]=kosher
 
 @TODO Search 
 
-![alt text](https://github.com/atherdon/recipe-api-only/blob/master/img.jpg)
+
 
 
