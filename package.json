@@ -1,18 +1,21 @@
 {
   "name": "recipe-api",
   "version": "1.0.2-beta",
-  "engines": { "node" : "8.1.4" },
+  "engines": {
+    "node": "8.1.4"
+  },
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
     "watch": "nodemon server/server.js",
     "test": "mocha",
     "populate": "node bin/import-samples.js",
-    "grocery" : "node bin/grocery/import.js"
+    "grocery": "node bin/grocery/import.js"
   },
   "dependencies": {
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "errorhandler": "^1.5.0",
     "helmet": "^3.6.1",
     "loopback": "^3.0.0",
     "loopback-boot": "^2.6.5",

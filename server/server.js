@@ -1,8 +1,9 @@
 'use strict';
 
-var loopback = require('loopback');
-var boot = require('loopback-boot');
+const loopback = require('loopback');
+const boot = require('loopback-boot');
 
+const errorhandler = require('errorhandler');
 // frontend related part
 // var bodyParser = require('body-parser');
 // var path = require('path');
@@ -31,6 +32,11 @@ var app = module.exports = loopback();
 //   model: app.models.accessToken,
 //   currentUserLiteral: 'me',
 // }));
+
+if (process.env.NODE_ENV === 'development') {
+  // only use in development 
+  app.use(errorhandler());
+}
 
 
 app.start = function() {
