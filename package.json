@@ -20,7 +20,7 @@
     "loopback": "^3.0.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^5.0.0",
-    "loopback-connector-mailgun": "0.0.10",
+    "loopback-connector-mailgun": "0.0.11",
     "loopback-connector-mongodb": "^3.1.0",
     "nodemailer-mailgun-transport": "^1.3.5",
     "serve-favicon": "^2.0.1",
