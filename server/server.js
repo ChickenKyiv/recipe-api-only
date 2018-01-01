@@ -8,8 +8,29 @@ const errorhandler = require('errorhandler');
 // var bodyParser = require('body-parser');
 // var path = require('path');
 
+const Raven = require('raven');
+Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
+
+
 var app = module.exports = loopback();
 
+
+try {
+
+  if ( process.env.NODE_ENV === 'development' || !process.env.NODE_ENV ) {
+    // only use in development
+    config = require('../providers.json');
+  } else {
+    config = require('../providers.production.json');
+  }
+
+  // console.log(config);
+} catch (err) {
+  console.trace(err);
+  Raven.captureException(err);
+  process.exit(1); // fatal
+}
+//---------------------------------------
 // frontend related part
 // app.middleware('initial', bodyParser.urlencoded({ extended: true }));
 
@@ -28,13 +49,13 @@ var app = module.exports = loopback();
 // use loopback.token middleware on all routes
 // setup gear for authentication using cookie (access_token)
 // Note: requires cookie-parser (defined in middleware.json)
-// app.use(loopback.token({  
+// app.use(loopback.token({
 //   model: app.models.accessToken,
 //   currentUserLiteral: 'me',
 // }));
 
 if (process.env.NODE_ENV === 'development') {
-  // only use in development 
+  // only use in development
   app.use(errorhandler());
 }
 
@@ -53,7 +74,7 @@ app.start = function() {
 };
 
 //In order to create scripts load in custom way - use this:
-// bootOptions = { "appRootDir": __dirname, 
+// bootOptions = { "appRootDir": __dirname,
 //                 "bootScripts" : [ "/full/path/to/boot/script/first.js", "//full/path/to/boot/script/second.js", ... ]
 // };
 // boot(app, bootOptions);
