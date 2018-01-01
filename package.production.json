@@ -1,15 +1,18 @@
 {
   "name": "recipe-api",
-  "version": "1.0.0",
+  "version": "1.0.2-beta",
+  "engines": {
+    "node": "8.1.4"
+  },
   "main": "server/server.js",
   "scripts": {
     "lint": "eslint .",
     "start": "node server/server.js",
     "posttest": "npm run lint && nsp check",
-    "watch": "nodemon server/server.js",
+    
     "test": "mocha",
     "populate": "node bin/import-samples.js",
-    "grocery" : "node bin//grocery/import.js"
+    "grocery" : "node bin/grocery/import.js"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -18,9 +21,9 @@
     "loopback": "^3.0.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^4.0.0",
-    "loopback-connector-mailgun": "0.0.8",
+    
     "loopback-connector-mongodb": "^3.1.0",
-    "nodemailer-mailgun-transport": "^1.3.5",
+    
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.1.0"
   },
