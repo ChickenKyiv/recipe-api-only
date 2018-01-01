@@ -19,9 +19,9 @@ try {
 
   if ( process.env.NODE_ENV === 'development' || !process.env.NODE_ENV ) {
     // only use in development
-    config = require('../providers.json');
+    // config = require('../providers.json');
   } else {
-    config = require('../providers.production.json');
+    // config = require('../providers.production.json');
   }
 
   // console.log(config);
@@ -30,6 +30,7 @@ try {
   Raven.captureException(err);
   process.exit(1); // fatal
 }
+
 //---------------------------------------
 // frontend related part
 // app.middleware('initial', bodyParser.urlencoded({ extended: true }));

@@ -80,10 +80,7 @@
     "dataSource": "recipeDS",
     "public": true
   },
-  "email": {
-    "dataSource": "mailgun",
-    "public": false
-  },
+
   "Nutritions": {
     "dataSource": "recipeDS",
     "public": true
