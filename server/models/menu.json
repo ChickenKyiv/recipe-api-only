@@ -19,7 +19,6 @@
       "type": "string",
       "required": true
     },
-    
     "created_at": {
       "type": "date",
       "required": true
@@ -39,8 +38,7 @@
     "notes": {
       "type": "date",
       "required": false
-    },
- 
+    }
   },
   "validations": [],
   "relations": {
@@ -51,7 +49,8 @@
       "options": {
         "validate": true,
         "forceId": false
-      },
+      }
+    },
     "grocery": {
       "type": "belongsTo",
       "model": "Grocery",

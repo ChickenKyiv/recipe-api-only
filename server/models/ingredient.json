@@ -35,11 +35,10 @@
       "type": "date",
       "required": true
     },
-    
     "type": {
       "type": "string",
       "required": false
-    },
+    }
   },
   "validations": [],
   "relations": {

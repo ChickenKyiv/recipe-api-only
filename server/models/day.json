@@ -15,11 +15,10 @@
       "type": "string",
       "required": true
     }
-    
   },
   "validations": [],
   "relations": {
-  	"recipes": {
+    "recipes": {
       "type": "referencesMany",
       "model": "Recipe",
       "foreignKey": "recipes",
@@ -27,7 +26,9 @@
         "validate": true,
         "forceId": false
       }
-  },
+  }
+
+},
   "acls": [],
   "methods": {}
 }

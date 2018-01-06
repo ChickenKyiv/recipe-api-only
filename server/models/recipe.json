@@ -15,7 +15,6 @@
       "type": "string",
       "required": true
     },
-  
     "directions": {
       "type": "object",
       "required": true
@@ -32,7 +31,6 @@
       "type": "string",
       "required": true
     },
-    
     "created_at": {
       "type": "date",
       "required": true
@@ -64,7 +62,7 @@
       "foreignKey": "allergies",
       "options": {
         "validate": true,
-        "forceId": false
+        "forceId": false }
     },
     "course": {
       "type": "referencesMany",
@@ -72,7 +70,7 @@
       "foreignKey": "courses",
       "options": {
         "validate": true,
-        "forceId": false
+        "forceId": false }
     },
     "cuisine": {
       "type": "referencesMany",
@@ -80,7 +78,7 @@
       "foreignKey": "cuisines",
       "options": {
         "validate": true,
-        "forceId": false
+        "forceId": false }
     },
     "diet": {
       "type": "referencesMany",
@@ -88,7 +86,7 @@
       "foreignKey": "diets",
       "options": {
         "validate": true,
-        "forceId": false
+        "forceId": false }
     },
     "holiday": {
       "type": "referencesMany",
@@ -96,9 +94,9 @@
       "foreignKey": "holidays",
       "options": {
         "validate": true,
-        "forceId": false
+        "forceId": false }
     },
-    
+
   },
   "acls": [
     {
