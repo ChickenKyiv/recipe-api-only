@@ -44,7 +44,7 @@
   "relations": {
     "department": {
       "type": "belongsTo",
-      "model": "DepartmentModel",
+      "model": "Department",
       "foreignKey": "departmentId"
     }
   },

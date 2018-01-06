@@ -13,27 +13,27 @@
       "./mixins"
     ]
   },
-  "DepartmentModel": {
+  "Department": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "GroceryModel": {
+  "Grocery": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "IngredientModel": {
+  "Ingredient": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "MenuModel": {
+  "Menu": {
     "dataSource": "recipeDS",
     "public": true
   },
-  "RecipeModel": {
+  "Recipe": {
     "dataSource": "recipeDS",
     "public": true
   },
-  
+
   "User": {
     "dataSource": "recipeDS",
     "public": false

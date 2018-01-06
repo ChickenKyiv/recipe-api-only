@@ -42,60 +42,7 @@
   },
   "validations": [],
   "relations": {
-    "nutritions": {
-      "type": "hasOne",
-      "model": "NutritionsModel",
-      "foreignKey": ""
-    },
-    "ingredients": {
-      "type": "referencesMany",
-      "model": "IngredientModel2",
-      "foreignKey": "ingArr",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    },
-    "allergy": {
-      "type": "referencesMany",
-      "model": "Allergy",
-      "foreignKey": "allergies",
-      "options": {
-        "validate": true,
-        "forceId": false }
-    },
-    "course": {
-      "type": "referencesMany",
-      "model": "Course",
-      "foreignKey": "courses",
-      "options": {
-        "validate": true,
-        "forceId": false }
-    },
-    "cuisine": {
-      "type": "referencesMany",
-      "model": "Cuisine",
-      "foreignKey": "cuisines",
-      "options": {
-        "validate": true,
-        "forceId": false }
-    },
-    "diet": {
-      "type": "referencesMany",
-      "model": "Diet",
-      "foreignKey": "diets",
-      "options": {
-        "validate": true,
-        "forceId": false }
-    },
-    "holiday": {
-      "type": "referencesMany",
-      "model": "Holiday",
-      "foreignKey": "holidays",
-      "options": {
-        "validate": true,
-        "forceId": false }
-    },
+
 
   },
   "acls": [
