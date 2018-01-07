@@ -1,7 +1,7 @@
 'use strict';
 
-var Course  =  server.models.Course;
-var relation    = 'nutritions';
+var Course   =  server.models.Course;
+var relation = 'nutritions';
 
 function getCourses (){
 

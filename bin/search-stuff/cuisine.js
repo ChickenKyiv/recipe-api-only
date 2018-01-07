@@ -1,7 +1,8 @@
 'use strict';
 
+var Course   =  server.models.Cousine;
 var relation    = 'nutritions';
-module.exports =
+// module.exports =
 function getSampleData (){
 
      var cuisine     = [

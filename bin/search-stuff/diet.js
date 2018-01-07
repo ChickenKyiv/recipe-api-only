@@ -1,7 +1,8 @@
 'use strict';
 
-var relation    = 'nutritions';
-module.exports =
+var Course   =  server.models.Diet;
+var relation = 'nutritions';
+
 
 
 function getSampleData (){

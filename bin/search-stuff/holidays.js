@@ -1,8 +1,7 @@
 'use strict';
 
-var relation    = 'nutritions';
-module.exports =
-
+var Course   =  server.models.Holiday;
+var relation  = 'nutritions';
 
 function getSampleData (){
 

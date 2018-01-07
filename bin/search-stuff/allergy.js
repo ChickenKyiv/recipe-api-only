@@ -1,7 +1,7 @@
 'use strict';
 
-var Allergy =  server.models.AllergyModel;
-var relation    = 'nutritions';
+var Allergy  =  server.models.Allergy;
+var relation = 'nutritions';
 
 function getAllergy (){
 
