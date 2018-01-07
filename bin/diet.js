@@ -1,11 +1,11 @@
 'use strict';
 
 var relation    = 'nutritions';
-module.exports = 
+module.exports =
 
 
 function getSampleData (){
-   
+
 
      var diet        = [
      {
@@ -13,45 +13,55 @@ function getSampleData (){
           "shortDescription":"Lacto vegetarian",
           "longDescription":"Lacto vegetarian",
           "searchValue":"388^Lacto vegetarian",
-     "type":"diet",
-     "localesAvailableIn":["en-US"]
- },
+         "type":"diet",
+         "localesAvailableIn":["en-US"]
+     },
      {
           // "id":"389",
-          "shortDescription":"Ovo vegetarian","longDescription":"Ovo vegetarian",
+          "shortDescription":"Ovo vegetarian",
+          "longDescription":"Ovo vegetarian",
           "searchValue":"389^Ovo vegetarian",
-     "type":"diet","localesAvailableIn":["en-US"]
- },
+         "type":"diet",
+         "localesAvailableIn":["en-US"]
+     },
      {
           // "id":"390",
-          "shortDescription":"Pescetarian","longDescription":"Pescetarian",
+          "shortDescription":"Pescetarian",
+          "longDescription":"Pescetarian",
           "searchValue":"390^Pescetarian",
-     "type":"diet","localesAvailableIn":["en-US"]
- },
+         "type":"diet",
+         "localesAvailableIn":["en-US"]
+     },
      {
           // "id":"386",
-          "shortDescription":"Vegan","longDescription":"Vegan",
+          "shortDescription":"Vegan",
+          "longDescription":"Vegan",
           "searchValue":"386^Vegan",
-     "type":"diet","localesAvailableIn":["en-US"]
- },
+         "type":"diet",
+         "localesAvailableIn":["en-US"]
+     },
      {
           // "id":"387",
-          "shortDescription":"Lacto-ovo vegetarian","longDescription":"Vegetarian",
+          "shortDescription":"Lacto-ovo vegetarian",
+          "longDescription":"Vegetarian",
           "searchValue":"387^Lacto-ovo vegetarian",
-     "type":"diet","localesAvailableIn":["en-US"]
- },
+         "type":"diet",
+         "localesAvailableIn":["en-US"]
+     },
      {
           // "id":"403",
-          "shortDescription":"Paleo","longDescription":"Paleo",
+          "shortDescription":"Paleo",
+          "longDescription":"Paleo",
           "searchValue":"403^Paleo",
-     "type":"diet","localesAvailableIn":["en-US"]
- }
+         "type":"diet",
+         "localesAvailableIn":["en-US"]
+     }
      ];
 
      return diet;
-     
+
 };
-     
+
 
 function createDiets(cb){
      database.autoupdate('Diet', function(err){
@@ -59,4 +69,4 @@ function createDiets(cb){
 
           Diet.create(getDiets(), cb);
      });
-};     
+};
