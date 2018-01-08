@@ -5,7 +5,7 @@ var relation = 'nutritions';
 
 
 
-function getSampleData (){
+function getData (){
 
 
      var diet        = [
@@ -64,10 +64,10 @@ function getSampleData (){
 };
 
 
-function createDiets(cb){
-     database.autoupdate('Diet', function(err){
-          if (err) return cb(err);
-
-          Diet.create(getDiets(), cb);
-     });
-};
+// function createDiets(cb){
+//      database.autoupdate('Diet', function(err){
+//           if (err) return cb(err);
+//
+//           Diet.create(getData(), cb);
+//      });
+// };

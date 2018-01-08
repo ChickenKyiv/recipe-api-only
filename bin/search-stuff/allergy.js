@@ -3,7 +3,7 @@
 var Allergy  =  server.models.Allergy;
 var relation = 'nutritions';
 
-function getAllergy (){
+function getData (){
 
      var allergy     = [
           {
@@ -96,7 +96,7 @@ function createAllergies(cb){
      database.autoupdate('AllergyModel', function(err){
           if (err) return cb(err);
 
-          Allergy.create(getAllergy(), cb);
+          Allergy.create(getData(), cb);
      });
 };
 
@@ -117,5 +117,5 @@ function idsOnly(array){
      return result;
 
 };
-module.exports.createAllergies = createAllergies;
-module.exports.attachAllergiesToRecipes = attachAllergiesToRecipes;
+// module.exports.createAllergies = createAllergies;
+// module.exports.attachAllergiesToRecipes = attachAllergiesToRecipes;

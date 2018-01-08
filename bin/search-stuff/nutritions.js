@@ -3,7 +3,7 @@
 var Course   =  server.models.Course;
 var relation = 'nutritions';
 
-function getCourses (){
+function getData (){
 
      var courses     = [
      {
@@ -117,25 +117,25 @@ function getCourses (){
 
 };
 
-function createCourses(cb){
-     database.autoupdate('Course', function(err){
-          if (err) return cb(err);
+// function createCourses(cb){
+//      database.autoupdate('Course', function(err){
+//           if (err) return cb(err);
+//
+//           Course.create(getData(), cb);
+//      });
+// };
 
-          Course.create(getCourses(), cb);
-     });
-};
 
-
-function attachCoursesToRecipes(courses, recipes, cb){
-     var arrayWithIds = idsOnly(courses);
-     recipes.forEach(function(recipe){
-          recipe.updateAttribute('courses', arrayWithIds);
-
-     });
-};
-
-module.exports.createCourses = createCourses;
-module.exports.attachCoursesToRecipes = attachCoursesToRecipes;
+// function attachCoursesToRecipes(courses, recipes, cb){
+//      var arrayWithIds = idsOnly(courses);
+//      recipes.forEach(function(recipe){
+//           recipe.updateAttribute('courses', arrayWithIds);
+//
+//      });
+// };
+//
+// module.exports.createCourses = createCourses;
+// module.exports.attachCoursesToRecipes = attachCoursesToRecipes;
 
 function idsOnly(array){
 

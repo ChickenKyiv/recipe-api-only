@@ -3,7 +3,7 @@
 var Course   =  server.models.Course;
 var relation = 'nutritions';
 
-function getCourses (){
+function getData (){
 
      var courses     = [
      {
@@ -133,9 +133,9 @@ function attachCoursesToRecipes(courses, recipes, cb){
 
      });
 };
-
-module.exports.createCourses = createCourses;
-module.exports.attachCoursesToRecipes = attachCoursesToRecipes;
+//
+// module.exports.createCourses = createCourses;
+// module.exports.attachCoursesToRecipes = attachCoursesToRecipes;
 
 function idsOnly(array){
 

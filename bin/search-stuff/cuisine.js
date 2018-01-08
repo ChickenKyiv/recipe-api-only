@@ -3,7 +3,7 @@
 var Course   =  server.models.Cousine;
 var relation    = 'nutritions';
 // module.exports =
-function getSampleData (){
+function getData (){
 
      var cuisine     = [
      {
@@ -222,10 +222,10 @@ function getSampleData (){
 };
 
 
-function createCuisines(cb){
-     database.autoupdate('Cuisine', function(err){
-          if (err) return cb(err);
-
-          Cuisine.create(getCuisine(), cb);
-     });
-};
+// function createCuisines(cb){
+//      database.autoupdate('Cuisine', function(err){
+//           if (err) return cb(err);
+//
+//           Cuisine.create(getData(), cb);
+//      });
+// };

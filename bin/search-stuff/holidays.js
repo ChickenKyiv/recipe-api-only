@@ -3,7 +3,7 @@
 var Course   =  server.models.Holiday;
 var relation  = 'nutritions';
 
-function getSampleData (){
+function getData (){
 
      var holidays    = [
      {
@@ -142,10 +142,10 @@ function getSampleData (){
 };
 
 
-function createHolidays(cb){
-     database.autoupdate('Holiday', function(err){
-          if (err) return cb(err);
-
-          Holiday.create(getHolidays(), cb);
-     });
-};
+// function createHolidays(cb){
+//      database.autoupdate('Holiday', function(err){
+//           if (err) return cb(err);
+//
+//           Holiday.create(getData(), cb);
+//      });
+// };
