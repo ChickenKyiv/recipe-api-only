@@ -1,58 +1,68 @@
 'use strict';
 
 
-const path            = require('path');
-const async           = require('async');
+const path    = require('path');
+const async   = require('async');
 
-let server          = require(path.resolve(__dirname, '../../server/server'));
+const Raven   = require('raven');
+Raven.config('https://6c8ba2737aae4d81908677e4dba9be3f:26c83aa1a38a42cdbf0beea41a82cacf@sentry.io/231031').install();
+
+let server     = require(path.resolve(__dirname, '../../server/server'));
 
 //
-// // //include middleware
-// let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
+// include middleware
+// @todo make it auto-icludable from folder
+let Allergy    = require(path.resolve(__dirname, 'allergy'));
+
+let Course     = require(path.resolve(__dirname, 'courses'));
+let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
+
+let Diet       = require(path.resolve(__dirname, 'diets'));
+
+let Holiday    = require(path.resolve(__dirname, 'holidays'));
+let Nutritions = require(path.resolve(__dirname, 'nutritions'));
+
 //
-// let Groceries    = require(path.resolve(__dirname, 'grocery'));
-//
-// let Departments  = require(path.resolve(__dirname, 'departments'));
-//
-// let Users        = require(path.resolve(__dirname, 'users'));
-//
-// // async.series()
-//
-//
-// async.parallel({
-// 		users       : async.apply(Users.createUsers),
-// 		departments : async.apply(Departments.createDepartments),
-// 		groceries   : async.apply(Groceries.createGroceries),
-//
-// 		// recipes     : async.apply(Recipes.createRecipes),
-//
-//
-//
-// 	}, function(err, results){
-// 		if( err ) throw err;
-//
-// 		// console.log(results.departments);
-// 		// console.log(results.groceries);
-//
-// 		Users.assignAdmin(results.users[2]);
-// 		Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
-//
-// 		Ingredients.createIngredients(
-// 			results.departments, function(err, ingredients){
-//
-// 				// console.log(ingredients);
-//
-// 				Ingredients.attachIngredientsToGroceries(
-// 						ingredients, results.groceries
-// 			 	);
-// 				console.log('import finished');
-// 			});
-//
-// 		// console.log(ingredient);
-//
-//
-//
-//
-//
-// 	}
-// );
+async.parallel({
+		allergies  : async.apply(Allergy.init),
+		courses    : async.apply(Course.init),
+		cuisines   : async.apply(Cuisine.init),
+    diets      : async.apply(Diet.init),
+    holidays   : async.apply(Holiday.init),
+    nutritions : async.apply(Nutritions.init)
+
+
+	}, function(err, results){
+		if( err ) throw err;
+
+		// console.log(results.allergies);
+		// console.log(results.courses);
+    // console.log(results.cuisines);
+    // console.log(results.diets);
+    // console.log(results.holidays);
+    // console.log(results.nutritions);
+
+
+
+		// Users.assignAdmin(results.users[2]);
+		// Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
+    //
+		// Ingredients.createIngredients(
+		// 	results.departments, function(err, ingredients){
+    //
+		// 		// console.log(ingredients);
+    //
+		// 		Ingredients.attachIngredientsToGroceries(
+		// 				ingredients, results.groceries
+		// 	 	);
+		// 		console.log('import finished');
+		// 	});
+
+		// console.log(ingredient);
+
+
+
+
+
+	}
+);
