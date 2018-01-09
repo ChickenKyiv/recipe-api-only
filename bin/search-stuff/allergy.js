@@ -6,8 +6,8 @@ let database
 let table_name = 'Allergy'
 let attribute  = 'allergies';
 // let relation = 'nutritions';
-
 init = (server, cb) => {
+// function init(server, cb){
 
   Allergy  = server.models.Allergy;
   database = server.datasources.recipeDS;
