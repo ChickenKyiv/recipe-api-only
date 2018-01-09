@@ -5,19 +5,19 @@ let Cuisine
 let database
 let table_name = 'Cuisine'
 let attribute  = 'cuisines';
-let relation = 'nutritions';
+// let relation = 'nutritions';
 
 
-init => (server, cb) {
+init = (server, cb) => {
 
   Cuisine  = server.models.Cuisine;
-  database = server.datasources.groceryDS;
+  database = server.datasources.recipeDS;
 
   // add data to db
   create(cb);
 }
 
-get => () {
+get = () => {
 
      var cuisine     = [
      {
@@ -236,7 +236,7 @@ get => () {
 };
 
 
-function create(cb){
+create = (cb) => {
      database.autoupdate(table_name, function(err){
           if (err) return cb(err);
 

@@ -9,16 +9,16 @@ let attribute  = 'courses';
 
 
 
-init => (server, cb) {
+init = (server, cb) => {
 
   Course  = server.models.Course;
-  database = server.datasources.groceryDS;
+  database = server.datasources.recipeDS;
 
   // add data to db
   create(cb);
 }
 
-get => () {
+get = () => {
 
      var courses     = [
      {
@@ -132,7 +132,7 @@ get => () {
 
 };
 
-function createCourses(cb){
+create = (cb) => {
      database.autoupdate(table_name, function(err){
           if (err) return cb(err);
 

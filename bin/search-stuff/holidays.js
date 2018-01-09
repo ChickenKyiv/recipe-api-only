@@ -9,16 +9,16 @@ let attribute  = 'holidays';
 
 
 
-init => (server, cb) {
+init = (server, cb) => {
 
   Holiday     = server.models.Holiday;
-  database = server.datasources.groceryDS;
+  database = server.datasources.recipeDS;
 
   // add data to db
   create(cb);
 }
 
-get => (){
+get = () => {
 
      var holidays    = [
      {
@@ -156,7 +156,7 @@ get => (){
 
 };
 
-create => (cb) {
+create = (cb) => {
 
   database.autoupdate(table_name, function(err){
       if (err) return cb(err);

@@ -5,18 +5,18 @@ let Allergy
 let database
 let table_name = 'Allergy'
 let attribute  = 'allergies';
+// let relation = 'nutritions';
 
-
-init => (server, cb) {
+init = (server, cb) => {
 
   Allergy  = server.models.Allergy;
-  database = server.datasources.groceryDS;
+  database = server.datasources.recipeDS;
 
   // add data to db
     create(cb);
 }
 
-get => () {
+get = () => {
 
     var data     = [
           {
@@ -105,7 +105,7 @@ get => () {
 
 };
 
-create => (cb) {
+create = (cb) => {
 
   database.autoupdate(table_name, function(err){
       if (err) return cb(err);

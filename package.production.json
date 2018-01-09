@@ -9,10 +9,11 @@
     "lint": "eslint .",
     "start": "node server/server.js",
     "posttest": "npm run lint && nsp check",
-    
+
     "test": "mocha",
     "populate": "node bin/import-samples.js",
-    "grocery" : "node bin/grocery/import.js"
+    "grocery" : "node bin/grocery/import.js",
+    "search": "node bin/search-stuff/import.js"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -21,9 +22,9 @@
     "loopback": "^3.0.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^4.0.0",
-    
+
     "loopback-connector-mongodb": "^3.1.0",
-    
+
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.1.0"
   },
