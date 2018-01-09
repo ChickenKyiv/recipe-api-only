@@ -5,7 +5,7 @@ const boot = require('loopback-boot');
 
 const errorhandler = require('errorhandler');
 // frontend related part
-// var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 // var path = require('path');
 
 const Raven = require('raven');

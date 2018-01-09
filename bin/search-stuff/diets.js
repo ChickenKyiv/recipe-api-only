@@ -7,7 +7,7 @@ let attribute  = 'diets';
 // let relation   = 'nutritions';
 
 
-init = (server, cb) => {
+const init = (server, cb) => {
 
   Diet     = server.models.Diet;
   database = server.datasources.recipeDS;
@@ -21,7 +21,7 @@ init = (server, cb) => {
 
 
 
-get = () => {
+const get = () => {
 
 
      var diet        = [
@@ -80,7 +80,7 @@ get = () => {
 };
 
 
-create = (cb) => {
+const create = (cb) => {
      database.autoupdate(table_name, function(err){
           if (err) return cb(err);
 

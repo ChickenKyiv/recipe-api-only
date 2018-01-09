@@ -8,7 +8,7 @@ let attribute  = 'cuisines';
 // let relation = 'nutritions';
 
 
-init = (server, cb) => {
+const init = (server, cb) => {
 
   Cuisine  = server.models.Cuisine;
   database = server.datasources.recipeDS;
@@ -17,7 +17,7 @@ init = (server, cb) => {
   create(cb);
 }
 
-get = () => {
+const get = () => {
 
      var cuisine     = [
      {
@@ -236,7 +236,7 @@ get = () => {
 };
 
 
-create = (cb) => {
+const create = (cb) => {
      database.autoupdate(table_name, function(err){
           if (err) return cb(err);
 

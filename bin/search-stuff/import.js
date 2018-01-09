@@ -5,7 +5,7 @@ const path    = require('path');
 const async   = require('async');
 
 const Raven   = require('raven');
-Raven.config('https://6c8ba2737aae4d81908677e4dba9be3f:26c83aa1a38a42cdbf0beea41a82cacf@sentry.io/231031').install();
+Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
 let server     = require(path.resolve(__dirname, '../../server/server'));
 
@@ -13,23 +13,24 @@ let server     = require(path.resolve(__dirname, '../../server/server'));
 // include middleware
 // @todo make it auto-icludable from folder
 let Allergy    = require(path.resolve(__dirname, 'allergy'));
-
-let Course     = require(path.resolve(__dirname, 'courses'));
-let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
-
-let Diet       = require(path.resolve(__dirname, 'diets'));
-
-let Holiday    = require(path.resolve(__dirname, 'holidays'));
-let Nutritions = require(path.resolve(__dirname, 'nutritions'));
+console.log(Allergy);
+debug(Allergy);
+// let Course     = require(path.resolve(__dirname, 'courses'));
+// let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
+//
+// let Diet       = require(path.resolve(__dirname, 'diets'));
+//
+// let Holiday    = require(path.resolve(__dirname, 'holidays'));
+// let Nutritions = require(path.resolve(__dirname, 'nutritions'));
 
 //
 async.parallel({
-		allergies  : async.apply(Allergy.init),
-		courses    : async.apply(Course.init),
-		cuisines   : async.apply(Cuisine.init),
-    diets      : async.apply(Diet.init),
-    holidays   : async.apply(Holiday.init),
-    nutritions : async.apply(Nutritions.init)
+		allergies  : async.apply(Allergy.init, server),
+		// courses    : async.apply(Course.init),
+		// cuisines   : async.apply(Cuisine.init),
+    // diets      : async.apply(Diet.init),
+    // holidays   : async.apply(Holiday.init),
+    // nutritions : async.apply(Nutritions.init)
 
 
 	}, function(err, results){

@@ -9,7 +9,7 @@ let attribute  = 'courses';
 
 
 
-init = (server, cb) => {
+const init = (server, cb) => {
 
   Course  = server.models.Course;
   database = server.datasources.recipeDS;
@@ -18,7 +18,7 @@ init = (server, cb) => {
   create(cb);
 }
 
-get = () => {
+const get = () => {
 
      var courses     = [
      {
@@ -132,7 +132,7 @@ get = () => {
 
 };
 
-create = (cb) => {
+const create = (cb) => {
      database.autoupdate(table_name, function(err){
           if (err) return cb(err);
 

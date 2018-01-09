@@ -14,8 +14,10 @@
     "search": "node bin/search-stuff/import.js"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "debug": "^3.1.0",
     "errorhandler": "^1.5.0",
     "helmet": "^3.6.1",
     "loopback": "^3.0.0",
@@ -25,6 +27,7 @@
     "loopback-connector-mongodb": "^3.1.0",
     "nodemailer-mailgun-transport": "^1.3.5",
     "raven": "^2.3.0",
+    "request": "^2.83.0",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.1.0"
   },

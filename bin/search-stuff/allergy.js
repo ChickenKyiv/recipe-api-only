@@ -6,9 +6,10 @@ let database
 let table_name = 'Allergy'
 let attribute  = 'allergies';
 // let relation = 'nutritions';
-init = (server, cb) => {
+const init = (server, cb) => {
 // function init(server, cb){
-
+console.log('-----');
+console.log(server);
   Allergy  = server.models.Allergy;
   database = server.datasources.recipeDS;
 
@@ -16,7 +17,7 @@ init = (server, cb) => {
     create(cb);
 }
 
-get = () => {
+const get = () => {
 
     var data     = [
           {
@@ -105,7 +106,7 @@ get = () => {
 
 };
 
-create = (cb) => {
+const create = (cb) => {
 
   database.autoupdate(table_name, function(err){
       if (err) return cb(err);
