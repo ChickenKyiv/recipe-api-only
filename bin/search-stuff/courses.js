@@ -3,7 +3,9 @@
 // model
 let Course
 let database
-let relation = 'nutritions';
+let table_name = 'Course'
+let attribute  = 'courses';
+// let relation = 'nutritions';
 
 
 
@@ -13,10 +15,10 @@ init => (server, cb) {
   database = server.datasources.groceryDS;
 
   // add data to db
-  createCourses(cb);
+  create(cb);
 }
 
-function getData (){
+get => () {
 
      var courses     = [
      {
@@ -131,18 +133,18 @@ function getData (){
 };
 
 function createCourses(cb){
-     database.autoupdate('Course', function(err){
+     database.autoupdate(table_name, function(err){
           if (err) return cb(err);
 
-          Course.create(getCourses(), cb);
+          Course.create(get(), cb);
      });
 };
 
 
-function attachCoursesToRecipes(courses, recipes, cb){
+function attach(courses, recipes, cb){
      var arrayWithIds = idsOnly(courses);
      recipes.forEach(function(recipe){
-          recipe.updateAttribute('courses', arrayWithIds);
+          recipe.updateAttribute(attribute, arrayWithIds);
 
      });
 };
@@ -158,5 +160,5 @@ function idsOnly(array){
 };
 
 //
-module.exports.init = init;
-module.exports.attachCoursesToRecipes = attachCoursesToRecipes;
+module.exports.init   = init;
+module.exports.attach = attach;

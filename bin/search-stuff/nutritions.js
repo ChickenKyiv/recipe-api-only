@@ -1,141 +1,102 @@
 'use strict';
 
-var Course   =  server.models.Course;
-var relation = 'nutritions';
+let Nutritions
+let database
+let table_name = 'Nutritions'
+let attribute  = 'nutritions';
+// let relation   = 'nutritions';
 
-function getData (){
 
-     var courses     = [
-     {
-          // "id":"course-Main Dishes",
-          "name":"Main Dishes",
-          "type":"course",
-          // "description":"Main Dishes",
-          // "searchValue":"course^course-Main Dishes",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Desserts",
-          "name":"Desserts",
-          "type":"course",
-          // "description":"Desserts",
-          // "searchValue":"course^course-Desserts",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Side Dishes",
-          "name":"Side Dishes",
-          "type":"course",
-          // "description":"Side Dishes",
-          // "searchValue":"course^course-Side Dishes",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Appetizers",
-          "name":"Appetizers",
-          "type":"course",
-          // "description":"Appetizers",
-          // "searchValue":"course^course-Appetizers",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Salads",
-          "name":"Salads",
-          "type":"course",
-          // "description":"Salads",
-          // "searchValue":"course^course-Salads",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Breakfast and Brunch",
-          "name":"Breakfast and Brunch",
-          "type":"course",
-          // "description":"Breakfast and Brunch",
-          // "searchValue":"course^course-Breakfast and Brunch",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Breads",
-          "name":"Breads",
-          "type":"course",
-          // "description":"Breads",
-          // "searchValue":"course^course-Breads",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Soups",
-          "name":"Soups",
-          "type":"course",
-          // "description":"Soups",
-          // "searchValue":"course^course-Soups",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Beverages",
-          "name":"Beverages",
-          "type":"course",
-          // "description":"Beverages",
-          // "searchValue":"course^course-Beverages",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Condiments and Sauces",
-          "name":"Condiments and Sauces",
-          "type":"course",
-          // "description":"Condiments and Sauces",
-          // "searchValue":"course^course-Condiments and Sauces",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Cocktails",
-          "name":"Cocktails",
-          "type":"course",
-          // "description":"Cocktails",
-          // "searchValue":"course^course-Cocktails",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Snacks",
-          "name":"Snacks",
-          "type":"course",
-          // "description":"Snacks",
-          // "searchValue":"course^course-Snacks",
-          // "localesAvailableIn":["en-US"]
-     },
-     {
-          // "id":"course-Lunch",
-          "name":"Lunch",
-          "type":"course",
-          // "description":"Lunch",
-          // "searchValue":"course^course-Lunch",
-          // "localesAvailableIn":["en-US"]
-     }
+
+init => (server, cb) {
+
+  Nutritions  = server.models.Nutritions;
+  database    = server.datasources.groceryDS;
+
+  // add data to db
+  create(cb);
+}
+
+
+get => () {
+
+     var data     = [{
+         type: "Vitamins",
+         items: [
+           "Vitamin A (retinol)"
+           "Vitamin B1 (thiamin)"
+           "Vitamin B2 (riboflavin)"
+           "Vitamin B3 (niacin)"
+           "Vitamin B5 (panthotenic acid)"
+           "Vitamin B6 (pyridoxin)"
+           "Vitamin B7 (biotin)"
+           "Vitamin B9 (folic acid, folate)"
+           "Vitamin B12 (cobalamin)"
+           "Vitamin C (ascorbic acid)"
+           "Vitamin E (tocopherol)"
+           "Vitamin K (naphthoquinones)"
+           "Choline (vitamin Bp) [1,2,3]"
+         ]
+       },
+       {
+         type: "Minerals",
+         items: [
+           "Calcium"
+           "Chloride"
+           "Chromium"
+           "Copper"
+           "Iodine"
+           "Iron"
+           "Magnesium"
+           "Manganese"
+           "Molybdenum"
+           "Phosphorus"
+           "Potassium"
+           "Selenium"
+           "Sodium"
+           "Zinc"
+         ]
+       },
+       {
+         type: "Amino acids",
+         items: [
+           "Isoleucine"
+           "Histidine"
+           "Leucine"
+           "Lysine"
+           "Methionine"
+           "Phenylalanine"
+           "Tryptophan"
+           "Threonine"
+           "Valine"
+         ]
+       },
+       {
+         type:"Fatty acids"	,
+         items: [
+           "Alpha-linolenic acid (ALA)"
+           "Linoleic acid"
+         ]
+       }
      ];
 
-     return courses;
+     return data;
 
 
 };
 
-// function createCourses(cb){
-//      database.autoupdate('Course', function(err){
-//           if (err) return cb(err);
-//
-//           Course.create(getData(), cb);
-//      });
-// };
+
+create => (cb) {
+
+  database.autoupdate(table_name, function(err){
+      if (err) return cb(err);
+
+      Nutritions.create(get(), cb);
+  });
+
+};
 
 
-// function attachCoursesToRecipes(courses, recipes, cb){
-//      var arrayWithIds = idsOnly(courses);
-//      recipes.forEach(function(recipe){
-//           recipe.updateAttribute('courses', arrayWithIds);
-//
-//      });
-// };
-//
-// module.exports.createCourses = createCourses;
-// module.exports.attachCoursesToRecipes = attachCoursesToRecipes;
 
 function idsOnly(array){
 
@@ -146,3 +107,17 @@ function idsOnly(array){
      return result;
 
 };
+
+
+function attach(nutritions, recipes, cb){
+     var arrayWithIds = idsOnly(nutritions);
+     recipes.forEach(function(recipe){
+          recipe.updateAttribute(attribute, arrayWithIds);
+
+     });
+};
+
+
+//
+module.exports.init   = init;
+module.exports.attach = attach;

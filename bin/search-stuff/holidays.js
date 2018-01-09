@@ -1,9 +1,24 @@
 'use strict';
 
-var Course   =  server.models.Holiday;
-var relation  = 'nutritions';
 
-function getData (){
+let Holiday
+let database
+let table_name = 'Holiday'
+let attribute  = 'holidays';
+// let relation   = 'nutritions';
+
+
+
+init => (server, cb) {
+
+  Holiday     = server.models.Holiday;
+  database = server.datasources.groceryDS;
+
+  // add data to db
+  create(cb);
+}
+
+get => (){
 
      var holidays    = [
      {
@@ -141,11 +156,37 @@ function getData (){
 
 };
 
+create => (cb) {
 
-// function createHolidays(cb){
-//      database.autoupdate('Holiday', function(err){
-//           if (err) return cb(err);
+  database.autoupdate(table_name, function(err){
+      if (err) return cb(err);
+
+      Holiday.create(get(), cb);
+  });
+
+};
+
+function idsOnly(array){
+
+     var result = Object.keys(array).map(function(e) {
+          return array[e].id;
+    });
+
+     return result;
+
+};
+
+
+
+function attach(holidays, recipes, cb){
+     var arrayWithIds = idsOnly(holidays);
+     recipes.forEach(function(recipe){
+          recipe.updateAttribute(attribute, arrayWithIds);
+
+     });
+};
+
+
 //
-//           Holiday.create(getData(), cb);
-//      });
-// };
+module.exports.init   = init;
+module.exports.attach = attach;

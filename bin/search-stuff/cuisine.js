@@ -1,26 +1,23 @@
 'use strict';
 
 // model
-let Cousine
+let Cuisine
 let database
-let attribute
+let table_name = 'Cuisine'
+let attribute  = 'cuisines';
 let relation = 'nutritions';
 
 
-var Course   =  server.models.Cousine;
-
 init => (server, cb) {
 
-  Cousine  = server.models.Cousine;
+  Cuisine  = server.models.Cuisine;
   database = server.datasources.groceryDS;
 
   // add data to db
-  createCuisines(cb);
+  create(cb);
 }
 
-// var relation    = 'nutritions';
-// module.exports =
-function getData (){
+get => () {
 
      var cuisine     = [
      {
@@ -239,19 +236,18 @@ function getData (){
 };
 
 
-function createCuisines(cb){
-     database.autoupdate('Cuisine', function(err){
+function create(cb){
+     database.autoupdate(table_name, function(err){
           if (err) return cb(err);
 
-          Cuisine.create(getData(), cb);
+          Cuisine.create(get(), cb);
      });
 };
 
-
-function attachCuisinesToRecipes(courses, recipes, cb){
-     var arrayWithIds = idsOnly(courses);
+function attach(cuisine, recipes, cb){
+     var arrayWithIds = idsOnly(cuisine);
      recipes.forEach(function(recipe){
-          recipe.updateAttribute('cuisines', arrayWithIds);
+          recipe.updateAttribute(attribute, arrayWithIds);
 
      });
 };
@@ -267,5 +263,6 @@ function idsOnly(array){
 };
 
 //
-module.exports.init = init;
-module.exports.attachCoursesToRecipes = attachCuisinesToRecipes;
+//
+module.exports.init   = init;
+module.exports.attach = attach;

@@ -1,10 +1,10 @@
 'use strict';
 
-
 // model
 let Allergy
 let database
-let relation = 'nutritions';
+let table_name = 'Allergy'
+let attribute  = 'allergies';
 
 
 init => (server, cb) {
@@ -13,12 +13,12 @@ init => (server, cb) {
   database = server.datasources.groceryDS;
 
   // add data to db
-  createAllergies(cb);
+    create(cb);
 }
 
-function getData (){
+get => () {
 
-     var allergy     = [
+    var data     = [
           {
                // "id":"393",
                "shortDescription":"Gluten-Free",
@@ -101,25 +101,20 @@ function getData (){
           }
      ];
 
-  	return allergy;
+  	return data;
 
 };
 
-function createAllergies(cb){
-     database.autoupdate('AllergyModel', function(err){
-          if (err) return cb(err);
+create => (cb) {
 
-          Allergy.create(getData(), cb);
-     });
+  database.autoupdate(table_name, function(err){
+      if (err) return cb(err);
+
+      Allergy.create(get(), cb);
+  });
+
 };
 
-function attachAllergiesToRecipes(allergies, recipes, cb){
-     var arrayWithIds = idsOnly(allergies);
-     recipes.forEach(function(recipe){
-          recipe.updateAttribute('allergies', arrayWithIds);
-
-     });
-};
 
 function idsOnly(array){
 
@@ -130,6 +125,16 @@ function idsOnly(array){
      return result;
 
 };
-module.exports.init = init;
-// module.exports.createAllergies = createAllergies;
-module.exports.attachAllergiesToRecipes = attachAllergiesToRecipes;
+
+function attach(allergies, recipes, cb){
+     var arrayWithIds = idsOnly(allergies);
+     recipes.forEach(function(recipe){
+          recipe.updateAttribute(attribute, arrayWithIds);
+
+     });
+};
+
+
+//
+module.exports.init   = init;
+module.exports.attach = attach;

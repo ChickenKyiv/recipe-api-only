@@ -2,11 +2,10 @@
 
 let Diet
 let database
-let attribute
-let relation = 'nutritions';
+let table_name = 'Diet'
+let attribute  = 'diets';
+// let relation   = 'nutritions';
 
-
-// var Course   =  server.models.Cousine;
 
 init => (server, cb) {
 
@@ -14,7 +13,7 @@ init => (server, cb) {
   database = server.datasources.groceryDS;
 
   // add data to db
-  createDiets(cb);
+  create(cb);
 }
 
 // var Course   =  server.models.Diet;
@@ -22,7 +21,7 @@ init => (server, cb) {
 
 
 
-function getData (){
+function get (){
 
 
      var diet        = [
@@ -81,25 +80,36 @@ function getData (){
 };
 
 
-function createDiets(cb){
-     database.autoupdate('Diet', function(err){
+function create(cb){
+     database.autoupdate(table_name, function(err){
           if (err) return cb(err);
 
-          Diet.create(getData(), cb);
+          Diet.create(get(), cb);
      });
 };
 
 
-// function idsOnly(array){
-//
-//      var result = Object.keys(array).map(function(e) {
-//           return array[e].id;
-//     });
-//
-//      return result;
-//
-// };
+function idsOnly(array){
+
+     var result = Object.keys(array).map(function(e) {
+          return array[e].id;
+    });
+
+     return result;
+
+};
+
+
+
+function attach(diets, recipes, cb){
+     var arrayWithIds = idsOnly(diets);
+     recipes.forEach(function(recipe){
+          recipe.updateAttribute(attribute, arrayWithIds);
+
+     });
+};
+
 
 //
-module.exports.init = init;
-// module.exports.attachCoursesToRecipes = attachCuisinesToRecipes;
+module.exports.init   = init;
+module.exports.attach = attach;
