@@ -1,20 +1,21 @@
 'use strict';
 
+const debug   = require('debug');
 // model
 let Allergy
 let database
 let table_name = 'Allergy'
 let attribute  = 'allergies';
 // let relation = 'nutritions';
-const init = (server, cb) => {
+const init = (server, cb, raven) => {
 // function init(server, cb){
-console.log('-----');
-console.log(server);
+// console.log('-----');
+// console.log(server);
   Allergy  = server.models.Allergy;
   database = server.datasources.recipeDS;
 
   // add data to db
-    create(cb);
+  create(cb, raven);
 }
 
 const get = () => {
@@ -106,12 +107,16 @@ const get = () => {
 
 };
 
-const create = (cb) => {
+const create = (cb, raven) => {
 
   database.autoupdate(table_name, function(err){
-      if (err) return cb(err);
+    if (err) {
+      Raven.captureException(err);
+      return cb(err);
+    }
 
-      Allergy.create(get(), cb);
+    Allergy.create(get(), (err,re) => console.log(re));
+    // Allergy.create(get(), cb);
   });
 
 };
