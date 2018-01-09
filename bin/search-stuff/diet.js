@@ -1,7 +1,24 @@
 'use strict';
 
-var Course   =  server.models.Diet;
-var relation = 'nutritions';
+let Diet
+let database
+let attribute
+let relation = 'nutritions';
+
+
+// var Course   =  server.models.Cousine;
+
+init => (server, cb) {
+
+  Diet     = server.models.Diet;
+  database = server.datasources.groceryDS;
+
+  // add data to db
+  createDiets(cb);
+}
+
+// var Course   =  server.models.Diet;
+// var relation = 'nutritions';
 
 
 
@@ -64,10 +81,25 @@ function getData (){
 };
 
 
-// function createDiets(cb){
-//      database.autoupdate('Diet', function(err){
-//           if (err) return cb(err);
+function createDiets(cb){
+     database.autoupdate('Diet', function(err){
+          if (err) return cb(err);
+
+          Diet.create(getData(), cb);
+     });
+};
+
+
+// function idsOnly(array){
 //
-//           Diet.create(getData(), cb);
-//      });
+//      var result = Object.keys(array).map(function(e) {
+//           return array[e].id;
+//     });
+//
+//      return result;
+//
 // };
+
+//
+module.exports.init = init;
+// module.exports.attachCoursesToRecipes = attachCuisinesToRecipes;

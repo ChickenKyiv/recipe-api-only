@@ -1,7 +1,20 @@
 'use strict';
 
-var Course   =  server.models.Course;
-var relation = 'nutritions';
+// model
+let Course
+let database
+let relation = 'nutritions';
+
+
+
+init => (server, cb) {
+
+  Course  = server.models.Course;
+  database = server.datasources.groceryDS;
+
+  // add data to db
+  createCourses(cb);
+}
 
 function getData (){
 
@@ -133,9 +146,6 @@ function attachCoursesToRecipes(courses, recipes, cb){
 
      });
 };
-//
-// module.exports.createCourses = createCourses;
-// module.exports.attachCoursesToRecipes = attachCoursesToRecipes;
 
 function idsOnly(array){
 
@@ -146,3 +156,7 @@ function idsOnly(array){
      return result;
 
 };
+
+//
+module.exports.init = init;
+module.exports.attachCoursesToRecipes = attachCoursesToRecipes;

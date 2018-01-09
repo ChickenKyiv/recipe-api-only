@@ -1,7 +1,20 @@
 'use strict';
 
-var Allergy  =  server.models.Allergy;
-var relation = 'nutritions';
+
+// model
+let Allergy
+let database
+let relation = 'nutritions';
+
+
+init => (server, cb) {
+
+  Allergy  = server.models.Allergy;
+  database = server.datasources.groceryDS;
+
+  // add data to db
+  createAllergies(cb);
+}
 
 function getData (){
 
@@ -117,5 +130,6 @@ function idsOnly(array){
      return result;
 
 };
+module.exports.init = init;
 // module.exports.createAllergies = createAllergies;
-// module.exports.attachAllergiesToRecipes = attachAllergiesToRecipes;
+module.exports.attachAllergiesToRecipes = attachAllergiesToRecipes;
