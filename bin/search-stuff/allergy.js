@@ -23,7 +23,7 @@ const get = () => {
     var data     = [
           {
                // "id":"393",
-               "shortDescription":"Gluten-Free",
+               "name":"Gluten-Free",
                // "longDescription":"Gluten-Free",
                // "searchValue":"393^Gluten-Free",
                "type":"allergy",
@@ -31,7 +31,7 @@ const get = () => {
           },
           {
                // "id":"394",
-               "shortDescription":"Peanut-Free",
+               "name":"Peanut-Free",
                // "longDescription":"Peanut-Free",
                // "searchValue":"394^Peanut-Free",
                "type":"allergy",
@@ -39,7 +39,7 @@ const get = () => {
           },
           {
                // "id":"398",
-               "shortDescription":"Seafood-Free",
+               "name":"Seafood-Free",
                // "longDescription":"Seafood-Free",
                // "searchValue":"398^Seafood-Free",
                "type":"allergy",
@@ -47,7 +47,7 @@ const get = () => {
           },
           {
                // "id":"399",
-               "shortDescription":"Sesame-Free",
+               "name":"Sesame-Free",
                // "longDescription":"Sesame-Free",
                // "searchValue":"399^Sesame-Free",
                "type":"allergy",
@@ -55,7 +55,7 @@ const get = () => {
           },
           {
                // "id":"400",
-               "shortDescription":"Soy-Free",
+               "name":"Soy-Free",
                // "longDescription":"Soy-Free",
                // "searchValue":"400^Soy-Free",
                "type":"allergy",
@@ -63,7 +63,7 @@ const get = () => {
           },
           {
                // "id":"396",
-               "shortDescription":"Dairy-Free",
+               "name":"Dairy-Free",
                // "longDescription":"Dairy-Free",
                // "searchValue":"396^Dairy-Free",
                "type":"allergy",
@@ -71,7 +71,7 @@ const get = () => {
           },
           {
                // "id":"397",
-               "shortDescription":"Egg-Free",
+               "name":"Egg-Free",
                // "longDescription":"Egg-Free",
                // "searchValue":"397^Egg-Free",
                "type":"allergy",
@@ -79,7 +79,7 @@ const get = () => {
           },
           {
                // "id":"401",
-               "shortDescription":"Sulfite-Free",
+               "name":"Sulfite-Free",
                // "longDescription":"Sulfite-Free",
                // "searchValue":"401^Sulfite-Free",
                "type":"allergy",
@@ -87,7 +87,7 @@ const get = () => {
           },
           {
                // "id":"395",
-               "shortDescription":"Tree Nut-Free",
+               "name":"Tree Nut-Free",
                // "longDescription":"Tree Nut-Free",
                // "searchValue":"395^Tree Nut-Free",
                "type":"allergy",
@@ -95,7 +95,7 @@ const get = () => {
           },
           {
                // "id":"392",
-               "shortDescription":"Wheat-Free",
+               "name":"Wheat-Free",
                // "longDescription":"Wheat-Free",
                // "searchValue":"392^Wheat-Free",
                "type":"allergy",

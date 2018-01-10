@@ -1,6 +1,6 @@
 {
-  "name": "Diet",
-  "plural": "diet",
+  "name": "Holiday",
+  "plural": "holiday",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -8,6 +8,18 @@
   },
   "properties": {
     "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "searchValue": {
       "type": "string",
       "required": true
     }

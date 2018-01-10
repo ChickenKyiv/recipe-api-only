@@ -3,11 +3,12 @@
 var path     = require('path');
 
 let app      = require(path.resolve(__dirname, '../server/server'));
-var database = app.datasources.groceryDS;
+var database = app.datasources.recipeDS;
 
 
 var lbTables = [
-	'Allergy', 'Course', "Cuisine", "Day", "Diet", "Holiday", "Nutritions"
+	'Allergy', 'Course', "Cuisine", 
+	 "Diet", "Holiday", "Nutritions"
 ];
 
 //creating loopback necessary tables if no exists

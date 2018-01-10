@@ -34,8 +34,8 @@ async.parallel({
 		if( err ) throw err;
 
 		// console.log(err);
-		// console.log(results);
-		console.log(results.allergies);
+		console.log(results);
+		// console.log(results.allergies);
 		// console.log(results.courses);
     // console.log(results.cuisines);
     // console.log(results.diets);
