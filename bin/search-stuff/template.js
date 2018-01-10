@@ -2,16 +2,16 @@
 
 const debug   = require('debug');
 // model
-let Grocery
+let Allergy
 let database
-let table_name = 'Grocery'
+let table_name = 'Allergy'
 let attribute  = 'allergies';
 // let relation = 'nutritions';
 const init = ( server, raven, cb ) => {
 // function init(server, cb){
 // console.log('-----');
 // console.log(server);
-  Grocery  = server.models.Grocery;
+  Allergy  = server.models.Allergy;
   database = server.datasources.recipeDS;
 
   // add data to db
@@ -21,12 +21,14 @@ const init = ( server, raven, cb ) => {
 const get = () => {
 
     var data     = [
-			{
-				name : "Ultimate Grocery List",
-				img  : false,
-				desc : false,
-				slug : false //:todo do we need this fields?
-			}     ];
+          {
+
+               "name":"Gluten-Free",
+
+               "type":"allergy",
+
+          }
+     ];
 
   	return data;
 
@@ -69,5 +71,3 @@ function attach(array, recipes, cb){
 //
 module.exports.init   = init;
 module.exports.attach = attach;
-
-module.exports.createGroceries = createGroceries;

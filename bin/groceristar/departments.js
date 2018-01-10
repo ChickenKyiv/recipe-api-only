@@ -1,20 +1,26 @@
 'use strict';
 
-const path      = require('path');
-let server      = require(path.resolve(__dirname, '../../server/server'));
-var database    = server.datasources.groceryDS;
+const debug   = require('debug');
+// model
+let Department
+let database
+let table_name = 'Department'
+// let attribute  = 'allergies';
+// let relation = 'nutritions';
+const init = ( server, raven, cb ) => {
+// function init(server, cb){
+// console.log('-----');
+// console.log(server);
+  Department  = server.models.Department;
+  database = server.datasources.recipeDS;
 
-var Department  = server.models.Department;
+  // add data to db
+  create(cb, raven);
+}
 
-// var relation1   = 'departmentId';
-// var relation2   = 'departmentIds';
-// const Raven = require('raven');
-// Raven.config('https://6c8ba2737aae4d81908677e4dba9be3f:26c83aa1a38a42cdbf0beea41a82cacf@sentry.io/231031').install();
+const get = () => {
 
-
-function getDepartments(){
-
-	var departments = [
+	var data = [
 		{
 
 		 name: "Fresh vegetables",
@@ -128,33 +134,46 @@ function getDepartments(){
 		}
 	];
 
-	return departments;
+	return data;
 
 };
 
-function createDepartments(cb){
-	database.autoupdate('Department', function(err){
-		if (err) {
-			Raven.captureException(err);
-			return cb(err);
-		}
+const create = (cb, raven) => {
 
-		Department.create(getDepartments(), cb);
+  database.autoupdate(table_name, function(err){
+    if (err) {
+      Raven.captureException(err);
+      return cb(err);
+    }
 
-	});
+    // Allergy.create(get(), (err,re) => console.log(re));
+    Allergy.create(get(), cb);
+  });
+
 };
-
 
 
 function idsOnly(array){
 
-  var result = Object.keys(array).map(function(e) {
-    return array[e].id;
+     var result = Object.keys(array).map(function(e) {
+          return array[e].id;
     });
 
-  return result;
+     return result;
 
 };
 
+// function attach(array, recipes, cb){
+//      var arrayWithIds = idsOnly(array);
+//      recipes.forEach(function(recipe){
+//           recipe.updateAttribute(attribute, arrayWithIds);
+//
+//      });
+// };
+
+
+//
+module.exports.init   = init;
+module.exports.attach = attach;
 
 module.exports.createDepartments = createDepartments;

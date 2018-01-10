@@ -23,7 +23,7 @@ let Nutritions = require(path.resolve(__dirname, 'nutritions'));
 //
 async.parallel({
 		allergies  : async.apply(Allergy.init,    server, Raven),
-		// courses    : async.apply(Course.init,     server, Raven),
+		courses    : async.apply(Course.init,     server, Raven),
 		cuisines   : async.apply(Cuisine.init,    server, Raven),
     diets      : async.apply(Diet.init,       server, Raven),
     holidays   : async.apply(Holiday.init,    server, Raven),
@@ -31,10 +31,19 @@ async.parallel({
 
 
 	}, function(err, results){
-		if( err ) throw err;
+		if( err ) {
+			Raven.captureException(err);
+			throw err;
+
+		}
+
+		if( !results || !results.allergies || !results.courses
+				|| !results.cuisines || !results.diets || !results.holidays || !results.nutritions) {
+					Raven.captureException("not imported well");
+		}
 
 		// console.log(err);
-		console.log(results);
+		// console.log(results);
 		// console.log(results.allergies);
 		// console.log(results.courses);
     // console.log(results.cuisines);
@@ -59,10 +68,12 @@ async.parallel({
 		// 	});
 
 		// console.log(ingredient);
-process.exit(-1);
+
 
 
 
 
 	}
+
 );
+process.exit(-1);
