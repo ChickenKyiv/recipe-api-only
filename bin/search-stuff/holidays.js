@@ -9,7 +9,7 @@ let attribute  = 'holidays';
 
 
 
-const init = (server, cb) => {
+const init = ( server, raven, cb ) => {
 
   Holiday     = server.models.Holiday;
   database = server.datasources.recipeDS;

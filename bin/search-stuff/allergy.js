@@ -7,7 +7,7 @@ let database
 let table_name = 'Allergy'
 let attribute  = 'allergies';
 // let relation = 'nutritions';
-const init = (server, cb, raven) => {
+const init = ( server, raven, cb ) => {
 // function init(server, cb){
 // console.log('-----');
 // console.log(server);
@@ -115,8 +115,8 @@ const create = (cb, raven) => {
       return cb(err);
     }
 
-    Allergy.create(get(), (err,re) => console.log(re));
-    // Allergy.create(get(), cb);
+    // Allergy.create(get(), (err,re) => console.log(re));
+    Allergy.create(get(), cb);
   });
 
 };

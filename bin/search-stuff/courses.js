@@ -9,7 +9,7 @@ let attribute  = 'courses';
 
 
 
-const init = (server, cb) => {
+const init = ( server, raven, cb ) => {
 
   Course  = server.models.Course;
   database = server.datasources.recipeDS;

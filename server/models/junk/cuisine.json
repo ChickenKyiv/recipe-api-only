@@ -1,6 +1,6 @@
 {
-  "name": "Course",
-  "plural": "course",
+  "name": "Cuisine",
+  "plural": "cuisine",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -12,6 +12,14 @@
       "required": true
     },
     "type": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "searchValue": {
       "type": "string",
       "required": true
     }

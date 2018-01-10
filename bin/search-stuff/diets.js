@@ -7,7 +7,7 @@ let attribute  = 'diets';
 // let relation   = 'nutritions';
 
 
-const init = (server, cb) => {
+const init = ( server, raven, cb ) => {
 
   Diet     = server.models.Diet;
   database = server.datasources.recipeDS;
