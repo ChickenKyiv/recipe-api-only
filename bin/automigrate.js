@@ -10,7 +10,7 @@ var lbTables = [
 	'Role',
 
 	// custom tables
-	'user', 'MenuModel', 'Ingredient',
+	'user', 'Menu', 'Ingredient',
 	'Grocery', 'Department', 'Recipe',
 
 	'Allergy', 'Course', 'Cuisine',
