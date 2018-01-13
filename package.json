@@ -11,8 +11,8 @@
     "test": "mocha",
 
     "migrate": "node bin/automigrate.js",
-    "migrate-search" : "node bin/automigrate-search.js",
-    "populate": "node bin/import-samples.js",
+    "migrate-search" : "node bin/search/automigrate.js",
+    "import": "node bin/recipes/import.js",
     "grocery": "node bin/grocery/import.js",
     "search": "node bin/search/import.js"
   },

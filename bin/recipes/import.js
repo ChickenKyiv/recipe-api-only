@@ -13,21 +13,25 @@ let server     = require(path.resolve(__dirname, '../../server/server'));
 //
 // include middleware
 // @todo make it auto-icludable from folder
-let Allergy    = require(path.resolve(__dirname, 'allergy'));
-let Course     = require(path.resolve(__dirname, 'courses'));
-let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
-let Diet       = require(path.resolve(__dirname, 'diets'));
-let Holiday    = require(path.resolve(__dirname, 'holidays'));
-let Nutritions = require(path.resolve(__dirname, 'nutritions'));
+let Users        = require(path.resolve(__dirname, 'users'));
+let Recipes      = require(path.resolve(__dirname, 'recipes'));
+// recipes for search
+//let getRecipes2     = require(path.resolve(__dirname, 'sample-recipes-search-data'));
+let Menus        = require(path.resolve(__dirname, 'menus'));
+let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
+// let getIngredients  = require(path.resolve(__dirname, 'sample-ingredients-data'));
+let Groceries    = require(path.resolve(__dirname, 'grocery'));
+let Departments  = require(path.resolve(__dirname, 'departments'));
+
 
 //
 async.parallel({
-		allergies  : async.apply(Allergy.init,    server, Raven),
-		courses    : async.apply(Course.init,     server, Raven),
-		cuisines   : async.apply(Cuisine.init,    server, Raven),
-    diets      : async.apply(Diet.init,       server, Raven),
-    holidays   : async.apply(Holiday.init,    server, Raven),
-    nutritions : async.apply(Nutritions.init, server, Raven)
+		users       : async.apply(Users.init,       server, Raven),
+		recipes     : async.apply(Recipes.init,     server, Raven),
+		menus       : async.apply(Menus.init,       server, Raven),
+    ingredients : async.apply(Ingredients.init, server, Raven),
+    groceries   : async.apply(Groceries.init,   server, Raven),
+    departments : async.apply(Departments.init, server, Raven)
 
 
 	}, function(err, results){
@@ -37,8 +41,8 @@ async.parallel({
 
 		}
 
-		if( !results || !results.allergies || !results.courses
-				|| !results.cuisines || !results.diets || !results.holidays || !results.nutritions) {
+		if( !results || !results.users || !results.recipes
+				|| !results.menus || !results.ingredients || !results.groceries || !results.departments) {
 					Raven.captureException("not imported well");
 		}
 

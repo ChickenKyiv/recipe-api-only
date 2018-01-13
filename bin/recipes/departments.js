@@ -2,16 +2,16 @@
 
 const debug   = require('debug');
 // model
-let Allergy
+let Department
 let database
-let table_name = 'Allergy'
-let attribute  = 'allergies';
+let table_name = 'Department'
+let attribute  = 'departments';
 // let relation = 'nutritions';
 const init = ( server, raven, cb ) => {
-// function init(server, cb){
-// console.log('-----');
-// console.log(server);
-  Allergy  = server.models.Allergy;
+
+  // console.log('-----');
+  // console.log(server);
+  Department  = server.models.Department;
   database = server.datasources.recipeDS;
 
   // add data to db
@@ -42,8 +42,8 @@ const create = (cb, raven) => {
       return cb(err);
     }
 
-    // Allergy.create(get(), (err,re) => console.log(re));
-    Allergy.create(get(), cb);
+
+    Department.create(get(), cb);
   });
 
 };
