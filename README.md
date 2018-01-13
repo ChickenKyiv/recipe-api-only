@@ -77,6 +77,8 @@ Great Loopback REST API tutorial: https://github.com/optis/loopback-rest-api
  - heroku login
  - heroku create %your-app-name%
  
+
+ 
  Will create an empty tables in database
  ```
  $ heroku run npm run migrate
@@ -88,7 +90,14 @@ Great Loopback REST API tutorial: https://github.com/optis/loopback-rest-api
  ```
  
  ---
+ heroku run npm run migrate --app recipe-api-loopback
+ heroku run npm run migrate-search --app recipe-api-loopback
  
+ // recipes
+ heroku run npm run import-recipes --app recipe-api-loopback
+ 
+ // search data
+ heroku run npm run import-search --app recipe-api-loopback
  
 
 ## Links, that's important for me:
