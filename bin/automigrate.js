@@ -7,12 +7,14 @@ var database = app.datasources.recipeDS;
 
 var lbTables = [
 	'User', 'AccessToken', 'ACL', 'RoleMapping',
-	'Role', 
-	
+	'Role',
+
 	// custom tables
-	'UserModel', 'MenuModel', 'IngredientModel',
-	'GroceryModel', 'DepartmentModel', 'RecipeModel',
-	'Allergy', 'CourseModel', 'CuisineModel', 'DietModel', 'HolidayModel'
+	'user', 'MenuModel', 'Ingredient',
+	'Grocery', 'Department', 'Recipe',
+
+	'Allergy', 'Course', 'Cuisine',
+	'Diet', 'Holiday', 'Nutritions'
 
 ];
 
