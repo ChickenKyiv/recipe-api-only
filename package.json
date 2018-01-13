@@ -9,9 +9,12 @@
     "start": "node server/server.js",
     "watch": "nodemon server/server.js",
     "test": "mocha",
+
+    "migrate": "node bin/automigrate.js",
+    "migrate-search" : "node bin/automigrate-search.js",
     "populate": "node bin/import-samples.js",
     "grocery": "node bin/grocery/import.js",
-    "search": "node bin/search-stuff/import.js"
+    "search": "node bin/search/import.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

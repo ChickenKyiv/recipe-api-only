@@ -9,11 +9,13 @@
     "lint": "eslint .",
     "start": "node server/server.js",
     "posttest": "npm run lint && nsp check",
-
     "test": "mocha",
+
+    "migrate" : "node bin/automigrate.js",
+    "migrate-search" : "node bin/automigrate-search.js",
     "populate": "node bin/import-samples.js",
     "grocery" : "node bin/grocery/import.js",
-    "search": "node bin/search-stuff/import.js"
+    "search"  : "node bin/search/import.js"
   },
   "dependencies": {
     "compression": "^1.0.3",
