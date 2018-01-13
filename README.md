@@ -52,6 +52,12 @@ Great Loopback REST API tutorial: https://github.com/optis/loopback-rest-api
 - run "npm run import", using ctrl+c to terminate
 `Import will move sample data from json arrays to mongo documents`
 
+- run "npm run grocery", using ctrl+c to terminate **Not finished**
+`Import will move sample data from json arrays to mongo documents`
+
+
+- run "npm run search", using ctrl+c to terminate
+`Import will move sample data from json arrays to mongo documents`
 
 
   ```	
