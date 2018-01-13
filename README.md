@@ -41,7 +41,51 @@ Great Loopback REST API tutorial: https://github.com/optis/loopback-rest-api
 * Other community or team contact
 
 
-Links, that's important for me:
+### How do I get set up? ###
+
+
+- Open the command line(bash, shell)
+
+- run "npm run migrate", using ctrl+c to terminate once table is created
+`Migrate will create an empty datatables and drop all previous data if require`
+
+- run "npm run import", using ctrl+c to terminate
+`Import will move sample data from json arrays to mongo documents`
+
+
+
+  ```	
+  $ node .
+  ```
+  		  
+ or 
+ 
+ ```
+ $ npm run watch
+ ```
+ 
+ 
+ 
+### Deployment on heroku
+ 
+ - heroku login
+ - heroku create %your-app-name%
+ 
+ Will create an empty tables in database
+ ```
+ $ heroku run npm run migrate
+ ```
+ 
+ Will import data like admin user, ultimate grocery template
+ ```
+ $ heroku run npm run import
+ ```
+ 
+ ---
+ 
+ 
+
+## Links, that's important for me:
 
 http://localhost:3000/explorer/#!/recipes/recipes_find
 
