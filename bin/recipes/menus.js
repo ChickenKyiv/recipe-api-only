@@ -2,16 +2,16 @@
 
 const debug   = require('debug');
 // model
-let Allergy
+let Menu
 let database
-let table_name = 'Allergy'
+let table_name = 'Menu'
 let attribute  = 'allergies';
 // let relation = 'nutritions';
 const init = ( server, raven, cb ) => {
-// function init(server, cb){
-// console.log('-----');
-// console.log(server);
-  Allergy  = server.models.Allergy;
+
+  // console.log('-----');
+  // console.log(server);
+  Menu  = server.models.Menu;
   database = server.datasources.recipeDS;
 
   // add data to db
@@ -42,8 +42,8 @@ const create = (cb, raven) => {
       return cb(err);
     }
 
-    // Allergy.create(get(), (err,re) => console.log(re));
-    Allergy.create(get(), cb);
+
+    Menu.create(get(), cb);
   });
 
 };
@@ -58,6 +58,7 @@ function idsOnly(array){
      return result;
 
 };
+
 
 function attach(array, recipes, cb){
      var arrayWithIds = idsOnly(array);

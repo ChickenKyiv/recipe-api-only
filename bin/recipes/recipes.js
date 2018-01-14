@@ -7,6 +7,11 @@ let database
 let table_name = 'Recipe'
 
 // let attribute  = 'userId';
+let attribute = [
+  ''
+];
+
+
 // let relation = 'nutritions';
 const init = ( server, raven, cb ) => {
 
@@ -43,7 +48,7 @@ const create = (cb, raven) => {
       return cb(err);
     }
 
-    
+
     Recipe.create(get(), cb);
   });
 
@@ -59,6 +64,7 @@ function idsOnly(array){
      return result;
 
 };
+
 
 function attach(array, recipes, cb){
      var arrayWithIds = idsOnly(array);

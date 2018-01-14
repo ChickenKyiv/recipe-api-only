@@ -2,17 +2,22 @@
 
 const debug   = require('debug');
 // model
-let Allergy
+let User
+let Role
+let RoleMapping
 let database
-let table_name = 'Allergy'
-let attribute  = 'allergies';
+let table_name = 'User'
+
+// let attribute  = 'allergies';
 // let relation = 'nutritions';
 const init = ( server, raven, cb ) => {
-// function init(server, cb){
-// console.log('-----');
-// console.log(server);
-  Allergy  = server.models.Allergy;
-  database = server.datasources.recipeDS;
+
+  // console.log('-----');
+  // console.log(server);
+  User        = server.models.User;
+  Role        = server.models.Role;
+  RoleMapping = server.models.RoleMapping;
+  database    = server.datasources.recipeDS;
 
   // add data to db
   create(cb, raven);
@@ -42,8 +47,7 @@ const create = (cb, raven) => {
       return cb(err);
     }
 
-    // Allergy.create(get(), (err,re) => console.log(re));
-    Allergy.create(get(), cb);
+    User.create(get(), cb);
   });
 
 };
