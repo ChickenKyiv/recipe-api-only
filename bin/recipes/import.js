@@ -28,10 +28,10 @@ let Departments  = require(path.resolve(__dirname, 'departments'));
 async.parallel({
 		users       : async.apply(Users.init,       server, Raven),
 		recipes     : async.apply(Recipes.init,     server, Raven),
-		menus       : async.apply(Menus.init,       server, Raven),
-    ingredients : async.apply(Ingredients.init, server, Raven),
-    groceries   : async.apply(Groceries.init,   server, Raven),
-    departments : async.apply(Departments.init, server, Raven)
+		// menus       : async.apply(Menus.init,       server, Raven),
+    // ingredients : async.apply(Ingredients.init, server, Raven),
+    // groceries   : async.apply(Groceries.init,   server, Raven),
+    // departments : async.apply(Departments.init, server, Raven)
 
 
 	}, function(err, results){
@@ -42,7 +42,7 @@ async.parallel({
 		}
 
 		if( !results || !results.users || !results.recipes
-				|| !results.menus || !results.ingredients || !results.groceries || !results.departments) {
+				|| !results.menus || !results.ingredients || !results.groceries || !results.departments ) {
 					Raven.captureException("not imported well");
 		}
 
@@ -55,6 +55,8 @@ async.parallel({
     // console.log(results.holidays);
     // console.log(results.nutritions);
 
+
+		// Users.assignAdmin(results.users[2].id);
 
 
 		// Users.assignAdmin(results.users[2]);

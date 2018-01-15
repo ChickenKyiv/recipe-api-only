@@ -1,27 +1,10 @@
-'use strict';
-
-
 // recipes for search
 //let getRecipes2     = require(path.resolve(__dirname, 'sample-recipes-search-data'));
-
-
 
 //models
 var User        = server.models.UserModel;
 var Role        = server.models.Role;
 var RoleMapping = server.models.RoleMapping;
-
-
-var Recipe      = server.models.RecipeModel;
-var Ingredient  = server.models.IngredientModel;
-
-var Menu        = server.models.MenuModel;
-var Grocery     = server.models.GroceryModel;
-
-var Department  = server.models.DepartmentModel;
-
-
-
 
 
 	async.parallel({
@@ -48,11 +31,6 @@ var Department  = server.models.DepartmentModel;
 
 
 		assignAdmin(results.users[2]);
-
-		// attachVideosToUsers(results.users, results.videos, function(err){
-		// 	console.log('>models create sucessfully');
-		// });
-
 
 		attachRecipeToUsers(results.users, results.recipes, function(err){
 			console.log('>models create sucessfully');

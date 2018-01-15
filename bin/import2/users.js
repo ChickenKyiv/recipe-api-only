@@ -11,61 +11,6 @@ var Grocery = server.models.Grocery;
 var UserTable = 'user';
 // var relation    = 'ingredients';
 
-function getUsers() {
-	var accounts = [	
-		{
-		  name: 'john',	
-		  email: 'john.doe@ibm.com',
-		  password: 'john1',
-		},
-		{
-		  name: 'jane',
-		  email: 'jane.doe@ibm.com',
-		  password: 'jane1',
-		},
-		{
-		  name: 'admin',
-		  email: 'admin@ibm.com',
-		  password: 'admin',
-		}
-  	];
-
-  	return accounts;
-
-};
-
-
-function createUsers(cb){
-	// console.log(users);
-	database.automigrate(UserTable, function(err){
-		if (err) return cb(err);
-
-		User.create(getUsers(), cb);
-	});
-};
-
-function assignAdmin(admin){
-	
-	database.automigrate('Role', function(err){
-		if (err) return cb(err);
-
-		Role.create({ name:'admin' })
-		.then(function(role){
-
-			role.principals.create({
-                  principalType: RoleMapping.USER,
-                  principalId: admin.id
-              }, function(err, principal){
-                console.log('Principal', principal);
-              });
-
-		})
-		.catch(function(err){
-            throw err;
-          });
-	});	
-};
-
 
 function attachGroceryToAdmin(admin, grocery){
 	// console.log(grocery);
@@ -82,14 +27,14 @@ function attachGroceryToAdmin(admin, grocery){
 
 // 	recipes.forEach(function(recipe){
 // 		recipe.updateAttribute('userId', users[2].id);
-		
+
 // 	});
 
 // };
 
 
 function getAdminGroceries ( User ){
-	// this is a custom method for user model, 
+	// this is a custom method for user model,
 	// which I decided to move from main model definition to this place
 
 	User.withAdmin = function(cb){
@@ -102,7 +47,7 @@ function getAdminGroceries ( User ){
 	             relation: 'groceries',
 	             scope: {
 	                 // where: {
-	                 //     id: groceryId 
+	                 //     id: groceryId
 	                 // },
 	                 // include: {
 	                 //     relation: 'departmentsList',
@@ -119,7 +64,7 @@ function getAdminGroceries ( User ){
 			console.log(admin);
 		});
 
-		
+
 
 	};
 

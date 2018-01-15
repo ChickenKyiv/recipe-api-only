@@ -31,26 +31,14 @@ const init = ( server, raven, cb ) => {
 const get = () => {
 
     var data     = [
-      {
-  		  name: 'john',
-  		  email: 'john.doe@ibm.com',
-  		  password: 'john1',
+          {
 
-  		},
-  		{
-  		  name: 'jane',
-  		  email: 'jane.doe@ibm.com',
-  		  password: 'jane1',
+               "name":"Gluten-Free",
 
-  		},
-  		{
-  		  name: 'admin',
-  		  email: 'admin@ibm.com',
-  		  password: 'admin',
+               "type":"allergy",
 
-  		}
-  	];
-
+          }
+     ];
 
   	return data;
 
