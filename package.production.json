@@ -1,0 +1,46 @@
+{
+  "name": "recipe-api",
+  "version": "1.0.2-beta",
+  "engines": {
+    "node": "8.1.4"
+  },
+  "main": "server/server.js",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node server/server.js",
+    "posttest": "npm run lint && nsp check",
+    "test": "mocha",
+
+    "migrate" : "node bin/automigrate.js",
+    "migrate-search" : "node bin/automigrate-search.js",
+    "populate": "node bin/import-samples.js",
+    "grocery" : "node bin/grocery/import.js",
+    "search"  : "node bin/search/import.js"
+  },
+  "dependencies": {
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "helmet": "^3.6.1",
+    "loopback": "^3.0.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^4.0.0",
+
+    "loopback-connector-mongodb": "^3.1.0",
+
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-loopback": "^4.0.0",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0",
+    "nsp": "^2.1.0"
+  },
+  "repository": {
+    "type": "",
+    "url": "https://github.com/atherdon/recipe-api-only"
+  },
+  "license": "UNLICENSED",
+  "description": "Recipe API"
+}

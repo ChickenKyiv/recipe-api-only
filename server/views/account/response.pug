@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  h1 #{title}
+
+  if !content
+    p #{content}
+
+  a(href="#{redirectTo}") | #{redirectToLinkText} 
+

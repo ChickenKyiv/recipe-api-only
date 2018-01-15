@@ -1,0 +1,65 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "Department": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Grocery": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Ingredient": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Menu": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Recipe": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+
+  "User": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "Email": {
+    "dataSource": "mailgun",
+    "public": false
+  },
+  "UserModel": {
+    "dataSource": "recipeDS",
+    "public": true
+  }
+}

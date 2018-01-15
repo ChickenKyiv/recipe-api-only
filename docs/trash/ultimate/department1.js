@@ -1,0 +1,22 @@
+
+[
+'Fresh vegetables',
+'Condiments / Sauces',
+'Dairy',
+'Cheese',
+'Meat',
+'Seafood',
+'Beverages',
+'Baked goods',
+'Baking',
+'Snacks',
+'Themed meals',
+'Baby stuff',
+'Pets',
+'Fresh fruits',
+'Refrigerated items',
+'Frozen',
+'Various groceries',
+'Canned foods',
+'Spices & herbs',
+];

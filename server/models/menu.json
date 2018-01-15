@@ -1,0 +1,62 @@
+{
+  "name": "Menu",
+  "plural": "menu",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "created_at": {
+      "type": "date",
+      "required": true
+    },
+    "updated_at": {
+      "type": "date",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": false
+    },
+    "types": {
+      "type": "string",
+      "required": false
+    },
+    "notes": {
+      "type": "date",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "recipes": {
+      "type": "referencesMany",
+      "model": "Recipe",
+      "foreignKey": "recipes",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "grocery": {
+      "type": "belongsTo",
+      "model": "Grocery",
+      "foreignKey": "groceryId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

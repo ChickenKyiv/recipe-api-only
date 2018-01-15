@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "Department": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Grocery": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Ingredient": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Menu": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Recipe": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "User": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "recipeDS",
+    "public": false
+  },
+  "user": {
+    "dataSource": "recipeDS",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
+  "Allergy": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Course": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Cuisine": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Holiday": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+  "Diet": {
+    "dataSource": "recipeDS",
+    "public": true
+  },
+
+  "Nutritions": {
+    "dataSource": "recipeDS",
+    "public": true
+  }
+}

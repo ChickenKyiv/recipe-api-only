@@ -1,0 +1,7 @@
+{
+  "recipeDS": {
+    "url": "mongodb://heroku_p0dxgncb:gl2rr2bi235aoqfdojelqspjn1@ds147052.mlab.com:47052/heroku_p0dxgncb",
+    "name": "recipeDS",
+    "connector": "loopback-connector-mongodb"
+  }
+}
