@@ -4,20 +4,54 @@ var request = require('request');
 
 // var loopback = require('loopback');
 
-
+// const path    = require('path');
+// let ingredients     = require(path.resolve(__dirname, '../../bin/old/sample-ingredients2.js'));
+// var ingredients = require();
+// console.log(ingredients());
 
 
 module.exports = function(app) {
 
   var router  = app.loopback.Router();
-  
+
   // var request = require('request');
   // var Video   = app.models.VideoModel;
-  
-  // router.get('/index', function(req, res) {
-  //   res.render('index', {
-  //     loginFailed: false
-  //   });
+
+//   router.get('/ziga', function(req, res) {
+// var arr = [];
+//   ingredients().forEach(function(element) {
+//     // console.log(element['term']);
+//     arr.push(element['term'])
+//   });
+//   var i,j,temparray,chunk = 100;
+// for (i=0,j=arr.length; i<j; i+=chunk) {
+//     temparray = arr.slice(i,i+chunk);
+//     // do whatever
+// }
+// console.log(arr.length)
+// console.log(arr.slice(0,100));
+// console.log(arr.slice(101,200));
+// console.log(arr.slice(201,300));
+// console.log(arr.slice(301,400));
+// console.log(arr.slice(401,500));
+// console.log(arr.slice(501,600));
+// console.log(arr.slice(601,700));
+// console.log(arr.slice(701,800));
+// console.log(arr.slice(801,900));
+// console.log(arr.slice(901,1000));
+// console.log(arr.slice(1001,1100));
+//
+// console.log(arr.slice(1101,1200));
+// console.log(arr.slice(1201,1300));
+// console.log(arr.slice(1301,1400));
+// console.log(arr.slice(1401,1500));
+// console.log(arr.slice(1501,1600));
+// console.log(arr.slice(1601,1700));
+// console.log(arr.slice(1701,1800));
+
+    // res.render('index', {
+    //   loginFailed: false
+    // });
   // });
 
 
@@ -42,11 +76,11 @@ module.exports = function(app) {
   //     if (valid) {
   //       video.save();
   //       // res.render({user: user});
-  //     } else { 
+  //     } else {
   //       console.log(video.errors);
   //       // res.flash('error', 'User is not valid'), console.log(user.errors), res.redirect('/users');
   //     }
-  //   }); 
+  //   });
 
 
 
@@ -62,13 +96,13 @@ module.exports = function(app) {
   //   console.log(req.accessToken.userId);
   //   // console.log( req.accessToken );
 
-    
+
 
 
 
   //   res.render('videos', {
 
-  //   });   
+  //   });
   // });
 
 
@@ -88,7 +122,7 @@ module.exports = function(app) {
           email: email,
           password: password,
           loginFailed: true
-        });  
+        });
       }
 
       token = token.toJSON();
@@ -124,12 +158,12 @@ module.exports = function(app) {
 
   // router.get('/logout', function(req, res, next) {
 
-  //   if( !req.accessToken ) { return res.sendStatus(401); } // unauthorized 
+  //   if( !req.accessToken ) { return res.sendStatus(401); } // unauthorized
 
   //   app.models.UserModel.logout(req.accessToken.id, function(err){
   //     if (err) return next(err);
-      
-  //     res.redirect('/index'); //redirect on successful logout     
+
+  //     res.redirect('/index'); //redirect on successful logout
   //   });
 
   // });

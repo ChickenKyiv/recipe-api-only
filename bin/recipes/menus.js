@@ -7,6 +7,14 @@ let database
 let table_name = 'Menu'
 let attribute  = 'allergies';
 // let relation = 'nutritions';
+
+var x = new Date();
+x.setDate(1);
+
+var prev_month  = x.getMonth()-1;
+var prev_month2 = x.getMonth()-2;
+var prev_month3 = x.getMonth()-3;
+
 const init = ( server, raven, cb ) => {
 
   // console.log('-----');
@@ -18,12 +26,7 @@ const init = ( server, raven, cb ) => {
   create(cb, raven);
 
   // stuff related to menus only
-  var x = new Date();
-	x.setDate(1);
 
-	var prev_month  = x.getMonth()-1;
-	var prev_month2 = x.getMonth()-2;
-	var prev_month3 = x.getMonth()-3;
 }
 
 const get = () => {
