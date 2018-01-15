@@ -10,8 +10,8 @@ let attribute  = 'allergies';
 
 const init = ( server, raven, cb ) => {
 
-  Ingredient  = server.models.Ingredient;
-  database = server.datasources.recipeDS;
+  Ingredient = server.models.Ingredient;
+  database   = server.datasources.recipeDS;
 
   // add data to db
   create(cb, departments, raven);
@@ -22,188 +22,188 @@ const get = () => {
     var data     = [
 			{
 	  		name: "Asparagus",
-	        departmentId: departments[0].id
+	      departmentId: departments[0].id
 	  	},
 	  	{
-	        name: "Broccoli",
-	        departmentId: departments[0].id
+	      name: "Broccoli",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Carrots",
-	        departmentId: departments[0].id
+	      name: "Carrots",
+	      departmentId: departments[0].id
 	  	},
 	  	{
-	        name: "Cauliflower",
-	        departmentId: departments[0].id
+	      name: "Cauliflower",
+	      departmentId: departments[0].id
 	  	},
 	    {
-	        name: "Celery",
-	        departmentId: departments[0].id
+	      name: "Celery",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Corn",
-	        departmentId: departments[0].id
+	      name: "Corn",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Cucumbers",
-	        departmentId: departments[0].id
+	      name: "Cucumbers",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Lettuce / Greens",
-	        departmentId: departments[0].id
+	      name: "Lettuce / Greens",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Mushrooms",
-	        departmentId: departments[0].id
+	      name: "Mushrooms",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Onions",
-	        departmentId: departments[0].id
+	      name: "Onions",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Peppers",
-	        departmentId: departments[0].id
+	      name: "Peppers",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Potatoes",
-	        departmentId: departments[0].id
+	      name: "Potatoes",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Spinach",
-	        departmentId: departments[0].id
+	      name: "Spinach",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Squash",
-	        departmentId: departments[0].id
+	      name: "Squash",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Zucchini",
-	        departmentId: departments[0].id
+	      name: "Zucchini",
+	      departmentId: departments[0].id
 	    },
 	    {
-	        name: "Tomatoes*",
-	        departmentId: departments[0].id
+	      name: "Tomatoes*",
+	      departmentId: departments[0].id
 	    },
 
 	    /////
 
 
 	    {
-	        name: "BBQ sauce",
-	        departmentId: departments[1].id
+	      name: "BBQ sauce",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Gravy",
-	        departmentId: departments[1].id
+	      name: "Gravy",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Honey",
-	        departmentId: departments[1].id
+	      name: "Honey",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Hot sauce",
-	        departmentId: departments[1].id
+	      name: "Hot sauce",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Jam / Jelly / Preserves",
-	        departmentId: departments[1].id
+	      name: "Jam / Jelly / Preserves",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Ketchup / Mustard",
-	        departmentId: departments[1].id
+	      name: "Ketchup / Mustard",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Pasta sauce",
-	        departmentId: departments[1].id
+	      name: "Pasta sauce",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Relish",
-	        departmentId: departments[1].id
+	      name: "Relish",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Salad dressin",
-	        departmentId: departments[1].id
+	      name: "Salad dressin",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Salsa",
-	        departmentId: departments[1].id
+	      name: "Salsa",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Soy sauce",
-	        departmentId: departments[1].id
+	      name: "Soy sauce",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Steak sauce",
-	        departmentId: departments[1].id
+	      name: "Steak sauce",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Syrup",
-	        departmentId: departments[1].id
+	      name: "Syrup",
+	      departmentId: departments[1].id
 	    },
 	    {
-	        name: "Worcestershire sauce",
-	        departmentId: departments[1].id
+	      name: "Worcestershire sauce",
+	      departmentId: departments[1].id
 	    },
 
 	    //////
 	    {
-	        name: "Butter / Margarine",
-	        departmentId: departments[2].id
+	      name: "Butter / Margarine",
+	      departmentId: departments[2].id
 	    },
 	    {
-	        name: "Cottage cheese",
-	        departmentId: departments[2].id
+	      name: "Cottage cheese",
+	      departmentId: departments[2].id
 	    },
 	    {
-	        name: "Half & half",
-	        departmentId: departments[2].id
+	      name: "Half & half",
+	      departmentId: departments[2].id
 	    },
 	    {
-	        name: "Milk",
-	        departmentId: departments[2].id
+	      name: "Milk",
+	      departmentId: departments[2].id
 	    },
 	    {
-	        name: "Sour cream",
-	        departmentId: departments[2].id
+	      name: "Sour cream",
+	      departmentId: departments[2].id
 	    },
 
 	    {
-	        name: "Whipped cream",
-	        departmentId: departments[2].id
+	      name: "Whipped cream",
+	      departmentId: departments[2].id
 	    },
 	    {
-	        name: "Yogurt",
-	        departmentId: departments[2].id
+	      name: "Yogurt",
+	      departmentId: departments[2].id
 	    },
 
 	    ////
 	    {
-	        name: "Bleu cheese",
-	        departmentId: departments[3].id
+	      name: "Bleu cheese",
+	      departmentId: departments[3].id
 	    },
 	    {
-	        name: "Cheddar",
-	        departmentId: departments[3].id
+	      name: "Cheddar",
+	      departmentId: departments[3].id
 	    },
 	    {
-	        name: "Cottage cheese",
-	        departmentId: departments[3].id
+	      name: "Cottage cheese",
+	      departmentId: departments[3].id
 	    },
 	    {
-	        name: "Cream cheese",
-	        departmentId: departments[3].id
+	      name: "Cream cheese",
+	      departmentId: departments[3].id
 	    },
 	    {
-	        name: "Feta",
-	        departmentId: departments[3].id
+	      name: "Feta",
+	      departmentId: departments[3].id
 	    },
 	    {
-	        name: "Goat cheese",
-	        departmentId: departments[3].id
+	      name: "Goat cheese",
+	      departmentId: departments[3].id
 	    },
 	    {
-	        name: "Mozzarella",
-	        departmentId: departments[3].id
+	      name: "Mozzarella",
+	      departmentId: departments[3].id
 	    },
 	    {
 	        name: "Parmesan",

@@ -2,37 +2,33 @@
 
 const debug   = require('debug');
 // model
-let Grocery
+let Ingredient
 let database
-let table_name = 'Grocery'
-let attribute  = 'groceryId';
+let table_name = 'Ingredient'
+let attribute  = 'allergies';
 // let relation = 'nutritions';
+
 const init = ( server, raven, cb ) => {
 
-// console.log('-----');
-// console.log(server);
-  Grocery  = server.models.Grocery;
-  database = server.datasources.recipeDS;
+  Ingredient = server.models.Ingredient;
+  database   = server.datasources.recipeDS;
 
   // add data to db
-  create(cb, raven);
+  create(cb, departments, raven);
 }
 
 const get = () => {
 
     var data     = [
-			{
-				name : "Ultimate Grocery List",
-				img  : false,
-				desc : false,
-				slug : false //:todo do we need this fields?
-			}     ];
+
+	    ///
+     ];
 
   	return data;
 
 };
 
-const create = (cb, raven) => {
+const create = (cb, departments, raven) => {
 
   database.autoupdate(table_name, function(err){
     if (err) {
@@ -40,8 +36,8 @@ const create = (cb, raven) => {
       return cb(err);
     }
 
-    // Allergy.create(get(), (err,re) => console.log(re));
-    Grocery.create(get(), cb);
+
+    Ingredient.create(get(departments), cb);
   });
 
 };
@@ -70,4 +66,24 @@ function idsOnly(array){
 module.exports.init   = init;
 module.exports.attach = attach;
 
-module.exports.createGroceries = createGroceries;
+
+
+var Ingredient  = server.models.Ingredient;
+var relation    = 'ingredients';
+var relation2   = 'ingredientIds';
+
+
+
+
+function attachIngredientsToGroceries(ingredients, groceries){
+ var arrayWithIds = idsOnly(ingredients);
+
+ groceries.forEach(function(grocery){
+     grocery.updateAttribute(relation2, arrayWithIds);
+
+ });
+
+};
+
+module.exports.createIngredients = createIngredients;
+module.exports.attachIngredientsToGroceries = attachIngredientsToGroceries;

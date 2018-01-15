@@ -8,11 +8,11 @@ let table_name = 'Department'
 // let attribute  = 'allergies';
 // let relation = 'nutritions';
 const init = ( server, raven, cb ) => {
-// function init(server, cb){
+
 // console.log('-----');
 // console.log(server);
   Department  = server.models.Department;
-  database = server.datasources.recipeDS;
+  database    = server.datasources.recipeDS;
 
   // add data to db
   create(cb, raven);

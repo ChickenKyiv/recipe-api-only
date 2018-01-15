@@ -1,14 +1,6 @@
-'use strict';
-
-var path       = require('path');
-let server     = require(path.resolve(__dirname, '../../server/server'));
-var database   = server.datasources.groceryDS;
-
-var Nutritions = server.models.Nutritions;
-var relation   = 'nutritions';
 
 function getNutritions(){
-   
+
     var nutritions = [
         {
 			"calories"  : 450,
@@ -51,18 +43,12 @@ function getNutritions(){
 			"iron" : 7
         }
      ];
-    
+
   	return nutritions;
 
 };
 
-function createNutritions(cb){
-	database.autoupdate('Nutritions', function(err){
-		if (err) return cb(err);
 
-		Nutritions.create(getNutritions(), cb);
-	});
-};
 
 function attachNutritionsToRecipes(nutritions, recipes){
 	var first  = recipes[0];
@@ -78,7 +64,7 @@ function attachNutritionsToRecipes(nutritions, recipes){
 
 	first.updateAttribute('nutritions', nutritions[0]);
 	second.updateAttribute('nutritions', nutritions[1]);
-	
+
 };
 function idsOnly(array){
 
@@ -86,7 +72,7 @@ function idsOnly(array){
     return array[e].id;
     });
 
-  return result;    
+  return result;
 
 };
 
