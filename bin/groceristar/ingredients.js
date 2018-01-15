@@ -8,6 +8,9 @@ let table_name = 'Ingredient'
 let attribute  = 'allergies';
 // let relation = 'nutritions';
 
+var relation    = 'ingredients';
+var relation2   = 'ingredientIds';
+
 const init = ( server, raven, cb ) => {
 
   Ingredient = server.models.Ingredient;
@@ -971,14 +974,6 @@ module.exports.init   = init;
 module.exports.attach = attach;
 
 
-
-var Ingredient  = server.models.Ingredient;
-var relation    = 'ingredients';
-var relation2   = 'ingredientIds';
-
-
-
-
 function attachIngredientsToGroceries(ingredients, groceries){
  var arrayWithIds = idsOnly(ingredients);
 
@@ -989,5 +984,5 @@ function attachIngredientsToGroceries(ingredients, groceries){
 
 };
 
-module.exports.createIngredients = createIngredients;
+// module.exports.createIngredients = createIngredients;
 module.exports.attachIngredientsToGroceries = attachIngredientsToGroceries;

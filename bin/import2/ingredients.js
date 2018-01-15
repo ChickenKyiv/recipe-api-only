@@ -1,8 +1,4 @@
-'use strict';
 
-var path        = require('path');
-let server      = require(path.resolve(__dirname, '../../server/server'));
-var database    = server.datasources.groceryDS;
 
 var Ingredient  = server.models.Ingredient;
 var relation    = 'ingredients';
@@ -43,16 +39,6 @@ var relation2   = 'ingredientIds';
 //   // });
 // };
 
-
-function idsOnly(array){
-
-  var result = Object.keys(array).map(function(e) {
-    return array[e].id;
-    });
-
-  return result;
-
-};
 
 function createIngredients(departments, cb){
   database.automigrate('Ingredient', function(err){

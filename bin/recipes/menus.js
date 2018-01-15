@@ -5,7 +5,8 @@ const debug   = require('debug');
 let Menu
 let database
 let table_name = 'Menu'
-let attribute  = 'allergies';
+
+let attribute  = 'recipes';
 // let relation = 'nutritions';
 
 var x = new Date();
@@ -107,10 +108,27 @@ function idsOnly(array){
 
 };
 
-
-function attach(array, recipes, cb){
+//
+// function attachMenusToUsers(users, menus){
+//
+// 	users.forEach(function(user){
+// 		user.updateAttribute('userId', menus);
+//
+// 	});
+//
+// };
+//
+// function attachRecipesToMenu(recipes, menus){
+// 	var arrayWithIds = idsOnly(recipes);
+// 	menus.forEach(function(menu){
+// 		menu.updateAttribute('recipes', arrayWithIds);
+//
+// 	});
+//
+// };
+function attach(array, menus, cb){
      var arrayWithIds = idsOnly(array);
-     recipes.forEach(function(recipe){
+     menus.forEach(function(menu){
           recipe.updateAttribute(attribute, arrayWithIds);
 
      });

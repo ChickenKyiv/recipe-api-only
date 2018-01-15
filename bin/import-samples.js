@@ -54,17 +54,19 @@ var Grocery     = server.models.GroceryModel;
 
 var Department  = server.models.DepartmentModel;
 
+
+
 // var Allergy =  server.models.AllergyModel;
 
 // var Course  =  server.models.CourseModel;
 
-var Cuisine =  server.models.CuisineModel;
-
-var Diet    =  server.models.DietModel;
-
-var Holiday =  server.models.HolidayModel;
-
-var Nutritions = server.models.NutritionsModel;
+// var Cuisine =  server.models.CuisineModel;
+//
+// var Diet    =  server.models.DietModel;
+//
+// var Holiday =  server.models.HolidayModel;
+//
+// var Nutritions = server.models.NutritionsModel;
 
 
 
@@ -78,13 +80,13 @@ var Nutritions = server.models.NutritionsModel;
 		departments : async.apply(createDepartments),
 
 
-		allergies   : async.apply(createAllergies),
-		courses     : async.apply(createCourses),
-		cuisines    : async.apply(createCuisines),
-		diets       : async.apply(createDiets),
-		holidays    : async.apply(createHolidays),
-
-		nutritions  : async.apply(createNutritions)
+		// allergies   : async.apply(createAllergies),
+		// courses     : async.apply(createCourses),
+		// cuisines    : async.apply(createCuisines),
+		// diets       : async.apply(createDiets),
+		// holidays    : async.apply(createHolidays),
+    //
+		// nutritions  : async.apply(createNutritions)
 
 	}, function(err, results){
 		if( err ) throw err;
@@ -119,6 +121,17 @@ var Nutritions = server.models.NutritionsModel;
 		attachDepartmentsToIngredients(results.departments, results.ingredients, function(err){
 			console.log('>departments attached to ingredients ');
 		});
+
+
+
+
+
+
+
+
+
+
+
 
 
 		attachNutritionsToRecipes(results.nutritions, results.recipes, function(err){

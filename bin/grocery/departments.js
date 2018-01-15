@@ -7,10 +7,11 @@ let database
 let table_name = 'Department'
 // let attribute  = 'allergies';
 // let relation = 'nutritions';
+
 const init = ( server, raven, cb ) => {
 
-// console.log('-----');
-// console.log(server);
+  // console.log('-----');
+  // console.log(server);
   Department  = server.models.Department;
   database    = server.datasources.recipeDS;
 
