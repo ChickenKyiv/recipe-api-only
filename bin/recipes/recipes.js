@@ -7,8 +7,10 @@ let database
 let table_name = 'Recipe'
 
 // let attribute  = 'userId';
+// @TODO not clear, how we can know which attribute to use?
 let attribute = [
-  ''
+  'nutritions', // #0
+
 ];
 
 
@@ -67,14 +69,26 @@ function idsOnly(array){
 
 };
 
+// this method differintiates from other methods
+//@TODO find some best way in order to do things like this.
+function attach(array, recipes, attribute, cb){
+     var arrayWithIds = idsOnly(array);
+     recipes.forEach(function(recipe){
+          recipe.updateAttribute(attribute, arrayWithIds);
 
-// function attach(array, recipes, cb){
-//      var arrayWithIds = idsOnly(array);
-//      recipes.forEach(function(recipe){
-//           recipe.updateAttribute(attribute, arrayWithIds);
-//
-//      });
-// };
+     });
+};
+
+// we'll must have a cb for sure
+function attachNutritionsToRecipes(nutritions, recipes){
+	var first  = recipes[0];
+	var second = recipes[1];
+
+  attach(nutritions[0], first, attribute[0]);
+  attach(nutritions[1], second, attribute[0]);
+
+
+};
 
 
 //

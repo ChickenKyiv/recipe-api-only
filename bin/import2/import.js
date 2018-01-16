@@ -1,12 +1,3 @@
-'use strict';
-
-
-var path            = require('path');
-var async           = require('async');
-
-// let server          = require(path.resolve(__dirname, '../../server/server'));
-
-
 // //include middleware
 let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
 
@@ -16,23 +7,14 @@ let Departments  = require(path.resolve(__dirname, 'departments'));
 
 let Users        = require(path.resolve(__dirname, 'users'));
 
-// async.series()
-
-
-async.parallel({		
+async.parallel({
 		users       : async.apply(Users.createUsers),
 		departments : async.apply(Departments.createDepartments),
 		groceries   : async.apply(Groceries.createGroceries),
 
-		// recipes     : async.apply(Recipes.createRecipes),
-		
 
-	
 	}, function(err, results){
-		if( err ) throw err; 
-
-		// console.log(results.departments);
-		// console.log(results.groceries);
+		if( err ) throw err;
 
 		Users.assignAdmin(results.users[2]);
 		Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
@@ -49,8 +31,8 @@ async.parallel({
 			});
 
 		// console.log(ingredient);
-		
-		
+
+
 
 
 

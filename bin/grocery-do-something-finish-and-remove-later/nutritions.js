@@ -50,6 +50,7 @@ function getNutritions(){
 
 
 
+
 function attachNutritionsToRecipes(nutritions, recipes){
 	var first  = recipes[0];
 	var second = recipes[1];

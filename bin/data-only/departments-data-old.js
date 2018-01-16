@@ -1,7 +1,5 @@
 'use strict';
 
-module.exports = function getSamplesData (cb){
-
 	var departments = [
 		{
 			// id: "1",
@@ -33,6 +31,5 @@ module.exports = function getSamplesData (cb){
 		}
 	];
 
-	return departments;
 
-};
+module exports default departments;

@@ -54,25 +54,20 @@ var RoleMapping = server.models.RoleMapping;
 			console.log('>departments attached to ingredients ');
 		});
 
-
-		attachNutritionsToRecipes(results.nutritions, results.recipes, function(err){
-			console.log('>nutritions attached to recipes');
-		});
-
 		//:todo remove this function, when departments will work
 		attachDepartmentsToGroceries(results.departments, results.groceries, function(err){
 			console.log('>departments create sucessfully');
 		});
 
+
+
 		attachAllergiesToRecipes(results.allergies, results.recipes, function(err){
 			console.log('>allergies create sucessfully');
 		});
 
-
 		attachCoursesToRecipes(results.courses, results.recipes, function(err){
 			console.log('>courses create sucessfully');
 		});
-
 
 		attachCuisinesToRecipes(results.cuisines, results.recipes, function(err){
 			console.log('>cuisines create sucessfully');
@@ -81,7 +76,6 @@ var RoleMapping = server.models.RoleMapping;
 		attachDietsToRecipes(results.diets, results.recipes, function(err){
 			console.log('>diets create sucessfully');
 		});
-
 
 		attachHolidaysToRecipes(results.holidays, results.recipes, function(err){
 			console.log('>models create sucessfully');
