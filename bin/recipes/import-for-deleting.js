@@ -61,25 +61,7 @@ var RoleMapping = server.models.RoleMapping;
 
 
 
-		attachAllergiesToRecipes(results.allergies, results.recipes, function(err){
-			console.log('>allergies create sucessfully');
-		});
 
-		attachCoursesToRecipes(results.courses, results.recipes, function(err){
-			console.log('>courses create sucessfully');
-		});
-
-		attachCuisinesToRecipes(results.cuisines, results.recipes, function(err){
-			console.log('>cuisines create sucessfully');
-		});
-
-		attachDietsToRecipes(results.diets, results.recipes, function(err){
-			console.log('>diets create sucessfully');
-		});
-
-		attachHolidaysToRecipes(results.holidays, results.recipes, function(err){
-			console.log('>models create sucessfully');
-		});
 
 
 		// attach data to recipes
@@ -158,49 +140,4 @@ function attachDepartmentsToGroceries(departments, groceries, cb){
 		grocery.updateAttribute('departments', arrayWithIds);
 
 	});
-};
-
-
-
-// function attachCoursesToRecipes(courses, recipes, cb){
-// 	var arrayWithIds = idsOnly(courses);
-// 	recipes.forEach(function(recipe){
-// 		recipe.updateAttribute('courses', arrayWithIds);
-
-// 	});
-// };
-
-function attachCuisinesToRecipes(cuisines, recipes, cb){
-	var arrayWithIds = idsOnly(cuisines);
-	recipes.forEach(function(recipe){
-		recipe.updateAttribute('cuisines', arrayWithIds);
-
-	});
-};
-
-
-function attachDietsToRecipes(diets, recipes, cb){
-	var arrayWithIds = idsOnly(diets);
-	recipes.forEach(function(recipe){
-		recipe.updateAttribute('diets', arrayWithIds);
-
-	});
-};
-
-function attachHolidaysToRecipes(holidays, recipes, cb){
-	var arrayWithIds = idsOnly(holidays);
-	recipes.forEach(function(recipe){
-		recipe.updateAttribute('holidays', arrayWithIds);
-
-	});
-};
-
-function idsOnly(array){
-
-	var result = Object.keys(array).map(function(e) {
-		return array[e].id;
-    });
-
-	return result;
-
 };
