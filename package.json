@@ -31,7 +31,8 @@
     "raven": "^2.3.0",
     "request": "^2.83.0",
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^2.1.0"
+    "strong-error-handler": "^2.1.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "chai": "^4.0.1",
@@ -46,6 +47,6 @@
     "type": "",
     "url": "https://github.com/atherdon/recipe-api-only"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "description": "Recipe API"
 }
