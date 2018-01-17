@@ -5,7 +5,8 @@ const debug   = require('debug');
 let Department
 let database
 let table_name = 'Department'
-// let attribute  = 'allergies';
+
+//let attribute  = 'departmentIds';
 // let relation = 'nutritions';
 
 const init = ( server, raven, cb ) => {
