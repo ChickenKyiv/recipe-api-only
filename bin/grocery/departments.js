@@ -147,8 +147,8 @@ const create = (cb, raven) => {
       return cb(err);
     }
 
-    // Allergy.create(get(), (err,re) => console.log(re));
-    Allergy.create(get(), cb);
+
+    Department.create(get(), cb);
   });
 
 };
@@ -177,4 +177,4 @@ function idsOnly(array){
 module.exports.init   = init;
 module.exports.attach = attach;
 
-module.exports.createDepartments = createDepartments;
+//module.exports.createDepartments = createDepartments;
