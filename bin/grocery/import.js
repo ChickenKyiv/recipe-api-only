@@ -12,26 +12,22 @@ let server     = require(path.resolve(__dirname, '../../server/server'));
 
 // //include middleware
 // @todo make it auto-icludable from folder
-let Ingredient    = require(path.resolve(__dirname, 'ingredients'));
-let Grocery    = require(path.resolve(__dirname, 'grocery'));
-let Departments    = require(path.resolve(__dirname, 'departments'));
-let Users    = require(path.resolve(__dirname, 'users'));
+
+let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
+
+let Groceries    = require(path.resolve(__dirname, 'grocery'));
+
+let Departments  = require(path.resolve(__dirname, 'departments'));
+
+let Users        = require(path.resolve(__dirname, 'users'));
+
 
 
 async.parallel({
-		users       : async.apply(Users.init,       server, Raven),
-		
-    
-    
-    departments : async.apply(Departments.createDepartments),
-		groceries   : async.apply(Groceries.createGroceries),
-    
-    ingredients  : async.apply(Ingredient.init,    server, Raven),
-  
-  
-  
-		courses    : async.apply(Course.init,     server, Raven),
-		cuisines   : async.apply(Cuisine.init,    server, Raven),
+  users       : async.apply(Users.init,     server, Raven),
+	departments : async.apply(Departments.init, server, Raven),
+	groceries   : async.apply(Groceries.init, server, Raven),
+	ingredients  : async.apply(Ingredients.init,    server, Raven),
   
 
 	}, function(err, results){
@@ -47,7 +43,7 @@ async.parallel({
 		}
 
   
-    	// console.log(results.ingredients);
+  // console.log(results.ingredients);
 		// console.log(results.departments);
 		// console.log(results.groceries);
 
