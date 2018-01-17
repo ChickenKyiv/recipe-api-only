@@ -8,7 +8,8 @@ let table_name = 'Grocery'
 
 let attributes  = [
   'departmentIds',
-  'groceryId'
+  'groceryId',
+  'ingredientIds', // #2
 ];
 
 // let relation = 'nutritions';
@@ -77,6 +78,10 @@ function attach(array_ids, collection, attribute, cb){
 //@TODO replace stuff like cb to a simple console or debug log that relation was successfully created
 const attachDepartmentsToGrocery = (departments, groceries, cb) => {
   attach(departments, groceries, attributes[0], cb);
+};
+
+const attachIngredientsToGrocery = (ingredients, groceries, cb) => {
+  attach(ingredients, groceries, attributes[2], cb);
 };
 
 //
