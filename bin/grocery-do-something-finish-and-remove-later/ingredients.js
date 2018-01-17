@@ -1,10 +1,4 @@
-'use strict';
 
-var path        = require('path');
-let server      = require(path.resolve(__dirname, '../../server/server'));
-var database    = server.datasources.groceryDS;
-
-var Ingredient  = server.models.Ingredient;
 var relation    = 'ingredients';
 
 function getIngredients(){
@@ -88,25 +82,3 @@ function attachIngredientsToRecipes(ingredients, recipes){
     
   // });
 };
-
-
-function idsOnly(array){
-
-  var result = Object.keys(array).map(function(e) {
-    return array[e].id;
-    });
-
-  return result;    
-
-};
-
-function createIngredients(cb){
-  database.automigrate('Ingredient', function(err){
-    if (err) return cb(err);
-
-    Ingredient.create(getIngredients(), cb);
-  });
-};
-
-module.exports.attachIngredientsToRecipes = attachIngredientsToRecipes;
-module.exports.createIngredients = createIngredients;
