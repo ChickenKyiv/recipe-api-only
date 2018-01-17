@@ -26,13 +26,13 @@ async.parallel({
     departments : async.apply(Departments.createDepartments),
 		groceries   : async.apply(Groceries.createGroceries),
     
-    allergies  : async.apply(Allergy.init,    server, Raven),
+    ingredients  : async.apply(Ingredient.init,    server, Raven),
+  
+  
+  
 		courses    : async.apply(Course.init,     server, Raven),
 		cuisines   : async.apply(Cuisine.init,    server, Raven),
-    diets      : async.apply(Diet.init,       server, Raven),
-    holidays   : async.apply(Holiday.init,    server, Raven),
-    nutritions : async.apply(Nutritions.init, server, Raven)
-
+  
 
 	}, function(err, results){
 		if( err ) {
@@ -41,10 +41,15 @@ async.parallel({
 
 		}
     
-    if( !results || !results.allergies || !results.courses
-				|| !results.cuisines || !results.diets || !results.holidays || !results.nutritions) {
+    if( !results || !results.departments || !results.groceries
+				|| !results.ingredients || !results.users) {
 					Raven.captureException("not imported well");
 		}
+
+  
+    	// console.log(results.ingredients);
+		// console.log(results.departments);
+		// console.log(results.groceries);
 
 		Users.assignAdmin(results.users[2]);
 		Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
@@ -60,8 +65,8 @@ async.parallel({
 				console.log('import finished');
 			});
 
-		// console.log(ingredient);
-
+  
+  
 		process.on('exit', function(code) {
     	return console.log(`About to exit with code ${code}`);
 		});
