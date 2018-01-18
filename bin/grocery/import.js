@@ -27,8 +27,8 @@ async.parallel({
   users       : async.apply(Users.init,     server, Raven),
 	departments : async.apply(Departments.init, server, Raven),
 	groceries   : async.apply(Groceries.init, server, Raven),
-	ingredients  : async.apply(Ingredients.init,    server, Raven),
-  
+	// ingredients  : async.apply(Ingredients.init,    server, Raven),
+
 
 	}, function(err, results){
 		if( err ) {
@@ -36,13 +36,19 @@ async.parallel({
 			throw err;
 
 		}
-    
+
+
+
     if( !results || !results.departments || !results.groceries
-				|| !results.ingredients || !results.users) {
+				//|| !results.ingredients
+        || !results.users) {
 					Raven.captureException("not imported well");
 		}
 
-  
+    let ingredients = Ingredients.init(results.departments, server, Raven);
+    console.log(ingredients)
+
+
   // console.log(results.ingredients);
 		// console.log(results.departments);
 		// console.log(results.groceries);
@@ -61,8 +67,8 @@ async.parallel({
 				console.log('import finished');
 			});
 
-  
-  
+
+
 		process.on('exit', function(code) {
     	return console.log(`About to exit with code ${code}`);
 		});
