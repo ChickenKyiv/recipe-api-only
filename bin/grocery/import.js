@@ -19,12 +19,12 @@ let Groceries    = require(path.resolve(__dirname, 'grocery'));
 
 let Departments  = require(path.resolve(__dirname, 'departments'));
 
-let Users        = require(path.resolve(__dirname, 'users'));
+// let Users        = require(path.resolve(__dirname, 'users'));
 
 
 
 async.parallel({
-  users       : async.apply(Users.init,     server, Raven),
+  // users       : async.apply(Users.init,     server, Raven),
 	departments : async.apply(Departments.init, server, Raven),
 	groceries   : async.apply(Groceries.init, server, Raven),
 	// ingredients  : async.apply(Ingredients.init,    server, Raven),
@@ -46,7 +46,7 @@ async.parallel({
 		}
 
     let ingredients = Ingredients.init(results.departments, server, Raven);
-    console.log(ingredients)
+    console.log(ingredients);
 
 
   // console.log(results.ingredients);
