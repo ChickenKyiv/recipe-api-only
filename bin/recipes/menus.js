@@ -25,6 +25,15 @@ const init = ( server, raven, cb ) => {
 
   // add data to db
   create(cb, raven);
+  let args = {
+    model     : Department,
+    table_name: table_name,
+    database  : database,
+    data      : false
+  }
+
+  // add data to db
+  helper.create(args);
 
   // stuff related to menus only
 
@@ -117,15 +126,15 @@ const create = (cb, raven) => {
 // 	});
 //
 // };
-function attach(array, menus, cb){
-     var arrayWithIds = idsOnly(array);
-     menus.forEach(function(menu){
-          recipe.updateAttribute(attribute, arrayWithIds);
 
-     });
+function attach(array, menus, cb){
+     // var arrayWithIds = idsOnly(array);
+     // menus.forEach(function(menu){
+     //      recipe.updateAttribute(attribute, arrayWithIds);
+     //
+     // });
 };
 
 
 //
 module.exports.init   = init;
-module.exports.attach = attach;

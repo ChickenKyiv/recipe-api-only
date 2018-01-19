@@ -10,7 +10,6 @@ let table_name = 'Department'
 // let relation = 'nutritions';
 
 const init = ( options ) => {
-  
   // console.log('-----');
   // console.log(options[0]);
 

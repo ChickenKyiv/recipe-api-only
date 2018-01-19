@@ -62,13 +62,6 @@ const attach = (array_ids, collection, attribute) => {
      });
 };
 
-// function attach(array, recipes, cb){
-//      var arrayWithIds = idsOnly(array);
-//      recipes.forEach(function(recipe){
-//           recipe.updateAttribute(attribute, arrayWithIds);
-//
-//      });
-// };
 
 module.exports = {
   idsOnly : idsOnly,

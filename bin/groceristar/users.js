@@ -1,7 +1,3 @@
-
-
-
-
 //
 module.exports.init   = init;
 module.exports.attach = attach;

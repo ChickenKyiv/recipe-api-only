@@ -9,16 +9,32 @@ let table_name = 'Ingredient'
 // let attribute  = 'departmentId';
 //let attribute  = 'ingredients';
 // let relation = 'nutritions';
-const init = ( departments, server, raven, cb ) => {
+const init = ( options ) => {
 
   // console.log('-----');
   // console.log(server);
+
+  let server = options[0];
+  let helper = options[1];
+  let Raven  = options[2];
+  let cb     = options[3];
+  let departments   = options[4]; // or use data key
+
   Ingredient  = server.models.Ingredient;
   database = server.datasources.recipeDS;
 
   // add data to db
   //custom version - cause we pass additional element
-  create(cb, departments, raven);
+  // create(cb, departments, raven);
+  let args = {
+    model     : Ingredient,
+    table_name: table_name,
+    database  : database,
+    data      : departments
+  }
+
+  // add data to db
+  helper.create(args);
 }
 
 const get = (departments) => {
@@ -954,14 +970,6 @@ const get = (departments) => {
 
 
 
-// function attach(array, recipes, cb){
-//      var arrayWithIds = idsOnly(array);
-//      recipes.forEach(function(recipe){
-//           recipe.updateAttribute(attribute, arrayWithIds);
-//
-//      });
-// };
-
 // nt used cause GS updated their structure
 // function attachDepartmentsToIngredients(departments, ingredients){
 //
@@ -1003,4 +1011,3 @@ const get = (departments) => {
 
 //
 module.exports.init   = init;
-module.exports.attach = attach;

@@ -28,6 +28,15 @@ const init = ( server, raven, cb ) => {
 
   // add data to db
   create(cb, raven);
+  let args = {
+    model     : Department,
+    table_name: table_name,
+    database  : database,
+    data      : false
+  }
+
+  // add data to db
+  helper.create(args);
 
   //custom stuff, related to recipes only
 }
@@ -98,11 +107,7 @@ const relate = (results) => {
 // this method differintiates from other methods
 //@TODO find some best way in order to do things like this.
 function attach(array, recipes, attribute, cb){
-     var arrayWithIds = idsOnly(array);
-     recipes.forEach(function(recipe){
-          recipe.updateAttribute(attribute, arrayWithIds);
 
-     });
 };
 
 // we'll must have a cb for sure
@@ -140,4 +145,3 @@ const attachCoursesToRecipes = (courses, recipes, cb) => {
 
 //
 module.exports.init   = init;
-module.exports.attach = attach;

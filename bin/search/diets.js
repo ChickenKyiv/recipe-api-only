@@ -14,6 +14,15 @@ const init = ( server, raven, cb ) => {
 
   // add data to db
   create(cb);
+  let args = {
+    model     : Department,
+    table_name: table_name,
+    database  : database,
+    data      : false
+  }
+
+  // add data to db
+  helper.create(args);
 }
 
 // var Course   =  server.models.Diet;
@@ -92,14 +101,9 @@ const create = (cb) => {
 
 
 function attach(diets, recipes, cb){
-     var arrayWithIds = idsOnly(diets);
-     recipes.forEach(function(recipe){
-          recipe.updateAttribute(attribute, arrayWithIds);
 
-     });
 };
 
 
 //
 module.exports.init   = init;
-module.exports.attach = attach;

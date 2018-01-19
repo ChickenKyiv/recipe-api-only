@@ -21,6 +21,15 @@ const init = ( server, raven, cb ) => {
 
   // add data to db
   create(cb, raven);
+  let args = {
+    model     : Department,
+    table_name: table_name,
+    database  : database,
+    data      : false
+  }
+
+  // add data to db
+  helper.create(args);
 
   //сustom stuff, related to users model only
 
@@ -107,5 +116,3 @@ const attachRecipesToUsers = () => {
 
 //
 module.exports.init   = init;
-// module.exports.assignAdmin = assignAdmin;
-module.exports.attach = attach;

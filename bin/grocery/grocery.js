@@ -18,26 +18,55 @@ const init = ( options ) => {
 
   // console.log('-----');
   // console.log(server);
-  server = options.server;
-  cb     = options.cb;
-  raven  = options.raven;
+  let server = options[0];
+  let helper = options[1];
+  let Raven  = options[2];
+  let cb     = options[3];
+
+  // server = options.server;
+  // cb     = options.cb;
+  // raven  = options.raven;
 
   Grocery  = server.models.Grocery;
   database = server.datasources.recipeDS;
 
   // add data to db
-  let groceriest = await create(cb, raven);
-  // or
-  create((err,data) => {
-    console.log(data);
-    // cb()
-  }, raven);
+  // let groceriest = await create(cb, raven);
+  // // or
+  // create((err,data) => {
+  //   console.log(data);
+  //   // cb()
+  // }, raven);
+  // let grocery
+  // let response
+  // try {
+  //   var Grocery   = app.models.Grocery;
+  //   // grocery = await Grocery.fetchById(groceryId);
+  //   grocery  = await Grocery.findById(groceryId, Grocery.query1());
+  //   response = Grocery.convertCollectionData(grocery);
+  //    // console.log(response);
+  //
+  // } catch (e) {
+  //   Raven.captureException(e);
+  //   //this will eventually be handled by your error handling middleware
+  //   next(e)
+  // }
+
+  let args = {
+    model     : Grocery,
+    table_name: table_name,
+    database  : database,
+    data      : false
+  }
+
+  // add data to db
+  helper.create(args);
 
 
   // custom stuff, related only to grocery
   // will not work at this moment @TODO change that
-  attachDepartmentsToGrocery(options.departments, groceries, cb);
-  attachIngredientsToGrocery(options.ingredients, groceries, cb);
+  // attachDepartmentsToGrocery(options.departments, groceries, cb);
+  // attachIngredientsToGrocery(options.ingredients, groceries, cb);
 
 }
 
@@ -56,42 +85,47 @@ const get = () => {
 
 };
 
-// const create = (cb, raven) => {
-//
-//   database.autoupdate(table_name, function(err){
-//     if (err) {
-//       Raven.captureException(err);
-//       return cb(err);
-//     }
-//
-//     Grocery.create(get(), cb);
-//   });
-//
-// };
 
 
+const relate = (results) => {
 
-// //@TODO use this version, it's very many huge fresh
-// function attach(array_ids, collection, attribute, cb){
-//      var arrayWithIds = idsOnly(array_ids);
-//
-//      // if attribute is string then use it. if attribute is array with count 1 - use it
-//      // if attribute have more elements - we need to pick stuff.
-//      collection.forEach(function(item){
-//           item.updateAttribute(attribute, arrayWithIds);
-//
-//      });
-// };
+  attachDepartmentsToGrocery
+attachIngredientsToGrocery
 
-//@TODO replace stuff like cb to a simple console or debug log that relation was successfully created
-const attachDepartmentsToGrocery = (departments, groceries, cb) => {
-  attach(departments, groceries, attributes[0], cb);
+  // attachAllergiesToRecipes(results.allergies, results.recipes, function(err){
+  //   console.log('>allergies create sucessfully');
+  // });
+  //
+  // attachCoursesToRecipes(results.courses, results.recipes, function(err){
+  //   console.log('>courses create sucessfully');
+  // });
+  //
+  // attachCuisinesToRecipes(results.cuisines, results.recipes, function(err){
+  //   console.log('>cuisines create sucessfully');
+  // });
+  //
+  // attachDietsToRecipes(results.diets, results.recipes, function(err){
+  //   console.log('>diets create sucessfully');
+  // });
+  //
+  // attachHolidaysToRecipes(results.holidays, results.recipes, function(err){
+  //   console.log('>models create sucessfully');
+  // });
+
+
+  //@TODO replace stuff like cb to a simple console or debug log that relation was successfully created
+
+  const attachDepartmentsToGrocery = (departments, groceries, cb) => {
+    attach(departments, groceries, attributes[0], cb);
+  };
+
+  const attachIngredientsToGrocery = (ingredients, groceries, cb) => {
+    attach(ingredients, groceries, attributes[2], cb);
+  };
+
+
 };
 
-const attachIngredientsToGrocery = (ingredients, groceries, cb) => {
-  attach(ingredients, groceries, attributes[2], cb);
-};
 
 //
 module.exports.init   = init;
-module.exports.attach = attach;

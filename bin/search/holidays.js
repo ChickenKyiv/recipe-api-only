@@ -16,6 +16,15 @@ const init = ( server, raven, cb ) => {
 
   // add data to db
   create(cb);
+  let args = {
+    model     : Department,
+    table_name: table_name,
+    database  : database,
+    data      : false
+  }
+
+  // add data to db
+  helper.create(args);
 }
 
 const get = () => {
@@ -171,14 +180,9 @@ const create = (cb) => {
 
 
 function attach(holidays, recipes, cb){
-     var arrayWithIds = idsOnly(holidays);
-     recipes.forEach(function(recipe){
-          recipe.updateAttribute(attribute, arrayWithIds);
 
-     });
 };
 
 
 //
 module.exports.init   = init;
-module.exports.attach = attach;
