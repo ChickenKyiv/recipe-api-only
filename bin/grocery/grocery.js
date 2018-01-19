@@ -71,17 +71,17 @@ const get = () => {
 
 
 
-//@TODO use this version, it's very many huge fresh
-function attach(array_ids, collection, attribute, cb){
-     var arrayWithIds = idsOnly(array_ids);
-
-     // if attribute is string then use it. if attribute is array with count 1 - use it
-     // if attribute have more elements - we need to pick stuff.
-     collection.forEach(function(item){
-          item.updateAttribute(attribute, arrayWithIds);
-
-     });
-};
+// //@TODO use this version, it's very many huge fresh
+// function attach(array_ids, collection, attribute, cb){
+//      var arrayWithIds = idsOnly(array_ids);
+//
+//      // if attribute is string then use it. if attribute is array with count 1 - use it
+//      // if attribute have more elements - we need to pick stuff.
+//      collection.forEach(function(item){
+//           item.updateAttribute(attribute, arrayWithIds);
+//
+//      });
+// };
 
 //@TODO replace stuff like cb to a simple console or debug log that relation was successfully created
 const attachDepartmentsToGrocery = (departments, groceries, cb) => {

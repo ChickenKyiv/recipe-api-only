@@ -2,7 +2,8 @@
 
 module.exports = function(Department) {
 	Department.validatesPresenceOf(
-    'name', 'items'
+    'name'
+		//, 'items'
   );
 
 	Department.observe('update', function(ctx, next){
@@ -15,7 +16,7 @@ module.exports = function(Department) {
     if( ctx.isNewInstance ){
       ctx.instance.created_at = new Date();
       ctx.instance.updated_at = new Date();
-    } 
+    }
 
 
 
@@ -39,7 +40,7 @@ module.exports = function(Department) {
   			Ingredient.find({
                 where:{
                     id: recipe.ingredients
-                }       
+                }
             })
             .then(function(ingredients){
 
@@ -71,7 +72,7 @@ module.exports = function(Department) {
     //     fields: [
     //       // 'img', 'url',
 
-    //       ]       
+    //       ]
     //   },cb);
 
 
@@ -82,8 +83,8 @@ module.exports = function(Department) {
         cb(null, result.items);
 
       });
-    
-      
+
+
 
 
 

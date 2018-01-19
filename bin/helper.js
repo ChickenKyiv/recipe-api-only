@@ -19,7 +19,7 @@ const idsOnly = (array) => {
 // database is important for creating new
 // model is a model name, that we use fo passing data
 // @TODO and checking is model exist and create a variables from array by easiest way. i saw similar sutff at jQuery libraries.
-const create = (options) => {
+const create = (options, cb) => {
 
   let Model      = options['model'];
   let table_name = options['table_name'];
@@ -33,11 +33,11 @@ const create = (options) => {
       return cb(err);
     }
 
-    // Allergy.create(get(), cb);
+
     if( !data ) {
       Model.create(get(), cb);
     }
-    // check if it works as it must 
+    // check if it works as it must
     Model.create(get(data), cb);
 
   });
@@ -48,7 +48,31 @@ const get = ( path ) => {
 
 }
 
-module exports {
+// @TODO use this version, it's very many huge fresh
+// array_ids - where we get data from
+// collection - where we put our data
+// attribute - key at collection
+const attach = (array_ids, collection, attribute) => {
+     var arrayWithIds = idsOnly(array_ids);
+
+     // if attribute is string then use it. if attribute is array with count 1 - use it
+     // if attribute have more elements - we need to pick stuff.
+     collection.forEach(function(item){
+          item.updateAttribute(attribute, arrayWithIds);
+     });
+};
+
+// function attach(array, recipes, cb){
+//      var arrayWithIds = idsOnly(array);
+//      recipes.forEach(function(recipe){
+//           recipe.updateAttribute(attribute, arrayWithIds);
+//
+//      });
+// };
+
+module.exports = {
   idsOnly : idsOnly,
-  create  : create
-}
+  create  : create,
+  attach  : attach,
+  get     : get
+};

@@ -12,23 +12,23 @@ let server     = require(path.resolve(__dirname, '../../server/server'));
 
 
 let helper     = require(path.resolve(__dirname, '../helper'));
-console.log(helper);
+// console.log(helper);
 // //include middleware
 // @todo make it auto-icludable from folder
 
-let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
+// let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
 
-let Groceries    = require(path.resolve(__dirname, 'grocery'));
+// let Groceries    = require(path.resolve(__dirname, 'grocery'));
 
 let Departments  = require(path.resolve(__dirname, 'departments'));
 
 // let Users        = require(path.resolve(__dirname, 'users'));
 
-let options = {
+let options = [
 	server,
 	helper,
 	Raven
-}
+]
 
 async.parallel({
 

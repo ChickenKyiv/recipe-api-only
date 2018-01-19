@@ -10,22 +10,19 @@ let table_name = 'Department'
 // let relation = 'nutritions';
 
 const init = ( options ) => {
-server, raven, cb
+  
   // console.log('-----');
-  console.log(options[0]);
-//   server,
-// 	helper,
-// 	Raven
-// }
+  // console.log(options[0]);
 
   let server = options[0];
   let helper = options[1];
-  let Raven =  options[2];
+  let Raven  = options[2];
+  let cb     = options[3];
 
   Department  = server.models.Department;
   database    = server.datasources.recipeDS;
 
-  const arguments = {
+  let args = {
     model     : Department,
     table_name: table_name,
     database  : database,
@@ -33,8 +30,8 @@ server, raven, cb
   }
 
   // add data to db
-  // create(cb, raven);
-  helper.create(arguments);
+  helper.create(args);
+
   // let Model      = options['model'];
   // let table_name = options['table_name'];
   // let database   = options['database'];
@@ -161,34 +158,5 @@ const get = () => {
 
 };
 
-// const create = (cb, raven) => {
-//
-//   database.autoupdate(table_name, function(err){
-//     if (err) {
-//       Raven.captureException(err);
-//       return cb(err);
-//     }
-//
-//
-//     Department.create(get(), cb);
-//   });
-//
-// };
-
-
-
-
-// function attach(array, recipes, cb){
-//      var arrayWithIds = idsOnly(array);
-//      recipes.forEach(function(recipe){
-//           recipe.updateAttribute(attribute, arrayWithIds);
-//
-//      });
-// };
-
-
 //
 module.exports.init   = init;
-module.exports.attach = attach;
-
-//module.exports.createDepartments = createDepartments;
