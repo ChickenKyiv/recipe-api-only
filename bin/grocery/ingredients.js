@@ -937,30 +937,22 @@ const get = (departments) => {
 };
 
 
-const create = (cb, departments, raven) => {
 
-  database.autoupdate(table_name, function(err){
-    if (err) {
-      Raven.captureException(err);
-      return cb(err);
-    }
+// const create = (cb, departments, raven) => {
+//
+//   database.autoupdate(table_name, function(err){
+//     if (err) {
+//       Raven.captureException(err);
+//       return cb(err);
+//     }
+//
+//
+//     Ingredient.create(get(departments), cb);
+//   });
+//
+// };
 
 
-    Ingredient.create(get(departments), cb);
-  });
-
-};
-
-
-function idsOnly(array){
-
-     var result = Object.keys(array).map(function(e) {
-          return array[e].id;
-    });
-
-     return result;
-
-};
 
 // function attach(array, recipes, cb){
 //      var arrayWithIds = idsOnly(array);

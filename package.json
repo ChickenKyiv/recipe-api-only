@@ -13,7 +13,8 @@
     "migrate-search": "node bin/search/automigrate.js",
     "import": "node bin/recipes/import.js",
     "grocery": "node bin/grocery/import.js",
-    "search": "node bin/search/import.js"
+    "search": "node bin/search/import.js",
+    "g": "nodemon bin/grocery/import.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

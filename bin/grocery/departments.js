@@ -9,15 +9,36 @@ let table_name = 'Department'
 //let attribute  = 'departmentIds';
 // let relation = 'nutritions';
 
-const init = ( server, raven, cb ) => {
-
+const init = ( options ) => {
+server, raven, cb
   // console.log('-----');
-  // console.log(server);
+  console.log(options[0]);
+//   server,
+// 	helper,
+// 	Raven
+// }
+
+  let server = options[0];
+  let helper = options[1];
+  let Raven =  options[2];
+
   Department  = server.models.Department;
   database    = server.datasources.recipeDS;
 
+  const arguments = {
+    model     : Department,
+    table_name: table_name,
+    database  : database,
+    data      : false
+  }
+
   // add data to db
-  create(cb, raven);
+  // create(cb, raven);
+  helper.create(arguments);
+  // let Model      = options['model'];
+  // let table_name = options['table_name'];
+  // let database   = options['database'];
+  // let data       = options['data'];
 }
 
 const get = () => {
@@ -140,30 +161,22 @@ const get = () => {
 
 };
 
-const create = (cb, raven) => {
+// const create = (cb, raven) => {
+//
+//   database.autoupdate(table_name, function(err){
+//     if (err) {
+//       Raven.captureException(err);
+//       return cb(err);
+//     }
+//
+//
+//     Department.create(get(), cb);
+//   });
+//
+// };
 
-  database.autoupdate(table_name, function(err){
-    if (err) {
-      Raven.captureException(err);
-      return cb(err);
-    }
 
 
-    Department.create(get(), cb);
-  });
-
-};
-
-
-function idsOnly(array){
-
-     var result = Object.keys(array).map(function(e) {
-          return array[e].id;
-    });
-
-     return result;
-
-};
 
 // function attach(array, recipes, cb){
 //      var arrayWithIds = idsOnly(array);

@@ -49,15 +49,6 @@ const create = (cb, raven) => {
 };
 
 
-function idsOnly(array){
-
-     var result = Object.keys(array).map(function(e) {
-          return array[e].id;
-    });
-
-     return result;
-
-};
 
 function attach(array, recipes, cb){
      var arrayWithIds = idsOnly(array);

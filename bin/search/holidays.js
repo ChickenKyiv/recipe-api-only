@@ -166,15 +166,7 @@ const create = (cb) => {
 
 };
 
-function idsOnly(array){
 
-     var result = Object.keys(array).map(function(e) {
-          return array[e].id;
-    });
-
-     return result;
-
-};
 
 
 

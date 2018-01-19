@@ -56,29 +56,20 @@ const get = () => {
 
 };
 
-const create = (cb, raven) => {
+// const create = (cb, raven) => {
+//
+//   database.autoupdate(table_name, function(err){
+//     if (err) {
+//       Raven.captureException(err);
+//       return cb(err);
+//     }
+//
+//     Grocery.create(get(), cb);
+//   });
+//
+// };
 
-  database.autoupdate(table_name, function(err){
-    if (err) {
-      Raven.captureException(err);
-      return cb(err);
-    }
 
-    Grocery.create(get(), cb);
-  });
-
-};
-
-
-function idsOnly(array){
-
-     var result = Object.keys(array).map(function(e) {
-          return array[e].id;
-    });
-
-     return result;
-
-};
 
 //@TODO use this version, it's very many huge fresh
 function attach(array_ids, collection, attribute, cb){

@@ -94,15 +94,6 @@ const relate = (results) => {
 
 };
 
-function idsOnly(array){
-
-     var result = Object.keys(array).map(function(e) {
-          return array[e].id;
-    });
-
-     return result;
-
-};
 
 // this method differintiates from other methods
 //@TODO find some best way in order to do things like this.
