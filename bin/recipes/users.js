@@ -10,10 +10,13 @@ let table_name = 'user'
 
 // let attribute  = '';
 
-const init = ( server, raven, cb ) => {
+const init = ( options ) => {
 
-  // console.log('-----');
-  // console.log(server);
+  let server = options[0];
+  let helper = options[1];
+  let Raven  = options[2];
+  let cb     = options[3];
+  
   User        = server.models.user;
   Role        = server.models.Role;
   RoleMapping = server.models.RoleMapping;

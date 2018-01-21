@@ -16,17 +16,21 @@ var prev_month  = x.getMonth()-1;
 var prev_month2 = x.getMonth()-2;
 var prev_month3 = x.getMonth()-3;
 
-const init = ( server, raven, cb ) => {
 
-  // console.log('-----');
-  // console.log(server);
-  Menu  = server.models.Menu;
+const init = ( options ) => {
+
+  let server = options[0];
+  let helper = options[1];
+  let Raven  = options[2];
+  let cb     = options[3];
+
+  Menu     = server.models.Menu;
   database = server.datasources.recipeDS;
 
   // add data to db
   create(cb, raven);
   let args = {
-    model     : Department,
+    model     : Menu,
     table_name: table_name,
     database  : database,
     data      : false

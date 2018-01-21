@@ -19,15 +19,19 @@ let attribute = [
 
 
 // let relation = 'nutritions';
-const init = ( server, raven, cb ) => {
+const init = ( options ) => {
 
-  // console.log('-----');
-  // console.log(server);
+  let server = options[0];
+  let helper = options[1];
+  let Raven  = options[2];
+  let cb     = options[3];
+  
   Recipe   = server.models.Recipe;
   database = server.datasources.recipeDS;
 
   // add data to db
-  create(cb, raven);
+  // create(cb, raven);
+
   let args = {
     model     : Department,
     table_name: table_name,

@@ -13,7 +13,6 @@ let attributes  = [
   'ingredientIds', // #2
 ];
 
-// let relation = 'nutritions';
 const init = ( options ) => {
 
   // console.log('-----');
@@ -31,6 +30,7 @@ const init = ( options ) => {
   database = server.datasources.recipeDS;
 
   // add data to db
+
   // let groceriest = await create(cb, raven);
   // // or
   // create((err,data) => {

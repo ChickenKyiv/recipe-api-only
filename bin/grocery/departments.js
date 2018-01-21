@@ -7,7 +7,6 @@ let database
 let table_name = 'Department'
 
 //let attribute  = 'departmentIds';
-// let relation = 'nutritions';
 
 const init = ( options ) => {
   // console.log('-----');

@@ -954,51 +954,12 @@ const get = (departments) => {
 
 
 
-// const create = (cb, departments, raven) => {
-//
-//   database.autoupdate(table_name, function(err){
-//     if (err) {
-//       Raven.captureException(err);
-//       return cb(err);
-//     }
-//
-//
-//     Ingredient.create(get(departments), cb);
-//   });
-//
-// };
-
-
 
 // nt used cause GS updated their structure
 // function attachDepartmentsToIngredients(departments, ingredients){
-//
-// 	// var first  = ingredients.slice(0, 2);
-// 	// var second = ingredients.slice(1, 3);
-// 	// // console.log(ingredients.splice(2, 4));
-// 	// // console.log(ingredients.splice(2, 2));
-//   //
-//   //
-// 	// var arrayWithIds = idsOnly(departments);
-//
-// 	// console.log(arrayWithIds[0]);
-// 	// console.log(arrayWithIds[1]);
-// 	// console.log(arrayWithIds[2]);
-//
-// 	// first.forEach(function(ingredient){
+
 // 	// 	ingredient.updateAttribute(relation1, arrayWithIds[0]);
-// 	// });
-//   //
-// 	// second.forEach(function(ingredient){
-// 	// 	ingredient.updateAttribute(relation1, arrayWithIds[1]);
-// 	// });
-//
-//
-//
-// 	// console.log(first);
-// 	// console.log(second);
-//
-// };
+
 
 //@TODO replace with the latst veersion
 //const attachDepartmentsToIngredients = (departments, ingredients, cb) => {

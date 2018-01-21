@@ -26,7 +26,8 @@ let Departments  = require(path.resolve(__dirname, 'departments'));
 
 //
 async.parallel({
-		users       : async.apply(Users.init,       server, Raven),
+		users       : async.apply(Users.init, options),
+		// users       : async.apply(Users.init,       server, Raven),
 		recipes     : async.apply(Recipes.init,     server, Raven),
 
 		menus       : async.apply(Menus.init,       server, Raven),

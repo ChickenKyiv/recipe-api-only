@@ -9,8 +9,12 @@ let attribute  = 'holidays';
 
 
 
-const init = ( server, raven, cb ) => {
-
+const init = ( options ) => {
+  let server = options[0];
+  let helper = options[1];
+  let Raven  = options[2];
+  let cb     = options[3];
+  
   Holiday     = server.models.Holiday;
   database = server.datasources.recipeDS;
 

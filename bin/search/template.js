@@ -7,10 +7,12 @@ let database
 let table_name = 'Allergy'
 let attribute  = 'allergies';
 // let relation = 'nutritions';
-const init = ( server, raven, cb ) => {
-
-  // console.log('-----');
-  // console.log(server);
+const init = ( options ) => {
+  let server = options[0];
+  let helper = options[1];
+  let Raven  = options[2];
+  let cb     = options[3];
+  
   Allergy  = server.models.Allergy;
   database = server.datasources.recipeDS;
 

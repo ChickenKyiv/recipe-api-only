@@ -32,12 +32,11 @@ let options = [
 
 async.parallel({
 
-  // users       : async.apply(Users.init,     server, Raven),
+	departments : async.apply(Departments.init, options),
+	groceries   : async.apply(Groceries.init, options),
+	users       : async.apply(Users.init, options),
 
-departments : async.apply(Departments.init, options),
 
-	//departments : async.apply(Departments.init, server, Raven),
-	//groceries   : async.apply(Groceries.init, server, Raven),
 	// ingredients  : async.apply(Ingredients.init,    server, Raven),
 
 
@@ -50,17 +49,17 @@ departments : async.apply(Departments.init, options),
 
 
     //
-    // if( !results || !results.departments || !results.groceries
-		// 		//|| !results.ingredients
-    //     || !results.users) {
-		// 			Raven.captureException("not imported well");
-		// }
+    if( !results || !results.departments || !results.groceries
+				//|| !results.ingredients
+        || !results.users) {
+					Raven.captureException("not imported well");
+		}
     //
-    // let ingredients = Ingredients.init(results.departments, server, Raven);
-    // console.log(ingredients);
+    let ingredients = Ingredients.init(results.departments, options);
+    console.log(ingredients);
 
 
-  // console.log(results.ingredients);
+   // console.log(results.ingredients);
 		// console.log(results.departments);
 		// console.log(results.groceries);
 
