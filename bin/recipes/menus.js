@@ -28,7 +28,6 @@ const init = ( options ) => {
   database = server.datasources.recipeDS;
 
   // add data to db
-  create(cb, raven);
   let args = {
     model     : Menu,
     table_name: table_name,
@@ -40,7 +39,7 @@ const init = ( options ) => {
   helper.create(args);
 
   // stuff related to menus only
-
+  // attachRecipesToMenu(recipes, menu);
 }
 
 const get = () => {
@@ -96,49 +95,9 @@ const get = () => {
 
 };
 
-const create = (cb, raven) => {
-
-  database.autoupdate(table_name, function(err){
-    if (err) {
-      Raven.captureException(err);
-      return cb(err);
-    }
-
-
-    Menu.create(get(), cb);
-  });
-
-};
-
-
-
-//
-// function attachMenusToUsers(users, menus){
-//
-// 	users.forEach(function(user){
-// 		user.updateAttribute('userId', menus);
-//
-// 	});
-//
-// };
-//
-// function attachRecipesToMenu(recipes, menus){
-// 	var arrayWithIds = idsOnly(recipes);
-// 	menus.forEach(function(menu){
-// 		menu.updateAttribute('recipes', arrayWithIds);
-//
-// 	});
-//
-// };
-
-function attach(array, menus, cb){
-     // var arrayWithIds = idsOnly(array);
-     // menus.forEach(function(menu){
-     //      recipe.updateAttribute(attribute, arrayWithIds);
-     //
-     // });
-};
-
+const attachRecipesToMenu = (recipes, menu) => {
+  helper.attach(recipes, menu, attribute);
+}
 
 //
 module.exports.init   = init;

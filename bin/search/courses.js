@@ -14,14 +14,14 @@ const init = ( options ) => {
   let helper = options[1];
   let Raven  = options[2];
   let cb     = options[3];
-  
+
   Course  = server.models.Course;
   database = server.datasources.recipeDS;
 
   // add data to db
-  create(cb);
+  // create(cb);
   let args = {
-    model     : Department,
+    model     : Course,
     table_name: table_name,
     database  : database,
     data      : false
@@ -145,18 +145,7 @@ const get = () => {
 
 };
 
-const create = (cb) => {
-     database.autoupdate(table_name, function(err){
-          if (err) return cb(err);
 
-          Course.create(get(), cb);
-     });
-};
-
-
-function attach(courses, recipes, cb){
-
-};
 
 
 //

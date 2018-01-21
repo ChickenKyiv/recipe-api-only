@@ -23,9 +23,6 @@ const init = ( options ) => {
   Ingredient  = server.models.Ingredient;
   database = server.datasources.recipeDS;
 
-  // add data to db
-  //custom version - cause we pass additional element
-  // create(cb, departments, raven);
   let args = {
     model     : Ingredient,
     table_name: table_name,

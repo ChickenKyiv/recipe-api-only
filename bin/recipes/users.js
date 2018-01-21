@@ -8,7 +8,7 @@ let RoleMapping
 let database
 let table_name = 'user'
 
-// let attribute  = '';
+let attribute  = 'userId';
 
 const init = ( options ) => {
 
@@ -16,16 +16,16 @@ const init = ( options ) => {
   let helper = options[1];
   let Raven  = options[2];
   let cb     = options[3];
-  
+
   User        = server.models.user;
   Role        = server.models.Role;
   RoleMapping = server.models.RoleMapping;
   database    = server.datasources.recipeDS;
 
   // add data to db
-  create(cb, raven);
+  // create(cb, raven);
   let args = {
-    model     : Department,
+    model     : User,
     table_name: table_name,
     database  : database,
     data      : false
@@ -65,19 +65,6 @@ const get = () => {
 
 };
 
-// const create = (cb, raven) => {
-//
-//   database.autoupdate(table_name, function(err){
-//     if (err) {
-//       Raven.captureException(err);
-//       return cb(err);
-//     }
-//
-//     User.create(get(), cb);
-//   });
-//
-// };
-
 
 
 // function attach(array, recipes, cb){
@@ -115,7 +102,11 @@ const attachRecipesToUsers = () => {
   // 		recipe.updateAttribute('userId', users[2].id);
 
   // 	});
-}
+};
+
+const attachMenusToUsers = (users, menus) => {
+  helper.attach(users, menus, attribute)
+};
 
 //
 module.exports.init   = init;

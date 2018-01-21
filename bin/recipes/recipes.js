@@ -6,7 +6,6 @@ let Recipe
 let database
 let table_name = 'Recipe'
 
-// let attribute  = 'userId';
 // @TODO not clear, how we can know which attribute to use?
 let attribute = [
   'nutritions', // #0
@@ -14,26 +13,22 @@ let attribute = [
   'diets',      // #2
   'holidays',   // #3
   'courses'     // #4
-
+  'allergies'   // #5
 ];
 
 
-// let relation = 'nutritions';
 const init = ( options ) => {
 
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
   let cb     = options[3];
-  
+
   Recipe   = server.models.Recipe;
   database = server.datasources.recipeDS;
 
-  // add data to db
-  // create(cb, raven);
-
   let args = {
-    model     : Department,
+    model     : Recipe,
     table_name: table_name,
     database  : database,
     data      : false
@@ -48,35 +43,29 @@ const init = ( options ) => {
 const get = () => {
 
     var data     = [
-          {
-
-               "name":"Gluten-Free",
-
-               "type":"allergy",
-
-          }
+          // {
+          //
+          //      "name":"Gluten-Free",
+          //
+          //      "type":"allergy",
+          //
+          // }
      ];
 
   	return data;
 
 };
 
-const create = (cb, raven) => {
 
-  database.autoupdate(table_name, function(err){
-    if (err) {
-      Raven.captureException(err);
-      return cb(err);
-    }
-
-
-    Recipe.create(get(), cb);
-  });
-
-};
 
 
 const relate = (results) => {
+
+  if( !results || !results.allergies || !results.recipes
+      || !results.courses || !results.cuisines
+      || !results.diets || !results.holidays || !results.nutritions) {
+        Raven.captureException("not imported well");
+  }
 
   attachAllergiesToRecipes
   attachCoursesToRecipes
@@ -104,15 +93,12 @@ const relate = (results) => {
   attachHolidaysToRecipes(results.holidays, results.recipes, function(err){
     console.log('>models create sucessfully');
   });
+  attachNutritionsToRecipes(results.nutritions, results.recipes, function(err){
+    console.log('>models create sucessfully');
+  });
 
 };
 
-
-// this method differintiates from other methods
-//@TODO find some best way in order to do things like this.
-function attach(array, recipes, attribute, cb){
-
-};
 
 // we'll must have a cb for sure
 const attachNutritionsToRecipes = (nutritions, recipes, cb) => {
@@ -120,32 +106,31 @@ const attachNutritionsToRecipes = (nutritions, recipes, cb) => {
 	var second = recipes[1];
 
   // will not work
-  attach(nutritions[0], first, attribute[0], cb);
-  attach(nutritions[1], second, attribute[0],cb);
+  attach(nutritions[0], first, attribute[0]);
+  attach(nutritions[1], second, attribute[0]);
 
 };
 
 //@TODO create a method with foreach for each attribute in order to attach data to recipe
 const attachAllergiesToRecipes = (allergies, recipes, cb) => {
-  attach(allergies, recipes, attribute[1], cb)
+  attach(allergies, recipes, attribute[1])
 };
 
 const attachCuisinesToRecipes = (cuisines, recipes, cb) => {
-  attach(cuisines, recipes, attribute[1], cb)
+  attach(cuisines, recipes, attribute[1])
 };
 
 const attachDietsToRecipes = (diets, recipes, cb) => {
-  attach(diets, recipes, attribute[2], cb
+  attach(diets, recipes, attribute[2])
 };
 
 const attachHolidaysToRecipes = (holidays, recipes, cb) => {
-  attach(holidays, recipes, attribute[3], cb)
+  attach(holidays, recipes, attribute[3])
 };
 
 const attachCoursesToRecipes = (courses, recipes, cb) => {
-	attach(courses, recipes, attribute[4], cb)
+	attach(courses, recipes, attribute[4])
 };
-
 
 //
 module.exports.init   = init;

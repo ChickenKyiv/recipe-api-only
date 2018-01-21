@@ -17,9 +17,9 @@ const init = ( options ) => {
   database = server.datasources.recipeDS;
 
   // add data to db
-  create(cb);
+  // create(cb);
   let args = {
-    model     : Department,
+    model     : Diet,
     table_name: table_name,
     database  : database,
     data      : false
@@ -92,21 +92,6 @@ const get = () => {
 
 };
 
-
-const create = (cb) => {
-     database.autoupdate(table_name, function(err){
-          if (err) return cb(err);
-
-          Diet.create(get(), cb);
-     });
-};
-
-
-
-
-function attach(diets, recipes, cb){
-
-};
 
 
 //
