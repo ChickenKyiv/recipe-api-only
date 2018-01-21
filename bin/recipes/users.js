@@ -38,7 +38,8 @@ const init = ( options ) => {
 
   assignAdmin(admin_id);
   // assignAdmin(admin_id, Role, RoleMapping);
-
+  // attachMenusToUsers
+  // attachRecipesToUsers
 }
 
 const get = () => {

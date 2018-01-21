@@ -60,6 +60,9 @@ const attach = (array_ids, collection, attribute) => {
      collection.forEach(function(item){
           item.updateAttribute(attribute, arrayWithIds);
      });
+
+     console.log(collection);
+     console.log(attribute);
 };
 
 

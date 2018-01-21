@@ -23,14 +23,18 @@ let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
 let Groceries    = require(path.resolve(__dirname, 'grocery'));
 let Departments  = require(path.resolve(__dirname, 'departments'));
 
-
+let options = [
+	server,
+	helper,
+	Raven
+]
 //
 async.parallel({
 		users       : async.apply(Users.init, options),
-		// users       : async.apply(Users.init,       server, Raven),
-		recipes     : async.apply(Recipes.init,     server, Raven),
 
-		menus       : async.apply(Menus.init,       server, Raven),
+		recipes     : async.apply(Recipes.init, options),
+
+		menus       : async.apply(Menus.init, options),
     // ingredients : async.apply(Ingredients.init, server, Raven),
     // groceries   : async.apply(Groceries.init,   server, Raven),
     // departments : async.apply(Departments.init, server, Raven)
@@ -79,9 +83,12 @@ async.parallel({
 
 
 
-
+		// process.on('exit', function(code) {
+    // 	return console.log(`About to exit with code ${code}`);
+		// });
+		// process.exit(22);
 
 	}
 
 );
-process.exit(-1);
+// process.exit(-1);

@@ -6,8 +6,6 @@ let table_name = 'Nutritions'
 let attribute  = 'nutritions';
 // let relation   = 'nutritions';
 
-
-
 const init = ( options ) => {
   let server = options[0];
   let helper = options[1];
@@ -17,8 +15,6 @@ const init = ( options ) => {
   Nutritions  = server.models.Nutritions;
   database    = server.datasources.recipeDS;
 
-  // add data to db
-  // create(cb);
   let args = {
     model     : Nutritions,
     table_name: table_name,
@@ -97,11 +93,6 @@ const get = () => {
 
 
 };
-
-
-
-
-
 
 //
 module.exports.init   = init;

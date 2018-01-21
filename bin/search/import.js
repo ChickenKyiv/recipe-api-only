@@ -19,14 +19,19 @@ let Diet       = require(path.resolve(__dirname, 'diets'));
 let Holiday    = require(path.resolve(__dirname, 'holidays'));
 let Nutritions = require(path.resolve(__dirname, 'nutritions'));
 
-//
+let options = [
+	server,
+	helper,
+	Raven
+]
+
 async.parallel({
-		allergies  : async.apply(Allergy.init,    server, Raven),
-		courses    : async.apply(Course.init,     server, Raven),
-		cuisines   : async.apply(Cuisine.init,    server, Raven),
-    diets      : async.apply(Diet.init,       server, Raven),
-    holidays   : async.apply(Holiday.init,    server, Raven),
-    nutritions : async.apply(Nutritions.init, server, Raven)
+		allergies  : async.apply(Allergy.init,    options),
+		courses    : async.apply(Course.init,     options),
+		cuisines   : async.apply(Cuisine.init,    options),
+    diets      : async.apply(Diet.init,       options),
+    holidays   : async.apply(Holiday.init,    options),
+    nutritions : async.apply(Nutritions.init, options),
 
 
 	}, function(err, results){
@@ -71,7 +76,7 @@ async.parallel({
 
 
 
-    // 
+    //
 		// process.on('exit', function(code) {
     // 	return console.log(`About to exit with code ${code}`);
 		// });

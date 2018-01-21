@@ -32,8 +32,6 @@ const init = ( options ) => {
 // var Course   =  server.models.Diet;
 // var relation = 'nutritions';
 
-
-
 const get = () => {
 
 
@@ -91,8 +89,6 @@ const get = () => {
      return diet;
 
 };
-
-
 
 //
 module.exports.init   = init;
