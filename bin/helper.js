@@ -1,4 +1,5 @@
 const Raven   = require('raven');
+const debug   = require('debug');
 // @TODO move id to config file. or we use it in a lot of places.
 Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
@@ -42,6 +43,8 @@ const create = (options, cb) => {
 
   });
 
+  debug('model created!'); // @TODO
+
 };
 
 const get = ( path ) => {
@@ -63,6 +66,7 @@ const attach = (array_ids, collection, attribute) => {
 
      console.log(collection);
      console.log(attribute);
+     debug('attach attached!'); // @TODO
 };
 
 

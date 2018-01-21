@@ -1,24 +1,3 @@
-'groceryIds'
-// @TODO think about it. GS using more advanced method of saving grocery to user array.
-// but in order to simplify stuff - we'll remove connection between import and methods from inner models.
-
-
-//@TODO replace stuff like cb to a simple console or debug log that relation was successfully created
-const attachGroceryToUser = (departments, groceries, cb) => {
-  attach(departments, groceries, attributes[0], cb);
-};
-
-
-function attachGroceryToAdmin(admin, grocery){
-	// console.log(grocery);
-    var options = {
-      userId: admin.id,
-      secondArray: [ grocery.id ]
-    };
-    User.addGrocery(options);
-
-};
-
 'use strict';
 
 const debug   = require('debug');
@@ -29,21 +8,25 @@ let RoleMapping
 let database
 let table_name = 'user'
 
-// let attribute  = '';
+let attributes  = [
+    'groceryIds'
+];
 
-const init = ( server, raven, cb ) => {
+const init = ( options ) => {
 
-  // console.log('-----');
-  // console.log(server);
+  let server = options[0];
+  let helper = options[1];
+  let Raven  = options[2];
+  let cb     = options[3];
+
   User        = server.models.user;
   Role        = server.models.Role;
   RoleMapping = server.models.RoleMapping;
   database    = server.datasources.recipeDS;
 
-  // add data to db
-  create(cb, raven);
+
   let args = {
-    model     : Department,
+    model     : User,
     table_name: table_name,
     database  : database,
     data      : false
@@ -55,7 +38,8 @@ const init = ( server, raven, cb ) => {
 
   //сustom stuff, related to users model only
 
-  assignAdmin(admin_id);
+  // assignAdmin(admin_id);
+  // helper.attach()
   // assignAdmin(admin_id, Role, RoleMapping);
 
 }
@@ -84,21 +68,6 @@ const get = () => {
 
 };
 
-// const create = (cb, raven) => {
-//
-//   database.autoupdate(table_name, function(err){
-//     if (err) {
-//       Raven.captureException(err);
-//       return cb(err);
-//     }
-//
-//     User.create(get(), cb);
-//   });
-//
-// };
-
-
-
 
 function assignAdmin(admin_id){
 
@@ -115,18 +84,27 @@ function assignAdmin(admin_id){
                 console.log('Principal', principal);
               });
 
-		})
-		.catch( (err) => throw err );
+		}).catch(function(err){ throw err; });
 	});
+  debug('admin was created');
 };
 
-groceryIds
+// @TODO think about it. GS using more advanced method of saving grocery to user array.
+// but in order to simplify stuff - we'll remove connection between import and methods from inner models.
+
+//@TODO replace stuff like cb to a simple console or debug log that relation was successfully created
+const attachGroceryToUser = (departments, groceries) => {
+  helper.attach(departments, groceries, attributes[0]);
+};
+
+// groceryIds
 const attachGroceryToAdmin = () => {
-  var options = {
-    userId: admin.id,
-    secondArray: [ grocery.id ]
-  };
-  User.addGrocery(options);
+  // helper.attach()
+  // var options = {
+  //   userId: admin.id,
+  //   secondArray: [ grocery.id ]
+  // };
+  // User.addGrocery(options);
 };
 
 //

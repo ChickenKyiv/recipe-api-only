@@ -11,8 +11,8 @@
       "type": "string",
       "required": true
     },
-    "desc": {
-      "type": "string",
+    "items": {
+      "type": "object",
       "required": false
     },
     "created_at": {
@@ -25,13 +25,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "ingredients": {
-      "type": "hasMany",
-      "model": "Ingredient",
-      "foreignKey": "departmentId"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

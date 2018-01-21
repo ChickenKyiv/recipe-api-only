@@ -15,13 +15,13 @@ let helper     = require(path.resolve(__dirname, '../helper'));
 // //include middleware
 // @todo make it auto-icludable from folder
 
-// let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
+let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
 
-// let Groceries    = require(path.resolve(__dirname, 'grocery'));
+let Groceries    = require(path.resolve(__dirname, 'grocery'));
 
 let Departments  = require(path.resolve(__dirname, 'departments'));
 
-// let Users        = require(path.resolve(__dirname, 'users'));
+let Users        = require(path.resolve(__dirname, 'users'));
 
 let options = [
 	server,

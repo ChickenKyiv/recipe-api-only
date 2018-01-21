@@ -22,8 +22,7 @@ const init = ( options ) => {
   RoleMapping = server.models.RoleMapping;
   database    = server.datasources.recipeDS;
 
-  // add data to db
-  // create(cb, raven);
+
   let args = {
     model     : User,
     table_name: table_name,
@@ -36,7 +35,7 @@ const init = ( options ) => {
 
   //сustom stuff, related to users model only
 
-  assignAdmin(admin_id);
+  // assignAdmin(admin_id);
   // assignAdmin(admin_id, Role, RoleMapping);
   // attachMenusToUsers
   // attachRecipesToUsers
@@ -67,16 +66,6 @@ const get = () => {
 };
 
 
-
-// function attach(array, recipes, cb){
-//      var arrayWithIds = idsOnly(array);
-//      recipes.forEach(function(recipe){
-//           recipe.updateAttribute(attribute, arrayWithIds);
-//
-//      });
-// };
-
-
 function assignAdmin(admin_id){
 
 	database.automigrate('Role', function(err){
@@ -92,9 +81,9 @@ function assignAdmin(admin_id){
                 console.log('Principal', principal);
               });
 
-		})
-		.catch( (err) => throw err );
+		}).catch(function(err){ throw err; });
 	});
+  debug('admin was created');
 };
 
 

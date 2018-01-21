@@ -9,7 +9,7 @@
   "properties": {
     "username": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "name": {
       "type": "string",
@@ -37,14 +37,23 @@
 
     "menuList": {
       "type": "referencesMany",
-      "model": "MenuModel",
+      "model": "Menu",
       "foreignKey": "menus",
       "options": {
         "validate": true,
         "forceId": false
       }
+    },
+    "groceries": {
+      "type": "referencesMany",
+      "model": "Grocery",
+      "foreignKey": "groceryIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
     }
-    
+
   },
   "acls": [
     {
