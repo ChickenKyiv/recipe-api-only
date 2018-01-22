@@ -39,15 +39,15 @@ const create = (options, cb) => {
     }
 
 
-    if( !data ) {
+    // if( !data ) {
       Model.create(options['rows'], cb);
       // Model.create(get(), cb);
       // console.log('213')
-    } else {
-      Model.create(options['rows'], cb);
+    // } else {
+      // Model.create(options['rows'], cb);
       // Model.create(get(data), cb);
       // console.log('223');
-    }
+    // }
     // check if it works as it must
 
 

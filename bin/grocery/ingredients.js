@@ -12,27 +12,28 @@ let table_name = 'Ingredient'
 const init = ( options, cb ) => {
 
   // console.log('-----');
-  console.log(server.models);
+
 
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
   // let cb     = options[3];
   let departments   = options[3]; // or use data key
-
-  Ingredient  = server.models.Ingredient;
-  database    = server.datasources.recipeDS;
-
-  let args = {
-    model     : Ingredient,
-    table_name: table_name,
-    database  : database,
-    data      : departments,
-    rows      : get(),
-  }
-
-  // add data to db
-  helper.create(args, cb);
+  console.log(options);
+// console.log(server.models);
+  // Ingredient  = server.models.Ingredient;
+  // database    = server.datasources.recipeDS;
+  //
+  // let args = {
+  //   model     : Ingredient,
+  //   table_name: table_name,
+  //   database  : database,
+  //   // data      : departments,
+  //   rows      : get(departments),
+  // }
+  //
+  // // add data to db
+  // helper.create(args, cb);
 }
 
 const get = (departments) => {

@@ -53,15 +53,17 @@ async.parallel({
 		// 			Raven.captureException("not imported well");
 		// }
     // //
-		let ingredients = Ingredients.init( results.departments, options );
+		console.log(options); options.push(results.departments);
+		console.log(options);
+		// let ingredients = Ingredients.init( options );
     // let ingredients = Ingredients.init( results.departments, options.push(results.departments) );
     // console.log(ingredients);
 
 
    // console.log(results.ingredients);
 	 // console.log(results);
-		console.log(results.departments);
-		console.log(results.groceries);
+		// console.log(results.departments);
+		// console.log(results.groceries);
 
 		// Users.assignAdmin(results.users[2]);
 		// Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
