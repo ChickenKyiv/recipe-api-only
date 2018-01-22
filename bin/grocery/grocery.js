@@ -52,8 +52,7 @@ const init = ( options, cb ) => {
     model     : Grocery,
     table_name: table_name,
     database  : database,
-    rows      : get(),
-    data      : false
+    rows      : get()
   }
 
   // add data to db

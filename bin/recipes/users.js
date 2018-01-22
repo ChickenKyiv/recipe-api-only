@@ -1,21 +1,24 @@
 'use strict';
 
 const debug   = require('debug');
-// model
+
 let User
 let Role
 let RoleMapping
 let database
 let table_name = 'user'
 
-let attribute  = 'userId';
+let attributes  = [
+    'userId'
+];
+// let attribute  = '';
 
 const init = ( options, cb ) => {
 
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  // let cb     = options[3];
+
 
   User        = server.models.user;
   Role        = server.models.Role;
@@ -27,11 +30,11 @@ const init = ( options, cb ) => {
     model     : User,
     table_name: table_name,
     database  : database,
-    data      : false
+    rows      : get()
   }
 
   // add data to db
-  helper.create(args);
+  helper.create(args, cb);
 
   //сustom stuff, related to users model only
 
@@ -95,7 +98,7 @@ const attachRecipesToUsers = () => {
 };
 
 const attachMenusToUsers = (users, menus) => {
-  helper.attach(users, menus, attribute)
+  helper.attach(users, menus, attributes[0])
 };
 
 //

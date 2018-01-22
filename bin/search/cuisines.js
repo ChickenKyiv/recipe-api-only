@@ -23,7 +23,7 @@ const init = ( options, cb ) => {
     model     : Cuisine,
     table_name: table_name,
     database  : database,
-    data      : false
+    rows      : get()
   }
 
   // add data to db

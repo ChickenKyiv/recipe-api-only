@@ -24,7 +24,7 @@ const init = ( options, cb ) => {
     table_name: table_name,
     database  : database,
     rows      : get(),
-    data      : false
+
   }
 
   // add data to db

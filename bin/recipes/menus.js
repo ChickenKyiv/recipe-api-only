@@ -32,11 +32,11 @@ const init = ( options, cb ) => {
     model     : Menu,
     table_name: table_name,
     database  : database,
-    data      : false
+    rows      : get()
   }
 
   // add data to db
-  helper.create(args);
+  helper.create(args, cb);
 
   // stuff related to menus only
   // attachRecipesToMenu(recipes, menu);
@@ -101,3 +101,4 @@ const attachRecipesToMenu = (recipes, menu) => {
 
 //
 module.exports.init   = init;
+module.exports.attachRecipesToMenu   = attachRecipesToMenu;

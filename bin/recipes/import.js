@@ -15,13 +15,15 @@ let server     = require(path.resolve(__dirname, '../../server/server'));
 // @todo make it auto-icludable from folder
 let Users        = require(path.resolve(__dirname, 'users'));
 let Recipes      = require(path.resolve(__dirname, 'recipes'));
+
 // recipes for search
 //let getRecipes2     = require(path.resolve(__dirname, 'sample-recipes-search-data'));
 let Menus        = require(path.resolve(__dirname, 'menus'));
-let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
+
+// let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
 // let getIngredients  = require(path.resolve(__dirname, 'sample-ingredients-data'));
-let Groceries    = require(path.resolve(__dirname, 'grocery'));
-let Departments  = require(path.resolve(__dirname, 'departments'));
+// let Groceries    = require(path.resolve(__dirname, 'grocery'));
+// let Departments  = require(path.resolve(__dirname, 'departments'));
 
 let options = [
 	server,
@@ -63,7 +65,8 @@ async.parallel({
 
 
 		// Users.assignAdmin(results.users[2].id);
-
+		
+		attachRecipesToMenu
 
 		// Users.assignAdmin(results.users[2]);
 		// Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);

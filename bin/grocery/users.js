@@ -1,7 +1,7 @@
 'use strict';
 
 const debug   = require('debug');
-// model
+
 let User
 let Role
 let RoleMapping
@@ -29,8 +29,8 @@ const init = ( options, cb ) => {
     model     : User,
     table_name: table_name,
     database  : database,
-    rows      : get(),
-    data      : false
+    rows      : get()
+
   }
 
   // add data to db
@@ -90,6 +90,8 @@ function assignAdmin(admin_id){
   debug('admin was created');
 };
 
+
+
 // @TODO think about it. GS using more advanced method of saving grocery to user array.
 // but in order to simplify stuff - we'll remove connection between import and methods from inner models.
 
@@ -110,3 +112,4 @@ const attachGroceryToAdmin = () => {
 
 //
 module.exports.init   = init;
+module.exports.assignAdmin = assignAdmin;

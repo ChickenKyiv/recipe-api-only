@@ -33,7 +33,7 @@ async.parallel({
 
 	departments : async.apply(Departments.init, options),
 	groceries   : async.apply(Groceries.init, options),
-	// users       : async.apply(Users.init, options),
+	users       : async.apply(Users.init, options),
 
 
 	// ingredients  : async.apply(Ingredients.init,    server, Raven),
@@ -46,16 +46,23 @@ async.parallel({
 		}
 
 
-    //
-    // if( !results || !results.departments || !results.groceries
-		// 		//|| !results.ingredients
-    //     || !results.users) {
-		// 			Raven.captureException("not imported well");
-		// }
-    // //
-		console.log(options); options.push(results.departments);
-		console.log(options);
-		// let ingredients = Ingredients.init( options );
+
+    if( !results || !results.departments || !results.groceries || !results.users) {
+					Raven.captureException("not imported well");
+		}
+		// cause we need data related to departments (ids only)
+		options.push(results.departments);
+
+		// user stuff
+		Users.assignAdmin(results.users[2]);
+		Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
+
+
+
+		Ingredients.init( options, function(err, data){
+			// console.log('loggggggggg');
+			// console.log(data);
+		});
     // let ingredients = Ingredients.init( results.departments, options.push(results.departments) );
     // console.log(ingredients);
 
@@ -81,10 +88,10 @@ async.parallel({
 
 
 
-		// process.on('exit', function(code) {
-    // 	return console.log(`About to exit with code ${code}`);
-		// });
-		// process.exit(22);
+		process.on('exit', function(code) {
+    	return console.log(`About to exit with code ${code}`);
+		});
+		process.exit(22);
 
 
 

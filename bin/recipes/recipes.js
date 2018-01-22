@@ -31,7 +31,7 @@ const init = ( options, cb ) => {
     model     : Recipe,
     table_name: table_name,
     database  : database,
-    data      : false
+    rows      : get()
   }
 
   // add data to db
@@ -43,13 +43,38 @@ const init = ( options, cb ) => {
 const get = () => {
 
     var data     = [
-          // {
-          //
-          //      "name":"Gluten-Free",
-          //
-          //      "type":"allergy",
-          //
-          // }
+      {
+
+        title: "Crock Pot Roast12",
+        directions: [
+         "Place beef roast in crock pot.",
+          "Mix the dried mixes together in a bowl and sprinkle over the roast.",
+          "Pour the water around the roast.",
+          "Cook on low for 7-9 hours."
+        ],
+        prep_time    :"30min",
+        total_time   :"3h",
+        recipe_yield :"8",
+        img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
+        "url": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
+
+      },
+      {
+
+        title: "Crock Pot Roast1",
+        img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
+        url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
+        directions: [
+          "Place beef roast in crock pot.",
+          "Mix the dried mixes together in a bowl and sprinkle over the roast.",
+          "Pour the water around the roast.",
+          "Cook on low for 7-9 hours."
+        ],
+        prep_time    :"PT30M",
+        total_time   :"PT3H",
+        recipe_yield :"8",
+
+      }
      ];
 
   	return data;
@@ -63,7 +88,8 @@ const relate = (results) => {
 
   if( !results || !results.allergies || !results.recipes
       || !results.courses || !results.cuisines
-      || !results.diets || !results.holidays || !results.nutritions) {
+      || !results.diets || !results.holidays
+      || !results.nutritions) {
         Raven.captureException("cannot attach additional data to recipes");
   }
 
