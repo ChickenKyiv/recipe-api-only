@@ -1,6 +1,5 @@
 'use strict';
 
-
 const path    = require('path');
 const async   = require('async');
 const debug   = require('debug');
@@ -9,10 +8,8 @@ const Raven   = require('raven');
 Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
 let server     = require(path.resolve(__dirname, '../../server/server'));
-
-
 let helper     = require(path.resolve(__dirname, '../helper'));
-//
+
 // include middleware
 // @todo make it auto-icludable from folder
 let Users        = require(path.resolve(__dirname, 'users'));
@@ -22,12 +19,9 @@ let Recipes      = require(path.resolve(__dirname, 'recipes'));
 //let getRecipes2     = require(path.resolve(__dirname, 'sample-recipes-search-data'));
 
 
-// let Menus        = require(path.resolve(__dirname, 'menus'));
+let Menus        = require(path.resolve(__dirname, 'menus'));
 
-// let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
-// let getIngredients  = require(path.resolve(__dirname, 'sample-ingredients-data'));
-// let Groceries    = require(path.resolve(__dirname, 'grocery'));
-// let Departments  = require(path.resolve(__dirname, 'departments'));
+
 
 let options = [
 	server,
@@ -40,7 +34,7 @@ async.parallel({
 
 		recipes     : async.apply(Recipes.init, options),
 
-		// menus       : async.apply(Menus.init, options),
+		menus       : async.apply(Menus.init, options),
     // ingredients : async.apply(Ingredients.init, server, Raven),
     // groceries   : async.apply(Groceries.init,   server, Raven),
     // departments : async.apply(Departments.init, server, Raven)

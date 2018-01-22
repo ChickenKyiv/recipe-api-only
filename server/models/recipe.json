@@ -42,8 +42,60 @@
   },
   "validations": [],
   "relations": {
-
-
+    "allergiesList": {
+      "type": "referencesMany",
+      "model": "Allergy",
+      "foreignKey": "allergies",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "coursesList": {
+      "type": "referencesMany",
+      "model": "Course",
+      "foreignKey": "courses",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "cuisinesList": {
+      "type": "referencesMany",
+      "model": "Cuisine",
+      "foreignKey": "cuisines",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "dietsList": {
+      "type": "referencesMany",
+      "model": "Diet",
+      "foreignKey": "diets",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "holidaysList": {
+      "type": "referencesMany",
+      "model": "Holiday",
+      "foreignKey": "holidays",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "nutritionsList": {
+      "type": "referencesMany",
+      "model": "Nutritions",
+      "foreignKey": "nutritions",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
   },
   "acls": [
     {

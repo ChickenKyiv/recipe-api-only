@@ -53,9 +53,9 @@ const create = (options, cb) => {
 // collection - where we put our data
 // attribute - key at collection
 const attach = (array_ids, collection, attribute) => {
-    console.log(array_ids);
+    // console.log(array_ids);
      var arrayWithIds = idsOnly(array_ids);
-     console.log(arrayWithIds);
+     // console.log(arrayWithIds);
      // if attribute is string then use it. if attribute is array with count 1 - use it
      // if attribute have more elements - we need to pick stuff.
      collection.forEach(function(item){

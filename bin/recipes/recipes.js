@@ -2,7 +2,6 @@
 
 const debug = require('debug');
 const async = require('async');
-const _     = require('underscore');
 
 let Recipe
 let database
@@ -25,7 +24,6 @@ const init = ( options, cb ) => {
   let server = options[0];
   let helper = options[1];
   Raven  = options[2]; //@TODO apply this changes to all import model files
-  // let cb     = options[3];
 
   Recipe   = server.models.Recipe;
   database = server.datasources.recipeDS;
@@ -40,7 +38,6 @@ const init = ( options, cb ) => {
   // add data to db
   helper.create(args);
 
-  //custom stuff, related to recipes only
 }
 
 const get = () => {
@@ -94,14 +91,14 @@ const relate = async (options, results) => {
   let server = options[0];
   let helper = options[1];
   Raven  = options[2]; //@TODO apply this changes to all import model files
-  
-  let recipeIds
+
+
   let recipes
   try {
 
     let Recipe = server.models.Recipe;
-    recipeIds  = await Recipe.find({});
-    recipes    = _.map( _.pluck(recipeIds, 'id'), item => item.toString());
+    recipes    = await Recipe.find({});
+
 
   } catch (e) {
     Raven.captureException(e);
@@ -118,79 +115,17 @@ const relate = async (options, results) => {
         Raven.captureException("cannot attach additional data to recipes");
   }
 
-  // const recipes = results.recipes;
-  //
-  helper.attach( results.allergies,  recipes, attribute[1]);
-  // helper.attach( results.courses,    recipes, attribute[4]);
-  // helper.attach( results.cuisines,   recipes, attribute[1]);
-  // helper.attach( results.diets,      recipes, attribute[2]);
-  // helper.attach( results.holidays,   recipes, attribute[3]);
-  // helper.attach( results.nutritions, recipes, attribute[0]);
+  //@TODO create a method with foreach for each attribute in order to attach data to recipe
+  helper.attach( results.allergies,  recipes, attribute[0]);
+  helper.attach( results.courses,    recipes, attribute[1]);
+  helper.attach( results.cuisines,   recipes, attribute[2]);
+  helper.attach( results.diets,      recipes, attribute[3]);
+  helper.attach( results.holidays,   recipes, attribute[4]);
+  helper.attach( results.nutritions, recipes, attribute[5]);
 
-  // attachAllergiesToRecipes
-  // attachCoursesToRecipes
-  // attachCuisinesToRecipes
-  // attachDietsToRecipes
-  // attachHolidaysToRecipes
-  // attachNutritionsToRecipes
 
-  // attachAllergiesToRecipes(results.allergies, results.recipes, function(err){
-  //   console.log('>allergies create sucessfully');
-  // });
-  //
-  // attachCoursesToRecipes(results.courses, results.recipes, function(err){
-  //   console.log('>courses create sucessfully');
-  // });
-  //
-  // attachCuisinesToRecipes(results.cuisines, results.recipes, function(err){
-  //   console.log('>cuisines create sucessfully');
-  // });
-  //
-  // attachDietsToRecipes(results.diets, results.recipes, function(err){
-  //   console.log('>diets create sucessfully');
-  // });
-  //
-  // attachHolidaysToRecipes(results.holidays, results.recipes, function(err){
-  //   console.log('>models create sucessfully');
-  // });
-  // attachNutritionsToRecipes(results.nutritions, results.recipes, function(err){
-  //   console.log('>models create sucessfully');
-  // });
 
 };
-
-
-// we'll must have a cb for sure
-// const attachNutritionsToRecipes = (nutritions, recipes, cb) => {
-// 	var first  = recipes[0];
-// 	var second = recipes[1];
-//
-//   // will not work
-//   attach(nutritions[0], first, attribute[0]);
-//   attach(nutritions[1], second, attribute[0]);
-//
-// };
-
-//@TODO create a method with foreach for each attribute in order to attach data to recipe
-// const attachAllergiesToRecipes = (allergies, recipes, cb) => {
-//   attach(allergies, recipes, attribute[1])
-// };
-//
-// const attachCuisinesToRecipes = (cuisines, recipes, cb) => {
-//   attach(cuisines, recipes, attribute[1])
-// };
-//
-// const attachDietsToRecipes = (diets, recipes, cb) => {
-//   attach(diets, recipes, attribute[2])
-// };
-//
-// const attachHolidaysToRecipes = (holidays, recipes, cb) => {
-//   attach(holidays, recipes, attribute[3])
-// };
-//
-// const attachCoursesToRecipes = (courses, recipes, cb) => {
-// 	attach(courses, recipes, attribute[4])
-// };
 
 //
 module.exports.init   = init;

@@ -4,8 +4,6 @@ const path    = require('path');
 const async   = require('async');
 const debug   = require('debug');
 const Raven   = require('raven');
-const _       = require('underscore');
-
 
 Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
@@ -13,7 +11,7 @@ let server     = require(path.resolve(__dirname, '../../server/server'));
 
 
 let helper     = require(path.resolve(__dirname, '../helper'));
-//
+
 // include middleware
 // @todo make it auto-icludable from folder
 let Allergy    = require(path.resolve(__dirname, 'allergy'));
@@ -27,9 +25,6 @@ let Nutritions = require(path.resolve(__dirname, 'nutritions'));
 // @TODO this is not cool. maybe it's better to have a short version of recipe file just for attaching things.
 let Recipes    = require(path.resolve(__dirname, '../recipes/recipes'));
 
-// let Nutritions = require(path.resolve(__dirname, 'nutritions'));
-
-// let Recipe     = server.models.Recipe;
 
 let options = [
 	server,
@@ -59,13 +54,6 @@ async.parallel({
 		}
 
 
-		// Recipe.find({}, (err, data) => {
-		// 		// console.log(data);
-		// 		let arr     = _.map( _.pluck(data, 'id'), item => item.toString());
-    //
-		// 		// var ids = _.pluck(data, 'id');
-		// 		console.log(arr);
-		// });
 		// @TODO make this call less shitty
 		Recipes.relate( options, results );
 
@@ -82,23 +70,9 @@ async.parallel({
 
 
 
-    //
-		// Ingredients.createIngredients(
-		// 	results.departments, function(err, ingredients){
-    //
-		// 		// console.log(ingredients);
-    //
-		// 		Ingredients.attachIngredientsToGroceries(
-		// 				ingredients, results.groceries
-		// 	 	);
-		// 		console.log('import finished');
-		// 	});
-
-		// console.log(ingredient);
 
 
-
-console.log('import finished');
+		console.log('import finished');
     //
 		// process.on('exit', function(code) {
     // 	return console.log(`About to exit with code ${code}`);
@@ -108,4 +82,3 @@ console.log('import finished');
 	}
 
 );
-// process.exit(-1);
