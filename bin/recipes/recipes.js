@@ -1,7 +1,9 @@
 'use strict';
 
-const debug   = require('debug');
-// model
+const debug = require('debug');
+const async = require('async');
+const _     = require('underscore');
+
 let Recipe
 let database
 let table_name = 'Recipe'
@@ -85,44 +87,27 @@ const get = () => {
 
 
 
-const relate = (results) => {
+const relate = async (options, results) => {
 
   // this is a hardcode. @TODO handle this later.
   // I don't like that we're searching all recipes at this method
-
+  let server = options[0];
+  let helper = options[1];
+  Raven  = options[2]; //@TODO apply this changes to all import model files
+  
   let recipeIds
-  // let response
+  let recipes
   try {
-    // var Grocery   = app.models.Grocery;
-    // grocery = await Grocery.fetchById(groceryId);
-    // grocery  = await Grocery.findById(groceryId, Grocery.query1());
 
-    recipeIds = await Recipe.find({}, (err, data) => {
-        // console.log(data);
-        // let arr     = _.map( _.pluck(data, 'id'), item => item.toString());
-
-        // var ids = _.pluck(data, 'id');
-        // console.log(arr);
-        return _.map( _.pluck(data, 'id'), item => item.toString());
-    });
-
-    // response = Grocery.convertCollectionData(grocery);
-     console.log(recipeIds);
+    let Recipe = server.models.Recipe;
+    recipeIds  = await Recipe.find({});
+    recipes    = _.map( _.pluck(recipeIds, 'id'), item => item.toString());
 
   } catch (e) {
     Raven.captureException(e);
     //this will eventually be handled by your error handling middleware
     next(e)
   }
-
-
-  Recipe.find({}, (err, data) => {
-      // console.log(data);
-      let arr     = _.map( _.pluck(data, 'id'), item => item.toString());
-
-      // var ids = _.pluck(data, 'id');
-      console.log(arr);
-  });
   // end of what i don't like
 
 
@@ -133,13 +118,14 @@ const relate = (results) => {
         Raven.captureException("cannot attach additional data to recipes");
   }
 
-  const recipes = results.recipes;
+  // const recipes = results.recipes;
+  //
   helper.attach( results.allergies,  recipes, attribute[1]);
-  helper.attach( results.courses,    recipes, attribute[4]);
-  helper.attach( results.cuisines,   recipes, attribute[1]);
-  helper.attach( results.diets,      recipes, attribute[2]);
-  helper.attach( results.holidays,   recipes, attribute[3]);
-  helper.attach( results.nutritions, recipes, attribute[0]);
+  // helper.attach( results.courses,    recipes, attribute[4]);
+  // helper.attach( results.cuisines,   recipes, attribute[1]);
+  // helper.attach( results.diets,      recipes, attribute[2]);
+  // helper.attach( results.holidays,   recipes, attribute[3]);
+  // helper.attach( results.nutritions, recipes, attribute[0]);
 
   // attachAllergiesToRecipes
   // attachCoursesToRecipes
@@ -208,3 +194,4 @@ const relate = (results) => {
 
 //
 module.exports.init   = init;
+module.exports.relate = relate;

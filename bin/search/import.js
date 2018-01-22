@@ -66,8 +66,8 @@ async.parallel({
 		// 		// var ids = _.pluck(data, 'id');
 		// 		console.log(arr);
 		// });
-
-		Recipes.relate( results );
+		// @TODO make this call less shitty
+		Recipes.relate( options, results );
 
 
 		// console.log(err);
