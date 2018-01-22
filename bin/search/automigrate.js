@@ -2,12 +2,12 @@
 
 var path     = require('path');
 
-let app      = require(path.resolve(__dirname, '../server/server'));
+let app      = require(path.resolve(__dirname, '../../server/server'));
 var database = app.datasources.recipeDS;
 
 
 var lbTables = [
-	'Allergy', 'Course', "Cuisine", 
+	'Allergy', 'Course', "Cuisine",
 	 "Diet", "Holiday", "Nutritions"
 ];
 

@@ -23,7 +23,7 @@ const init = ( options, cb ) => {
   }
 
   // add data to db
-  helper.create(args);
+  helper.create(args, cb);
 }
 
 

@@ -20,7 +20,9 @@ let Recipes      = require(path.resolve(__dirname, 'recipes'));
 
 // recipes for search
 //let getRecipes2     = require(path.resolve(__dirname, 'sample-recipes-search-data'));
-let Menus        = require(path.resolve(__dirname, 'menus'));
+
+
+// let Menus        = require(path.resolve(__dirname, 'menus'));
 
 // let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
 // let getIngredients  = require(path.resolve(__dirname, 'sample-ingredients-data'));
@@ -38,7 +40,7 @@ async.parallel({
 
 		recipes     : async.apply(Recipes.init, options),
 
-		menus       : async.apply(Menus.init, options),
+		// menus       : async.apply(Menus.init, options),
     // ingredients : async.apply(Ingredients.init, server, Raven),
     // groceries   : async.apply(Groceries.init,   server, Raven),
     // departments : async.apply(Departments.init, server, Raven)
@@ -52,7 +54,9 @@ async.parallel({
 		}
 
 		if( !results || !results.users || !results.recipes
-				|| !results.menus || !results.ingredients || !results.groceries || !results.departments ) {
+				//|| !results.menus
+				//|| !results.ingredients || !results.groceries || !results.departments
+			) {
 					Raven.captureException("not imported well");
 		}
 
@@ -68,7 +72,7 @@ async.parallel({
 
 		// Users.assignAdmin(results.users[2].id);
 
-		attachRecipesToMenu
+		// attachRecipesToMenu
 
 		// Users.assignAdmin(results.users[2]);
 		// Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
