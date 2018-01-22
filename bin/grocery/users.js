@@ -29,6 +29,7 @@ const init = ( options ) => {
     model     : User,
     table_name: table_name,
     database  : database,
+    rows      : get(),
     data      : false
   }
 

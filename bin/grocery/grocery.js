@@ -22,10 +22,6 @@ const init = ( options ) => {
   let Raven  = options[2];
   let cb     = options[3];
 
-  // server = options.server;
-  // cb     = options.cb;
-  // raven  = options.raven;
-
   Grocery  = server.models.Grocery;
   database = server.datasources.recipeDS;
 
@@ -56,6 +52,7 @@ const init = ( options ) => {
     model     : Grocery,
     table_name: table_name,
     database  : database,
+    rows      : get(),
     data      : false
   }
 

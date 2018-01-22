@@ -27,7 +27,8 @@ const init = ( options ) => {
     model     : Ingredient,
     table_name: table_name,
     database  : database,
-    data      : departments
+    data      : departments,
+    rows      : get(),
   }
 
   // add data to db

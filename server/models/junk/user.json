@@ -7,6 +7,10 @@
     "validateUpsert": true
   },
   "properties": {
+    "username": {
+      "type": "string",
+      "required": false
+    },
     "name": {
       "type": "string",
       "required": true
@@ -17,6 +21,14 @@
     },
     "password": {
       "type": "string",
+      "required": true
+    },
+    "created_at": {
+      "type": "date",
+      "required": true
+    },
+    "updated_at": {
+      "type": "date",
       "required": true
     }
   },

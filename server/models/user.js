@@ -3,8 +3,6 @@
 var _    = require('underscore');
 var path = require('path');
 
-// var iterator = require(path.join(__dirname + '/../like-middleware-helper'));
-
 module.exports = function(User) {
 
     User.withGroceries  = function(userId, cb) {

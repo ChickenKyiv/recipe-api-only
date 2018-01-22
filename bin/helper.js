@@ -3,6 +3,8 @@ const debug   = require('debug');
 // @TODO move id to config file. or we use it in a lot of places.
 Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
+let rows;
+
 const idsOnly = (array) => {
   if ( !array ) return; //@TODO add raven exception later??
   var result = Object.keys(array).map(function(e) {
@@ -26,6 +28,8 @@ const create = (options, cb) => {
   let table_name = options['table_name'];
   let database   = options['database'];
   let data       = options['data'];
+  rows      = options['rows'];
+  // console.log(rows)
   // let Raven      = options['Raven'];
 
   database.autoupdate(table_name, function(err){
@@ -47,8 +51,8 @@ const create = (options, cb) => {
 
 };
 
-const get = ( path ) => {
-
+const get = ( ) => {
+  return rows;
 }
 
 // @TODO use this version, it's very many huge fresh

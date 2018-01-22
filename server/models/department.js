@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = function(Department) {
-	Department.validatesPresenceOf(
-    'name'
-		//, 'items'
-  );
+	// Department.validatesPresenceOf(
+  //   'name'
+	// 	//, 'items'
+  // );
 
 	Department.observe('update', function(ctx, next){
 		ctx.instance.updated_at = new Date();

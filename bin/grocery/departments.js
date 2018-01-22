@@ -24,6 +24,7 @@ const init = ( options ) => {
     model     : Department,
     table_name: table_name,
     database  : database,
+    rows      : get(),
     data      : false
   }
 

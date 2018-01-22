@@ -2,10 +2,10 @@
 
 module.exports = function(Grocery) {
 
-	Grocery.validatesPresenceOf(
-		// 'departments',
-		'img', 'desc', 'slug'
-	);
+	// Grocery.validatesPresenceOf(
+	// 	// 'departments',
+	// 	'img', 'desc', 'slug'
+	// );
 
 	Grocery.observe('update', function(ctx, next){
 		ctx.instance.updated_at = new Date();
@@ -17,7 +17,7 @@ module.exports = function(Grocery) {
 		if( ctx.isNewInstance ){
 			ctx.instance.created_at = new Date();
 			ctx.instance.updated_at = new Date();
-		} 
+		}
 
 
 
@@ -45,14 +45,14 @@ module.exports = function(Grocery) {
 
 		 		// 	// console.log(departments.ingredients);
 		 		// 	IngredientModel.findByIds(grocery.ingredients)
-			 	// 	.then(function(ingredients){		 			
+			 	// 	.then(function(ingredients){
 			 	// 		// console.log(ingredients);
 			 	// 	})
-		 		
+
 		 		// })
 
 		 		Ingredient.findByIds(grocery.ingredients)
-		 		.then(function(ingredients){		 			
+		 		.then(function(ingredients){
 		 			// console.log(ingredients);
 		 		})
 			})
@@ -61,7 +61,7 @@ module.exports = function(Grocery) {
 			groceries.forEach(function(grocery){
 		 		// console.log(grocery.ingredients);
 		 		Ingredient.findByIds(grocery.ingredients)
-		 		.then(function(ingredients){		 			
+		 		.then(function(ingredients){
 		 			// console.log(ingredients);
 		 		})
 			})
@@ -92,7 +92,7 @@ module.exports = function(Grocery) {
 		// 		where:{
 		// 			id: { inq:grocery.departments }
 		// 		},
-		// 		// fields: []       
+		// 		// fields: []
 		// 	},cb);
 
 		// })
