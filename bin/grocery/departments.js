@@ -8,14 +8,13 @@ let table_name = 'Department'
 
 //let attribute  = 'departmentIds';
 
-const init = ( options ) => {
+const init = ( options, cb ) => {
   // console.log('-----');
-  // console.log(options[0]);
 
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  let cb     = options[3];
+  // let cb     = options[3];
 
   Department  = server.models.Department;
   database    = server.datasources.recipeDS;
@@ -29,7 +28,7 @@ const init = ( options ) => {
   }
 
   // add data to db
-  helper.create(args);
+  helper.create(args, cb);
 
   // let Model      = options['model'];
   // let table_name = options['table_name'];

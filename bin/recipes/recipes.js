@@ -17,12 +17,12 @@ let attribute = [
 ];
 
 
-const init = ( options ) => {
+const init = ( options, cb ) => {
 
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  let cb     = options[3];
+  // let cb     = options[3];
 
   Recipe   = server.models.Recipe;
   database = server.datasources.recipeDS;

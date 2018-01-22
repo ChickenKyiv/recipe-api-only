@@ -12,12 +12,12 @@ let attributes  = [
     'groceryIds'
 ];
 
-const init = ( options ) => {
+const init = ( options, cb ) => {
 
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  let cb     = options[3];
+  // let cb     = options[3];
 
   User        = server.models.user;
   Role        = server.models.Role;
@@ -34,7 +34,7 @@ const init = ( options ) => {
   }
 
   // add data to db
-  helper.create(args);
+  helper.create(args, cb);
 
 
   //сustom stuff, related to users model only

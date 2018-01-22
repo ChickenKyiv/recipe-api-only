@@ -43,22 +43,22 @@ async.parallel({
 		if( err ) {
 			Raven.captureException(err);
 			throw err;
-
 		}
 
 
     //
-    if( !results || !results.departments || !results.groceries
-				//|| !results.ingredients
-        || !results.users) {
-					Raven.captureException("not imported well");
-		}
-    //
-    let ingredients = Ingredients.init(results.departments, options);
-    console.log(ingredients);
+    // if( !results || !results.departments || !results.groceries
+		// 		//|| !results.ingredients
+    //     || !results.users) {
+		// 			Raven.captureException("not imported well");
+		// }
+    // //
+    // let ingredients = Ingredients.init(results.departments, options);
+    // console.log(ingredients);
 
 
    // console.log(results.ingredients);
+	 console.log(results);
 		// console.log(results.departments);
 		// console.log(results.groceries);
 

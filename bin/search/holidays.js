@@ -7,11 +7,11 @@ let table_name = 'Holiday'
 let attribute  = 'holidays';
 // let relation   = 'nutritions';
 
-const init = ( options ) => {
+const init = ( options, cb ) => {
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  let cb     = options[3];
+  // let cb     = options[3];
 
   Holiday  = server.models.Holiday;
   database = server.datasources.recipeDS;

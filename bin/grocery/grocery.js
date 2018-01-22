@@ -13,14 +13,14 @@ let attributes  = [
   'ingredientIds', // #2
 ];
 
-const init = ( options ) => {
+const init = ( options, cb ) => {
 
   // console.log('-----');
   // console.log(server);
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  let cb     = options[3];
+  // let cb     = options[3];
 
   Grocery  = server.models.Grocery;
   database = server.datasources.recipeDS;
@@ -57,7 +57,7 @@ const init = ( options ) => {
   }
 
   // add data to db
-  helper.create(args);
+  helper.create(args, cb);
 
 
   // custom stuff, related only to grocery

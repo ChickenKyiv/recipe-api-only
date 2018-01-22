@@ -17,12 +17,12 @@ var prev_month2 = x.getMonth()-2;
 var prev_month3 = x.getMonth()-3;
 
 
-const init = ( options ) => {
+const init = ( options, cb ) => {
 
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  let cb     = options[3];
+  // let cb     = options[3];
 
   Menu     = server.models.Menu;
   database = server.datasources.recipeDS;

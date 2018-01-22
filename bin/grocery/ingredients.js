@@ -9,7 +9,7 @@ let table_name = 'Ingredient'
 // let attribute  = 'departmentId';
 //let attribute  = 'ingredients';
 // let relation = 'nutritions';
-const init = ( options ) => {
+const init = ( options, cb ) => {
 
   // console.log('-----');
   // console.log(server);
@@ -17,7 +17,7 @@ const init = ( options ) => {
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  let cb     = options[3];
+  // let cb     = options[3];
   let departments   = options[4]; // or use data key
 
   Ingredient  = server.models.Ingredient;
@@ -32,7 +32,7 @@ const init = ( options ) => {
   }
 
   // add data to db
-  helper.create(args);
+  helper.create(args, cb);
 }
 
 const get = (departments) => {

@@ -10,12 +10,12 @@ let table_name = 'user'
 
 let attribute  = 'userId';
 
-const init = ( options ) => {
+const init = ( options, cb ) => {
 
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  let cb     = options[3];
+  // let cb     = options[3];
 
   User        = server.models.user;
   Role        = server.models.Role;
