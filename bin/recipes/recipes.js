@@ -12,7 +12,7 @@ let attribute = [
   'cuisines',   // #1
   'diets',      // #2
   'holidays',   // #3
-  'courses'     // #4
+  'courses',    // #4
   'allergies'   // #5
 ];
 

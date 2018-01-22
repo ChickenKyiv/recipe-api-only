@@ -2,7 +2,7 @@
 
 var path     = require('path');
 
-let app      = require(path.resolve(__dirname, '../server/server'));
+let app      = require(path.resolve(__dirname, '../../server/server'));
 var database = app.datasources.recipeDS;
 
 var lbTables = [
@@ -11,12 +11,9 @@ var lbTables = [
 
 	// custom tables
 	'user', 'Menu',
-	// 'Ingredient',
-	// 'Grocery', 'Department',
-	'Recipe',
 
-	// 'Allergy', 'Course', 'Cuisine',
-	// 'Diet', 'Holiday', 'Nutritions'
+	'Recipe'
+
 
 ];
 

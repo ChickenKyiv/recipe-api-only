@@ -9,6 +9,8 @@ Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf0
 
 let server     = require(path.resolve(__dirname, '../../server/server'));
 
+
+let helper     = require(path.resolve(__dirname, '../helper'));
 //
 // include middleware
 // @todo make it auto-icludable from folder

@@ -2,21 +2,21 @@
 
 module.exports = function(Menu) {
 	//@TODO update this, 'cause we've updated relations
-	Menu.validatesPresenceOf(
-		'title', 'date', 'description' 
-		// 'recipes'
-		);
+	// Menu.validatesPresenceOf(
+	// 	'title', 'date', 'description'
+	// 	// 'recipes'
+	// 	);
 
 
 	Menu.observe("after save", function (ctx, next) {
 
 		// console.log( ctx.instance.rec );
 
-		
+
 	  	// console.log( ctx.instance );
 	  	// understand what we get at inctance object
 		//not working, right now. Above we're using similar, but easy way to test notifications
-		
+
 		//   MenuModel.app.models.EmailModel.send({
 		//     to: 'arthur.tkachenko.netweight@gmail.com',
 		//     from: 'noreply@loopback.loop',
@@ -26,7 +26,7 @@ module.exports = function(Menu) {
 		//     console.log('email sent!');
 		//   });
 
-		
+
 
 
 		// MenuModel.app.models.Recipemodel.findById(ctx.instance.rec, function (err, recipe) {
@@ -50,7 +50,7 @@ module.exports = function(Menu) {
 		if( ctx.isNewInstance ){
 			ctx.instance.created_at = new Date();
 			ctx.instance.updated_at = new Date();
-		} 
+		}
 		next();
 	});
 
@@ -76,9 +76,9 @@ module.exports = function(Menu) {
 					id: menu.recipes
 				},
 				fields: [
-					'img', 'url', 'title', 
+					'img', 'url', 'title',
 
-		    	]       
+		    	]
 			})
 			.then(function(recipes){
 			// 	menu.recipes = recipes;
@@ -138,7 +138,7 @@ module.exports = function(Menu) {
 		// console.log(query);
 
 		Menu.find(query, cb);
-		
+
 
 	};
 
@@ -157,12 +157,12 @@ module.exports = function(Menu) {
 		  path: '/filter/date',
 		  verb: 'get'
 		},
-		
+
 	});
 
 	Menu.lastMenu = function(menuId = false, cb){
 
-		var query = {};	
+		var query = {};
 
 		if ( menuId ) {
 
@@ -172,7 +172,7 @@ module.exports = function(Menu) {
 
 				// console.log(menu);
 
-				query = { 
+				query = {
 					where: {
 						date: { lt: menu.date },
 						id:   { lt: menu.id },
@@ -187,9 +187,9 @@ Menu.findOne(query, cb);
 			});
 
 
-			
 
-			
+
+
 
 		} else {
 
@@ -203,14 +203,14 @@ Menu.findOne(query, cb);
 			Menu.findOne(query, cb);
 		}
 
-			
+
 
 		// }
 
 		// console.log(query);
 
-		
-		
+
+
 	};
 
 	Menu.remoteMethod('lastMenu', {
@@ -228,7 +228,7 @@ Menu.findOne(query, cb);
 		  path: '/last',
 		  verb: 'get'
 		},
-		
+
 	});
 
 
@@ -242,7 +242,7 @@ Menu.findOne(query, cb);
 
 			// console.log( menu.recipes );
 			// @TODO change to custom method on recipe model
-			//  
+			//
 			Recipe.find({
 				where:{
 					id: { inq:menu.recipes }
@@ -250,9 +250,9 @@ Menu.findOne(query, cb);
 				fields: [
 					'img', 'url', 'title', 'ingredients'
 
-		    	]       
+		    	]
 			},cb);
-			
+
 
 
 
@@ -284,7 +284,7 @@ Menu.findOne(query, cb);
 	});
 
 
-	
+
   // method list attached menus with recipes only
 	Menu.listRecipes = function(menuId, cb){
 		var Recipe = Menu.app.models.Recipe;
@@ -296,10 +296,10 @@ Menu.findOne(query, cb);
 			Recipe.find({
 				where:{
 					id: menu.recipes
-				}       
+				}
 			})
 			.then(function(recipes){
-			
+
 				cb(null, recipes);
 			});
 
@@ -353,7 +353,7 @@ Menu.findOne(query, cb);
 			// };
 
 
-			
+
 			var recipeIds = menu.recipes;
 			console.log( recipeIds );
 
@@ -390,9 +390,9 @@ Menu.findOne(query, cb);
 			// 		// id: menu.recipes
 			// 	},
 				// fields: [
-				// 	'img', 'url', 'title', 
+				// 	'img', 'url', 'title',
 
-		  //   	]       
+		  //   	]
 			// })
 			// .then(function(groceries){
 			// // 	menu.recipes = recipes;
@@ -443,10 +443,10 @@ Menu.findOne(query, cb);
 		// 	RecipeModel.find({
 		// 		where:{
 		// 			id: menu.recipes
-		// 		}       
+		// 		}
 		// 	})
 		// 	.then(function(recipes){
-			
+
 		// 		cb(null, recipes);
 		// 	});
 
@@ -483,18 +483,18 @@ Menu.findOne(query, cb);
 			// RecipeModel.find({
 			// 	where:{
 			// 		id: menu.recipes
-			// 	}       
+			// 	}
 			// })
 			// .then(function(recipes){
-			
+
 			// 	cb(null, recipes);
 			// });
 			console.log(menu.recipes);
 			menu.updateAttribute('recipes', array);
 			console.log(menu.recipes);
 			cb(null, menu);
-			
-		});	
+
+		});
 	}
 
 };
