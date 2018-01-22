@@ -4,6 +4,8 @@ const path    = require('path');
 const async   = require('async');
 const debug   = require('debug');
 const Raven   = require('raven');
+const _       = require('underscore');
+
 
 Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
@@ -20,6 +22,14 @@ let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
 let Diet       = require(path.resolve(__dirname, 'diets'));
 let Holiday    = require(path.resolve(__dirname, 'holidays'));
 let Nutritions = require(path.resolve(__dirname, 'nutritions'));
+
+// we including a file from other import directory.
+// @TODO this is not cool. maybe it's better to have a short version of recipe file just for attaching things.
+let Recipes    = require(path.resolve(__dirname, '../recipes/recipes'));
+
+// let Nutritions = require(path.resolve(__dirname, 'nutritions'));
+
+// let Recipe     = server.models.Recipe;
 
 let options = [
 	server,
@@ -48,9 +58,21 @@ async.parallel({
 					Raven.captureException("not imported well");
 		}
 
+
+		// Recipe.find({}, (err, data) => {
+		// 		// console.log(data);
+		// 		let arr     = _.map( _.pluck(data, 'id'), item => item.toString());
+    //
+		// 		// var ids = _.pluck(data, 'id');
+		// 		console.log(arr);
+		// });
+
+		Recipes.relate( results );
+
+
 		// console.log(err);
-		console.log(results);
-		
+		// console.log(results);
+
 		// console.log(results.allergies);
 		// console.log(results.courses);
     // console.log(results.cuisines);
@@ -60,8 +82,6 @@ async.parallel({
 
 
 
-		// Users.assignAdmin(results.users[2]);
-		// Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
     //
 		// Ingredients.createIngredients(
 		// 	results.departments, function(err, ingredients){
@@ -78,7 +98,7 @@ async.parallel({
 
 
 
-
+console.log('import finished');
     //
 		// process.on('exit', function(code) {
     // 	return console.log(`About to exit with code ${code}`);

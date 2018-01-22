@@ -11,7 +11,7 @@ const init = ( options, cb ) => {
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  // let cb     = options[3];
+
 
   Allergy  = server.models.Allergy;
   database = server.datasources.recipeDS;

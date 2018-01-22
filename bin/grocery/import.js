@@ -86,7 +86,7 @@ async.parallel({
 		// 		console.log('import finished');
 		// 	});
 
-
+console.log('import finished');
 
 		process.on('exit', function(code) {
     	return console.log(`About to exit with code ${code}`);

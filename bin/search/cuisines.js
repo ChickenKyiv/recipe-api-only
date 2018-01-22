@@ -12,13 +12,11 @@ const init = ( options, cb ) => {
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  // let cb     = options[3];
+
 
   Cuisine  = server.models.Cuisine;
   database = server.datasources.recipeDS;
 
-  // add data to db
-  // create(cb);
   let args = {
     model     : Cuisine,
     table_name: table_name,

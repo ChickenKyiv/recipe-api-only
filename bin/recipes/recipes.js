@@ -5,6 +5,7 @@ const debug   = require('debug');
 let Recipe
 let database
 let table_name = 'Recipe'
+let Raven
 
 // @TODO not clear, how we can know which attribute to use?
 let attribute = [
@@ -21,7 +22,7 @@ const init = ( options, cb ) => {
 
   let server = options[0];
   let helper = options[1];
-  let Raven  = options[2];
+  Raven  = options[2]; //@TODO apply this changes to all import model files
   // let cb     = options[3];
 
   Recipe   = server.models.Recipe;
@@ -85,6 +86,45 @@ const get = () => {
 
 
 const relate = (results) => {
+
+  // this is a hardcode. @TODO handle this later.
+  // I don't like that we're searching all recipes at this method
+
+  let recipeIds
+  // let response
+  try {
+    // var Grocery   = app.models.Grocery;
+    // grocery = await Grocery.fetchById(groceryId);
+    // grocery  = await Grocery.findById(groceryId, Grocery.query1());
+
+    recipeIds = await Recipe.find({}, (err, data) => {
+        // console.log(data);
+        // let arr     = _.map( _.pluck(data, 'id'), item => item.toString());
+
+        // var ids = _.pluck(data, 'id');
+        // console.log(arr);
+        return _.map( _.pluck(data, 'id'), item => item.toString());
+    });
+
+    // response = Grocery.convertCollectionData(grocery);
+     console.log(recipeIds);
+
+  } catch (e) {
+    Raven.captureException(e);
+    //this will eventually be handled by your error handling middleware
+    next(e)
+  }
+
+
+  Recipe.find({}, (err, data) => {
+      // console.log(data);
+      let arr     = _.map( _.pluck(data, 'id'), item => item.toString());
+
+      // var ids = _.pluck(data, 'id');
+      console.log(arr);
+  });
+  // end of what i don't like
+
 
   if( !results || !results.allergies || !results.recipes
       || !results.courses || !results.cuisines

@@ -28,9 +28,7 @@ const create = (options, cb) => {
   let table_name = options['table_name'];
   let database   = options['database'];
   let data       = options['data'];
-  rows           = options['rows'];
-  // console.log(options['rows']);
-  // let Raven      = options['Raven'];
+  // rows           = options['rows'];
 
   database.autoupdate(table_name, function(err){
     if (err) {
@@ -38,18 +36,7 @@ const create = (options, cb) => {
       return cb(err);
     }
 
-
-    // if( !data ) {
-      Model.create(options['rows'], cb);
-      // Model.create(get(), cb);
-      // console.log('213')
-    // } else {
-      // Model.create(options['rows'], cb);
-      // Model.create(get(data), cb);
-      // console.log('223');
-    // }
-    // check if it works as it must
-
+    Model.create(options['rows'], cb);
 
   });
 
@@ -57,9 +44,9 @@ const create = (options, cb) => {
 
 };
 
-const get = ( ) => {
-  return rows;
-}
+// const get = ( ) => {
+//   return rows;
+// }
 
 // @TODO use this version, it's very many huge fresh
 // array_ids - where we get data from
@@ -84,5 +71,5 @@ module.exports = {
   idsOnly : idsOnly,
   create  : create,
   attach  : attach,
-  get     : get
+  // get     : get
 };

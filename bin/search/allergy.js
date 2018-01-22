@@ -16,8 +16,7 @@ const init = ( options, cb ) => {
   Allergy  = server.models.Allergy;
   database = server.datasources.recipeDS;
 
-  // add data to db
-  // create(cb, raven);
+  // @TODO think about getting rid of args and make this files more simple
   let args = {
     model     : Allergy,
     table_name: table_name,
