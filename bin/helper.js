@@ -29,7 +29,7 @@ const create = (options, cb) => {
   let database   = options['database'];
   let data       = options['data'];
   rows           = options['rows'];
-  // console.log(cb);
+  // console.log(options['rows']);
   // let Raven      = options['Raven'];
 
   database.autoupdate(table_name, function(err){
@@ -40,10 +40,12 @@ const create = (options, cb) => {
 
 
     if( !data ) {
-      Model.create(get(), cb);
+      Model.create(options['rows'], cb);
+      // Model.create(get(), cb);
       // console.log('213')
     } else {
-      Model.create(get(data), cb);
+      Model.create(options['rows'], cb);
+      // Model.create(get(data), cb);
       // console.log('223');
     }
     // check if it works as it must

@@ -12,16 +12,16 @@ let table_name = 'Ingredient'
 const init = ( options, cb ) => {
 
   // console.log('-----');
-  // console.log(server);
+  console.log(server.models);
 
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
   // let cb     = options[3];
-  let departments   = options[4]; // or use data key
+  let departments   = options[3]; // or use data key
 
   Ingredient  = server.models.Ingredient;
-  database = server.datasources.recipeDS;
+  database    = server.datasources.recipeDS;
 
   let args = {
     model     : Ingredient,
