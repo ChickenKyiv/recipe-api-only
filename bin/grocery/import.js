@@ -54,7 +54,8 @@ async.parallel({
 		options.push(results.departments);
 
 		// user stuff
-		Users.assignAdmin(results.users[2]);
+		Users.assignAdmin(results.users[2].id);
+		
 		Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
 
 

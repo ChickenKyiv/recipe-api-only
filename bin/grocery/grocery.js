@@ -85,38 +85,21 @@ const get = () => {
 
 const relate = (results) => {
 
-  attachDepartmentsToGrocery
-attachIngredientsToGrocery
+  attachDepartmentsToGrocery(dep, gro)
+  attachIngredientsToGrocery(ing, gro)
+  attachGroceryToUser(gro, u)
 
-  // attachAllergiesToRecipes(results.allergies, results.recipes, function(err){
-  //   console.log('>allergies create sucessfully');
-  // });
-  //
-  // attachCoursesToRecipes(results.courses, results.recipes, function(err){
-  //   console.log('>courses create sucessfully');
-  // });
-  //
-  // attachCuisinesToRecipes(results.cuisines, results.recipes, function(err){
-  //   console.log('>cuisines create sucessfully');
-  // });
-  //
-  // attachDietsToRecipes(results.diets, results.recipes, function(err){
-  //   console.log('>diets create sucessfully');
-  // });
-  //
-  // attachHolidaysToRecipes(results.holidays, results.recipes, function(err){
-  //   console.log('>models create sucessfully');
-  // });
+
 
 
   //@TODO replace stuff like cb to a simple console or debug log that relation was successfully created
 
-  const attachDepartmentsToGrocery = (departments, groceries, cb) => {
-    attach(departments, groceries, attributes[0], cb);
+  const attachDepartmentsToGrocery = (departments, groceries) => {
+    attach(departments, groceries, attributes[0]);
   };
 
-  const attachIngredientsToGrocery = (ingredients, groceries, cb) => {
-    attach(ingredients, groceries, attributes[2], cb);
+  const attachIngredientsToGrocery = (ingredients, groceries) => {
+    attach(ingredients, groceries, attributes[2]);
   };
 
 
@@ -125,3 +108,4 @@ attachIngredientsToGrocery
 
 //
 module.exports.init   = init;
+module.exports.relate = relate;

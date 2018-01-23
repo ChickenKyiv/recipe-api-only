@@ -12,16 +12,12 @@ let helper     = require(path.resolve(__dirname, '../helper'));
 
 // include middleware
 // @todo make it auto-icludable from folder
-let Users        = require(path.resolve(__dirname, 'users'));
+// let Users        = require(path.resolve(__dirname, 'users'));
 let Recipes      = require(path.resolve(__dirname, 'recipes'));
+// let Menus        = require(path.resolve(__dirname, 'menus'));
 
 // recipes for search
 //let getRecipes2     = require(path.resolve(__dirname, 'sample-recipes-search-data'));
-
-
-let Menus        = require(path.resolve(__dirname, 'menus'));
-
-
 
 let options = [
 	server,
@@ -30,14 +26,9 @@ let options = [
 ]
 //
 async.parallel({
-		users       : async.apply(Users.init, options),
-
+		users       : async.apply(Users.init,   options),
 		recipes     : async.apply(Recipes.init, options),
-
-		menus       : async.apply(Menus.init, options),
-    // ingredients : async.apply(Ingredients.init, server, Raven),
-    // groceries   : async.apply(Groceries.init,   server, Raven),
-    // departments : async.apply(Departments.init, server, Raven)
+		// menus       : async.apply(Menus.init,   options),
 
 
 	}, function(err, results){
@@ -47,29 +38,26 @@ async.parallel({
 
 		}
 
-		if( !results || !results.users || !results.recipes
-				//|| !results.menus
-				//|| !results.ingredients || !results.groceries || !results.departments
-			) {
-					Raven.captureException("not imported well");
+		if( !results || !results.users || !results.recipes || !results.menus ) {
+			Raven.captureException("not imported well");
 		}
 
-		// console.log(err);
-		// console.log(results);
-		// console.log(results.allergies);
-		// console.log(results.courses);
-    // console.log(results.cuisines);
-    // console.log(results.diets);
-    // console.log(results.holidays);
-    // console.log(results.nutritions);
+		console.log(err);
+		console.log(results);
 
-
+		// console.log('123')
 		// Users.assignAdmin(results.users[2].id);
-
+		// console.log('333')
+    //
+		// // @TODO make this call less shitty
+		// Menus.relate( results );
+		// console.log('333')
 		// attachRecipesToMenu
+		// attachMenusToUsers
 
-		// Users.assignAdmin(results.users[2]);
-		// Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
+
+		//@TODO attach groceries to users will be moved to a next stages
+
     //
 		// Ingredients.createIngredients(
 		// 	results.departments, function(err, ingredients){

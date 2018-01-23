@@ -1,13 +1,15 @@
 'use strict';
 
 const debug   = require('debug');
-// model
+
 let Menu
 let database
 let table_name = 'Menu'
 
-let attribute  = 'recipes';
-// let relation = 'nutritions';
+let attributes  = [
+  'recipes'
+];
+
 
 var x = new Date();
 x.setDate(1);
@@ -22,7 +24,6 @@ const init = ( options, cb ) => {
   let server = options[0];
   let helper = options[1];
   let Raven  = options[2];
-  // let cb     = options[3];
 
   Menu     = server.models.Menu;
   database = server.datasources.recipeDS;
@@ -38,8 +39,6 @@ const init = ( options, cb ) => {
   // add data to db
   helper.create(args, cb);
 
-  // stuff related to menus only
-  // attachRecipesToMenu(recipes, menu);
 }
 
 const get = () => {
@@ -95,10 +94,22 @@ const get = () => {
 
 };
 
-const attachRecipesToMenu = (recipes, menu) => {
-  helper.attach(recipes, menu, attribute);
-}
+//@TODO same function at other place are async and more advanced.
+const relate = ( results ) => {
+  console.log(results)
+
+  if( !results || !results.recipes || !results.menus ) {
+    Raven.captureException("cannot attach additional data to recipes");
+  }
+
+  //@TODO create a method with foreach for each attribute in order to attach data to recipe
+  helper.attach( results.recipes,  results.menus, attributes[0]);
+  // helper.attach( results.courses,    recipes, attribute[1]);
+
+
+
+};
 
 //
 module.exports.init   = init;
-module.exports.attachRecipesToMenu   = attachRecipesToMenu;
+module.exports.relate = relate;

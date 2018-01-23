@@ -35,11 +35,6 @@ const init = ( options, cb ) => {
 
   // add data to db
   helper.create(args, cb);
-
-  //сustom stuff, related to users model only
-
-  // assignAdmin(admin_id);
-  // assignAdmin(admin_id, Role, RoleMapping);
   // attachMenusToUsers
   // attachRecipesToUsers
 }

@@ -35,14 +35,6 @@ const init = ( options, cb ) => {
 
   // add data to db
   helper.create(args, cb);
-
-
-  //сustom stuff, related to users model only
-
-  // assignAdmin(admin_id);
-  // helper.attach()
-  // assignAdmin(admin_id, Role, RoleMapping);
-
 }
 
 const get = () => {
