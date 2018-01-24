@@ -10,10 +10,6 @@ let attributes  = [
   'recipes'
 ];
 
-
-
-
-
 const init = ( options, cb ) => {
 
   let server = options[0];
@@ -30,7 +26,6 @@ const init = ( options, cb ) => {
     database  : database,
     rows      : get()
   }
-  console.log(args);
   // add data to db
   helper.create(args, cb);
 

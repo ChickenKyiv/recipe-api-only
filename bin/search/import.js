@@ -21,7 +21,9 @@ let Nutritions = require(path.resolve(__dirname, 'nutritions'));
 
 // we including a file from other import directory.
 // @TODO this is not cool. maybe it's better to have a short version of recipe file just for attaching things.
-let Recipes    = require(path.resolve(__dirname, '../recipes/recipes'));
+// let Recipe    = require(path.resolve(__dirname, 'recipes'));
+let Recipe    = require(path.resolve(__dirname, '../recipes/recipes'));
+// let Recipes    = require(path.resolve(__dirname, '../recipes/recipes'));
 
 
 let options = [
@@ -37,7 +39,7 @@ async.parallel({
     diets      : async.apply(Diet.init,       options),
     holidays   : async.apply(Holiday.init,    options),
     nutritions : async.apply(Nutritions.init, options),
-
+		recipes    : async.apply(Recipe.init, options),
 
 	}, function(err, results){
 		if( err ) {
@@ -53,11 +55,11 @@ async.parallel({
 
 
 		// @TODO make this call less shitty
-		Recipes.relate( options, results );
+		// Recipes.relate( options, results );
 
 
 		// console.log(err);
-		// console.log(results);
+		console.log(results);
 
 		// console.log(results.allergies);
 		// console.log(results.courses);

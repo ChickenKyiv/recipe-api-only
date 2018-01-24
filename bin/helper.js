@@ -3,8 +3,6 @@ const debug   = require('debug');
 // @TODO move id to config file. or we use it in a lot of places.
 Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
-let rows;
-
 const idsOnly = (array) => {
   if ( !array ) return; //@TODO add raven exception later??
   var result = Object.keys(array).map(function(e) {
@@ -36,6 +34,9 @@ const create = (options, cb) => {
       return cb(err);
     }
 
+    // Model.create(options['rows'], (err,data) => {
+    //     console.log(data);
+    // });
     Model.create(options['rows'], cb);
 
   });

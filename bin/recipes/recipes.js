@@ -3,7 +3,7 @@
 const debug = require('debug');
 const async = require('async');
 
-let Recipe
+let Model
 let database
 let table_name = 'Recipe'
 let Raven
@@ -25,11 +25,12 @@ const init = ( options, cb ) => {
   let helper = options[1];
   Raven  = options[2]; //@TODO apply this changes to all import model files
 
-  Recipe   = server.models.Recipe;
+  // console.log(server.models[table_name])
+  Model    = server.models[table_name];
   database = server.datasources.recipeDS;
 
   let args = {
-    model     : Recipe,
+    model     : Model,
     table_name: table_name,
     database  : database,
     rows      : get()
@@ -37,7 +38,6 @@ const init = ( options, cb ) => {
 
   // add data to db
   helper.create(args);
-
 }
 
 const get = () => {
@@ -96,7 +96,7 @@ const relate = async (options, results) => {
   let recipes
   try {
 
-    let Recipe = server.models.Recipe;
+    let Recipe = server.models[table_name];
     recipes    = await Recipe.find({});
 
 
