@@ -9,6 +9,8 @@ var database = app.datasources.recipeDS;
 var lbTables = [
 	'Allergy', 'Course', "Cuisine",
 	 "Diet", "Holiday", "Nutritions"
+
+	 ,"Recipe"
 ];
 
 //creating loopback necessary tables if no exists

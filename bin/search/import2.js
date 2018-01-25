@@ -8,18 +8,16 @@ const Raven   = require('raven');
 Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
 let server     = require(path.resolve(__dirname, '../../server/server'));
-let database   = server.datasources.recipeDS;
-
 let helper     = require(path.resolve(__dirname, '../helper'));
 
 // include middleware
 // @todo make it auto-icludable from folder
-// let Allergy    = require(path.resolve(__dirname, 'allergy'));
-// let Course     = require(path.resolve(__dirname, 'courses'));
-// let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
-// let Diet       = require(path.resolve(__dirname, 'diets'));
-// let Holiday    = require(path.resolve(__dirname, 'holidays'));
-// let Nutritions = require(path.resolve(__dirname, 'nutritions'));
+let Allergy    = require(path.resolve(__dirname, 'allergy'));
+let Course     = require(path.resolve(__dirname, 'courses'));
+let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
+let Diet       = require(path.resolve(__dirname, 'diets'));
+let Holiday    = require(path.resolve(__dirname, 'holidays'));
+let Nutritions = require(path.resolve(__dirname, 'nutritions'));
 
 // we including a file from other import directory.
 // @TODO this is not cool. maybe it's better to have a short version of recipe file just for attaching things.
@@ -29,14 +27,19 @@ let Recipe    = require(path.resolve(__dirname, '../recipes/recipes'));
 
 
 let options = [
-	models: server.models,
-	database: database
-	Raven: Raven
+	server,
+	helper,
+	Raven
 ]
 
 async.parallel({
-
-		recipes    : async.apply( helper.create2( options, Recipe ) ),
+		allergies  : async.apply(Allergy.init,    options),
+		courses    : async.apply(Course.init,     options),
+		cuisines   : async.apply(Cuisine.init,    options),
+    diets      : async.apply(Diet.init,       options),
+    holidays   : async.apply(Holiday.init,    options),
+    nutritions : async.apply(Nutritions.init, options),
+		recipes    : async.apply(Recipe.init, options),
 
 	}, function(err, results){
 		if( err ) {
@@ -45,14 +48,14 @@ async.parallel({
 
 		}
 
-		// if( !results || !results.allergies || !results.courses
-		// 		|| !results.cuisines || !results.diets || !results.holidays || !results.nutritions) {
-		// 			Raven.captureException("not imported well");
-		// }
+		if( !results || !results.allergies || !results.courses
+				|| !results.cuisines || !results.diets || !results.holidays || !results.nutritions) {
+					Raven.captureException("not imported well");
+		}
 
 
 		// @TODO make this call less shitty
-		// Recipe.relate( options, results );
+		Recipe.relate( options, results );
 
 
 		// console.log(err);

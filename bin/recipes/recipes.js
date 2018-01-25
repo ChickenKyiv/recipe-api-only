@@ -21,6 +21,7 @@ let attributes = [
 
 const init = ( options, cb ) => {
 
+
   let server = options[0];
   let helper = options[1];
   Raven  = options[2]; //@TODO apply this changes to all import model files
@@ -37,7 +38,7 @@ const init = ( options, cb ) => {
   }
 
   // add data to db
-  helper.create(args);
+  helper.create(args, cb);
 }
 
 const get = () => {
@@ -129,4 +130,6 @@ const relate = async (options, results) => {
 
 //
 module.exports.init   = init;
+module.exports.get   = get;
+module.exports.table_name   = table_name;
 module.exports.relate = relate;

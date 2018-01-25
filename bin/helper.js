@@ -22,8 +22,12 @@ const idsOnly = (array) => {
 // @TODO and checking is model exist and create a variables from array by easiest way. i saw similar sutff at jQuery libraries.
 const create = (options, cb) => {
 
+  if ( !cb ) { Raven.captureException('Callback was not specified'); }
+
   let Model      = options['model'];
+
   let table_name = options['table_name'];
+
   let database   = options['database'];
   let data       = options['data'];
   // rows           = options['rows'];
@@ -44,6 +48,43 @@ const create = (options, cb) => {
   // debug('model created!'); // @TODO
 
 };
+
+const create2 = (options, wrapper, cb) => {
+
+  if( !options ){ Raven.captureException('Options was not specified'); }
+  if ( !cb ) { Raven.captureException('Callback was not specified'); }
+
+  // wrapper.table_name;
+  // wrapper.get();server.models[Recipe.table_name]
+
+  let models     = options[0];
+
+  let Model      = models[wrapper.table_name];
+
+  let table_name = wrapper.table_name;
+
+  let database   = options['database'];
+
+  let data       = wrapper.get();
+  // rows           = options['rows'];
+
+  database.autoupdate(table_name, function(err){
+    if (err) {
+      Raven.captureException(err);
+      return cb(err);
+    }
+
+    // Model.create(options['rows'], (err,data) => {
+    //     console.log(data);
+    // });
+    Model.create(options['rows'], cb);
+
+  });
+
+  // debug('model created!'); // @TODO
+
+};
+
 
 // const get = ( ) => {
 //   return rows;
