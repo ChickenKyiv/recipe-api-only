@@ -38,12 +38,12 @@ async.parallel({
 
 		recipes    : async.apply(helper.create, options, Recipe),
 
-		// allergies  : async.apply(helper.create, options, Allergy),
-		// courses    : async.apply(helper.create2, options, Course),
-		// cuisines   : async.apply(helper.create2, options, Cuisine),
-    // diets      : async.apply(helper.create2, options, Diet),
-    // holidays   : async.apply(helper.create2, options, Holiday),
-    // nutritions : async.apply(helper.create2, options, Nutritions),
+		allergies  : async.apply(helper.create, options, Allergy),
+		courses    : async.apply(helper.create, options, Course),
+		cuisines   : async.apply(helper.create, options, Cuisine),
+    diets      : async.apply(helper.create, options, Diet),
+    holidays   : async.apply(helper.create, options, Holiday),
+    nutritions : async.apply(helper.create, options, Nutritions),
 
 	}, function(err, results){
 		if( err ) {
@@ -52,14 +52,15 @@ async.parallel({
 
 		}
 
-		// if( !results || !results.allergies || !results.courses
-		// 		|| !results.cuisines || !results.diets || !results.holidays || !results.nutritions) {
-		// 			Raven.captureException("not imported well");
-		// }
+		if( !results || !results.allergies || !results.courses
+				|| !results.cuisines || !results.diets || !results.holidays || !results.nutritions) {
+					Raven.captureException("not imported well");
+		}
 
 
 		// @TODO make this call less shitty
-		// Recipe.relate( options, results );
+		// console.log('123');
+		Recipe.relate( options, results, helper );
 
 
 		// console.log(err);

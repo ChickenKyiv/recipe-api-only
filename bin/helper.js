@@ -67,30 +67,21 @@ const create = (options, wrapper, cb) => {
   //
   // let server     = options['server'];
   let Model      = server.models[wrapper.table_name];
-  // console.log(server);
-  // console.log(database);
-  //
-  // let table_name = wrapper.table_name;
-  //
-  // let database   = options['database'];
-  //
-  // let data       = wrapper.get();
-  // console.log(table_name);
-  // console.log(data);
-  // // rows           = options['rows'];
-  //
-  // database.autoupdate(table_name, function(err){
-  //   if (err) {
-  //     raven.captureException(err);
-  //     return cb(err);
-  //   }
-  //
-  //   // Model.create(options['rows'], (err,data) => {
-  //   //     console.log(data);
-  //   // });
-  //   Model.create(data, cb);
-  //
-  // });
+  let table_name = wrapper.table_name;
+  let data       = wrapper.get();
+
+  database.autoupdate(table_name, function(err){
+    if (err) {
+      raven.captureException(err);
+      return cb(err);
+    }
+
+    // Model.create(options['rows'], (err,data) => {
+    //     console.log(data);
+    // });
+    Model.create(data, cb);
+
+  });
 
   // debug('model created!'); // @TODO
 
@@ -113,10 +104,11 @@ const attach = (array_ids, collection, attribute) => {
      // if attribute have more elements - we need to pick stuff.
      collection.forEach(function(item){
           item.updateAttribute(attribute, arrayWithIds);
+          // console.log(item);
      });
 
-     console.log(collection);
-     console.log(attribute);
+     // console.log(collection);
+     // console.log(attribute);
      debug('attach attached!'); // @TODO
 };
 
