@@ -2,34 +2,34 @@
 
 const debug   = require('debug');
 
-let Menu
-let database
+// let Menu
+// let database
 let table_name = 'Menu'
 
 let attributes  = [
   'recipes'
 ];
 
-const init = ( options, cb ) => {
-
-  let server = options[0];
-  let helper = options[1];
-  let Raven  = options[2];
-
-  Menu     = server.models.Menu;
-  database = server.datasources.recipeDS;
-
-  // add data to db
-  let args = {
-    model     : Menu,
-    table_name: table_name,
-    database  : database,
-    rows      : get()
-  }
-  // add data to db
-  helper.create(args, cb);
-
-}
+// const init = ( options, cb ) => {
+//
+//   let server = options[0];
+//   let helper = options[1];
+//   let Raven  = options[2];
+//
+//   Menu     = server.models.Menu;
+//   database = server.datasources.recipeDS;
+//
+//   // add data to db
+//   let args = {
+//     model     : Menu,
+//     table_name: table_name,
+//     database  : database,
+//     rows      : get()
+//   }
+//   // add data to db
+//   helper.create(args, cb);
+//
+// }
 
 const get = () => {
   // var x = new Date();
@@ -77,21 +77,27 @@ const get = () => {
 };
 
 //@TODO same function at other place are async and more advanced.
-const relate = ( results ) => {
-  console.log(results)
+const relate = async (options, results, helper) => {
+
+  let server
+  let database
+  let raven
+  ( {server, database, raven} = options );
+
+
 
   if( !results || !results.recipes || !results.menus ) {
-    Raven.captureException("cannot attach additional data to recipes");
+    raven.captureException("cannot attach additional data to recipes");
   }
 
   //@TODO create a method with foreach for each attribute in order to attach data to recipe
   helper.attach( results.recipes,  results.menus, attributes[0]);
-  // helper.attach( results.courses,    recipes, attribute[1]);
+
 
 
 
 };
 
-//
-module.exports.init   = init;
+module.exports.get   = get;
+module.exports.table_name   = table_name;
 module.exports.relate = relate;
