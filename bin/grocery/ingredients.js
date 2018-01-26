@@ -1,39 +1,8 @@
 'use strict';
 
 const debug   = require('debug');
-// model
-let Ingredient
-let database
+
 let table_name = 'Ingredient'
-
-// let attribute  = 'departmentId';
-//let attribute  = 'ingredients';
-
-const init = ( options, cb ) => {
-
-  // console.log('-----');
-  let server = options[0];
-  let helper = options[1];
-  let Raven  = options[2];
-  
-  let departments   = options[3]; // or use data key
-
-
-// console.log(server.models);
-  Ingredient  = server.models.Ingredient;
-  database    = server.datasources.recipeDS;
-  //
-  let args = {
-    model     : Ingredient,
-    table_name: table_name,
-    database  : database,
-
-    rows      : get(departments),
-  }
-
-  // // add data to db
-  helper.create(args, cb);
-}
 
 const get = (departments) => {
 
@@ -969,4 +938,4 @@ const get = (departments) => {
 //};
 
 //
-module.exports.init   = init;
+module.exports.get   = get;

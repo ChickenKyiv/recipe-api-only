@@ -47,14 +47,14 @@ async.parallel({
 
 	}, function(err, results){
 		if( err ) {
-			Raven.captureException(err);
+			raven.captureException(err);
 			throw err;
 
 		}
 
 		if( !results || !results.allergies || !results.courses
 				|| !results.cuisines || !results.diets || !results.holidays || !results.nutritions) {
-					Raven.captureException("not imported well");
+					raven.captureException("not imported well");
 		}
 
 

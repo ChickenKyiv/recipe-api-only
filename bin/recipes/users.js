@@ -2,42 +2,12 @@
 
 const debug   = require('debug');
 
-// let User
-// let Role
-// let RoleMapping
-// let database
 let table_name = 'user'
 
 let attributes  = [
     'userId'
 ];
-// let attribute  = '';
 
-// const init = async ( options, helper, cb ) => {
-//
-//   let server = options[0];
-//   let helper = options[1];
-//   let Raven  = options[2];
-//
-//
-//   User        = server.models.user;
-//   Role        = server.models.Role;
-//   RoleMapping = server.models.RoleMapping;
-//   database    = server.datasources.recipeDS;
-//
-//
-//   let args = {
-//     model     : User,
-//     table_name: table_name,
-//     database  : database,
-//     rows      : get()
-//   }
-//
-//   // add data to db
-//   helper.create(args, cb);
-//   // attachMenusToUsers
-//   // attachRecipesToUsers
-// }
 
 const get = () => {
 

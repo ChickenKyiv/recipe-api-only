@@ -2,34 +2,13 @@
 
 const debug   = require('debug');
 
-// let Menu
-// let database
 let table_name = 'Menu'
 
 let attributes  = [
   'recipes'
 ];
 
-// const init = ( options, cb ) => {
-//
-//   let server = options[0];
-//   let helper = options[1];
-//   let Raven  = options[2];
-//
-//   Menu     = server.models.Menu;
-//   database = server.datasources.recipeDS;
-//
-//   // add data to db
-//   let args = {
-//     model     : Menu,
-//     table_name: table_name,
-//     database  : database,
-//     rows      : get()
-//   }
-//   // add data to db
-//   helper.create(args, cb);
-//
-// }
+
 
 const get = () => {
   // var x = new Date();
