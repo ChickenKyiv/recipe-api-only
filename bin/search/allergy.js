@@ -2,31 +2,31 @@
 
 const debug   = require('debug');
 // model
-let Allergy
-let database
+// let Allergy
+// let database
 let table_name = 'Allergy'
-let attribute  = 'allergies';
+// let attribute  = 'allergies';
 // let relation = 'nutritions';
-const init = ( options, cb ) => {
-  let server = options[0];
-  let helper = options[1];
-  let Raven  = options[2];
-  // let cb     = options[3];
-
-  Allergy  = server.models.Allergy;
-  database = server.datasources.recipeDS;
-
-  // @TODO think about getting rid of args and make this files more simple
-  let args = {
-    model     : Allergy,
-    table_name: table_name,
-    database  : database,
-    rows      : get()
-  }
-
-  // add data to db
-  helper.create(args, cb);
-}
+// const init = ( options, cb ) => {
+//   let server = options[0];
+//   let helper = options[1];
+//   let Raven  = options[2];
+//   // let cb     = options[3];
+//
+//   Allergy  = server.models.Allergy;
+//   database = server.datasources.recipeDS;
+//
+//   // @TODO think about getting rid of args and make this files more simple
+//   let args = {
+//     model     : Allergy,
+//     table_name: table_name,
+//     database  : database,
+//     rows      : get()
+//   }
+//
+//   // add data to db
+//   helper.create(args, cb);
+// }
 
 const get = () => {
 
@@ -123,5 +123,5 @@ const get = () => {
 
 
 
-//
-module.exports.init   = init;
+module.exports.get   = get;
+module.exports.table_name   = table_name;

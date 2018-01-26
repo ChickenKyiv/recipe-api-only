@@ -1,31 +1,31 @@
 'use strict';
 
 
-let Holiday
-let database
+// let Holiday
+// let database
 let table_name = 'Holiday'
-let attribute  = 'holidays';
+// let attribute  = 'holidays';
 // let relation   = 'nutritions';
 
-const init = ( options, cb ) => {
-  let server = options[0];
-  let helper = options[1];
-  let Raven  = options[2];
-
-
-  Holiday  = server.models.Holiday;
-  database = server.datasources.recipeDS;
-
-  let args = {
-    model     : Holiday,
-    table_name: table_name,
-    database  : database,
-    rows      : get()
-  }
-
-  // add data to db
-  helper.create(args, cb);
-}
+// const init = ( options, cb ) => {
+//   let server = options[0];
+//   let helper = options[1];
+//   let Raven  = options[2];
+//
+//
+//   Holiday  = server.models.Holiday;
+//   database = server.datasources.recipeDS;
+//
+//   let args = {
+//     model     : Holiday,
+//     table_name: table_name,
+//     database  : database,
+//     rows      : get()
+//   }
+//
+//   // add data to db
+//   helper.create(args, cb);
+// }
 
 const get = () => {
 
@@ -165,5 +165,5 @@ const get = () => {
 
 };
 
-//
-module.exports.init   = init;
+module.exports.get   = get;
+module.exports.table_name   = table_name;

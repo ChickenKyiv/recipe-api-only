@@ -1,9 +1,9 @@
 'use strict';
 
-let Diet
-let database
+// let Diet
+// let database
 let table_name = 'Diet'
-let attribute  = 'diets';
+// let attribute  = 'diets';
 // let relation   = 'nutritions';
 
 
@@ -88,5 +88,5 @@ const get = () => {
 
 };
 
-//
-module.exports.init   = init;
+module.exports.get   = get;
+module.exports.table_name   = table_name;

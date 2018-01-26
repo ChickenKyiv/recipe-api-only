@@ -1,9 +1,9 @@
 'use strict';
 
-let Nutritions
-let database
+// let Nutritions
+// let database
 let table_name = 'Nutritions'
-let attribute  = 'nutritions';
+// let attribute  = 'nutritions';
 // let relation   = 'nutritions';
 
 const init = ( options, cb ) => {
@@ -93,5 +93,5 @@ const get = () => {
 
 };
 
-//
-module.exports.init   = init;
+module.exports.get   = get;
+module.exports.table_name   = table_name;

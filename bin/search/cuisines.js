@@ -1,10 +1,10 @@
 'use strict';
 
 // model
-let Cuisine
-let database
+// let Cuisine
+// let database
 let table_name = 'Cuisine'
-let attribute  = 'cuisines';
+// let attribute  = 'cuisines';
 // let relation = 'nutritions';
 
 
@@ -246,6 +246,5 @@ const get = () => {
 
 };
 
-
-//
-module.exports.init   = init;
+module.exports.get   = get;
+module.exports.table_name   = table_name;

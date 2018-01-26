@@ -14,12 +14,12 @@ let helper     = require(path.resolve(__dirname, '../helper'));
 
 // include middleware
 // @todo make it auto-icludable from folder
-// let Allergy    = require(path.resolve(__dirname, 'allergy'));
-// let Course     = require(path.resolve(__dirname, 'courses'));
-// let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
-// let Diet       = require(path.resolve(__dirname, 'diets'));
-// let Holiday    = require(path.resolve(__dirname, 'holidays'));
-// let Nutritions = require(path.resolve(__dirname, 'nutritions'));
+let Allergy    = require(path.resolve(__dirname, 'allergy'));
+let Course     = require(path.resolve(__dirname, 'courses'));
+let Cuisine    = require(path.resolve(__dirname, 'cuisines'));
+let Diet       = require(path.resolve(__dirname, 'diets'));
+let Holiday    = require(path.resolve(__dirname, 'holidays'));
+let Nutritions = require(path.resolve(__dirname, 'nutritions'));
 
 // we including a file from other import directory.
 // @TODO this is not cool. maybe it's better to have a short version of recipe file just for attaching things.
@@ -29,14 +29,21 @@ let Recipe    = require(path.resolve(__dirname, '../recipes/recipes'));
 
 
 let options = {
-	models: server.models,
+	server: server,
 	database: database,
 	raven: raven
 }
 
 async.parallel({
 
-		recipes    : async.apply( helper.create2, options, Recipe ),
+		recipes    : async.apply(helper.create, options, Recipe),
+
+		// allergies  : async.apply(helper.create, options, Allergy),
+		// courses    : async.apply(helper.create2, options, Course),
+		// cuisines   : async.apply(helper.create2, options, Cuisine),
+    // diets      : async.apply(helper.create2, options, Diet),
+    // holidays   : async.apply(helper.create2, options, Holiday),
+    // nutritions : async.apply(helper.create2, options, Nutritions),
 
 	}, function(err, results){
 		if( err ) {

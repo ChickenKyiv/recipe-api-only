@@ -3,8 +3,8 @@
 const debug = require('debug');
 const async = require('async');
 
-let Model
-let database
+// let Model
+// let database
 let table_name = 'Recipe'
 let raven
 
@@ -19,27 +19,27 @@ let attributes = [
 ];
 
 
-const init = ( options, cb ) => {
-
-
-  let server = options[0];
-  let helper = options[1];
-  raven  = options[2]; //@TODO apply this changes to all import model files
-
-  // console.log(server.models[table_name])
-  Model    = server.models[table_name];
-  database = server.datasources.recipeDS;
-
-  let args = {
-    model     : Model,
-    table_name: table_name,
-    database  : database,
-    rows      : get()
-  }
-
-  // add data to db
-  helper.create(args, cb);
-}
+// const init = ( options, cb ) => {
+//
+//
+//   let server = options[0];
+//   let helper = options[1];
+//   raven  = options[2]; //@TODO apply this changes to all import model files
+//
+//   // console.log(server.models[table_name])
+//   Model    = server.models[table_name];
+//   database = server.datasources.recipeDS;
+//
+//   let args = {
+//     model     : Model,
+//     table_name: table_name,
+//     database  : database,
+//     rows      : get()
+//   }
+//
+//   // add data to db
+//   helper.create(args, cb);
+// }
 
 const get = () => {
 
@@ -129,7 +129,7 @@ const relate = async (options, results) => {
 };
 
 //
-module.exports.init   = init;
+// module.exports.init   = init;
 module.exports.get   = get;
 module.exports.table_name   = table_name;
 module.exports.relate = relate;
