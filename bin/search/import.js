@@ -3,9 +3,9 @@
 const path    = require('path');
 const async   = require('async');
 const debug   = require('debug');
-const Raven   = require('raven');
+const raven   = require('raven');
 
-Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
+raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
 let server     = require(path.resolve(__dirname, '../../server/server'));
 let database   = server.datasources.recipeDS;
@@ -28,15 +28,15 @@ let Recipe    = require(path.resolve(__dirname, '../recipes/recipes'));
 // let Recipes    = require(path.resolve(__dirname, '../recipes/recipes'));
 
 
-let options = [
+let options = {
 	models: server.models,
-	database: database
-	Raven: Raven
-]
+	database: database,
+	raven: raven
+}
 
 async.parallel({
 
-		recipes    : async.apply( helper.create2( options, Recipe ) ),
+		recipes    : async.apply( helper.create2, options, Recipe ),
 
 	}, function(err, results){
 		if( err ) {

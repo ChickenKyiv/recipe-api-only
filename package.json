@@ -9,7 +9,6 @@
     "start": "node server/server.js",
     "watch": "nodemon server/server.js",
     "test": "mocha",
-
     "migrate": "node bin/grocery/automigrate.js",
     "migrate-search": "node bin/search/automigrate.js",
     "migrate-recipes": "node bin/recipes/automigrate.js",

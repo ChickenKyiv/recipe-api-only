@@ -6,7 +6,7 @@ const async = require('async');
 let Model
 let database
 let table_name = 'Recipe'
-let Raven
+let raven
 
 // @TODO not clear, how we can know which attribute to use?
 let attributes = [
@@ -24,7 +24,7 @@ const init = ( options, cb ) => {
 
   let server = options[0];
   let helper = options[1];
-  Raven  = options[2]; //@TODO apply this changes to all import model files
+  raven  = options[2]; //@TODO apply this changes to all import model files
 
   // console.log(server.models[table_name])
   Model    = server.models[table_name];
@@ -91,7 +91,7 @@ const relate = async (options, results) => {
   // I don't like that we're searching all recipes at this method
   let server = options[0];
   let helper = options[1];
-  Raven  = options[2]; //@TODO apply this changes to all import model files
+  raven  = options[2]; //@TODO apply this changes to all import model files
 
 
   let recipes
@@ -102,7 +102,7 @@ const relate = async (options, results) => {
 
 
   } catch (e) {
-    Raven.captureException(e);
+    raven.captureException(e);
     //this will eventually be handled by your error handling middleware
     next(e)
   }
@@ -113,7 +113,7 @@ const relate = async (options, results) => {
       || !results.courses || !results.cuisines
       || !results.diets || !results.holidays
       || !results.nutritions) {
-        Raven.captureException("cannot attach additional data to recipes");
+        raven.captureException("cannot attach additional data to recipes");
   }
 
   //@TODO create a method with foreach for each attribute in order to attach data to recipe

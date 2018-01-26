@@ -1,7 +1,8 @@
-const Raven   = require('raven');
+// const Raven   = require('raven');
 const debug   = require('debug');
 // @TODO move id to config file. or we use it in a lot of places.
-Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
+// Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
+let raven
 
 const idsOnly = (array) => {
   if ( !array ) return; //@TODO add raven exception later??
@@ -20,57 +21,61 @@ const idsOnly = (array) => {
 // database is important for creating new
 // model is a model name, that we use fo passing data
 // @TODO and checking is model exist and create a variables from array by easiest way. i saw similar sutff at jQuery libraries.
-const create = (options, cb) => {
-
-  if ( !cb ) { Raven.captureException('Callback was not specified'); }
-
-  let Model      = options['model'];
-
-  let table_name = options['table_name'];
-
-  let database   = options['database'];
-  let data       = options['data'];
-  // rows           = options['rows'];
-
-  database.autoupdate(table_name, function(err){
-    if (err) {
-      Raven.captureException(err);
-      return cb(err);
-    }
-
-    // Model.create(options['rows'], (err,data) => {
-    //     console.log(data);
-    // });
-    Model.create(options['rows'], cb);
-
-  });
-
-  // debug('model created!'); // @TODO
-
-};
+// const create = (options, cb) => {
+//
+//   if ( !cb ) { raven.captureException('Callback was not specified'); }
+//
+//   let Model      = options['model'];
+//
+//   let table_name = options['table_name'];
+//
+//   let database   = options['database'];
+//   let data       = options['data'];
+//   // rows           = options['rows'];
+//
+//   database.autoupdate(table_name, function(err){
+//     if (err) {
+//       raven.captureException(err);
+//       return cb(err);
+//     }
+//
+//     // Model.create(options['rows'], (err,data) => {
+//     //     console.log(data);
+//     // });
+//     Model.create(options['rows'], cb);
+//
+//   });
+//
+//   // debug('model created!'); // @TODO
+//
+// };
 
 const create2 = (options, wrapper, cb) => {
 
-  if( !options ){ Raven.captureException('Options was not specified'); }
-  if ( !cb ) { Raven.captureException('Callback was not specified'); }
+  if( !options ){ raven.captureException('Options was not specified'); }
+  if ( !cb ) { raven.captureException('Callback was not specified'); }
 
+  // console.log(options);
+  // console.log(wrapper);
   // wrapper.table_name;
   // wrapper.get();server.models[Recipe.table_name]
-
-  let models     = options[0];
-
-  let Model      = models[wrapper.table_name];
-
+  // let models     = options['models'][wrapper.table_name];
+  //
+  let Model      = options['models'][wrapper.table_name];
+  // console.log(Model);
+  //
   let table_name = wrapper.table_name;
-
+  //
   let database   = options['database'];
-
+  //
   let data       = wrapper.get();
-  // rows           = options['rows'];
-
+  // console.log(table_name);
+  // console.log(data);
+  // // rows           = options['rows'];
+  //
   database.autoupdate(table_name, function(err){
     if (err) {
-      Raven.captureException(err);
+      raven.captureException(err);
       return cb(err);
     }
 
@@ -113,6 +118,7 @@ const attach = (array_ids, collection, attribute) => {
 module.exports = {
   idsOnly : idsOnly,
   create  : create,
+  create2 : create2,
   attach  : attach,
   // get     : get
 };
