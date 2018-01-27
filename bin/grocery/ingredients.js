@@ -939,3 +939,4 @@ const get = (departments) => {
 
 //
 module.exports.get   = get;
+module.exports.table_name   = table_name;

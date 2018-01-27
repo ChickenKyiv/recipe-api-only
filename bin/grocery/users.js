@@ -79,9 +79,7 @@ const attachMenusToUsers = (users, menus) => {
   helper.attach(users, menus, attributes[0])
 };
 
-module.exports.get   = get;
-module.exports.table_name   = table_name;
-module.exports.assignAdmin   = assignAdmin;
+
 
 
 // @TODO think about it. GS using more advanced method of saving grocery to user array.
@@ -104,4 +102,11 @@ const attachGroceryToAdmin = () => {
 
 //
 // module.exports.init   = init;
-module.exports.assignAdmin = assignAdmin;
+// module.exports.assignAdmin = assignAdmin;
+
+
+
+
+module.exports.get   = get;
+module.exports.table_name   = table_name;
+// module.exports.assignAdmin   = assignAdmin;

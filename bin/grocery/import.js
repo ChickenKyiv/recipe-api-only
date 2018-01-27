@@ -16,11 +16,8 @@ let helper     = require(path.resolve(__dirname, '../helper'));
 // @todo make it auto-icludable from folder
 
 let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
-
 let Groceries    = require(path.resolve(__dirname, 'grocery'));
-
 let Departments  = require(path.resolve(__dirname, 'departments'));
-
 let Users        = require(path.resolve(__dirname, 'users'));
 
 
@@ -33,8 +30,8 @@ let options = {
 async.parallel({
 
 	departments : async.apply(helper.create, options, Departments),
-	groceries   : async.apply(helper.create, options, Groceries),
-	users       : async.apply(helper.create, options, Users),
+	// groceries   : async.apply(helper.create, options, Groceries),
+	// users       : async.apply(helper.create, options, Users),
 
 
 	// ingredients  : async.apply(Ingredients.init,    server, Raven),

@@ -36,25 +36,25 @@ const get = () => {
 };
 
 
+const relate = async (options, results, helper) => {
+// const relate = (results) => {
 
-const relate = (results) => {
-
-  attachDepartmentsToGrocery(dep, gro)
-  attachIngredientsToGrocery(ing, gro)
-  attachGroceryToUser(gro, u)
+  // attachDepartmentsToGrocery(dep, gro)
+  // attachIngredientsToGrocery(ing, gro)
+  // attachGroceryToUser(gro, u)
 
 
 
 
   //@TODO replace stuff like cb to a simple console or debug log that relation was successfully created
 
-  const attachDepartmentsToGrocery = (departments, groceries) => {
-    attach(departments, groceries, attributes[0]);
-  };
-
-  const attachIngredientsToGrocery = (ingredients, groceries) => {
-    attach(ingredients, groceries, attributes[2]);
-  };
+  // const attachDepartmentsToGrocery = (departments, groceries) => {
+  //   attach(departments, groceries, attributes[0]);
+  // };
+  //
+  // const attachIngredientsToGrocery = (ingredients, groceries) => {
+  //   attach(ingredients, groceries, attributes[2]);
+  // };
 
 
 };
@@ -62,4 +62,5 @@ const relate = (results) => {
 
 //
 module.exports.get   = get;
+module.exports.table_name   = table_name;
 module.exports.relate = relate;

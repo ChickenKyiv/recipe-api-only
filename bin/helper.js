@@ -54,6 +54,8 @@ const create = (options, wrapper, cb) => {
 
   if( !options ){ raven.captureException('Options was not specified'); }
   if ( !cb ) { raven.captureException('Callback was not specified'); }
+  if ( !wrapper.table_name ) { raven.captureException('Model was not specified'); }
+
 
   let server
   let database
@@ -66,9 +68,16 @@ const create = (options, wrapper, cb) => {
   // let models     = options['models'][wrapper.table_name];
   //
   // let server     = options['server'];
+
+  console.log(wrapper.table_name);
+  console.log(Model);
+
   let Model      = server.models[wrapper.table_name];
   let table_name = wrapper.table_name;
   let data       = wrapper.get();
+
+  console.log(wrapper.table_name);
+  console.log(Model);
 
   database.autoupdate(table_name, function(err){
     if (err) {

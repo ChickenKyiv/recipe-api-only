@@ -1,40 +1,8 @@
 'use strict';
 
 const debug   = require('debug');
-// model
-let Department
-let database
+
 let table_name = 'Department'
-
-//let attribute  = 'departmentIds';
-
-const init = ( options, cb ) => {
-  // console.log('-----');
-
-  let server = options[0];
-  let helper = options[1];
-  let Raven  = options[2];
-  // let cb     = options[3];
-
-  Department  = server.models.Department;
-  database    = server.datasources.recipeDS;
-
-  let args = {
-    model     : Department,
-    table_name: table_name,
-    database  : database,
-    rows      : get(),
-
-  }
-
-  // add data to db
-  helper.create(args, cb);
-
-  // let Model      = options['model'];
-  // let table_name = options['table_name'];
-  // let database   = options['database'];
-  // let data       = options['data'];
-}
 
 const get = () => {
 
@@ -157,4 +125,5 @@ const get = () => {
 };
 
 //
-module.exports.init   = init;
+module.exports.get   = get;
+module.exports.table_name   = table_name;
