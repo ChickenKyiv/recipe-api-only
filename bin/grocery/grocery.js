@@ -18,7 +18,7 @@ let attributes  = [
   // attachDepartmentsToGrocery(options.departments, groceries, cb);
   // attachIngredientsToGrocery(options.ingredients, groceries, cb);
 
-}
+
 
 const get = () => {
 

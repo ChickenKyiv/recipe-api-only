@@ -48,23 +48,27 @@ async.parallel({
 
 
 
-    if( !results || !results.departments || !results.groceries || !results.users) {
-					raven.captureException("not imported well");
-		}
-		// cause we need data related to departments (ids only)
-		options.push(results.departments);
+    // if( !results || !results.departments || !results.groceries || !results.users) {
+		// 			raven.captureException("not imported well");
+		// }
+		// // cause we need data related to departments (ids only)
+		// options.push(results.departments);
+    //
+		// // user stuff
+		// Users.assignAdmin(results.users[2].id);
+    //
+		// Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
+    //
+    //
+    //
+		// Ingredients.init( options, function(err, data){
+		// 	// console.log('loggggggggg');
+		// 	// console.log(data);
+		// });
 
-		// user stuff
-		Users.assignAdmin(results.users[2].id);
-
-		Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
 
 
 
-		Ingredients.init( options, function(err, data){
-			// console.log('loggggggggg');
-			// console.log(data);
-		});
     // let ingredients = Ingredients.init( results.departments, options.push(results.departments) );
     // console.log(ingredients);
 
@@ -90,10 +94,10 @@ async.parallel({
 
 console.log('import finished');
 
-		process.on('exit', function(code) {
-    	return console.log(`About to exit with code ${code}`);
-		});
-		process.exit(22);
+		// process.on('exit', function(code) {
+    // 	return console.log(`About to exit with code ${code}`);
+		// });
+		// process.exit(22);
 
 
 
