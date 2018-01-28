@@ -1,8 +1,8 @@
 'use strict';
 
-const debug   = require('debug');
+const debug     = require('debug');
 
-let table_name = 'user'
+let table_name  = 'user'
 
 let attributes  = [
     'groceryIds'
@@ -69,32 +69,24 @@ function assignAdmin(options, admin_id){
 };
 
 
-const attachGroceryToUsers = (users, menus) => {
-  helper.attach(users, menus, attributes[0])
-};
-
-
-
-
-
 // groceryIds
+// helper.attach()
+// var options = {
+//   userId: admin.id,
+//   secondArray: [ grocery.id ]
+// };
+// User.addGrocery(options);
+// @TODO think about it. GS using more advanced method of saving grocery to user array.
+// but in order to simplify stuff - we'll remove connection between import and methods from inner models.
+
+// we didn't use this method cause we attach all GL to all users.
+// but i decide to keep it
 const attachGroceryToAdmin = (users, groceries) => {
-  helper.attach(users, groceries, attributes[0])
-  // helper.attach()
-  // var options = {
-  //   userId: admin.id,
-  //   secondArray: [ grocery.id ]
-  // };
-  // User.addGrocery(options);
+
+  helper.attach(users, groceries, attributes[0]);
+
 };
 
-//
-// module.exports.init   = init;
-// module.exports.assignAdmin = assignAdmin;
-
-
-
-
-module.exports.get   = get;
-module.exports.table_name   = table_name;
-// module.exports.assignAdmin   = assignAdmin;
+module.exports.get         = get;
+module.exports.table_name  = table_name;
+module.exports.assignAdmin = assignAdmin;

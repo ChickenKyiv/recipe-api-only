@@ -66,10 +66,9 @@ const create = (options, wrapper, cb) => {
   let Model      = server.models[wrapper.table_name];
   let table_name = wrapper.table_name;
 
-  // console.log(predata);
 
   let data       = ( !predata ) ? wrapper.get() : wrapper.get(predata) ;
-// console.log(data)
+
   database.autoupdate(table_name, function(err){
     if (err) {
       raven.captureException(err);

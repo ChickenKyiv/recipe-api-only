@@ -60,10 +60,9 @@ async.parallel({
 		// 	console.log(data);
 		});
 
-		// Ingredients.init( options, function(err, data){
-			// console.log('loggggggggg');
-			// console.log(data);
-		// });
+		// // @TODO make this call less shitty
+		Departments.relate( options, results, helper );
+		Groceries.relate( options, results, helper );
 
 
 

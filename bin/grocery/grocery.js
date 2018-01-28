@@ -36,33 +36,28 @@ const get = () => {
 };
 
 
-const attachGroceryToUser = ()
+
 
 const relate = async (options, results, helper) => {
-// const relate = (results) => {
 
-  // attachDepartmentsToGrocery(dep, gro)
-  // attachIngredientsToGrocery(ing, gro)
-  // attachGroceryToUser(gro, u)
-
-
+  let server
+  let database
+  let raven
+  ( {server, database, raven} = options );
 
 
-  //@TODO replace stuff like cb to a simple console or debug log that relation was successfully created
 
-  // const attachDepartmentsToGrocery = (departments, groceries) => {
-  //   attach(departments, groceries, attributes[0]);
-  // };
-  //
-  // const attachIngredientsToGrocery = (ingredients, groceries) => {
-  //   attach(ingredients, groceries, attributes[2]);
-  // };
+  if( !results || !results.groceries
+    // || !results.menus
+  ) {
+    raven.captureException("cannot attach additional data to recipes");
+  }
 
+  //@TODO create a method with foreach for each attribute in order to attach data to recipe
+  helper.attach( results.groceries, results.users, attributes[1]);
 
 };
 
-
-//
-module.exports.get   = get;
-module.exports.table_name   = table_name;
-module.exports.relate = relate;
+module.exports.get        = get;
+module.exports.table_name = table_name;
+module.exports.relate     = relate;
