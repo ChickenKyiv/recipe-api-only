@@ -36,6 +36,8 @@ const get = () => {
 };
 
 
+const attachGroceryToUser = ()
+
 const relate = async (options, results, helper) => {
 // const relate = (results) => {
 

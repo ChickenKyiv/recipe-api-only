@@ -48,7 +48,7 @@ async.parallel({
 		// console.log(err);
 		// console.log(results);
 
-		console.log('123')
+		// console.log('123')
 		Users.assignAdmin(options, results.users[2].id);
 		// console.log('333')
     //

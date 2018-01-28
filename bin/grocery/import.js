@@ -11,7 +11,7 @@ let server     = require(path.resolve(__dirname, '../../server/server'));
 let database   = server.datasources.recipeDS;
 
 let helper     = require(path.resolve(__dirname, '../helper'));
-// console.log(helper);
+
 // //include middleware
 // @todo make it auto-icludable from folder
 
@@ -30,12 +30,8 @@ let options = {
 async.parallel({
 
 	departments : async.apply(helper.create, options, Departments),
-	// groceries   : async.apply(helper.create, options, Groceries),
-	// users       : async.apply(helper.create, options, Users),
-
-
-	// ingredients  : async.apply(Ingredients.init,    server, Raven),
-
+	groceries   : async.apply(helper.create, options, Groceries),
+	users       : async.apply(helper.create, options, Users),
 
 	}, function(err, results){
 		if( err ) {
@@ -45,22 +41,28 @@ async.parallel({
 
 
 
-    // if( !results || !results.departments || !results.groceries || !results.users) {
-		// 			raven.captureException("not imported well");
-		// }
+    if( !results || !results.departments || !results.groceries || !results.users) {
+					raven.captureException("not imported well");
+		}
 		// // cause we need data related to departments (ids only)
-		// options.push(results.departments);
+
     //
 		// // user stuff
 		// Users.assignAdmin(results.users[2].id);
+		Users.assignAdmin(options, results.users[2].id);
     //
 		// Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
     //
+
     //
-    //
+		options.predata = results.departments;
+		helper.create(options, Ingredients, (err, data) => {
+		// 	console.log(data);
+		});
+
 		// Ingredients.init( options, function(err, data){
-		// 	// console.log('loggggggggg');
-		// 	// console.log(data);
+			// console.log('loggggggggg');
+			// console.log(data);
 		// });
 
 

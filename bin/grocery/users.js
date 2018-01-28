@@ -34,6 +34,7 @@ const get = () => {
 };
 
 
+// @TODO this is a duplicate
 function assignAdmin(options, admin_id){
   let server
   let database
@@ -68,30 +69,17 @@ function assignAdmin(options, admin_id){
 };
 
 
-const attachRecipesToUsers = () => {
-  // 	recipes.forEach(function(recipe){
-  // 		recipe.updateAttribute('userId', users[2].id);
-
-  // 	});
-};
-
-const attachMenusToUsers = (users, menus) => {
+const attachGroceryToUsers = (users, menus) => {
   helper.attach(users, menus, attributes[0])
 };
 
 
 
 
-// @TODO think about it. GS using more advanced method of saving grocery to user array.
-// but in order to simplify stuff - we'll remove connection between import and methods from inner models.
-
-//@TODO replace stuff like cb to a simple console or debug log that relation was successfully created
-const attachGroceryToUser = (departments, groceries) => {
-  helper.attach(departments, groceries, attributes[0]);
-};
 
 // groceryIds
-const attachGroceryToAdmin = () => {
+const attachGroceryToAdmin = (users, groceries) => {
+  helper.attach(users, groceries, attributes[0])
   // helper.attach()
   // var options = {
   //   userId: admin.id,

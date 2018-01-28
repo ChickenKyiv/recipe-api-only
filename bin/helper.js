@@ -54,40 +54,28 @@ const create = (options, wrapper, cb) => {
 
   if( !options ){ raven.captureException('Options was not specified'); }
   if ( !cb ) { raven.captureException('Callback was not specified'); }
-  if ( !wrapper.table_name ) { raven.captureException('Model was not specified'); }
+  if ( !wrapper && !wrapper.table_name ) { raven.captureException('Model was not specified'); }
 
 
   let server
   let database
   let raven
-  ( {server, database, raven} = options );
-  // console.log(options);
-  // console.log(wrapper);
-  // wrapper.table_name;
-  // wrapper.get();server.models[Recipe.table_name]
-  // let models     = options['models'][wrapper.table_name];
-  //
-  // let server     = options['server'];
-
-  console.log(wrapper.table_name);
-  console.log(Model);
+  let predata
+  ( {server, database, raven, predata} = options );
 
   let Model      = server.models[wrapper.table_name];
   let table_name = wrapper.table_name;
-  let data       = wrapper.get();
 
-  console.log(wrapper.table_name);
-  console.log(Model);
+  // console.log(predata);
 
+  let data       = ( !predata ) ? wrapper.get() : wrapper.get(predata) ;
+// console.log(data)
   database.autoupdate(table_name, function(err){
     if (err) {
       raven.captureException(err);
       return cb(err);
     }
 
-    // Model.create(options['rows'], (err,data) => {
-    //     console.log(data);
-    // });
     Model.create(data, cb);
 
   });
@@ -96,10 +84,6 @@ const create = (options, wrapper, cb) => {
 
 };
 
-
-// const get = ( ) => {
-//   return rows;
-// }
 
 // @TODO use this version, it's very many huge fresh
 // array_ids - where we get data from
@@ -124,8 +108,6 @@ const attach = (array_ids, collection, attribute) => {
 
 module.exports = {
   idsOnly : idsOnly,
-  // create  : create,
   create : create,
-  attach  : attach,
-  // get     : get
+  attach  : attach
 };
