@@ -2,22 +2,22 @@
   "name": "recipe-api",
   "version": "1.0.2-beta",
   "engines": {
-    "node": "8.1.4"
+    "node": "9.4.0"
   },
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
     "watch": "nodemon server/server.js",
     "test": "mocha",
-    "migrate": "node bin/grocery/automigrate.js",
-    "migrate-search": "node bin/search/automigrate.js",
+    "migrate-grocery": "node bin/grocery/automigrate.js",
+    "migrate-search":  "node bin/search/automigrate.js",
     "migrate-recipes": "node bin/recipes/automigrate.js",
-    "import": "node bin/recipes/import.js",
+    "import":  "node bin/recipes/import.js",
     "grocery": "node bin/grocery/import.js",
-    "search": "node bin/search/import.js",
-    "g": "npm run migrate && nodemon bin/grocery/import.js",
+    "search":  "node bin/search/import.js",
+    "g": "npm run migrate-grocery && nodemon bin/grocery/import.js",
     "r": "npm run migrate-recipes && nodemon bin/recipes/import.js",
-    "s": "npm run migrate-search && nodemon bin/search/import.js"
+    "s": "npm run migrate-search  && nodemon bin/search/import.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
