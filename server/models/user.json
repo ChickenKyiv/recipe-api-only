@@ -22,11 +22,10 @@
   },
   "validations": [],
   "relations": {
-
     "menuList": {
       "type": "referencesMany",
       "model": "Menu",
-      "foreignKey": "menus",
+      "foreignKey": "menuIds",
       "options": {
         "validate": true,
         "forceId": false

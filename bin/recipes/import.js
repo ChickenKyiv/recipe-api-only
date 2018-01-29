@@ -54,29 +54,15 @@ async.parallel({
     //
 		// // @TODO make this call less shitty
 		Menus.relate( options, results, helper );
-		// console.log('333')
-		// attachRecipesToMenu
-		// attachMenusToUsers
+
 
 
 		//@TODO attach groceries to users will be moved to a next stages
 
-    //
-		// Ingredients.createIngredients(
-		// 	results.departments, function(err, ingredients){
-    //
-		// 		// console.log(ingredients);
-    //
-		// 		Ingredients.attachIngredientsToGroceries(
-		// 				ingredients, results.groceries
-		// 	 	);
-		// 		console.log('import finished');
-		// 	});
-
-		// console.log(ingredient);
 
 
-console.log('import finished');
+
+		console.log('import finished');
 		// process.on('exit', function(code) {
     // 	return console.log(`About to exit with code ${code}`);
 		// });
