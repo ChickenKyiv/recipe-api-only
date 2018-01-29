@@ -46,15 +46,11 @@ async.parallel({
 		}
 		// // cause we need data related to departments (ids only)
 
-    //
-		// // user stuff
-		// Users.assignAdmin(results.users[2].id);
-		Users.assignAdmin(options, results.users[2].id);
-    //
-		// Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
-    //
 
-    //
+		// // user stuff
+		Users.assignAdmin(options, results.users[2].id);
+
+
 		options.predata = results.departments;
 		helper.create(options, Ingredients, (err, data) => {
 		// 	console.log(data);
@@ -66,31 +62,7 @@ async.parallel({
 
 
 
-
-    // let ingredients = Ingredients.init( results.departments, options.push(results.departments) );
-    // console.log(ingredients);
-
-
-   // console.log(results.ingredients);
-	 // console.log(results);
-		// console.log(results.departments);
-		// console.log(results.groceries);
-
-		// Users.assignAdmin(results.users[2]);
-		// Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
-    //
-		// Ingredients.createIngredients(
-		// 	results.departments, function(err, ingredients){
-    //
-		// 		// console.log(ingredients);
-    //
-		// 		Ingredients.attachIngredientsToGroceries(
-		// 				ingredients, results.groceries
-		// 	 	);
-		// 		console.log('import finished');
-		// 	});
-
-console.log('import finished');
+		console.log('import finished');
 
 		// process.on('exit', function(code) {
     // 	return console.log(`About to exit with code ${code}`);

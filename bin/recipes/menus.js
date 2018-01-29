@@ -5,7 +5,8 @@ const debug   = require('debug');
 let table_name = 'Menu'
 
 let attributes  = [
-  'recipes'
+  'recipes', // #0
+  'menus'    // #1
 ];
 
 
@@ -72,7 +73,10 @@ const relate = async (options, results, helper) => {
   //@TODO create a method with foreach for each attribute in order to attach data to recipe
   helper.attach( results.recipes,  results.menus, attributes[0]);
 
+  // console.log(results.menus)
+  // console.log(results.users)
 
+  helper.attach( results.menus,  results.users, attributes[1]);
 
 
 };
