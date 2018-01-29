@@ -6,7 +6,7 @@ let table_name = 'Menu'
 
 let attributes  = [
   'recipes', // #0
-  'menus'    // #1
+  'menuIds'    // #1
 ];
 
 
@@ -64,19 +64,17 @@ const relate = async (options, results, helper) => {
   let raven
   ( {server, database, raven} = options );
 
-
-
   if( !results || !results.recipes || !results.menus ) {
     raven.captureException("cannot attach additional data to recipes");
   }
 
   //@TODO create a method with foreach for each attribute in order to attach data to recipe
-  helper.attach( results.recipes,  results.menus, attributes[0]);
+  // helper.attach( results.recipes,  results.menus, attributes[0]);
 
   // console.log(results.menus)
   // console.log(results.users)
 
-  helper.attach( results.menus,  results.users, attributes[1]);
+  helper.attach( results.menus, results.users, attributes[1]);
 
 
 };

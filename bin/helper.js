@@ -66,19 +66,14 @@ const create = (options, wrapper, cb) => {
 // array_ids - where we get data from
 // collection - where we put our data
 // attribute - key at collection
-const attach = (array_ids, collection, attribute) => {
-    // console.log(array_ids);
-     var arrayWithIds = get_id_array( array_ids );
-     console.log(arrayWithIds);
-     // if attribute is string then use it. if attribute is array with count 1 - use it
-     // if attribute have more elements - we need to pick stuff.
-     collection.forEach(function(item){
-          item.updateAttribute(attribute, arrayWithIds);
-          console.log(item);
-     });
+const attach = ( array_ids, collection, attribute ) => {
 
-     // console.log(collection);
-     // console.log(attribute);
+     var arrayWithIds = get_id_array( array_ids );
+
+     // if attribute is string then use it. if attribute is array with count 1 - use it
+     // if attribute have more elements - we need to pick stuff. @TODO
+     _.map( collection, item => item.updateAttribute(attribute, arrayWithIds) )
+
      debug('attach attached!'); // @TODO
 };
 
