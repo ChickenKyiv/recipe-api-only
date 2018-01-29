@@ -111,7 +111,30 @@ Great Loopback REST API tutorial: https://github.com/optis/loopback-rest-api
  heroku run npm run import-search --app recipe-api-loopback
  
   ```	
-
+  
+  or 
+  
+    ```	
+ heroku run npm run s --app recipe-api-loopback
+ 
+  ```	
+     ```	
+ heroku run npm run g --app recipe-api-loopback
+ 
+  ```	
+   ```	
+ heroku run npm run r --app recipe-api-loopback
+ 
+  ```	
+  
+  for logs put 
+  ```
+  heroku logs -a recipe-api-loopback
+```
+for install packages it's better to run
+```
+heroku run npm install -a recipe-api-loopback
+```
 ## Links, that's important for me:
 
 http://localhost:3000/explorer/#!/recipes/recipes_find
