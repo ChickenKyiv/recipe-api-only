@@ -4,6 +4,8 @@ This README would normally document whatever steps are necessary to get your app
 
 Note: **This repository is going through heavy development currently and should not be used in production unless you know what you are doing**
 
+Note: **Working only with unstable node version - 9.4.0 - be careful**
+
 
 [![Join the chat at https://gitter.im/recipe-api-questions/Lobby](https://badges.gitter.im/recipe-api-questions/Lobby.svg)](https://gitter.im/recipe-api-questions/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
