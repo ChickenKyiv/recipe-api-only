@@ -2,42 +2,12 @@
 
 const debug   = require('debug');
 
-let User
-let Role
-let RoleMapping
-let database
 let table_name = 'user'
 
 let attributes  = [
     'userId'
 ];
-// let attribute  = '';
 
-const init = ( options, cb ) => {
-
-  let server = options[0];
-  let helper = options[1];
-  let Raven  = options[2];
-
-
-  User        = server.models.user;
-  Role        = server.models.Role;
-  RoleMapping = server.models.RoleMapping;
-  database    = server.datasources.recipeDS;
-
-
-  let args = {
-    model     : User,
-    table_name: table_name,
-    database  : database,
-    rows      : get()
-  }
-
-  // add data to db
-  helper.create(args, cb);
-  // attachMenusToUsers
-  // attachRecipesToUsers
-}
 
 const get = () => {
 
@@ -63,8 +33,18 @@ const get = () => {
 
 };
 
+// @TODO this is a duplicate
+function assignAdmin(options, admin_id){
+  let server
+  let database
+  let raven
 
-function assignAdmin(admin_id){
+  ( {server, database, raven} = options );
+
+  // User        = server.models.user;
+  let Role        = server.models.Role;
+  let RoleMapping = server.models.RoleMapping;
+  // database    = server.datasources.recipeDS;
 
 	database.automigrate('Role', function(err){
 		if (err) return cb(err);
@@ -79,7 +59,10 @@ function assignAdmin(admin_id){
                 console.log('Principal', principal);
               });
 
-		}).catch(function(err){ throw err; });
+		}).catch(function(err){
+      raven.captureException("admin was not assigned");
+      throw err;
+    });
 	});
   debug('admin was created');
 };
@@ -96,5 +79,9 @@ const attachMenusToUsers = (users, menus) => {
   helper.attach(users, menus, attributes[0])
 };
 
-//
-module.exports.init   = init;
+module.exports.get   = get;
+module.exports.table_name   = table_name;
+module.exports.assignAdmin   = assignAdmin;
+
+module.exports.attachRecipesToUsers   = attachRecipesToUsers;
+module.exports.attachMenusToUsers   = attachMenusToUsers;

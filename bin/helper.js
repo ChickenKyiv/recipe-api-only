@@ -1,16 +1,17 @@
 // const Raven   = require('raven');
 const debug   = require('debug');
+const _       = require('underscore');
 // @TODO move id to config file. or we use it in a lot of places.
 // Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 let raven
 
-const idsOnly = (array) => {
-  if ( !array ) return; //@TODO add raven exception later??
-  var result = Object.keys(array).map(function(e) {
-      return array[e].id;
-  });
+const get_id_array = (array) => {
+  if ( !array ){
+    raven.captureException('Cannot attach an empty array of ids');
+  }
 
-  return result;
+  return _.map( _.pluck(array, 'id'), item => item.toString() );
+
 };
 
 // raven is for exception catcher
@@ -21,85 +22,45 @@ const idsOnly = (array) => {
 // database is important for creating new
 // model is a model name, that we use fo passing data
 // @TODO and checking is model exist and create a variables from array by easiest way. i saw similar sutff at jQuery libraries.
-// const create = (options, cb) => {
-//
-//   if ( !cb ) { raven.captureException('Callback was not specified'); }
-//
-//   let Model      = options['model'];
-//
-//   let table_name = options['table_name'];
-//
-//   let database   = options['database'];
-//   let data       = options['data'];
-//   // rows           = options['rows'];
-//
-//   database.autoupdate(table_name, function(err){
-//     if (err) {
-//       raven.captureException(err);
-//       return cb(err);
-//     }
-//
-//     // Model.create(options['rows'], (err,data) => {
-//     //     console.log(data);
-//     // });
-//     Model.create(options['rows'], cb);
-//
-//   });
-//
-//   // debug('model created!'); // @TODO
-//
-// };
+
 
 const create = (options, wrapper, cb) => {
 
   if( !options ){ raven.captureException('Options was not specified'); }
   if ( !cb ) { raven.captureException('Callback was not specified'); }
+  if ( !wrapper && !wrapper.table_name ) { raven.captureException('Model was not specified'); }
+
 
   let server
   let database
   let raven
-  ( {server, database, raven} = options );
-  // console.log(options);
-  // console.log(wrapper);
-  // wrapper.table_name;
-  // wrapper.get();server.models[Recipe.table_name]
-  // let models     = options['models'][wrapper.table_name];
-  //
-  // let server     = options['server'];
+  let predata
+  ( {server, database, raven, predata} = options );
+
   let Model      = server.models[wrapper.table_name];
-  // console.log(server);
-  // console.log(database);
-  //
-  // let table_name = wrapper.table_name;
-  //
-  // let database   = options['database'];
-  //
-  // let data       = wrapper.get();
-  // console.log(table_name);
-  // console.log(data);
-  // // rows           = options['rows'];
-  //
-  // database.autoupdate(table_name, function(err){
-  //   if (err) {
-  //     raven.captureException(err);
-  //     return cb(err);
-  //   }
-  //
-  //   // Model.create(options['rows'], (err,data) => {
-  //   //     console.log(data);
-  //   // });
-  //   Model.create(data, cb);
-  //
-  // });
+  let table_name = wrapper.table_name;
+
+
+  let data       = ( !predata ) ? wrapper.get() : wrapper.get(predata) ;
+
+  database.autoupdate(table_name, function(err){
+    if (err) {
+      raven.captureException(err);
+      return cb(err);
+    }
+
+    Model.create(data, cb);
+    // Model.create(data, (err,d) => {
+    //   console.log(d)
+    // });
+    //@TODO add wrapper for debug options. cause i have to comment it every time
+
+  });
 
   // debug('model created!'); // @TODO
 
 };
 
-
-// const get = ( ) => {
-//   return rows;
-// }
 
 // @TODO use this version, it's very many huge fresh
 // array_ids - where we get data from
@@ -107,24 +68,23 @@ const create = (options, wrapper, cb) => {
 // attribute - key at collection
 const attach = (array_ids, collection, attribute) => {
     // console.log(array_ids);
-     var arrayWithIds = idsOnly(array_ids);
-     // console.log(arrayWithIds);
+     var arrayWithIds = get_id_array( array_ids );
+     console.log(arrayWithIds);
      // if attribute is string then use it. if attribute is array with count 1 - use it
      // if attribute have more elements - we need to pick stuff.
      collection.forEach(function(item){
           item.updateAttribute(attribute, arrayWithIds);
+          console.log(item);
      });
 
-     console.log(collection);
-     console.log(attribute);
+     // console.log(collection);
+     // console.log(attribute);
      debug('attach attached!'); // @TODO
 };
 
 
 module.exports = {
-  idsOnly : idsOnly,
-  // create  : create,
+  get_id_array : get_id_array,
   create : create,
-  attach  : attach,
-  // get     : get
+  attach  : attach
 };

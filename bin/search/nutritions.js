@@ -1,30 +1,7 @@
 'use strict';
 
-// let Nutritions
-// let database
+
 let table_name = 'Nutritions'
-// let attribute  = 'nutritions';
-// let relation   = 'nutritions';
-
-const init = ( options, cb ) => {
-  let server = options[0];
-  let helper = options[1];
-  let Raven  = options[2];
-
-  Nutritions  = server.models.Nutritions;
-  database    = server.datasources.recipeDS;
-
-  let args = {
-    model     : Nutritions,
-    table_name: table_name,
-    database  : database,
-    rows      : get()
-  }
-
-  // add data to db
-  helper.create(args, cb);
-}
-
 
 const get = () => {
 

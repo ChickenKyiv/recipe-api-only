@@ -19,28 +19,6 @@ let attributes = [
 ];
 
 
-// const init = ( options, cb ) => {
-//
-//
-//   let server = options[0];
-//   let helper = options[1];
-//   raven  = options[2]; //@TODO apply this changes to all import model files
-//
-//   // console.log(server.models[table_name])
-//   Model    = server.models[table_name];
-//   database = server.datasources.recipeDS;
-//
-//   let args = {
-//     model     : Model,
-//     table_name: table_name,
-//     database  : database,
-//     rows      : get()
-//   }
-//
-//   // add data to db
-//   helper.create(args, cb);
-// }
-
 const get = () => {
 
     var data     = [
@@ -85,13 +63,18 @@ const get = () => {
 
 
 
-const relate = async (options, results) => {
+const relate = async (options, results, helper) => {
 
   // this is a hardcode. @TODO handle this later.
   // I don't like that we're searching all recipes at this method
-  let server = options[0];
-  let helper = options[1];
-  raven  = options[2]; //@TODO apply this changes to all import model files
+  // let server = options[0];
+  // let helper = options[1];
+  // let raven  = options[2];
+  //@TODO apply this changes to all import model files
+  let server
+  let database
+  let raven
+  ( {server, database, raven} = options );
 
 
   let recipes
@@ -128,8 +111,7 @@ const relate = async (options, results) => {
 
 };
 
-//
-// module.exports.init   = init;
+
 module.exports.get   = get;
 module.exports.table_name   = table_name;
 module.exports.relate = relate;

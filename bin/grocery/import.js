@@ -3,96 +3,71 @@
 const path    = require('path');
 const async   = require('async');
 const debug   = require('debug');
-const Raven   = require('raven');
+const raven   = require('raven');
 
-Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
+raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
 
 let server     = require(path.resolve(__dirname, '../../server/server'));
-
+let database   = server.datasources.recipeDS;
 
 let helper     = require(path.resolve(__dirname, '../helper'));
-// console.log(helper);
+
 // //include middleware
 // @todo make it auto-icludable from folder
 
 let Ingredients  = require(path.resolve(__dirname, 'ingredients'));
-
 let Groceries    = require(path.resolve(__dirname, 'grocery'));
-
 let Departments  = require(path.resolve(__dirname, 'departments'));
-
 let Users        = require(path.resolve(__dirname, 'users'));
 
-let options = [
-	server,
-	helper,
-	Raven
-]
+
+let options = {
+	server: server,
+	database: database,
+	raven: raven
+}
 
 async.parallel({
 
-	departments : async.apply(Departments.init, options),
-	groceries   : async.apply(Groceries.init, options),
-	users       : async.apply(Users.init, options),
-
-
-	// ingredients  : async.apply(Ingredients.init,    server, Raven),
-
+	departments : async.apply(helper.create, options, Departments),
+	groceries   : async.apply(helper.create, options, Groceries),
+	users       : async.apply(helper.create, options, Users),
 
 	}, function(err, results){
 		if( err ) {
-			Raven.captureException(err);
+			raven.captureException(err);
 			throw err;
 		}
 
 
 
     if( !results || !results.departments || !results.groceries || !results.users) {
-					Raven.captureException("not imported well");
+					raven.captureException("not imported well");
 		}
-		// cause we need data related to departments (ids only)
-		options.push(results.departments);
-
-		// user stuff
-		Users.assignAdmin(results.users[2].id);
-		
-		Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
+		// // cause we need data related to departments (ids only)
 
 
+		// // user stuff
+		Users.assignAdmin(options, results.users[2].id);
 
-		Ingredients.init( options, function(err, data){
-			// console.log('loggggggggg');
-			// console.log(data);
+
+		options.predata = results.departments;
+		helper.create(options, Ingredients, (err, data) => {
+		// 	console.log(data);
 		});
-    // let ingredients = Ingredients.init( results.departments, options.push(results.departments) );
-    // console.log(ingredients);
+
+		// // @TODO make this call less shitty
+		Departments.relate( options, results, helper );
+		Groceries.relate( options, results, helper );
 
 
-   // console.log(results.ingredients);
-	 // console.log(results);
-		// console.log(results.departments);
-		// console.log(results.groceries);
 
-		// Users.assignAdmin(results.users[2]);
-		// Users.attachGroceryToAdmin(results.users[2], results.groceries[0]);
-    //
-		// Ingredients.createIngredients(
-		// 	results.departments, function(err, ingredients){
-    //
-		// 		// console.log(ingredients);
-    //
-		// 		Ingredients.attachIngredientsToGroceries(
-		// 				ingredients, results.groceries
-		// 	 	);
-		// 		console.log('import finished');
-		// 	});
+		console.log('import finished');
 
-console.log('import finished');
-
-		process.on('exit', function(code) {
-    	return console.log(`About to exit with code ${code}`);
-		});
-		process.exit(22);
+		// process.on('exit', function(code) {
+    // 	return console.log(`About to exit with code ${code}`);
+		// });
+		// process.exit(22);
 
 
 
