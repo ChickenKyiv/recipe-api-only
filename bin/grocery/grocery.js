@@ -47,8 +47,7 @@ const relate = async (options, results, helper) => {
 
 
 
-  if( !results || !results.groceries || !results.users
-  ) {
+  if( !results || !results.groceries || !results.users ) {
     raven.captureException("cannot attach additional data to recipes");
   }
 

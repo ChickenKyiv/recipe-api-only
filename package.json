@@ -1,6 +1,6 @@
 {
   "name": "recipe-api",
-  "version": "1.0.2-beta",
+  "version": "1.0.3-beta",
   "engines": {
     "node": "9.4.0"
   },
