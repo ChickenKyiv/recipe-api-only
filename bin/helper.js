@@ -30,7 +30,6 @@ const create = (options, wrapper, cb) => {
   if ( !cb ) { raven.captureException('Callback was not specified'); }
   if ( !wrapper && !wrapper.table_name ) { raven.captureException('Model was not specified'); }
 
-
   let server
   let database
   let raven
