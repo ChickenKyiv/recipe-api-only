@@ -26,10 +26,10 @@ module.exports = function(Ingredient) {
     // 	next();
     // });
 
-    Ingredient.observe('update', function(ctx, next){
-        ctx.instance.updated_at = new Date();
-        next();
-    });
+    // Ingredient.observe('update', function(ctx, next){
+    //     ctx.instance.updated_at = new Date();
+    //     next();
+    // });
 
 
     // method when Deparments use array of ingredients and move it inside departments array

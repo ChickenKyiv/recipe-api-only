@@ -52,7 +52,7 @@ async.parallel({
 
 
 		options.predata = results.departments;
-
+		// console.log('qwe')
 		helper.create(options, Ingredients, (err, data) => {
 			// console.log(data);
 		});

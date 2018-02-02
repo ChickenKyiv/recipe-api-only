@@ -19,14 +19,6 @@
       "type": "boolean",
       "required": false,
       "default": false
-    },
-    "created_at": {
-      "type": "date",
-      "required": true
-    },
-    "updated_at": {
-      "type": "date",
-      "required": true
     }
   },
   "validations": [],
