@@ -69,3 +69,54 @@ form of choices.
                     }
                 ]
             }
+
+
+
+### List All Departments [GET]
+
++ Response 200 (application/json)
+        [
+            {
+                "name": "string",
+                "desc": "string",
+                "created_at": "2018-02-04T12:09:11.978Z",
+                "updated_at": "2018-02-04T12:09:11.978Z",
+                "id": "string"
+            }
+        ]    
+
+
+### List All Ingredients from one departments - by department {id} [GET]
+
++ Response 200 (application/json)
+    + Headers
+
+            Location: /department/{id}/ingredients
+
+    + Body   
+        [
+            {
+                "name": "string",
+                "description": "string",
+                "custom": false,
+                "created_at": "2018-02-04T12:09:12.058Z",
+                "updated_at": "2018-02-04T12:09:12.058Z",
+                "id": "string",
+                "departmentId": "string",
+                "favs": "string"
+            }
+        ]         
+
+### List All Ingredients from one departments - short version [GET]
+
++ Response 200 (application/json)
+    + Headers
+
+            Location: /department/ingredients/list
+
+    + Body  
+        {
+          "ingredients": [
+            {}
+          ]
+        }

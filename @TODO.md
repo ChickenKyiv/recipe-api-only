@@ -1,2 +1,3 @@
 add image upload
-finish email notifications 
+finish email notifications
+convert swagger to API blueprint
