@@ -5,7 +5,7 @@
  * @property int $id
  * @property int $ingredient_id Foreign key
  * @property Ingredient $ingredient Relation to Ingredient
- * @property string $direction Text of direction step 
+ * @property string $direction Text of direction step
  * @property int $order
  */
 class IngredientDirection extends PActiveRecord
@@ -32,14 +32,6 @@ class IngredientDirection extends PActiveRecord
 	}
 
 
-	public function behaviors()
-	{
-		return [
-			'CapturePostBehavior' => [
-				'class' => 'ext.project.behaviors.CapturePostBehavior',
-			],
-		];
-	}
 
 
 	/**
@@ -131,33 +123,8 @@ class IngredientDirection extends PActiveRecord
 	}
 
 
-	public function next()
-	{
-		if (!$this->primaryKey || !$this->order) {
-			throw new CException('The record is not saved yet or order field is empty.');
-		}
-
-		$c = new CDbCriteria();
-		$c->addCondition($this->tableAlias . '.`order`>:order');
-		$c->params = [':order' => $this->order];
-		$c->order = $this->tableAlias . '.`order` ASC';
-
-		$this->dbCriteria->mergeWith($c);
-		return $this;
-	}
 
 
-	public function switchOrder(IngredientDirection $with)
-	{
-		$temp = $with->order;
-		$with->order = $this->order;
-		$this->order = $temp;
-
-		$with->saveAttributes(['order']);
-		$this->saveAttributes(['order']);
-
-		return $this;
-	}
 
 
 	public function renderBackendModal($return = false, $useForm = false)
@@ -193,15 +160,5 @@ class IngredientDirection extends PActiveRecord
 	}
 
 
-	protected function beforeSave()
-	{
-		if ($this->isNewRecord) {
-			$cmd = Yii::app()->db->createCommand('SELECT MAX(`order`) FROM ' . $this->tableSchema->name);
-			$current = intval($cmd->queryScalar());
-			$this->order = $current + 1;
-		}
-		return parent::beforeSave();
-	}
 
 }
-

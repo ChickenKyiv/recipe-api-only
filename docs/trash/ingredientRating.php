@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @property int $id 
+ * @property int $id
  * @property int $user_id
  * @property int $ingredient_id
  * @property int $rating
@@ -36,15 +36,5 @@ class IngredientRating extends PActiveRecord {
         );
     }
 
-//    public function attributeLabels() {
-//        return [
-//            
-//        ];
-//    }
-
-//    public function rules() {
-//        return [
-//        ];
-//    }
 
 }

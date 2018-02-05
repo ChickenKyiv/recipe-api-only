@@ -5,21 +5,11 @@
  * @property int $id
  * @property int $ingredient_id Foreign key
  * @property Ingredient $ingredient Relation to Ingredient
- * @property string $filename 
+ * @property string $filename
  */
 class IngredientImage extends PActiveRecord
 {
 
-
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return IngredientImage the static model class
-	 */
-	public static function model($className = __CLASS__)
-	{
-		return parent::model($className);
-	}
 
 
 	/**
@@ -40,18 +30,18 @@ class IngredientImage extends PActiveRecord
 				'updateAttribute' => 'updated_at',
 				'setUpdateOnCreate' => true,
 			],
-			
+
             'ImageFieldBehavior' => [
                 'class' => 'ext.project.image.ImageFieldBehavior',
                 'imageComponent' => 'image',
                 'attributes' => ['filename'],
 				'webroot' => 'frontroot',
-            ],		
-			
+            ],
+
 			'CapturePostBehavior' => [
 				'class' => 'ext.project.behaviors.CapturePostBehavior',
 			],
-			
+
 		];
 	}
 
@@ -81,29 +71,19 @@ class IngredientImage extends PActiveRecord
 	}
 
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-		);
-	}
 
-	
 	public function ingredient($ingredient)
 	{
 		if (!$ingredient = ToolboxHelper::ensureActiveModel($ingredient, 'Ingredient')) {
 			throw new CException('Record does not exists or not saved yet.');
 		}
-		
+
 		$c = new CDbCriteria();
 		$c->compare('ingredient_id', $ingredient->primaryKey);
 		$this->dbCriteria->mergeWith($c);
 		return $this;
 	}
-	
+
 	public function except($id)
 	{
 		if (!is_array($id)) {
@@ -112,16 +92,16 @@ class IngredientImage extends PActiveRecord
 		} else {
 			$this->dbCriteria->addNotInCondition($this->tableAlias.'.id', $id);
 		}
-		
+
 		return $this;
 	}
-	
-	
+
+
 	public function getIsMain()
 	{
 		return ($this->ingredient) ?  $this->ingredient->main_image_id == $this->id : false;
 	}
-	
+
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
@@ -138,4 +118,3 @@ class IngredientImage extends PActiveRecord
 	}
 
 }
-

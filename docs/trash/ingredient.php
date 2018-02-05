@@ -4,10 +4,10 @@ Yii::import('ext.project.interfaces.IPreviewable');
 
 
 /**
- * @property string $kind 
- * @property int $main_image_id 
+ * @property string $kind
+ * @property int $main_image_id
  * @property int $grocerylistIndex Index of an ingredient(simple recipe) in the grocery list
- * 
+ *
  * @property-read IngredientImage $avatar Main Image
  * @property-read IngredientDirection[] $directions
  */
@@ -17,9 +17,9 @@ class Ingredient extends PActiveRecord implements IPreviewable
 	const IT_SIMPLE = 'Simple';
 	const IT_COMPLEX = 'Complex';
 	const IT_RECIPE = 'Recipe';
-                  const IT_COMPLEX_RECIPE = 'Complex_Recipe';
-                  
-                  const maxServingsAllowed = 8;
+  const IT_COMPLEX_RECIPE = 'Complex_Recipe';
+
+  const maxServingsAllowed = 8;
 
 	public $tagData = '';
 	protected $_times = [
@@ -31,24 +31,20 @@ class Ingredient extends PActiveRecord implements IPreviewable
 		'passive_time_max',
 	];
 	protected $_timePrepared = false;
-        
-                  public $groceryListIndex;                  
-                  
-                  /** @var bool|int $actualServings servings number selected by the user */
-                  public $actualServings=false;
-                  
-                  public $recipeRating = false;
-                  public $isFavorite = false;
+
+  public $groceryListIndex;
+
+  /** @var bool|int $actualServings servings number selected by the user */
+  public $actualServings=false;
+
+  public $recipeRating = false;
+  public $isFavorite = false;
 
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
 	 * @return Ingredient the static model class
 	 */
-	public static function model($className = __CLASS__)
-	{
-		return parent::model($className);
-	}
 
 
 	/**
@@ -71,11 +67,15 @@ class Ingredient extends PActiveRecord implements IPreviewable
 			['kind', 'in', 'range' => $this->getEnumValues('kind')],
 			['title', 'required', 'on' => 'insert, update, recipeInfo'],
 			['title, note, alias, description, meta_keywords, meta_description, meta_robots, is_free', 'safe', 'on' => 'insert, update, recipeInfo, search'],
-			['title', 'length', 'max' => 255, 'allowEmpty' => false, 'on' => 'insert, update, recipeInfo'],
-			['alias', 'length', 'max' => 60, 'allowEmpty' => false, 'on' => 'insert, update, recipeInfo'],
-			['main_image_id', 'numerical', 'allowEmpty' => true, 'integerOnly' => true, 'min' => 1],
+			['title', 'length',
+			'max' => 255, 'allowEmpty' => false, 'on' => 'insert, update, recipeInfo'],
+			['alias', 'length',
+			'max' => 60, 'allowEmpty' => false, 'on' => 'insert, update, recipeInfo'],
+			['main_image_id', 'numerical',
+			'allowEmpty' => true, 'integerOnly' => true, 'min' => 1],
                                                       ['serving_amount', 'numerical', 'allowEmpty' => false, 'integerOnly' => true, 'min' => 1, 'max' => 8, 'on' => 'insert, update, recipeLinks'],
-			['meta_robots', 'in', 'range' => $this->getEnumValues('meta_robots'), 'allowEmpty' => true],
+			['meta_robots', 'in',
+			'range' => $this->getEnumValues('meta_robots'), 'allowEmpty' => true],
 			[
 				'preparation_time_min, preparation_time_max, cook_time_min, cook_time_max, passive_time_min, passive_time_max',
 				'filter',
@@ -102,7 +102,7 @@ class Ingredient extends PActiveRecord implements IPreviewable
 			  'dependentAttribute' => 'preparation_time_max',
 			  'on' => 'insert, update, recipeTiming',
 			  ],
-			 * 
+			 *
 			 */
 			//[['ingredient'], 'required'],
 		];
@@ -129,12 +129,12 @@ class Ingredient extends PActiveRecord implements IPreviewable
 			'forceUpdate' => true,
 			'maxLength' => 50,
 		];
-                
-                                    $result['ListSelfBehavior'] = [
-                                        'class' => 'ext.project.behaviors.ListSelfBehavior',
-                                        'attrText' => 'titlePlusNote',
-                                        
-                                    ];
+
+    $result['ListSelfBehavior'] = [
+        'class' => 'ext.project.behaviors.ListSelfBehavior',
+        'attrText' => 'titlePlusNote',
+
+    ];
 
 		return $result;
 	}
@@ -164,7 +164,7 @@ class Ingredient extends PActiveRecord implements IPreviewable
 		return array(
 			'tags' => [self::MANY_MANY, 'Tag', 'pid_tag_ingredient(ingredient_id, tag_id)'],
                                                       'ingredients' => [
-                                                                        self::MANY_MANY, 
+                                                                        self::MANY_MANY,
                                                                         'Ingredient', 'pid_ingredient_links(parent_id, child_id)',
                                                                         'order' => '`ingredients_ingredients`.`order` ASC',
                                                     ],
@@ -178,7 +178,7 @@ class Ingredient extends PActiveRecord implements IPreviewable
                                                       'links' => [
 				self::HAS_MANY,
 				'IngredientLink',
-				'parent_id',      
+				'parent_id',
                                                                         'with' => [
                                                                             'ingredient' =>[
                                                                                     'joinType' => 'INNER JOIN',
@@ -199,7 +199,7 @@ class Ingredient extends PActiveRecord implements IPreviewable
 				'IngredientImage',
 				'ingredient_id',
 				'order' => 'images.`id` ASC',
-			],      
+			],
                                                       'comments' => array(self::HAS_MANY, 'IngredientComment', 'ingredient_id'),
                                                       'favorites' => array(self::HAS_MANY, 'IngredientFavorite', 'ingredient_id'),
                                                       'averageRating' => array(self::STAT, 'IngredientRating', 'ingredient_id', 'select' => 'AVG(rating)')
@@ -208,79 +208,79 @@ class Ingredient extends PActiveRecord implements IPreviewable
 
                    public function search($scopes=false, $options=[])
                    {
-                        $criteria=new CDbCriteria;                        
+                        $criteria=new CDbCriteria;
 
                         $criteria->compare('title', $this->title, true);
-                        
+
                         $criteria->compare('kind', $this->kind);
-                        
+
                         if( is_array($scopes) ) $criteria->scopes = $scopes;
-                        
+
                         $options['criteria'] = $criteria;
 
                         return new CActiveDataProvider('Ingredient', $options);
                    }
-                    
+
 	public function scopes()
 	{
 		return [
 			'list' => [
 				'with' => ['avatar'],
-			],     
+			],
                                                       'published' => [
 				'condition' => 'is_draft = 0',
-			],                
+			],
                                                       'free' => [
 				'condition' => 'is_free = 1 AND (kind = \''. Ingredient::IT_RECIPE. '\' OR kind = \''. Ingredient::IT_COMPLEX_RECIPE. '\')',
-			],    
+			],
 		];
 	}
-        
-        
+
+
         /**
          * Filter complex recipes. Or simple recipes not belonging to any complex recipes.
-         * i.e. "integral" recipes which could be used as a weekly menu item 
-         * 
+         * i.e. "integral" recipes which could be used as a weekly menu item
+         *
          * @return Ingredient
-         * 
+         *
          */
             public function integral()
             {
-              $criteria=new CDbCriteria();              
+              $criteria=new CDbCriteria();
               $criteria->join = 'LEFT JOIN {{ingredient_links}} as parents ON parents.child_id = t.id';
               $criteria->addCondition('t.kind=\''. Ingredient::IT_COMPLEX_RECIPE.'\'
-                                                                                OR (parents.id IS NULL AND t.kind=\''. Ingredient::IT_RECIPE.'\')');           
-              
+                                                                                OR (parents.id IS NULL AND t.kind=\''. Ingredient::IT_RECIPE.'\')');
+
               $this->getDbCriteria()->mergeWith($criteria);
               return $this;
             }
-            
+
             public function favorites()
             {
-              $criteria=new CDbCriteria();              
+              $criteria=new CDbCriteria();
               $criteria->join = 'LEFT JOIN {{ingredient_favorites}} as favorites ON favorites.ingredient_id = t.id';
-              $criteria->addCondition('favorites.user_id=\''. UserHelper::current()->id. '\'');           
-              
+              $criteria->addCondition('favorites.user_id=\''. UserHelper::current()->id. '\'');
+
               $this->getDbCriteria()->mergeWith($criteria);
               return $this;
             }
             public function top_rated()
             {
-              
+
                /** @TODO Maybe add a condition for a minimum number of user votes for the recipe to have */
-                
-              $criteria=new CDbCriteria();            
+
+              $criteria=new CDbCriteria();
               $criteria->select = 't.*, AVG(rating) averageRating';
               $criteria->join = 'LEFT JOIN {{ingredient_ratings}} as ratings ON ratings.ingredient_id = t.id';
               $criteria->group = 't.id';
               $criteria->order = 'averageRating DESC';
-              
+
               $this->getDbCriteria()->mergeWith($criteria);
               return $this;
             }
 
 	/**
-	 * 
+	 *
 	 * @return array
 	 */
 	public function listKinds()
@@ -290,7 +290,7 @@ class Ingredient extends PActiveRecord implements IPreviewable
 
 
 	/**
-	 * 
+	 *
 	 * @param array $params
 	 * @return CActiveDataProvider
 	 * @throws CException
@@ -316,9 +316,9 @@ class Ingredient extends PActiveRecord implements IPreviewable
 
 
 	/**
-	 * 
+	 *
 	 * @param array $params
-	 * @param boolean $activeProvider 
+	 * @param boolean $activeProvider
 	 * @return CDataProvider
 	 * @throws CException
 	 */
@@ -342,39 +342,39 @@ class Ingredient extends PActiveRecord implements IPreviewable
 
 		return $result;
 	}
-        
+
                    public function getIngredients($asDataProvider=true, $criteria=false){
 
                        /** @var IngredientLink[] $ingredients */
-                        $ingredients = IngredientLink::model()->findAllByAttributes(['parent_id' => $this->id], $criteria);                   
+                        $ingredients = IngredientLink::model()->findAllByAttributes(['parent_id' => $this->id], $criteria);
 
-                        foreach ($ingredients as $k => $link) {                            
-                            
+                        foreach ($ingredients as $k => $link) {
+
                             switch ($link->ingredient->kind) {
                                 case self::IT_SIMPLE :
-                                    if ($ingredients[$k]->amount > 0) {                                       
-                                        
-                                        $singleServingAmount = $ingredients[$k]->amount / $this->serving_amount;                                     
-                                        
+                                    if ($ingredients[$k]->amount > 0) {
+
+                                        $singleServingAmount = $ingredients[$k]->amount / $this->serving_amount;
+
                                         $amount = $singleServingAmount ? $this->actualServings * $singleServingAmount : $ingredients[$k]->amount;
-                                        
+
                                         /** @NOTE Rounding amount. Precision is 0.05 if amount is less than 1 */
-                                        $grain = $ingredients[$k]->amount < 1 ? 20 : 4; 
+                                        $grain = $ingredients[$k]->amount < 1 ? 20 : 4;
                                         $amount = round($amount * $grain) / $grain;
 
                                         $ingredients[$k]->amount = $amount;
                                     }
                                     break;
-                                    
+
                                 case self::IT_COMPLEX :
                                     $ingredients[$k]->ingredient->actualServings = $this->actualServings * $ingredients[$k]->amount;
                                     break;
                             }
                         }
-                              
+
                         return $asDataProvider ? new CArrayDataProvider($ingredients, ['pagination' => false]) : $ingredients;
                    }
-                   
+
                    /**
 	 * Returns child ingredients(recipes), having the number of servings set up for each one
 	 * @return array An array of Ingredient objects
@@ -387,11 +387,11 @@ class Ingredient extends PActiveRecord implements IPreviewable
                        }
                        return $childRecipes;
                    }
-        
+
                    /**
-	 * 
+	 *
 	 * @param array $params
-	 * @param boolean $activeProvider 
+	 * @param boolean $activeProvider
 	 * @return CDataProvider
 	 * @throws CException
 	 */
@@ -411,7 +411,7 @@ class Ingredient extends PActiveRecord implements IPreviewable
 
 		if (!isset($params['pagination'])) {
 			$result->pagination = false;
-		}       
+		}
 
 		return $result;
 	}
@@ -468,34 +468,34 @@ class Ingredient extends PActiveRecord implements IPreviewable
 
 	public function getMainImageUrl($size = 'admin', $absolute=false)
 	{
-                                    
+
                                     if( !$this->avatar ){
-                                    
+
                                         foreach($this->ingredients as $ingredient){
                                             if( !empty($ingredient->avatar) ){
                                                 $this->avatar = $ingredient->avatar;
                                                 break;
                                             }
                                         }
-                                    }      
-                                    
+                                    }
+
                                     if( $this->avatar ){
-                                        
+
                                         if( $absolute ){
-                                            
+
                                             if( Yii::app()->hasComponent('frontend') ) {
                                                     return Yii::app()->frontend->createAbsoluteUrl($this->avatar->getImageUrl('filename', $size));
                                             } else {
                                                     return Yii::app()->createAbsoluteUrl($this->avatar->getImageUrl('filename', $size));
                                             }
-                                            
-                                        }                                        
+
+                                        }
                                         return $this->avatar->getImageUrl('filename', $size);
-                                                                                
+
                                     }
-                                    
+
                                     return null;
-                                    
+
 	}
 
 
@@ -641,29 +641,29 @@ class Ingredient extends PActiveRecord implements IPreviewable
 		}
 
 		return $result;
-	}        
-        
+	}
+
                   public function getTitlePlusNote()
                   {
                       return $this->note ? $this->title. ' - '. $this->note : $this->title;
-                  }      
-                  
+                  }
+
                   public function getCommentCount() {
                     return count($this->comments);
                 }
-                
+
                 public function getUserRating(User $user)
                 {
-                    $ratingModel = IngredientRating::model()->findByAttributes(['ingredient_id' => $this->id, 'user_id' => $user->id]);                    
+                    $ratingModel = IngredientRating::model()->findByAttributes(['ingredient_id' => $this->id, 'user_id' => $user->id]);
                     return $ratingModel === null ? false: $ratingModel->rating;
                 }
-                
+
                 public function isFavorite($user)
                 {
                     $favoriteModel = null;
-                    if( is_a($user, 'User') )                    
-                        $favoriteModel = IngredientFavorite::model()->findByAttributes(['ingredient_id' => $this->id, 'user_id' => $user->id]);   
-                    
+                    if( is_a($user, 'User') )
+                        $favoriteModel = IngredientFavorite::model()->findByAttributes(['ingredient_id' => $this->id, 'user_id' => $user->id]);
+
                     return $favoriteModel === null ? false: true;
                 }
 }

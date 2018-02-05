@@ -5,9 +5,9 @@
  * @property int $id
  * @property int $parent_id Foreign key
  * @property int $child_id Foreign key
- * @property int $unit_id Foreign key  
- * @property float $amount Measurement unit amount  
- * @property string $comment  
+ * @property int $unit_id Foreign key
+ * @property float $amount Measurement unit amount
+ * @property string $comment
  * @property int $order
  * @property-read string $measurementUnitTitle
  * *** ***********************************************Ingredient $ingredient Relation to Ingredient
@@ -15,9 +15,9 @@
  */
 class IngredientLink extends PActiveRecord
 {
-    
-                public $measurementUnitTitle;
-                
+
+  public $measurementUnitTitle;
+
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -73,21 +73,9 @@ class IngredientLink extends PActiveRecord
 
 		return [
 			'parent' => [self::BELONGS_TO, 'Ingredient', 'parent_id'],
-                                                      'ingredient' => [self::HAS_ONE, 'Ingredient', ['id' => 'child_id']],
-                                                      'measurementUnit' => [self::HAS_ONE, 'MeasurementUnit', ['id' => 'unit_id']],                                                       
+      'ingredient' => [self::HAS_ONE, 'Ingredient', ['id' => 'child_id']],
+      'measurementUnit' => [self::HAS_ONE, 'MeasurementUnit', ['id' => 'unit_id']],
 		];
-	}
-
-
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'direction' => Yii::t('common', 'Direction Step'),
-		);
 	}
 
 
@@ -125,49 +113,7 @@ class IngredientLink extends PActiveRecord
 	}
 
 
-	public function previous()
-	{
-		if (!$this->primaryKey || !$this->order) {
-			throw new CException('The record is not saved yet or order field is empty.');
-		}
 
-		$c = new CDbCriteria();
-		$c->addCondition($this->tableAlias . '.`order`<:order');
-		$c->params = [':order' => $this->order];
-		$c->order = $this->tableAlias . '.`order` DESC';
-
-		$this->dbCriteria->mergeWith($c);
-		return $this;
-	}
-
-
-	public function next()
-	{
-		if (!$this->primaryKey || !$this->order) {
-			throw new CException('The record is not saved yet or order field is empty.');
-		}
-
-		$c = new CDbCriteria();
-		$c->addCondition($this->tableAlias . '.`order`>:order');
-		$c->params = [':order' => $this->order];
-		$c->order = $this->tableAlias . '.`order` ASC';
-
-		$this->dbCriteria->mergeWith($c);
-		return $this;
-	}
-
-
-	public function switchOrder(IngredientLink $with)
-	{
-		$temp = $with->order;
-		$with->order = $this->order;
-		$this->order = $temp;
-
-		$with->saveAttributes(['order']);
-		$this->saveAttributes(['order']);
-
-		return $this;
-	}
 
 
 	public function renderBackendModal($return = false, $useForm = false)
@@ -186,8 +132,8 @@ class IngredientLink extends PActiveRecord
 				'direction' => $direction,
 		]);
 	}
-        
-                  public function getDeleteUrl()
+
+  public function getDeleteUrl()
 	{
 		return Yii::app()->createUrl('recipes/ajax/deleteLink', [
 				'id' => $this->parent->id,
@@ -210,7 +156,7 @@ class IngredientLink extends PActiveRecord
 		));
 	}
 
-                  
+
 	protected function beforeSave()
 	{
 		if ($this->isNewRecord) {
@@ -220,15 +166,17 @@ class IngredientLink extends PActiveRecord
 		}
 		return parent::beforeSave();
 	}
-        
-                  protected function afterFind()
+
+  protected function afterFind()
 	{
 		parent::afterFind();
-                                    $this->measurementUnitTitle = $this->amount > 1 ? $this->measurementUnit->plural : $this->measurementUnit->singular;
-                                    
-                                    $this->amount = floatval($this->amount);                                   
-                                    
-	}            
+    $this->measurementUnitTitle =
+        $this->amount > 1
+          ? $this->measurementUnit->plural
+          : $this->measurementUnit->singular;
+
+    $this->amount = floatval($this->amount);
+
+	}
 
 }
-
