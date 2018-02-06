@@ -62,74 +62,74 @@ Great Loopback REST API tutorial: https://github.com/optis/loopback-rest-api
 `Import will move sample data from json arrays to mongo documents`
 
 
-  ```	
+  ```
   $ node .
   ```
-  		  
- or 
- 
+
+ or
+
  ```
  $ npm run watch
  ```
- 
- 
- 
+
+
+
 ### Deployment on heroku
- 
+
  - heroku login
  - heroku create %your-app-name%
- 
 
- 
+
+
  Will create an empty tables in database
  ```
  $ heroku run npm run migrate
  ```
- 
+
  Will import data like admin user, ultimate grocery template
  ```
  $ heroku run npm run import
  ```
- 
- 
-  ```	
+
+
+  ```
  heroku run npm run migrate --app recipe-api-loopback
- 
-  ```	
-  
-  ```	
+
+  ```
+
+  ```
  heroku run npm run migrate-search --app recipe-api-loopback
- 
-  ```	
+
+  ```
  // recipes
- 
-  ```	
+
+  ```
  heroku run npm run import-recipes --app recipe-api-loopback
- 
-  ```	
+
+  ```
  // search data
- 
-  ```	
+
+  ```
  heroku run npm run import-search --app recipe-api-loopback
- 
-  ```	
-  
-  or 
-  
-    ```	
+
+  ```
+
+  or
+
+    ```
  heroku run npm run s --app recipe-api-loopback
- 
-  ```	
-     ```	
+
+  ```
+     ```
  heroku run npm run g --app recipe-api-loopback
- 
-  ```	
-   ```	
+
+  ```
+   ```
  heroku run npm run r --app recipe-api-loopback
- 
-  ```	
-  
-  for logs put 
+
+  ```
+
+  for logs put
   ```
   heroku logs -a recipe-api-loopback
 ```
@@ -138,14 +138,6 @@ for install packages it's better to run
 heroku run npm install -a recipe-api-loopback
 ```
 ## Links, that's important for me:
-
-http://localhost:3000/explorer/#!/recipes/recipes_find
-
-http://localhost:3000/api/recipe
-
-http://localhost:3000/api/menu
-
-http://localhost:3000/explorer/#!/customer/customer_login will return a token
 
 For sending email notifications - we'll use MailGun
 
@@ -166,10 +158,3 @@ http://localhost:3000/api/ingredient?filter[where][name][like]=kosher
 [Search filters](https://github.com/atherdon/recipe-api-only/blob/master/SEARCH.md)
 
 [Free Menu Release Routes with Samles](https://github.com/atherdon/recipe-api-only/blob/master/FreeMenu.md)
-
-
-@TODO Search 
-
-
-
-
