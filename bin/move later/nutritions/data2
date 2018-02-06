@@ -1,0 +1,15 @@
+"nutrition": {
+    "@type": "NutritionInformation",
+    "servingSize": "1 medium slice",
+    "calories": "230 calories",
+    "fatContent": "1 g",
+    "carbohydrateContent": "43 g",
+    "cholesterolContent": "0 mg",
+    "fiberContent": "1 g",
+    "proteinContent": "1 g",
+    "saturatedFatContent": "2 ½ g",
+    "servingSize": "1 Serving",
+    "sodiumContent": "200 mg",
+    "sugarContent": "27 g",
+    "transFatContent": "0 g"
+  },
