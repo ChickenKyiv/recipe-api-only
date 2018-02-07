@@ -76,6 +76,11 @@ http://localhost:3000/api/recipe?filter[where][and][0][holidays][inq]=holidayId&
 links to our testing environment
 **Ingredients search - add relations with Recipes**
 
+
+http://localhost:3000/api/ingredient?filter[where][name][like]=kosher
+
+
+
 https://recipe-api-loopback.herokuapp.com/api/ingredients?filter[where][name]=chicken  **not working**  
 https://recipe-api-loopback.herokuapp.com/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][inq]=pasta  **not working**  
 https://recipe-api-loopback.herokuapp.com/api/ingredients?filter[where][name][inq]=chicken&filter[where][name][nin]=pasta  **not working**  
