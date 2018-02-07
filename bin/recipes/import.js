@@ -15,8 +15,13 @@ let helper     = require(path.resolve(__dirname, '../helper'));
 // include middleware
 // @todo make it auto-icludable from folder
 let Users        = require(path.resolve(__dirname, 'users'));
-let Recipes      = require(path.resolve(__dirname, 'recipes'));
+
 let Menus        = require(path.resolve(__dirname, 'menus'));
+
+let Recipes      = require(path.resolve(__dirname, 'recipes'));
+
+let IngrEx       = require(path.resolve(__dirname, 'ingredients'));
+let Recipes2     = require(path.resolve(__dirname, 'recipes-extended'));
 
 // recipes for search
 //let getRecipes2     = require(path.resolve(__dirname, 'sample-recipes-search-data'));
@@ -32,6 +37,9 @@ async.parallel({
 		users       : async.apply(helper.create, options, Users),
 		recipes     : async.apply(helper.create, options, Recipes),
 		menus       : async.apply(helper.create, options, Menus),
+
+		// for recipes 2
+		ingr-ex     : async.apply(helper.create, options, IngrEx),
 
 
 	}, function(err, results){
@@ -56,10 +64,19 @@ async.parallel({
 		Menus.relate( options, results, helper );
 
 
-
 		//@TODO attach groceries to users will be moved to a next stages
 
 
+
+		// imported recipes for search data
+		helper.create(options, Recipe2, (err, data) => {
+			console.log(data);
+		});
+		place where we'll attach ingredients with recipes
+		// pass department id
+		helper.create(options, IngrEx, (err, data) => {
+			console.log(data);
+		});
 
 
 		console.log('import finished');
