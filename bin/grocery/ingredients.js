@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 let table_name = 'Ingredient'
 
 const get = (departments) => {

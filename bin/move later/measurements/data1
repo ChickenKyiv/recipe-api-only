@@ -1,0 +1,27 @@
+"ingredients": [
+                    {
+
+                        "unit_type" : "simple",
+                        "quantity"  : "3",
+                        "unit_name" : "medium russet potatoes, sliced into sticks",
+
+                        "category"  : {
+                            "id" : "2",
+                            "name"   : "Baking",
+                        }
+
+
+                    },
+                    {
+
+                        "unit_type" : "simple",
+                        "quantity"  : "2",
+                        "unit_name" : "tablespoons vegetable oil, divided",
+
+                        "category"  : {
+                            "id" : "2",
+                            "name"   : "Baking",
+                        }
+
+
+                    },

@@ -67,9 +67,7 @@ const relate = async (options, results, helper) => {
 
   // this is a hardcode. @TODO handle this later.
   // I don't like that we're searching all recipes at this method
-  // let server = options[0];
-  // let helper = options[1];
-  // let raven  = options[2];
+
   //@TODO apply this changes to all import model files
   let server
   let database

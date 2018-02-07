@@ -1,5 +1,3 @@
-// var relation    = 'ingredients';
-
 function attachGroceryToAdmin(admin, grocery){
 	// console.log(grocery);
     var options = {
@@ -11,14 +9,6 @@ function attachGroceryToAdmin(admin, grocery){
 };
 
 
-// function attachRecipeToUsers(users, recipes, cb){
-
-// 	recipes.forEach(function(recipe){
-// 		recipe.updateAttribute('userId', users[2].id);
-
-// 	});
-
-// };
 
 
 function getAdminGroceries ( User ){
