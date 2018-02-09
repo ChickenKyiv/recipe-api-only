@@ -7,34 +7,22 @@ const get = () => {
 
      var diet        = [
      {
-
-          "name":"Lacto vegetarian",
-
+          "name": "Lacto vegetarian",
      },
      {
-
-          "name":"Ovo vegetarian",
-
+          "name": "Ovo vegetarian",
      },
      {
-
-          "name":"Pescetarian",
-
+          "name": "Pescetarian",
      },
      {
-
-          "name":"Vegan",
-
+          "name": "Vegan",
      },
      {
-
-          "name":"Lacto-ovo vegetarian",
-
+          "name": "Lacto-ovo vegetarian",
      },
      {
-
-          "name":"Paleo",
-          
+          "name": "Paleo",
      }
      ];
 

@@ -1,0 +1,32 @@
+// i.e. allergies, but this also can be a health population
+
+
+["Health",	"Alcohol",	"alcohol-free",	  "No alcohol used or contained in the recipe"]
+["Health",	"Alcohol-free",	"alcohol-free",	   "No alcohol used or contained"]
+["Health",	"Celery-free",	"celery-free",	         "does not contain celery or derivatives"]
+["Health",	"Crustcean-free",	"crustacean-free",	    "does not contain crustaceans (shrimp, lobster etc.) or derivatives"]
+["Health",	"Dairy",	"dairy-free",	               "No dairy; no lactose"]
+["Health",	"Eggs",	"egg-free",	                "No eggs or products containing eggs"]
+["Health",	"Fish",	"fish-free",	                "No fish or fish derivatives"]
+["Health",	"Gluten",	"gluten-free",	             "No ingredients containing g]luten"]
+["Health",	"Kidney friendly",	"kidney-friendly",	         "per serving – phosphorus less than 250 mg AND potassium less than 500 mg AND sodium: less than 500 mg"]
+["Health",	"Kosher",	"kosher",	                  "contains only ingredients allowed by the kosher "Diet". However it does not guarantee kosher preparation of the ingredients themselves"]
+["Health",	"Low potassium",	"low-potassium",	            "Less than 150mg per serving"]
+["Health",	"Lupine-free",	"lupine-free",	            "does not contain lupine or deriv]atives"
+["Health",	"Mustard-free",	"mustard-free",	           "does not contain mustard or d]erivatives"
+["Health",	"n/a",	"low-fat-abs",	               "Less than 3g of fat per serving"]
+["Health",	"No oil added",	"No-oil-added",	     "No oil added except to what is contained in the basic ingredients"]
+["Health",	"No-sugar",	"low-sugar",	             "No simple sugars – glucose, dextrose, galactose, fructose, sucrose, lactose, maltose"]
+["Health",	"Paleo",	"paleo",	                     "Excludes what are perceived to be agricultural products; grains, legumes, dairy products, potatoes, refined salt, refined sugar, and processed oils"]
+["Health",	"Peanuts",	"peanut-free",	             "No peanuts or products containing peanuts"]
+["Health",	"Pescatarian",	"pecatarian",	        "Does not contain meat or meat based products, can contain dairy and fish"]
+["Health",	"Pork-free",	"pork-free",	             "does not contain pork or derivatives"]
+["Health",	"Red meat-free",	"red-meat-free",	    "does not contain beef, lamb, pork, duck, goose, game, horse, and other types of red meat or products containing red meat."]
+["Health",	"Sesame-free",	"sesame-free",	         "does not contain sesame seed or derivatives"]
+["Health",	"Shellfish",	"shellfish-free",	       "No shellfish or shellfish derivatives"]
+["Health",	"Soy",	"soy-free",	                   "No soy or products containing soy"]
+["Health",	"Sugar-conscious",	"sugar-conscious",   	"Less than 4g of sugar per serving"]
+["Health",	"Tree Nuts",	"tree-nut-free",	            "No tree nuts or products containing tree nuts"]
+["Health",	"Vegan",	"vegan",	                        "No meat, poultry, fish, dairy, eggs or honey"]
+["Health",	"Vegetarian",	"vegetarian",	            "No meat, poultry, or fish"]
+["Health",	"Wheat-free",	"wheat-free",	            "No wheat, can have gluten though"]
