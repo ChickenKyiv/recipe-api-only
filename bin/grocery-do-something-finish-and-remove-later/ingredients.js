@@ -1,6 +1,4 @@
 
-function getIngredients(){
-
 	var ingredients = [
 	{
 		name: "black pepper",
@@ -33,7 +31,3 @@ function getIngredients(){
       delete: "0",
 	}
 	];
-
-
-	return ingredients;
-};

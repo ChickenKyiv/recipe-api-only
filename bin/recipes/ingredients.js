@@ -106,7 +106,7 @@ const get = (department_id) => {
       }
     ];
 
-    data[4]     = [
+    data[4] = [
 			{
 	  		name: "black pepper",
         departmentId: department_id
