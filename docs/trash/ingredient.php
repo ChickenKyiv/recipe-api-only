@@ -150,8 +150,8 @@ class Ingredient extends PActiveRecord implements IPreviewable
 			'group_id' => 'Group',
 			'cuisine_id' => 'Cuisine',
 			'course_id' => 'Course',
-                                                      'serving_amount' => 'Servings',
-                                                      'is_free' => 'Free',
+      'serving_amount' => 'Servings',
+      'is_free' => 'Free',
 		);
 	}
 
@@ -163,11 +163,11 @@ class Ingredient extends PActiveRecord implements IPreviewable
 	{
 		return array(
 			'tags' => [self::MANY_MANY, 'Tag', 'pid_tag_ingredient(ingredient_id, tag_id)'],
-                                                      'ingredients' => [
-                                                                        self::MANY_MANY,
-                                                                        'Ingredient', 'pid_ingredient_links(parent_id, child_id)',
-                                                                        'order' => '`ingredients_ingredients`.`order` ASC',
-                                                    ],
+        'ingredients' => [
+                          self::MANY_MANY,
+                          'Ingredient', 'pid_ingredient_links(parent_id, child_id)',
+                          'order' => '`ingredients_ingredients`.`order` ASC',
+                          ],
 			'avatar' => [self::HAS_ONE, 'IngredientImage', ['id' => 'main_image_id']],
 			'directions' => [
 				self::HAS_MANY,
@@ -175,22 +175,22 @@ class Ingredient extends PActiveRecord implements IPreviewable
 				'ingredient_id',
 				'order' => 'directions.`order` ASC',
 			],
-                                                      'links' => [
+    'links' => [
 				self::HAS_MANY,
 				'IngredientLink',
 				'parent_id',
-                                                                        'with' => [
-                                                                            'ingredient' =>[
-                                                                                    'joinType' => 'INNER JOIN',
-                                                                                ]
-                                                                            ],
+                          'with' => [
+                                        'ingredient' =>[
+                                                'joinType' => 'INNER JOIN',
+                                            ]
+                                  ],
 				'order' => 'kind ASC, `order` ASC'
 			],
-                                                      'parentLinks' => [
+      'parentLinks' => [
 				self::HAS_MANY,
 				'IngredientLink',
 				'child_id',
-                                                                        'joinType' => 'LEFT JOIN'
+                'joinType' => 'LEFT JOIN'
 //                                                                        'with' => 'ingredient',
 //				'order' => 'kind ASC, `order` ASC'
 			],
@@ -200,26 +200,26 @@ class Ingredient extends PActiveRecord implements IPreviewable
 				'ingredient_id',
 				'order' => 'images.`id` ASC',
 			],
-                                                      'comments' => array(self::HAS_MANY, 'IngredientComment', 'ingredient_id'),
-                                                      'favorites' => array(self::HAS_MANY, 'IngredientFavorite', 'ingredient_id'),
-                                                      'averageRating' => array(self::STAT, 'IngredientRating', 'ingredient_id', 'select' => 'AVG(rating)')
+        'comments' => array(self::HAS_MANY, 'IngredientComment', 'ingredient_id'),
+        'favorites' => array(self::HAS_MANY, 'IngredientFavorite', 'ingredient_id'),
+        'averageRating' => array(self::STAT, 'IngredientRating', 'ingredient_id', 'select' => 'AVG(rating)')
 		);
 	}
 
-                   public function search($scopes=false, $options=[])
-                   {
-                        $criteria=new CDbCriteria;
+ public function search($scopes=false, $options=[])
+ {
+      $criteria=new CDbCriteria;
 
-                        $criteria->compare('title', $this->title, true);
+      $criteria->compare('title', $this->title, true);
 
-                        $criteria->compare('kind', $this->kind);
+      $criteria->compare('kind', $this->kind);
 
-                        if( is_array($scopes) ) $criteria->scopes = $scopes;
+      if( is_array($scopes) ) $criteria->scopes = $scopes;
 
-                        $options['criteria'] = $criteria;
+      $options['criteria'] = $criteria;
 
-                        return new CActiveDataProvider('Ingredient', $options);
-                   }
+      return new CActiveDataProvider('Ingredient', $options);
+ }
 
 	public function scopes()
 	{
@@ -237,47 +237,47 @@ class Ingredient extends PActiveRecord implements IPreviewable
 	}
 
 
-        /**
-         * Filter complex recipes. Or simple recipes not belonging to any complex recipes.
-         * i.e. "integral" recipes which could be used as a weekly menu item
-         *
-         * @return Ingredient
-         *
-         */
-            public function integral()
-            {
-              $criteria=new CDbCriteria();
-              $criteria->join = 'LEFT JOIN {{ingredient_links}} as parents ON parents.child_id = t.id';
-              $criteria->addCondition('t.kind=\''. Ingredient::IT_COMPLEX_RECIPE.'\'
-                                                                                OR (parents.id IS NULL AND t.kind=\''. Ingredient::IT_RECIPE.'\')');
+      /**
+       * Filter complex recipes. Or simple recipes not belonging to any complex recipes.
+       * i.e. "integral" recipes which could be used as a weekly menu item
+       *
+       * @return Ingredient
+       *
+       */
+          public function integral()
+          {
+            $criteria=new CDbCriteria();
+            $criteria->join = 'LEFT JOIN {{ingredient_links}} as parents ON parents.child_id = t.id';
+            $criteria->addCondition('t.kind=\''. Ingredient::IT_COMPLEX_RECIPE.'\'
+                                                                              OR (parents.id IS NULL AND t.kind=\''. Ingredient::IT_RECIPE.'\')');
 
-              $this->getDbCriteria()->mergeWith($criteria);
-              return $this;
-            }
+            $this->getDbCriteria()->mergeWith($criteria);
+            return $this;
+          }
 
-            public function favorites()
-            {
-              $criteria=new CDbCriteria();
-              $criteria->join = 'LEFT JOIN {{ingredient_favorites}} as favorites ON favorites.ingredient_id = t.id';
-              $criteria->addCondition('favorites.user_id=\''. UserHelper::current()->id. '\'');
+          public function favorites()
+          {
+            $criteria=new CDbCriteria();
+            $criteria->join = 'LEFT JOIN {{ingredient_favorites}} as favorites ON favorites.ingredient_id = t.id';
+            $criteria->addCondition('favorites.user_id=\''. UserHelper::current()->id. '\'');
 
-              $this->getDbCriteria()->mergeWith($criteria);
-              return $this;
-            }
-            public function top_rated()
-            {
+            $this->getDbCriteria()->mergeWith($criteria);
+            return $this;
+          }
+          public function top_rated()
+          {
 
-               /** @TODO Maybe add a condition for a minimum number of user votes for the recipe to have */
+             /** @TODO Maybe add a condition for a minimum number of user votes for the recipe to have */
 
-              $criteria=new CDbCriteria();
-              $criteria->select = 't.*, AVG(rating) averageRating';
-              $criteria->join = 'LEFT JOIN {{ingredient_ratings}} as ratings ON ratings.ingredient_id = t.id';
-              $criteria->group = 't.id';
-              $criteria->order = 'averageRating DESC';
+            $criteria=new CDbCriteria();
+            $criteria->select = 't.*, AVG(rating) averageRating';
+            $criteria->join = 'LEFT JOIN {{ingredient_ratings}} as ratings ON ratings.ingredient_id = t.id';
+            $criteria->group = 't.id';
+            $criteria->order = 'averageRating DESC';
 
-              $this->getDbCriteria()->mergeWith($criteria);
-              return $this;
-            }
+            $this->getDbCriteria()->mergeWith($criteria);
+            return $this;
+          }
 
 	/**
 	 *
@@ -379,16 +379,16 @@ class Ingredient extends PActiveRecord implements IPreviewable
 	 * Returns child ingredients(recipes), having the number of servings set up for each one
 	 * @return array An array of Ingredient objects
 	 */
-                   public function getChildRecipes()
-                   {
-                       $childRecipes = $this->ingredients;
-                       foreach($childRecipes as $k=>$child){
-                           $childRecipes[$k]->actualServings = $this->actualServings;
-                       }
-                       return $childRecipes;
-                   }
+   public function getChildRecipes()
+   {
+       $childRecipes = $this->ingredients;
+       foreach($childRecipes as $k=>$child){
+           $childRecipes[$k]->actualServings = $this->actualServings;
+       }
+       return $childRecipes;
+   }
 
-                   /**
+   /**
 	 *
 	 * @param array $params
 	 * @param boolean $activeProvider
@@ -431,8 +431,8 @@ class Ingredient extends PActiveRecord implements IPreviewable
 			case self::IT_RECIPE :
 				$result = 'recipe';
 				break;
-                                                      case self::IT_COMPLEX_RECIPE :
-				$result = 'complex recipe';
+      case self::IT_COMPLEX_RECIPE :
+$result = 'complex recipe';
 				break;
 			default:
 				break;
@@ -449,7 +449,7 @@ class Ingredient extends PActiveRecord implements IPreviewable
 		if (Yii::app()->hasComponent('frontend')) {
 			return Yii::app()->frontend->createAbsoluteUrl('recipe/view', $params);
 		} else {
-                                                      return $forceAbsoluteUrl ? Yii::app()->createAbsoluteUrl('recipe/view', $params) : Yii::app()->createUrl('recipe/view', $params);
+      return $forceAbsoluteUrl ? Yii::app()->createAbsoluteUrl('recipe/view', $params) : Yii::app()->createUrl('recipe/view', $params);
 		}
 	}
 
@@ -469,32 +469,32 @@ class Ingredient extends PActiveRecord implements IPreviewable
 	public function getMainImageUrl($size = 'admin', $absolute=false)
 	{
 
-                                    if( !$this->avatar ){
+        if( !$this->avatar ){
 
-                                        foreach($this->ingredients as $ingredient){
-                                            if( !empty($ingredient->avatar) ){
-                                                $this->avatar = $ingredient->avatar;
-                                                break;
-                                            }
-                                        }
-                                    }
+            foreach($this->ingredients as $ingredient){
+                if( !empty($ingredient->avatar) ){
+                    $this->avatar = $ingredient->avatar;
+                    break;
+                }
+            }
+        }
 
-                                    if( $this->avatar ){
+        if( $this->avatar ){
 
-                                        if( $absolute ){
+            if( $absolute ){
 
-                                            if( Yii::app()->hasComponent('frontend') ) {
-                                                    return Yii::app()->frontend->createAbsoluteUrl($this->avatar->getImageUrl('filename', $size));
-                                            } else {
-                                                    return Yii::app()->createAbsoluteUrl($this->avatar->getImageUrl('filename', $size));
-                                            }
+                if( Yii::app()->hasComponent('frontend') ) {
+                        return Yii::app()->frontend->createAbsoluteUrl($this->avatar->getImageUrl('filename', $size));
+                } else {
+                        return Yii::app()->createAbsoluteUrl($this->avatar->getImageUrl('filename', $size));
+                }
 
-                                        }
-                                        return $this->avatar->getImageUrl('filename', $size);
+            }
+            return $this->avatar->getImageUrl('filename', $size);
 
-                                    }
+        }
 
-                                    return null;
+        return null;
 
 	}
 
@@ -643,27 +643,31 @@ class Ingredient extends PActiveRecord implements IPreviewable
 		return $result;
 	}
 
-                  public function getTitlePlusNote()
-                  {
-                      return $this->note ? $this->title. ' - '. $this->note : $this->title;
-                  }
+  public function getTitlePlusNote()
+  {
+      return $this->note ? $this->title. ' - '. $this->note : $this->title;
+  }
 
-                  public function getCommentCount() {
-                    return count($this->comments);
-                }
+  public function getCommentCount() {
+    return count($this->comments);
+}
 
-                public function getUserRating(User $user)
-                {
-                    $ratingModel = IngredientRating::model()->findByAttributes(['ingredient_id' => $this->id, 'user_id' => $user->id]);
-                    return $ratingModel === null ? false: $ratingModel->rating;
-                }
+  public function getUserRating(User $user)
+  {
+      $ratingModel = IngredientRating::model()->findByAttributes(
+				['ingredient_id' => $this->id, 'user_id' => $user->id]
+			);
+      return $ratingModel === null ? false: $ratingModel->rating;
+  }
 
-                public function isFavorite($user)
-                {
-                    $favoriteModel = null;
-                    if( is_a($user, 'User') )
-                        $favoriteModel = IngredientFavorite::model()->findByAttributes(['ingredient_id' => $this->id, 'user_id' => $user->id]);
+    public function isFavorite($user)
+    {
+        $favoriteModel = null;
+        if( is_a($user, 'User') )
+            $favoriteModel = IngredientFavorite::model()->findByAttributes(
+							['ingredient_id' => $this->id, 'user_id' => $user->id]
+						);
 
-                    return $favoriteModel === null ? false: true;
-                }
+        return $favoriteModel === null ? false: true;
+    }
 }

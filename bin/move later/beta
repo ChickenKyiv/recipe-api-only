@@ -35,6 +35,8 @@ requirements,
 custom offer
 
 
+Title | Explanation | Requirements | Custom offer
+
 
 User creates a shopping list, add ingredients and later have a list of grocery categories. When user purchase item - he can remove it from main list and review it later
 
@@ -50,23 +52,8 @@ GroceriStar is a new project. Basically it's online shopping list. For this stag
 If the user wants to lose weight by eating better, he must log what he eats first. Food logger can be easily showed to fitness trainer or to diet manager
 
 
-Form 50 places where i can post a link to GroceriStar
-github
-angellist
-linkedin
-producthunt
-reddit
-medium
-angellist job descriptions
-freebootcamp + search for betatesters too
-facebook
-places with pr releases
-startup directories
-f6s
 
-
-
-==BETALIST==
+- [ ] ==BETALIST==
 https://betalist.com/?page=6
 https://betalist.com/startups/zeta
 https://betalist.com/startups/leevebot
@@ -75,116 +62,115 @@ https://betalist.com/?page=2
 
 
 
-betatestershub
+- [ ] betatestershub
 http://betatestershub.com/
 
 
 
-https://www.producthunt.com/posts/get-worm-2-0
+- [ ] https://www.producthunt.com/posts/get-worm-2-0
 
-betalize
+- [ ] betalize
 http://www.betalize.com/jlOSZ/XocPe/
 
-https://www.producthunt.com/alternatives/betalist
+- [ ] https://www.producthunt.com/alternatives/betalist
 
-betatesters-io
+- [ ] betatesters-io
 https://www.producthunt.com/posts/betatesters-io
 
-departure
+- [ ] departure
 https://www.producthunt.com/posts/departure
 
-beta-family
+- [ ] beta-family
 https://www.producthunt.com/posts/beta-family
 
-roadmap-3
+- [ ] roadmap-3
 https://www.producthunt.com/posts/roadmap-3
 
 
 
-launching-next
+- [ ] launching-next
 https://www.producthunt.com/posts/launching-next
 
-boostinsider
+- [ ] boostinsider
 https://www.producthunt.com/posts/boostinsider
 
-blueprint-by-gigster
+- [ ] blueprint-by-gigster
 https://www.producthunt.com/posts/blueprint-by-gigster
 
-userinput-io
+- [ ] userinput-io
 https://www.producthunt.com/posts/userinput-io
 
-the-underdogs
+- [ ] the-underdogs
 https://www.producthunt.com/posts/the-underdogs
 
-scale-model-2
+- [ ] scale-model-2
 https://www.producthunt.com/posts/scale-model-2
 
-pitchpeddler
+- [ ] pitchpeddler
 https://www.producthunt.com/posts/pitchpeddler
 
 
-signupfirst
+- [ ] signupfirst
 https://www.producthunt.com/posts/signupfirst
 
-startup-beat
+- [ ] startup-beat
 https://www.producthunt.com/posts/startup-beat
 
-startup-buffer
+- [ ] startup-buffer
 https://www.producthunt.com/posts/startup-buffer
 
-betatesta
+- [ ] betatesta
 https://www.producthunt.com/posts/betatesta
 
 
-elevtr-io
+- [ ] elevtr-io
 https://www.producthunt.com/posts/elevtr-io
-betafy
+- [ ] betafy
 https://www.producthunt.com/posts/betafy
 
 
 
-erli-bird
+- [ ] erli-bird
 https://www.producthunt.com/posts/erli-bird
 
-startuplist
+- [ ] startuplist
 https://www.producthunt.com/posts/startuplist
 
-https://www.producthunt.com/posts/build-better-products
+- [ ] https://www.producthunt.com/posts/build-better-products
 
 
 
-https://www.everproof.com/
+- [ ] https://www.everproof.com/
 
 http://image-store.slidesharecdn.com/2243d8ad-0c14-4f27-8692-8f15dfc430de-original.jpeg
 
 
 
-https://startupbuffer.com/?ref=producthunt
-http://upstart.me/?ref=producthunt
-https://startupbase.io/?ref=producthunt
-https://betafamily.com/?ref=producthunt free, but better to use $40 version
-https://kelsgrocerylist.betafamily.com/feed-item/29053
+- [ ] https://startupbuffer.com/?ref=producthunt
+- [ ] http://upstart.me/?ref=producthunt
+- [ ] https://startupbase.io/?ref=producthunt
+- [ ] https://betafamily.com/?ref=producthunt free, but better to use $40 version
+- [ ] https://kelsgrocerylist.betafamily.com/feed-item/29053
 
 cool, but not free
-http://atrybox.com/tester-signup/
-https://
-betalist.com/?ref=producthunt
-http://www.launchfeed.com/?ref=producthunt
-https://lucr.io/?ref=producthunt
-http://elevtr.io/?ref=producthunt
-http://elevtr.io/posted-idea/agtzfmVsZXZ0ci1pb3IRCxIESWRlYRiAgICA2PjtCAw/delivry-a-food-delivery-service
+- [ ] http://atrybox.com/tester-signup/
+- [ ] https://betalist.com/?ref=producthunt
+- [ ] http://www.launchfeed.com/?ref=producthunt
+- [ ] https://lucr.io/?ref=producthunt
+- [ ] http://elevtr.io/?ref=producthunt
+- [ ] http://elevtr.io/posted-idea/agtzfmVsZXZ0ci1pb3IRCxIESWRlYRiAgICA2PjtCAw/delivry-a-food-delivery-service
 
-https://betapage.co/profile
-https://betaworks.com/camp/
-
+- [ ] https://betapage.co/profile
+- [ ] https://betaworks.com/camp/
 
 
 
-https://www.betabound.com/radishnow-public-beta/
+
+- [ ] https://www.betabound.com/radishnow-public-beta/
 
 
 https://test4startup.com/v2?ref=producthunt
-https://test4startup.com/dashboard
+- [ ]  https://test4startup.com/dashboard
 
 https://www.facebook.com/search/str/recipes+and+cooking/keywords_pages?see_more_ref=eyJzaWQiOiIwLjY4Nzk2OTczNzcwNjQzMzgiLCJyZWYiOiJzZWVfbW9yZSJ9
 https://www.facebook.com/77RecipesAndCookingGuide/?ref=br_rs
@@ -234,20 +220,20 @@ https://medium.com/s/the-slow-up/unexpected-lessons-from-unintentionally-startin
 https://thinkgrowth.org/how-startups-should-do-customer-discovery-51b151724a01
 https://github.com/atherdon/la-marketing-with-zero-budget/issues/1
 
-https://www.startupbutton.com/scrum/
+- [ ] https://www.startupbutton.com/scrum/
 
-https://startupradius.com/
-https://lucr.io/promote
-https://www.growthstore.io/
+- [ ] https://startupradius.com/
+- [ ] https://lucr.io/promote
+- [ ] https://www.growthstore.io/
 https://www.growthstore.io/personal-growth-advisor
-http://startupmate.flammate.com/?ref=producthunt
+- [ ] http://startupmate.flammate.com/?ref=producthunt
 
 https://www.google.com.ua/search?q=Early+adopters+find&ei=k2vuWbjtOqLI6ASY4afoAQ&start=10&sa=N&biw=1097&bih=556&dpr=1.75
 https://www.google.com.ua/search?q=got+quality+early+adopters+products+alpha+launch&oq=got+quality+early+adopters+products+alpha+launch&aqs=chrome..69i57.11319j0j4&sourceid=chrome&ie=UTF-8
 https://startupjuncture.com/2015/03/31/lean-startup-how-to-find-early-adopters/
 
 
-http://startitup.co/guides/373/soft-launch-get-early-adopters
+- [ ] http://startitup.co/guides/373/soft-launch-get-early-adopters
 https://blog.hubstaff.com/acquiring-early-adopters/
 
 http://customerdevlabs.com/2017/03/20/who-are-early-adopters/
@@ -260,16 +246,16 @@ https://www.producthunt.com/ask/2154-what-are-the-best-free-resources-for-startu
 https://growthhackers.com/articles/how-to-kickstart-your-growth-process?utm_source=Top+Posts+-+GrowthHackers&utm_campaign=d89bc30d34-top-posts-200_11-27-2017&utm_medium=email&utm_term=0_73ea7ece1d-d89bc30d34-162753937&mc_cid=d89bc30d34&mc_eid=63e33f03e4
 
 http://startupstash.com/earlyusers/?ref=producthunt
-https://startuplaunchlist.com/
+- [ ] https://startuplaunchlist.com/
 
 https://www.producthunt.com/ask/4255-what-can-i-use-to-rapidly-test-my-ideas
 https://www.producthunt.com/posts/tractionbeat
 https://www.tractionbeat.com/?ref=producthunt
 
 http://www.launchfeed.com/?ref=producthunt
-http://alltopstartups.com/submit-startup/
-https://www.startupbutton.com/submit/
-https://irisdesk.io/#/g/M0omMe0YRz/GS-growth-hacking
+- [ ] http://alltopstartups.com/submit-startup/
+- [ ] https://www.startupbutton.com/submit/
+- [ ] https://irisdesk.io/#/g/M0omMe0YRz/GS-growth-hacking
 
 https://www.producthunt.com/posts/startup-stash
 https://www.producthunt.com/posts/startup-launch-list
@@ -304,7 +290,7 @@ https://startuplister.com/
 
 
 https://www.indiehackers.com/@Hercule/bootstrapping-in-a-nutshell-part-2-how-to-validate-ideas-by-talking-to-customers-47cab94448
-https://www.sideprojectchecklist.com/blog/
+- [ ] https://www.sideprojectchecklist.com/blog/
 
 
 http://www.spikelab.org/blog/early-adopters-definition.html
@@ -335,7 +321,7 @@ https://www.geekwire.com/startup-list/
 https://ninjaoutreach.com/startup-directories/
 http://www.startups-list.com/
 https://smallbiztrends.com/2013/04/startup-checklist.html
-https://e27.co/startups
+- [ ] https://e27.co/startups
 
 
 https://www.quora.com/topic/Startupli-st
@@ -352,4 +338,4 @@ similar to instaaaaa
 
 
 dircetory and funding tool: https://letsventure.com/mobile?ref=producthunt
-https://letsventure.com/for-startups
+- [ ] https://letsventure.com/for-startups
