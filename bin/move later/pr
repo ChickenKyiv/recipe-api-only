@@ -117,3 +117,16 @@ https://tekkshare.com/?ref=producthunt - not a best option but i'll give it a tr
  11) social media posts(use buffer for this)
  12) setup a pretty newsletter
 ------------
+Немного из фишек, которые я подсмотрел у других.
+Если у юзера стоит Alexa from Amazon - you can ask her about recipes from app, and she(or it) will tell about your meal plan or read recipe for you. It's really fascinating!
+
+Or have facebook bot, that can reply from your NMTG page about what is for dinner.
+
+
+
+The Grocery Checklist API is a RESTful application programming interface that provides a backend service for mobile applications to help users with grocery shopping. This API provides useful tools in its service such as creating Checklist Items, Product Search, organizing Categories, and more.
+
+https://angel.co/instant-api?src=rec
+http://instantapi.com
+
+http://www.supermarketapi.com/Methods_v1.aspx
