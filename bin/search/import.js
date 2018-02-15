@@ -23,7 +23,7 @@ let Nutritions = require(path.resolve(__dirname, 'nutritions'));
 
 // we including a file from other import directory.
 // @TODO this is not cool. maybe it's better to have a short version of recipe file just for attaching things.
-// let Recipe    = require(path.resolve(__dirname, 'recipes'));
+// remove this include and just find all recipes, stored at database.
 let Recipe    = require(path.resolve(__dirname, '../recipes/recipes'));
 // let Recipes    = require(path.resolve(__dirname, '../recipes/recipes'));
 
@@ -53,7 +53,10 @@ async.parallel({
 		}
 
 		if( !results || !results.allergies || !results.courses
-				|| !results.cuisines || !results.diets || !results.holidays || !results.nutritions) {
+				|| !results.cuisines || !results.diets
+				|| !results.holidays || !results.nutritions
+				|| !results.recipes
+			 ) {
 					raven.captureException("not imported well");
 		}
 

@@ -1,119 +1,118 @@
 
-
 # Free Menu Release #
 
 ### Basic structure
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/img.jpg)
 
 
-## API endpoints
+## API endpoints ( Free Menu Release )
 --------------------------------------------------------------
 
-### Meals
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
+### Menu
+#### List of all created menus(with recipe Ids)
+Method: GET
+Path: /api/menu/
+Input: JSON with properties ... @TODO finish it
 GET http://localhost:3000/api/menu?access_token=%token%
-Get list with all created menus(with recipe Ids)
 
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/docs/LoopBack%20API%20Explorer1.png)
-
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/docs/LoopBack%20API%20Explorer2.png)
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
+---
+
+#### Get menu by menu id
+Method: GET
+Path: /api/menu/{menu_id}
+Input: JSON with properties ...
 GET http://localhost:3000/api/menu/593ac56c2c941720bc3091b1?access_token=%token%
-Get one menu by Id
 
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/docs/LoopBack%20API%20Explorer3.png)
-
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/docs/LoopBack%20API%20Explorer4.png)
+---
 
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
+#### Get latest published menu(only one)
+Method: GET
+Path: /api/menu/last
+Input: JSON with properties ...
 GET http://localhost:3000/api/menu/last?access_token=%token%
-Get only one latest published menu
+
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/docs/LoopBack%20API%20Explorer9.png)
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
+---
+
+#### Filter By Published Date: ASC/DESC
+Method: GET
+Path: /menu/filter/date
+Input: JSON with properties ...
+---
+
+#### Get Menu with all data inside
+Method: GET
+Path: /menu/full
+Input: JSON with properties ...
+---
+
+### Recipes
+#### List with all created recipes
+Method: GET
+Path: /api/recipe/
+Input: JSON with properties ...
 GET http://localhost:3000/api/recipe?access_token=%token%
-Get list with all created recipes
 
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/docs/LoopBack%20API%20Explorer5.png)
-
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/docs/LoopBack%20API%20Explorer6.png)
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
+---
+
+#### Get recipe by recipe id
+Method: GET
+Path: /api/recipe/{id}
+Input: JSON with properties ...
 GET http://localhost:3000/api/recipe/593abe383199170e50a5272d?access_token=%token%
-Get one recipe by Id
+
 
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/docs/LoopBack%20API%20Explorer7.png)
-
 ![alt text](https://github.com/atherdon/recipe-api-only/blob/master/docs/LoopBack%20API%20Explorer8.png)
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
+---
+
+#### Get recipe with all necessary data like ingredients. @TODO Later add stuff like allergies, etc.
+Method: GET
+Path: /api/recipe/{id}/full
+Input: JSON with properties ...
 GET recipe/:id/full
-Get recipe with all necessary data like ingredients. @TODO Later add stuff like allergies, etc.
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
-GET http://localhost:3000/api/grocery/menu?groceryId=594d45227741a0312874c465&access_token=%token%
-Get ingredients and display them in list view with directions and link to recipy by recipeId
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
-GET /menu/filter/date
-Filter By Published Date: ASC/DESC
+---
+#### Get Ingredients By Recipe id
+Method: GET
+Path: recipe/{id}/list/ingredients
+Input: JSON with properties ...
 
-
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
-GET /menu/full
-
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
-grocery/menu/:id#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
-recipe/:id/list/ingredients
 http://localhost:3000/api/recipe/{id}/list/ingredients?recipeId=594d3b97fef8430a3c5eff8d&access_token=y2GcakK5pffy5LSueSdEQ8i40bkoSQixgZKMwImlyEsMLCrbk4ktjoV0OuxmnWNF
+---
 
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
+#### Recipes_Find not sure if i test this URL before
+Method: GET
+Path: /api/recipes/recipes_find
+Input: JSON with properties ...
 http://localhost:3000/explorer/#!/recipes/recipes_find
-#### Create a Meal
+---
+
+
+#### Get ingredients and display them in list view with directions and link to recipy by recipeId
+Method: GET
+Path: /api/grocery/menu?groceryId={groceryId}
+Input: JSON with properties ...
+GET http://localhost:3000/api/grocery/menu?groceryId=594d45227741a0312874c465&access_token=%token%
+---
+
+
+#### Get Grocery List by Menu id
+Method: GET
+Path: grocery/menu/{id}
+Input: JSON with properties ...
+---
+
+## User
+#### Generate Login token
 Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
-http://localhost:3000/api/recipe
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
-http://localhost:3000/api/menu
-#### Create a Meal
-Method: POST
-Path: /api/meal/
-Input: JSON with properties userId and recipeId
+Path: /api/customer/customer_login
+Input: JSON with properties ...
 http://localhost:3000/explorer/#!/customer/customer_login will return a token
 
 ---

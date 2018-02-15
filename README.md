@@ -1,10 +1,5 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
-Note: **This repository is going through heavy development currently and should not be used in production unless you know what you are doing**
-
-Note: **Working only with unstable node version - 9.4.0 - be careful**
 
 
 [![Join the chat at https://gitter.im/recipe-api-questions/Lobby](https://badges.gitter.im/recipe-api-questions/Lobby.svg)](https://gitter.im/recipe-api-questions/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -17,8 +12,13 @@ Use this reference for adding such a functionality: https://github.com/optis/loo
 ### What is this repository for? ###
 
 * Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Note: **This repository is going through heavy development currently and should not be used in production unless you know what you are doing**
+
+Note: **Working only with unstable node version - 9.4.0 - be careful**
+
+* Version 1.0.3-beta
+
+
 
 Great Loopback REST API tutorial: https://github.com/optis/loopback-rest-api
 
@@ -55,25 +55,20 @@ Check GettingStarted.md file
 
 See [GETTINGSTARTED.md](GETTINGSTARTED.md) to get started.
 
-## Getting Started
+## Endpoints for Free Menu Release
 
-[Free Menu Release Routes with Samples](https://github.com/atherdon/recipe-api-only/blob/master/FreeMenu.md)
+See [Free Menu Release Routes with Samples](FreeMenu.md) to get started.
 
-See [GETTINGSTARTED.md](GETTINGSTARTED.md) to get started.
+## Endpoints for Search Release
 
-## Getting Started
-
-
-[Search filters](https://github.com/atherdon/recipe-api-only/blob/master/SEARCH.md)
-
-See [GETTINGSTARTED.md](GETTINGSTARTED.md) to get started.
+See [Search filters.md](SEARCH.md) to get started.
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
-
-
+@TODO change recipe title field to name field and test it at whole project
+@TODO this is not finished. Just steal from other place
 ## API endpoints
 --------------------------------------------------------------
 
@@ -159,12 +154,13 @@ Sections
 * Tips
 
 ##Calendar
-##Weekly​ ​ menu
+##Weekly​​ menu
 ##Auth
 ##Recipe
-##Grocery​ ​ list
+##Grocery​ ​list
 ##Expenses
-##NutritionFood​ ​ tracking​ ​ or​ ​ Food​ ​ logging
+##Nutrition
+##Food​ ​ tracking​ ​ or​ ​ Food​ ​ logging
 ##Search
 ##Recipe
 ##Tips

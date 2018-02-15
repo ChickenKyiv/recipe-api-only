@@ -12,7 +12,6 @@ const relate = async (options, results, helper) => {
   let raven
   ( {server, database, raven} = options );
 
-
   let recipes
   try {
 

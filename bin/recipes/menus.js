@@ -32,20 +32,20 @@ const get = () => {
         description: "string1",
         notes: "This is notes5",
       },
-        {
+      {
         title:"Weekly menu with extra cheese",
         date: new Date(),
         description:"string2",
         notes: "This is notes4",
       },
-        {
-        title:"string3",
+      {
+        title:"Weekly menu #",
         date: new Date(),
         description:"string3",
         notes: "This is notes3",
       },
-        {
-        title:"string4",
+      {
+        title:"Weekly menu #",
         date: new Date(),
         description:"string4",
         notes: "This is notes2",

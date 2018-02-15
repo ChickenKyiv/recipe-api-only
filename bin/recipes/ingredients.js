@@ -85,7 +85,7 @@ const get = (department_id) => {
 
     data[3] = [
       {
-        name: " beef roast",
+        name: "beef roast",
         departmentId : department_id
       },
       {
