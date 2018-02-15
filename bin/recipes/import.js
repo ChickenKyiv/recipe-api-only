@@ -23,8 +23,6 @@ let Recipes      = require(path.resolve(__dirname, 'recipes'));
 let IngrEx       = require(path.resolve(__dirname, 'ingredients'));
 let Recipes2     = require(path.resolve(__dirname, 'recipes-extended'));
 
-// recipes for search
-//let getRecipes2     = require(path.resolve(__dirname, 'sample-recipes-search-data'));
 
 let options = {
 	server: server,
@@ -72,7 +70,12 @@ async.parallel({
 		helper.create(options, Recipe2, (err, data) => {
 			console.log(data);
 		});
-		place where we'll attach ingredients with recipes
+
+		options.predata = await Department.find({ where: {
+			name: 'Meat'
+		}});
+		console.log(options.predata);
+		// place where we'll attach ingredients with recipes
 		// pass department id
 		helper.create(options, IngrEx, (err, data) => {
 			console.log(data);

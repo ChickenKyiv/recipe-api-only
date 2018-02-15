@@ -6,7 +6,7 @@ const async = require('async');
 // let Model
 // let database
 let table_name = 'Recipe'
-let raven
+// let raven
 
 // @TODO not clear, how we can know which attribute to use?
 let attributes = [
@@ -35,14 +35,13 @@ const get = () => {
         total_time   :"3h",
         recipe_yield :"8",
         img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
-        "url": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
+        url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
 
       },
       {
 
         title: "Crock Pot Roast1",
-        img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
-        url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
+
         directions: [
           "Place beef roast in crock pot.",
           "Mix the dried mixes together in a bowl and sprinkle over the roast.",
@@ -52,7 +51,8 @@ const get = () => {
         prep_time    :"PT30M",
         total_time   :"PT3H",
         recipe_yield :"8",
-
+        img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
+        url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
       }
      ];
 

@@ -126,62 +126,6 @@ const get = (department_id) => {
 
      ];
 
-
-
-
-     // data[3] = [
-     //  {
- 	   //    name: "Celery",
- 	   //    departmentId: department_id
- 	   //  },
- 	   //  {
- 	   //    name: "Corn",
- 	   //    departmentId: department_id
- 	   //  },
- 	   //  {
- 	   //    name: "Cucumbers",
- 	   //    departmentId: department_id
- 	   //  },
- 	   //  {
- 	   //    name: "Lettuce / Greens",
- 	   //    departmentId: department_id
- 	   //  },
- 	   //  {
- 	   //    name: "Mushrooms",
- 	   //    departmentId: department_id
- 	   //  },
- 	   //  {
- 	   //    name: "Onions",
- 	   //    departmentId: department_id
- 	   //  },
- 	   //  {
- 	   //    name: "Peppers",
- 	   //    departmentId: department_id
- 	   //  },
- 	   //  {
- 	   //    name: "Potatoes",
- 	   //    departmentId: department_id
- 	   //  },
- 	   //  {
- 	   //    name: "Spinach",
- 	   //    departmentId: department_id
- 	   //  },
- 	   //  {
- 	   //    name: "Squash",
- 	   //    departmentId: department_id
- 	   //  },
- 	   //  {
- 	   //    name: "Zucchini",
- 	   //    departmentId: department_id
- 	   //  },
- 	   //  {
- 	   //    name: "Tomatoes*",
- 	   //    departmentId: department_id
- 	   //  }
-     //
-     // ];
-
-
   	return data;
 
 };

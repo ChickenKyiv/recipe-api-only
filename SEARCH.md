@@ -183,3 +183,17 @@ https://recipe-api-loopback.herokuapp.com/api/recipe?filter[where][and][0][aller
 https://recipe-api-loopback.herokuapp.com/api/recipe?filter[where][and][0][allergies][inq]=allergyId&filter[where][and][1][allergies][inq]=allergyId&filter[where][and][2][courses][inq]=courseId&filter[where][and][2][courses][inq]=courseId **working**  
 
 https://recipe-api-loopback.herokuapp.com/api/recipe?filter[where][and][0][holidays][inq]=holidayId&filter[where][and][1][holidays][inq]=holidayId&filter[where][and][2][diets][inq]=dietId&filter[where][and][2][diets][inq]=dietId **working**  
+
+
+What data can be used for search from imported script
+We have x recipes
+We have x allergies
+We have x courses
+We have x cuisines
+We have x diets
+We have x holidays
+We have x nutritions
+We have x menus
+We have x nutritions  
+We have x ingredients attached to recipes
+We have x ingredients attached to departments and grocery 
