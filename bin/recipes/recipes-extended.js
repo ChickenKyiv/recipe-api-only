@@ -22,7 +22,6 @@ let attributes = [
 const get = () => {
 
     var data     = [
-
       {
           title   : "Baked Chicken Chimichangas, Borracho Beans",
           directions: [
@@ -79,7 +78,6 @@ const get = () => {
         img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
         url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208"
       }
-
      ];
 
   	return data;
