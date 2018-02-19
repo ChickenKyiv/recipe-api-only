@@ -1,8 +1,9 @@
-## API endpoints Search Form Release
+# API endpoints Search Form Release
 
-**Ingredients search**
 
-#### Ingredients search
+
+###### Ingredients search
+
 Method: GET
 Path: /api/ingredient?filter[where][name]
 Input: JSON with properties ...
@@ -10,7 +11,7 @@ http://localhost:3000/api/ingredient?filter[where][name]=chicken&access_token=%t
 http://localhost:3000/api/ingredient?filter[where][name][inq]=chicken&filter[where][name][inq]=pasta&&access_token=%token
 %  **working**  
 http://localhost:3000/api/ingredient?filter[where][name][nin]=chicken&filter[where][name][nin]=pasta&filter[limit]=10&access_token=%token%  **working**  
----
+
 
 
 #### Cousine search by id
@@ -20,7 +21,7 @@ Input: JSON with properties ...
 http://localhost:3000/api/cousine?filter[where][id]=cousineId  **not working**  
 http://localhost:3000/api/cousine?filter[where][id][inq]=cousineId&filter[where][id][inq]=cousineId  **not working**  
 http://localhost:3000/api/cousine?filter[where][id][inq]=cousineId&filter[where][id][nin]=cousineId  **not working**  
----
+
 
 
 #### Courses search
@@ -32,7 +33,7 @@ http://localhost:3000/api/course?filter[where][id][inq]=courseId&filter[where][i
 http://localhost:3000/api/course?filter[where][id][inq]=courseId&filter[where][id][nin]=courseId  **working**
 
 http://localhost:3000/api/course?filter[where][name]=Appetizers&access_token=%token% **working**  
----
+
 
 #### Holidays search
 Method: GET
@@ -41,7 +42,7 @@ Input: JSON with properties ...
 http://localhost:3000/api/holiday?filter[where][id]=holidayId  **working**  
 http://localhost:3000/api/holiday?filter[where][id][inq]=holidayId&filter[where][id][inq]=holidayId  **working**  
 http://localhost:3000/api/holiday?filter[where][id][inq]=holidayId&filter[where][id][nin]=holidayId  
----
+
 
 #### Allergies search
 Method: GET
@@ -50,7 +51,7 @@ Input: JSON with properties ...
 http://localhost:3000/api/allergy?filter[where][id]=allergyId  
 http://localhost:3000/api/allergy?filter[where][id][inq]=allergyId&filter[where][id][inq]=allergyId  
 http://localhost:3000/api/allergy?filter[where][id][inq]=allergyId&filter[where][id][nin]=allergyId  
----
+
 
 #### Diets search
 Method: GET
@@ -59,7 +60,7 @@ Input: JSON with properties ...
 http://localhost:3000/api/diet?filter[where][id]=dietId  **working**  
 http://localhost:3000/api/diet?filter[where][id][inq]=dietId&filter[where][id][inq]=dietId    **working**  
 http://localhost:3000/api/diet?filter[where][id][inq]=dietId&filter[where][id][nin]=dietId  
----
+
 
 
 #### Cooking Time (lt XX:XX) Less than
@@ -67,7 +68,7 @@ Method: GET
 Path: /api/recipe?filter[where][cook_time][lt]={time}  
 Input: JSON with properties ...
 http://localhost:3000/api/recipe?filter[where][cook_time][lt]=5m  
----
+
 
 **not finished**
 #### Date(related to weekly menus)
@@ -76,7 +77,7 @@ Path: /api/menu/
 Input: JSON with properties ...
 date:{ gt: Date.Now() - ONE_WEEK }
 http://localhost:3000/api/  
----
+
 
 ### Recipe
 
@@ -87,8 +88,8 @@ Input: JSON with properties ...
 http://localhost:3000/api/recipe?filter[like][title]=%Pork%  **not working**    
 http://localhost:3000/api/recipe?filter[ilike][title]=%Pork%  **not working**    
 
-propose to add example at REST link on https://loopback.io/doc/en/lb3/Where-filter.html#ilike-and-nilike  
----
+i propose to add example at REST link on https://loopback.io/doc/en/lb3/Where-filter.html#ilike-and-nilike  
+
 
 ### Long query
 #### Create a Meal
@@ -102,7 +103,7 @@ http://localhost:3000/api/recipe?filter[where][and][0][title]=Pork
 &filter[where][and][4][holiday][holidayId]=holidayId  
 &filter[where][and][5][allergy][allergyId]=allergyId  
 &filter[where][and][6][diet][dietId]=dietId  
----
+
 
 #### Parts of long query
 Method: GET
@@ -113,13 +114,13 @@ http://localhost:3000/api/recipe?filter[where][and][0][allergies][inq]=allergyId
 http://localhost:3000/api/recipe?filter[where][and][0][allergies][inq]=allergyId&filter[where][and][1][allergies][inq]=allergyId&filter[where][and][2][courses][inq]=courseId&filter[where][and][2][courses][inq]=courseId **working**  
 
 http://localhost:3000/api/recipe?filter[where][and][0][holidays][inq]=holidayId&filter[where][and][1][holidays][inq]=holidayId&filter[where][and][2][diets][inq]=dietId&filter[where][and][2][diets][inq]=dietId **working**  
----
+
 
 **Note** Works on current state of database(without working well relations)
 
 @TODO add more samples where we search recipes by attributes
----
----
+
+
 links to our testing environment
 **Ingredients search **
 
