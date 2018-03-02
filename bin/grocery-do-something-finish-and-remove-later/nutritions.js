@@ -53,6 +53,3 @@ function attachNutritionsToRecipes(nutritions, recipes){
 	second.updateAttribute('nutritions', nutritions[1]);
 	
 };
-
-module.exports.createNutritions = createNutritions;
-module.exports.attachNutritionsToRecipes = attachNutritionsToRecipes;

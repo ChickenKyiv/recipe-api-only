@@ -67,10 +67,14 @@ See [Search filters.md](SEARCH.md) to get started.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
+
+
 @TODO change recipe title field to name field and test it at whole project
 @TODO this is not finished. Just steal from other place
 ## API endpoints
 --------------------------------------------------------------
+
+
 
 ### Meals
 #### Create a Meal
@@ -142,10 +146,10 @@ Response: 200 and the created recipe object
 
 Sections
 * Calendar
-* Weekly​ ​ menu
+* Weekly​ ​menu
 * Auth
 * Recipe
-* Grocery​ ​ list
+* Grocery​ list
 * Expenses
 * Nutrition
 * Food​ ​tracking​ ​or ​Food​​ logging

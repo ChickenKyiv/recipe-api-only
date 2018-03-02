@@ -75,6 +75,7 @@ form of choices.
 ### List All Departments [GET]
 
 + Response 200 (application/json)
+
         [
             {
                 "name": "string",
@@ -94,6 +95,7 @@ form of choices.
             Location: /department/{id}/ingredients
 
     + Body   
+
         [
             {
                 "name": "string",
@@ -115,6 +117,7 @@ form of choices.
             Location: /department/ingredients/list
 
     + Body  
+    
         {
           "ingredients": [
             {}

@@ -48,7 +48,5 @@ function getAdminGroceries ( User ){
 
 };
 
-module.exports.createUsers     = createUsers;
-module.exports.assignAdmin     = assignAdmin;
 module.exports.attachGroceryToAdmin     = attachGroceryToAdmin;
 module.exports.getAdminGroceries = getAdminGroceries;

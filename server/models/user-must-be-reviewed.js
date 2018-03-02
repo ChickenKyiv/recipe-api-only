@@ -72,7 +72,7 @@ module.exports = function(user) {
       });
     });
 
-    // VideoModel.find({}, cb);
+   
   };
 
   user.remoteMethod('listMenu', {
