@@ -2,7 +2,7 @@
   "name": "recipe-api",
   "version": "1.0.3-beta",
   "engines": {
-    "node": "9.4.0"
+    "node": "10.0.0"
   },
   "main": "server/server.js",
   "scripts": {
