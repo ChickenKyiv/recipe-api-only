@@ -90,9 +90,3 @@ for install packages it's better to run
 ```
 heroku run npm install -a recipe-api-loopback
 ```
-## Links, that's important for me:
-
-For sending email notifications - we'll use MailGun
-
-Our free key : key-4e236ace7f85293ec5eb2b37d6d9fa39
-Free domain : sandbox31d3370622eb42a597ccb3fa1fd0adbf.mailgun.org
