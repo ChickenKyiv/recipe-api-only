@@ -18,7 +18,6 @@
     "g": "npm run migrate-grocery && nodemon bin/grocery/import.js",
     "r": "npm run migrate-recipes && nodemon bin/recipes/import.js",
     "s": "npm run migrate-search  && nodemon bin/search/import.js",
-
     "g2": "npm run migrate-grocery && node bin/grocery/import.js",
     "r2": "npm run migrate-recipes && node bin/recipes/import.js",
     "s2": "npm run migrate-search  && node bin/search/import.js"
@@ -47,7 +46,6 @@
     "chai-http": "^3.0.0",
     "eslint": "^4.18.1",
     "eslint-config-loopback": "^10.0.0",
-    "mocha": "^5.0.0",
     "nodemon": "^1.15.1",
     "nsp": "^3.2.1"
   },
