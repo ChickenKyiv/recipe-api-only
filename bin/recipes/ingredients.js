@@ -2,9 +2,11 @@
 
 let table_name = 'Ingredient'
 
+
+
 // this indredients haven't nice departments, so i attach them only to department[0]
 const get = (department_id) => {
-    let data
+  let data = [];
 
     data[0] = [
       {
@@ -59,7 +61,7 @@ const get = (department_id) => {
         departmentId: department_id
       },
       {
-        name: "1 tablespoon lemon juice"
+        name: "1 tablespoon lemon juice",
         departmentId: department_id
       },
     ];
@@ -97,7 +99,7 @@ const get = (department_id) => {
         departmentId : department_id
       },
       {
-        name "dry ranch dressing mix",
+        name: "dry ranch dressing mix",
         departmentId : department_id
       },
       {

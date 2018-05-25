@@ -21,7 +21,9 @@ let Menus        = require(path.resolve(__dirname, 'menus'));
 let Recipes      = require(path.resolve(__dirname, 'recipes'));
 
 let IngrEx       = require(path.resolve(__dirname, 'ingredients'));
-let Recipes2     = require(path.resolve(__dirname, 'recipes-extended'));
+let Recipes2 	= require(path.resolve(__dirname, 'recipes-extended'));
+
+let Department = require(path.resolve(__dirname, '../grocery/departments'));
 
 
 let options = {
@@ -30,14 +32,13 @@ let options = {
 	raven: raven
 }
 
-
 async.parallel({
 		users       : async.apply(helper.create, options, Users),
 		recipes     : async.apply(helper.create, options, Recipes),
 		menus       : async.apply(helper.create, options, Menus),
 
 		// for recipes 2
-		ingr-ex     : async.apply(helper.create, options, IngrEx),
+		ingrEx     : async.apply(helper.create, options, IngrEx),
 
 
 	}, function(err, results){
@@ -67,14 +68,21 @@ async.parallel({
 
 
 		// imported recipes for search data
-		helper.create(options, Recipe2, (err, data) => {
+		helper.create(options, Recipes2, (err, data) => {
 			console.log(data);
 		});
 
-		options.predata = await Department.find({ where: {
-			name: 'Meat'
-		}});
-		console.log(options.predata);
+		const meatDepartments = Department.get().filter(department => {	
+			return department.name === "Meat";
+		})
+		options.predata = meatDepartments;
+
+		// options.predata = await Department.get().find({ where: {
+		// 	name: 'Meat'
+		// }});
+		// console.log(options.predata);
+
+
 		// place where we'll attach ingredients with recipes
 		// pass department id
 		helper.create(options, IngrEx, (err, data) => {
