@@ -15,7 +15,7 @@
     "r2": "npm run migrate-recipes && node bin/recipes/import.js"
   },
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.18.3",
     "compression": "^1.7.2",
     "cors": "^2.5.2",
     "debug": "^3.1.0",
