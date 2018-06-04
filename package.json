@@ -11,11 +11,9 @@
     "test": "mocha",
     "migrate-recipes": "node bin/recipes/002-automigrate.js",
     "import": "node bin/recipes/001-import.js",
-
     "r": "npm run migrate-recipes && nodemon bin/recipes/import.js",
-
-    "r2": "npm run migrate-recipes && node bin/recipes/import.js",
-    },
+    "r2": "npm run migrate-recipes && node bin/recipes/import.js"
+  },
   "dependencies": {
     "body-parser": "^1.18.2",
     "compression": "^1.7.2",
@@ -23,24 +21,24 @@
     "debug": "^3.1.0",
     "errorhandler": "^1.5.0",
     "helmet": "^3.11.0",
-    "loopback": "^3.18.2",
-    "loopback-boot": "^2.6.5",
+    "loopback": "^3.19.2",
+    "loopback-boot": "^3.1.0",
     "loopback-component-explorer": "^5.3.0",
     "loopback-connector-mailgun": "0.0.11",
-    "loopback-connector-mongodb": "^3.4.1",
-    "nodemailer-mailgun-transport": "^1.3.5",
+    "loopback-connector-mongodb": "^3.4.3",
+    "nodemailer-mailgun-transport": "^1.4.0",
     "raven": "^2.4.1",
-    "request": "^2.83.0",
+    "request": "^2.87.0",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.3.1",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
     "chai": "^4.0.1",
-    "chai-http": "^3.0.0",
-    "eslint": "^4.18.1",
+    "chai-http": "^4.0.0",
+    "eslint": "^4.19.1",
     "eslint-config-loopback": "^10.0.0",
-    "nodemon": "^1.15.1",
+    "nodemon": "^1.17.5",
     "nsp": "^3.2.1"
   },
   "repository": {
