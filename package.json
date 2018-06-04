@@ -29,7 +29,7 @@
     "nodemailer-mailgun-transport": "^1.4.0",
     "raven": "^2.4.1",
     "request": "^2.87.0",
-    "serve-favicon": "^2.0.1",
+    "serve-favicon": "^2.5.0",
     "strong-error-handler": "^2.3.1",
     "underscore": "^1.8.3"
   },
