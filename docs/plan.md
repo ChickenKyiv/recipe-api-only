@@ -1,39 +1,39 @@
-Calendar
-Weekly menu
-Auth
-Recipe
-Grocery list
-Expenses
-Nutrition
-Food tracking or Food logging
-Search
-Recipe
-Tips
+- Calendar
+- Weekly menu
+- Auth
+- Recipe
+- Grocery list
+- Expenses
+- Nutrition
+- Food tracking or Food logging
+- Search
+- Recipe
+- Tips
 
-Calendar
+- Calendar
 
-Weekly menu
+- Weekly menu
 
-Auth
+- Auth
 
-Recipe
+- Recipe
 
-Grocery list
+- Grocery list
 
-Expenses
+- Expenses
 
-Nutrition
+- Nutrition
 
-Food tracking or Food logging
+- Food tracking or Food logging
 
-Search
+- Search
 
-Recipe
+- Recipe
 
-Tips
+- Tips
 
-Other api connection
+- Other api connection
 
-FB login
-Push or other Notifications
-Emails
+- FB login
+- Push or other Notifications
+- Emails
