@@ -2,6 +2,18 @@
 
 
 
+
+## Table of Contents
+
+* [Updating to New Releases](#updating-to-new-releases)
+* [Release 2 -  Authentication](#)
+
+## Updating to New Releases
+
+
+## Release 2 -  Authentication
+
+
 [![Join the chat at https://gitter.im/recipe-api-questions/Lobby](https://badges.gitter.im/recipe-api-questions/Lobby.svg)](https://gitter.im/recipe-api-questions/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
