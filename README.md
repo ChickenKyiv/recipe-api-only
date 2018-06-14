@@ -158,30 +158,30 @@ Response: 200 and the created recipe object
 
 Sections
 * Calendar
-* Weekly​ ​menu
+* Weekly menu
 * Auth
 * Recipe
-* Grocery​ list
+* Grocery list
 * Expenses
 * Nutrition
-* Food​ ​tracking​ ​or ​Food​​ logging
+* Food tracking or Food logging
 * Search
 * Recipe
 * Tips
 
-##Calendar
-##Weekly​​ menu
-##Auth
-##Recipe
-##Grocery​ ​list
-##Expenses
-##Nutrition
-##Food​ ​ tracking​ ​ or​ ​ Food​ ​ logging
-##Search
-##Recipe
-##Tips
+## Calendar
+## Weekly menu
+## Auth
+## Recipe
+## Grocery​ ​list
+## Expenses
+## Nutrition
+## Food​ ​ tracking​ ​ or​ ​ Food​ ​ logging
+## Search
+## Recipe
+## Tips
 
-Other​ ​ api​ ​ connection
-## FB​ login
-## Push​​ or​​ other​​ Notifications
-## Emails
+- Other api connection
+- FB login
+- Push or other Notifications
+- Emails
