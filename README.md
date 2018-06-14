@@ -1,6 +1,20 @@
 # README #
 
-
+```
+/account/login
+	/account/logout
+	/account/update
+	/account/changePassword
+	/account/delete
+	/account/language
+	/account/signup
+	
+	// todo
+	/account/verify
+	/account/recover
+	/account/recover/password
+	/account/changeEmail
+```
 
 
 ## Table of Contents
