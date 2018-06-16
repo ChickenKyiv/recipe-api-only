@@ -185,3 +185,21 @@ Other​ ​ api​ ​ connection
 ## FB​ login
 ## Push​​ or​​ other​​ Notifications
 ## Emails
+
+---
+FLOW.md
+Weekly menus - recipes - remove recipe - change servings - changes at GL
+
+Main Weekly Menu(created and stored by chief)
+Cloned to user section if user want to add some changes
+When user remove recipe, change servings, rearrange recipes order, replace recipe to another - Menu copied to user collection and weekly menu id updated from Main WM to Cloned WM
+
+GL
+* add
+* created from Main Menu(nothing was changed)
+* created from User Menu (GL not saved to db in this case)
+* if user want to add some products to GL - we create GL related to User Menu for this week
+* when user check ingredient(we assume he buy it) - this ingredient moved to Purchased. Purchased must have this information: qty / Date / notes/ place where it was buyed.
+
+
+create functionality when user uncheck ingredient from GL - so we need to remove it from Purchased list too.
