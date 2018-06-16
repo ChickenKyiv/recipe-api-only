@@ -1,6 +1,20 @@
 # README #
 
-
+```
+/account/login
+	/account/logout
+	/account/update
+	/account/changePassword
+	/account/delete
+	/account/language
+	/account/signup
+	
+	// todo
+	/account/verify
+	/account/recover
+	/account/recover/password
+	/account/changeEmail
+```
 
 
 ## Table of Contents
@@ -158,17 +172,18 @@ Response: 200 and the created recipe object
 
 Sections
 * Calendar
-* Weekly​ ​menu
+* Weekly menu
 * Auth
 * Recipe
-* Grocery​ list
+* Grocery list
 * Expenses
 * Nutrition
-* Food​ ​tracking​ ​or ​Food​​ logging
+* Food tracking or Food logging
 * Search
 * Recipe
 * Tips
 
+<<<<<<< HEAD
 ##Calendar
 ##Weekly​​ menu
 ##Auth
@@ -203,3 +218,21 @@ GL
 
 
 create functionality when user uncheck ingredient from GL - so we need to remove it from Purchased list too.
+=======
+## Calendar
+## Weekly menu
+## Auth
+## Recipe
+## Grocery​ ​list
+## Expenses
+## Nutrition
+## Food​ ​ tracking​ ​ or​ ​ Food​ ​ logging
+## Search
+## Recipe
+## Tips
+
+- Other api connection
+- FB login
+- Push or other Notifications
+- Emails
+>>>>>>> e4117256a1590859f0be18d4814ebe2c96b8d8eb
