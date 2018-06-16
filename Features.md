@@ -76,3 +76,16 @@ https://scotch.io/bar-talk/build-a-content-moderation-service-with-node-and-clou
 Make it work using nodejs
 firstly we don't importing all content, only title, img, url, ingredients - and tell where we get this information
 OR we can use a logic from gatsby.
+
+#### from first app reppsotory
+* Add recipe categories
+* Add recipe search
+* Create automative grocery list structure template.
+* Add firebase for login storing users - https://github.com/FirstBuild/InventoryMgmt-GroceryList/blob/master/app/js/simpleLogin.js
+https://github.com/akhil110/Recipe-Book/blob/master/recipe-service.js
+https://www.sitepoint.com/building-recipe-search-site-angular-elasticsearch/
+http://openrecip.es
+http://codepen.io/jpokusa/pen/GBysb
+https://www.anylistapp.com
+
+add category management http://www.outofmilk.com/features.aspx
