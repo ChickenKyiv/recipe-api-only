@@ -27,7 +27,7 @@
     "loopback-connector-mailgun": "0.0.11",
     "loopback-connector-mongodb": "^3.4.4",
     "nodemailer-mailgun-transport": "^1.4.0",
-    "raven": "^2.6.2",
+    "raven": "^2.6.3",
     "request": "^2.87.0",
     "serve-favicon": "^2.5.0",
     "strong-error-handler": "^3.0.0",
