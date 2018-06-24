@@ -8,9 +8,6 @@ const errorhandler = require('errorhandler');
 var bodyParser = require('body-parser');
 // var path = require('path');
 
-const Raven = require('raven');
-Raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
-
 
 var app = module.exports = loopback();
 
@@ -27,7 +24,6 @@ try {
   // console.log(config);
 } catch (err) {
   console.trace(err);
-  Raven.captureException(err);
   process.exit(1); // fatal
 }
 
