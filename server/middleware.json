@@ -27,6 +27,7 @@
   },
   "files": {},
   "final": {
+    "./middleware/raven": {},
     "loopback#urlNotFound": {}
   },
   "final:after": {
