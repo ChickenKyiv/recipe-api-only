@@ -1,5 +1,7 @@
 # README #
 
+[DB Schema](https://chickenkyiv.gitbook.io/documentation/database-schemes/chickenkyiv-schema)
+
 ```
 /account/login
 	/account/logout
