@@ -38,7 +38,7 @@
     "chai-http": "^4.0.0",
     "eslint": "^5.2.0",
     "eslint-config-loopback": "^11.0.0",
-    "nodemon": "^1.18.2",
+    "nodemon": "^1.18.3",
     "nsp": "^3.2.1"
   },
   "repository": {
