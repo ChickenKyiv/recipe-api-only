@@ -25,7 +25,7 @@
     "loopback-boot": "^3.1.0",
     "loopback-component-explorer": "^6.1.0",
     "loopback-connector-mailgun": "0.0.12",
-    "loopback-connector-mongodb": "^3.4.4",
+    "loopback-connector-mongodb": "^3.5.0",
     "nodemailer-mailgun-transport": "^1.4.0",
     "raven": "^2.6.3",
     "request": "^2.87.0",
