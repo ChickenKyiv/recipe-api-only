@@ -23,7 +23,7 @@
     "helmet": "^3.13.0",
     "loopback": "^3.21.0",
     "loopback-boot": "^3.1.1",
-    "loopback-component-explorer": "^6.1.0",
+    "loopback-component-explorer": "^6.2.0",
     "loopback-connector-mailgun": "0.0.12",
     "loopback-connector-mongodb": "^3.5.0",
     "nodemailer-mailgun-transport": "^1.4.0",
