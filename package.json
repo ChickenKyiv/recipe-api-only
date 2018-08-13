@@ -28,7 +28,7 @@
     "loopback-connector-mongodb": "^3.5.0",
     "nodemailer-mailgun-transport": "^1.4.0",
     "raven": "^2.6.3",
-    "request": "^2.87.0",
+    "request": "^2.88.0",
     "serve-favicon": "^2.5.0",
     "strong-error-handler": "^3.1.0",
     "underscore": "^1.9.1"
