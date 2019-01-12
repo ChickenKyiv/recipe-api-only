@@ -48,7 +48,7 @@ Department.get = chickenKyiv.getDepartment();
 // let Recipes2 	   = chickenKyiv.getRecipesExtended();;
 // let Department   =  chickenKyiv.getDepartment(); ;
 
-console.log(Users.get())
+// console.log(Users.get())
 
 
 
@@ -71,6 +71,7 @@ async.parallel({
 
 
 	}, function(err, results){
+
 		if( err ) {
 			raven.captureException(err);
 			throw err;
