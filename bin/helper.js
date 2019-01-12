@@ -34,7 +34,7 @@ const create = (options, wrapper, cb) => {
   let database
   let raven
   let predata
-  ( {server, database, raven, predata} = options );
+  ( { server, database, raven, predata } = options );
 
   let Model      = server.models[wrapper.table_name];
   let table_name = wrapper.table_name;
