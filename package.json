@@ -1,6 +1,6 @@
 {
   "name": "recipe-api",
-  "version": "1.0.3-beta",
+  "version": "1.0.4-beta",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
