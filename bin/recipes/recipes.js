@@ -19,46 +19,46 @@ let attributes = [
 ];
 
 
-const get = () => {
-
-    var data     = [
-      {
-
-        title: "Crock Pot Roast12",
-        directions: [
-         "Place beef roast in crock pot.",
-          "Mix the dried mixes together in a bowl and sprinkle over the roast.",
-          "Pour the water around the roast.",
-          "Cook on low for 7-9 hours."
-        ],
-        prep_time    :"30min",
-        total_time   :"3h",
-        recipe_yield :"8",
-        img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
-        url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
-
-      },
-      {
-
-        title: "Crock Pot Roast1",
-
-        directions: [
-          "Place beef roast in crock pot.",
-          "Mix the dried mixes together in a bowl and sprinkle over the roast.",
-          "Pour the water around the roast.",
-          "Cook on low for 7-9 hours."
-        ],
-        prep_time    :"PT30M",
-        total_time   :"PT3H",
-        recipe_yield :"8",
-        img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
-        url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
-      }
-     ];
-
-  	return data;
-
-};
+// const get = () => {
+//
+//     var data     = [
+//       {
+//
+//         title: "Crock Pot Roast12",
+//         directions: [
+//          "Place beef roast in crock pot.",
+//           "Mix the dried mixes together in a bowl and sprinkle over the roast.",
+//           "Pour the water around the roast.",
+//           "Cook on low for 7-9 hours."
+//         ],
+//         prep_time    :"30min",
+//         total_time   :"3h",
+//         recipe_yield :"8",
+//         img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
+//         url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
+//
+//       },
+//       {
+//
+//         title: "Crock Pot Roast1",
+//
+//         directions: [
+//           "Place beef roast in crock pot.",
+//           "Mix the dried mixes together in a bowl and sprinkle over the roast.",
+//           "Pour the water around the roast.",
+//           "Cook on low for 7-9 hours."
+//         ],
+//         prep_time    :"PT30M",
+//         total_time   :"PT3H",
+//         recipe_yield :"8",
+//         img: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
+//         url: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
+//       }
+//      ];
+//
+//   	return data;
+//
+// };
 
 
 
@@ -110,6 +110,6 @@ const relate = async (options, results, helper) => {
 };
 
 
-module.exports.get   = get;
+// module.exports.get   = get;
 module.exports.table_name   = table_name;
 module.exports.relate = relate;

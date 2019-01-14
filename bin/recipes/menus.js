@@ -11,50 +11,52 @@ let attributes  = [
 
 
 
-const get = () => {
-  // var x = new Date();
-  // x.setDate(1);
-  //
-  // var prev_month  = x.getMonth()-1;
-  // var prev_month2 = x.getMonth()-2;
-  // var prev_month3 = x.getMonth()-3;
+// const get = () => {
+//   // var x = new Date();
+//   // x.setDate(1);
+//   //
+//   // var prev_month  = x.getMonth()-1;
+//   // var prev_month2 = x.getMonth()-2;
+//   // var prev_month3 = x.getMonth()-3;
+//
+//     var data     = [
+//       {
+//         title: "Weekly menu #9",
+//         date: new Date(),
+//         description: "string",
+//         notes: "This is notes6",
+//       },
+//       {
+//         title: "Weekly menu #6",
+//         date: new Date(),
+//         description: "string1",
+//         notes: "This is notes5",
+//       },
+//       {
+//         title:"Weekly menu with extra cheese",
+//         date: new Date(),
+//         description:"string2",
+//         notes: "This is notes4",
+//       },
+//       {
+//         title:"Weekly menu #",
+//         date: new Date(),
+//         description:"string3",
+//         notes: "This is notes3",
+//       },
+//       {
+//         title:"Weekly menu #",
+//         date: new Date(),
+//         description:"string4",
+//         notes: "This is notes2",
+//       }
+//      ];
+//
+//   	return data;
+//
+// };
 
-    var data     = [
-      {
-        title: "Weekly menu #9",
-        date: new Date(),
-        description: "string",
-        notes: "This is notes6",
-      },
-      {
-        title: "Weekly menu #6",
-        date: new Date(),
-        description: "string1",
-        notes: "This is notes5",
-      },
-      {
-        title:"Weekly menu with extra cheese",
-        date: new Date(),
-        description:"string2",
-        notes: "This is notes4",
-      },
-      {
-        title:"Weekly menu #",
-        date: new Date(),
-        description:"string3",
-        notes: "This is notes3",
-      },
-      {
-        title:"Weekly menu #",
-        date: new Date(),
-        description:"string4",
-        notes: "This is notes2",
-      }
-     ];
 
-  	return data;
-
-};
 
 //@TODO same function at other place are async and more advanced.
 const relate = async (options, results, helper) => {
@@ -79,6 +81,6 @@ const relate = async (options, results, helper) => {
 
 };
 
-module.exports.get   = get;
+// module.exports.get   = get;
 module.exports.table_name   = table_name;
 module.exports.relate = relate;
