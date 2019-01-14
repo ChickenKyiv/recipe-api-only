@@ -31,6 +31,7 @@
 
 
 [![Join the chat at https://gitter.im/recipe-api-questions/Lobby](https://badges.gitter.im/recipe-api-questions/Lobby.svg)](https://gitter.im/recipe-api-questions/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FChickenKyiv%2Frecipe-api-only.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FChickenKyiv%2Frecipe-api-only?ref=badge_shield)
 
 
 Note: Upload images are not supported right now. If you want to display images, you must upload them to storage, copy public url and save it on database.
@@ -219,3 +220,7 @@ GL
 
 
 create functionality when user uncheck ingredient from GL - so we need to remove it from Purchased list too.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FChickenKyiv%2Frecipe-api-only.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FChickenKyiv%2Frecipe-api-only?ref=badge_large)

@@ -1,9 +1,6 @@
 {
   "name": "recipe-api",
-  "version": "1.0.3-beta",
-  "engines": {
-    "node": "10.0.0"
-  },
+  "version": "1.0.4-beta",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -16,29 +13,29 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "compression": "^1.7.2",
-    "cors": "^2.5.2",
+    "compression": "^1.7.3",
+    "cors": "^2.8.5",
     "debug": "^3.1.0",
     "errorhandler": "^1.5.0",
-    "helmet": "^3.12.1",
-    "loopback": "^3.21.0",
-    "loopback-boot": "^3.1.0",
-    "loopback-component-explorer": "^6.1.0",
+    "helmet": "^3.15.0",
+    "loopback": "^3.24.2",
+    "loopback-boot": "^3.2.0",
+    "loopback-component-explorer": "^6.3.1",
     "loopback-connector-mailgun": "0.0.12",
-    "loopback-connector-mongodb": "^3.4.4",
+    "loopback-connector-mongodb": "^3.9.2",
     "nodemailer-mailgun-transport": "^1.4.0",
-    "raven": "^2.6.3",
+    "raven": "^2.6.4",
     "request": "^2.87.0",
     "serve-favicon": "^2.5.0",
-    "strong-error-handler": "^3.0.0",
+    "strong-error-handler": "^3.2.0",
     "underscore": "^1.9.1"
   },
   "devDependencies": {
-    "chai": "^4.0.1",
-    "chai-http": "^4.0.0",
-    "eslint": "^5.1.0",
-    "eslint-config-loopback": "^10.0.0",
-    "nodemon": "^1.18.1",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "eslint": "^5.12.0",
+    "eslint-config-loopback": "^13.0.0",
+    "nodemon": "^1.18.9",
     "nsp": "^3.2.1"
   },
   "repository": {
