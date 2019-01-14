@@ -18,6 +18,15 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@groceristar/groceristar-fetch@^1.1.37":
+  version "1.1.37"
+  resolved "https://registry.yarnpkg.com/@groceristar/groceristar-fetch/-/groceristar-fetch-1.1.37.tgz#0307ed29e3c299c06398f4fe8f9f5de6b9510f5f"
+  integrity sha512-yfF6tjLd7lroT4HgpHCkyny87w8m1n4S6/rIZCV2EZkJXcn6sj0H6VwfJ7TOT4DZnbegGpHj+gSHiOqR1BnJ8Q==
+  dependencies:
+    fs "0.0.1-security"
+    lodash "^4.17.10"
+    uuid "3.3.2"
+
 "@types/body-parser@*":
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.17.0.tgz#9f5c9d9bd04bb54be32d5eb9fc0d8c974e6cf58c"
@@ -1139,7 +1148,7 @@ eslint-visitor-keys@^1.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
   integrity sha512-qzm/XxIbxm/FHyH341ZrbnMUpe+5Bocte9xkmFMzPMjRaZMcXww+MpBptFvtU+79L362nqiLhekCxCxDPaUMBQ==
 
-eslint@^5.11.1:
+eslint@^5.12.0:
   version "5.12.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.12.0.tgz#fab3b908f60c52671fb14e996a450b96c743c859"
   integrity sha512-LntwyPxtOHrsJdcSwyQKVtHofPHdv+4+mFwEe91r2V13vqpM8yLr7b1sW+Oo/yheOPkWYsYlYJCkzlFAt8KV7g==
@@ -1519,6 +1528,11 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+
+fs@0.0.1-security:
+  version "0.0.1-security"
+  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
+  integrity sha1-invTcYa23d84E/I4WLV+yq9eQdQ=
 
 fsevents@^1.2.2:
   version "1.2.4"
@@ -2426,7 +2440,7 @@ loopback-boot@^3.2.0:
     strong-globalize "^4.1.1"
     toposort "^2.0.2"
 
-loopback-component-explorer@^6.3.0:
+loopback-component-explorer@^6.3.1:
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/loopback-component-explorer/-/loopback-component-explorer-6.3.1.tgz#66ac422b9d17d3c8cc0262c1c5c818a46ce0a03a"
   integrity sha512-BQRbZaHPJmflq67VjAavfM/NpRI1p8B4NJtTwf+olwjq51dnPuTAhOOF5kgy6LTo+2PFCi/mK5dIoApHHMXRRw==
@@ -2531,7 +2545,7 @@ loopback-swagger@^5.0.0:
     lodash "^4.17.2"
     strong-globalize "^4.1.1"
 
-loopback@^3.24.0:
+loopback@^3.24.2:
   version "3.24.2"
   resolved "https://registry.yarnpkg.com/loopback/-/loopback-3.24.2.tgz#1405e1d5a3c95af58e47146822318989cc3a68a9"
   integrity sha512-V2HoLTHkVk4vUdyX/vvtBmL4jp0Z4aPB8F7gL4l+e0phMQ/AqHNwhPVPn5mswigg3T3d8Hsj9l9PsQHoJlY9mA==

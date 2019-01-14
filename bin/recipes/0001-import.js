@@ -6,16 +6,17 @@ const path    = require('path');
 const async   = require('async');
 const debug   = require('debug');
 const raven   = require('raven');
-
+const config  = require('./0005-config.js')
 
 const { chickenKyiv, helper } = require('@groceristar/groceristar-fetch');
 
 
 
-raven.config('https://c1e3b55e6a1a4723b9cae2eb9ce56f2e:57e853a74f0e4db98e69a9cf034edcdd@sentry.io/265540').install();
+raven.config(config.RAVEN_KEY).install();
 
 let server     = require(path.resolve(__dirname, '../../server/server'));
-let database   = server.datasources.recipeDS;
+let database   = server.datasources[config.db_name];
+// let database   = server.datasources.recipeDS;
 
 let helper     = require(path.resolve(__dirname, '../helper'));
 
@@ -33,12 +34,20 @@ let Recipes2     = require(path.resolve(__dirname, 'recipes-extended'));
 let Department   = require(path.resolve(__dirname, '../grocery/departments'));
 
 
-Users.get      = chickenKyiv.getUsers();
-Menus.get      = chickenKyiv.getMenus();
-Recipes.get    = chickenKyiv.getRecipes()
-IngrEx.get     = chickenKyiv.getIngredients()
-Recipes2.get   = chickenKyiv.getRecipesExtended();
-Department.get = chickenKyiv.getDepartment();
+Users.get      = chickenKyiv.get('users');
+Menus.get      = chickenKyiv.get('menu');
+Recipes.get    = chickenKyiv.get('recipe')
+IngrEx.get     = chickenKyiv.get('ingredient')
+Recipes2.get   = chickenKyiv.get('recipe2');
+Department.get = chickenKyiv.get('department');
+
+
+// Users.get      = chickenKyiv.getUsers();
+// Menus.get      = chickenKyiv.getMenus();
+// Recipes.get    = chickenKyiv.getRecipes()
+// IngrEx.get     = chickenKyiv.getIngredients()
+// Recipes2.get   = chickenKyiv.getRecipesExtended();
+// Department.get = chickenKyiv.getDepartment();
 
 // it's a next version, where we dumb all stupid things...
 // let Users        = chickenKyiv.getUsers();
