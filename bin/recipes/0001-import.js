@@ -18,7 +18,7 @@ let server     = require(path.resolve(__dirname, '../../server/server'));
 let database   = server.datasources[config.db_name];
 // let database   = server.datasources.recipeDS;
 
-let helper     = require(path.resolve(__dirname, '../helper'));
+// let helper     = require(path.resolve(__dirname, '../helper'));
 
 // include middleware
 // @todo make it auto-icludable from folder
