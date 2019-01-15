@@ -5,7 +5,6 @@
   "scripts": {
     "start": "node server/server.js",
     "watch": "nodemon server/server.js",
-    "test": "mocha",
 
     "migrate-recipes": "node bin/recipes/002-automigrate.js",
     "import": "node bin/recipes/001-import.js",
