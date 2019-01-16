@@ -1,21 +1,25 @@
 'use strict';
+const Raven = require('raven');
+Raven.config('https://6c8ba2737aae4d81908677e4dba9be3f:26c83aa1a38a42cdbf0beea41a82cacf@sentry.io/231031').install();
 
 module.exports = function(Department) {
-	// Department.validatesPresenceOf(
-  //   'name'
-	// 	//, 'items'
-  // );
+	Department.validatesPresenceOf(
+    'name'
+    // 'items'
+  );
 
 	Department.observe('update', function(ctx, next){
 		ctx.instance.updated_at = new Date();
 		next();
 	});
 
-    Department.observe("before save", function updateTimestamp(ctx, next) {
+  Department.observe("before save", function updateTimestamp(ctx, next) {
 
     if( ctx.isNewInstance ){
       ctx.instance.created_at = new Date();
       ctx.instance.updated_at = new Date();
+
+      // ctx.instance.visible    = true;
     }
 
 
@@ -24,68 +28,128 @@ module.exports = function(Department) {
   });
 
 
+  Department.observe("before delete", function (ctx, next) {
+
+    // console.log('before hook fired');
+
+    var Ingredient = ctx.Model.app.models.Ingredient;
+
+    Ingredient.find({
+      where: {
+        departmentId: ctx.where.id
+      }
+    }).then(function(ingredients){
+      //console.log(ingredients);
+
+      ingredients.forEach(function(ingredient){
+        Ingredient.destroyById(ingredient.id, function(){
+          console.log("Deleted ingredient", ingredient.id);
+        })
+      })
+
+    })
+    .catch(function(err){
+       Raven.captureException(err);
+      throw err;
+    });
 
 
 
-  Department.fetch = function(){
-  	var Grocery = Department.app.models.Grocery;
-  	var Ingredient = Department.app.models.Ingredient;
+    next();
+  });
 
-  	Department.find({})
-  	.then(function(departments){
-  		departments.forEach(function(department){
-  			console.log(department.ingredients);
 
-  			var ingredientsId = department.ingredients;
-  			Ingredient.find({
-                where:{
-                    id: recipe.ingredients
-                }
-            })
-            .then(function(ingredients){
 
-            	console.log( ingredients );
+  // Department.getOne = function( departmentId, cb ){
 
-            })
-            .catch(function(err){
-            	throw err;
-            });
+  //     Department.findById(departmentId, {
+  //       include: {
+  //         relation: 'ingredients',
+  //         scope: {
+  //           fields: [ 'name', 'id' ]
+  //         }
+  //       },
+  //       // where:
 
-  		});
-  	})
-  	.catch(function(err){
-  		throw err;
-  	});
+
+  //   })
+  //   // .then(function(department){
+  //   //   console.log(department);
+  //   // })
+  //   .then(cb);
+
+  // };
+
+
+  // :todo think about try to filter data inside ingredients field
+  Department.convertData = function(department){
+    var departmentJSON = department.toJSON();
+
+    var data = {
+      id          : departmentJSON.id,
+      name        : departmentJSON.name,
+      ingredients : departmentJSON.ingredients,
+    }; // :todo umpdate to underscore method
+
+    return data;
+
+  };
+
+  Department.queryOne = function(){
+    return {
+        include: {
+          relation: 'ingredients',
+          scope: {
+            fields: [ 'name', 'id' ]
+          }
+        },
+        // where:
+    };
   };
 
 
-  // department/:id/ingredients
+  Department.methodB = function( departmentId, cb ){
+
+      Department.findById(departmentId, {
+        include: {
+          relation: 'ingredients',
+          scope: {
+            fields: [ 'name', 'id' ]
+          }
+        },
+
+        // where:
+
+
+    })
+    // .then(function(department){
+    //   console.log(department);
+    // })
+    .then(cb);
+
+  };
+
+
+
   Department.IngredientsByDepartment = function(departmentId, cb){
 
-    // var IngredientModel = DepartmentModel.app.models.IngredientModel;
+    var Ingredient = Department.app.models.Ingredient;
 
-    // next version
-    // IngredientModel.find({
-    //     where:{
-    //       deaprtmentId: { inq:departmentId } //we assume that we're have departmentId array. maybe we need to have 1-to-1 relation
-    //     },
-    //     fields: [
-    //       // 'img', 'url',
-
-    //       ]
-    //   },cb);
+    // we assume that we're have departmentId array.
+		// maybe we need to have 1-to-1 relation
+    // departmentId: { inq:departmentId }
 
 
+    Ingredient.find({
+        where:{
+          departmentId: departmentId
 
-    Department.findById(departmentId, {
-        fields: 'items'
-      },function(err, result){
-        cb(null, result.items);
+        },
+        fields: [
+          // 'img', 'url',
 
-      });
-
-
-
+          ]
+      },cb);
 
 
   };
@@ -103,7 +167,7 @@ module.exports = function(Department) {
       type: 'array'
     },
     http: {
-      path: '/:id/ingredients',
+      path: '/ingredients/list',
       verb: 'get'
     }
   });

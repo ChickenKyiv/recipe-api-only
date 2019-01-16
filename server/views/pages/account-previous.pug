@@ -1,0 +1,39 @@
+extends ../layouts/dashboard
+
+block content
+  h2 Third Party Profile(s)
+  p.small
+    if user.profiles.length !== 0
+      each val in user.profiles
+        h4= val.provider + ':'
+        p.small= JSON.stringify(val)
+    else
+      | NONE
+
+  hr
+
+  include ../partials/list-panels
+  include ../partials/list-items
+
+
+
+
+  
+
+  a.btn.btn-primary(href="/select/59b72480f6d6fb0744f2e5fd")  Select
+
+  br
+  include ../partials/account-inside-buttons
+
+  if groceries
+    .col-md-12
+      +view_groceries_short(groceries)
+
+  br
+
+
+  hr
+  +button_clone_ultimate(ultimate)  
+  hr
+
+  include ../partials/setting-linked-accounts

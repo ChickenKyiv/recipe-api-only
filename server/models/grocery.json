@@ -7,7 +7,9 @@
     "validateUpsert": true
   },
   "properties": {
-
+    "name": {
+      "type": "string"
+    },
     "img": {
       "type": "string"
     },
@@ -16,7 +18,7 @@
     },
     "slug": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "created_at": {
       "type": "date",
@@ -28,11 +30,29 @@
     }
   },
   "validations": [],
-  "relations": {
-    "departmentsList": {
+  "relations": {    
+    "departmentsToHide": {
       "type": "referencesMany",
       "model": "Department",
-      "foreignKey": "departmentIds",
+      "foreignKey": "hideThisIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "purchased": {
+      "type": "referencesMany",
+      "model": "Ingredient",
+      "foreignKey": "purchasedIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "ingredients": {
+      "type": "referencesMany",
+      "model": "Ingredient",
+      "foreignKey": "ingredientIds",
       "options": {
         "validate": true,
         "forceId": false

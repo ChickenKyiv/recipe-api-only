@@ -1,0 +1,101 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='theme-color' content='#4DA5F4')
+    meta(name='csrf-token', content=_csrf)
+    title= title 
+
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons')    
+
+
+
+    link(rel='stylesheet', href='/stylesheets/wizard/bootstrap.min.css') 
+
+    link(rel='stylesheet', href='/stylesheets/wizard/material-kit.css') 
+
+    link(rel='stylesheet', href='/stylesheets/wizard/material-bootstrap-wizard.css') 
+    
+    link(rel='stylesheet', href='/stylesheets/wizard/demo.css') 
+
+
+
+
+
+
+  body.index-page
+
+    //include partials/header
+    // include partials/flash
+
+
+    .wrapper
+      .header.header-filter
+        .container
+          .row
+            .col-md-8.col-md-offset-2 
+
+
+      .main.main-raised
+        .section
+        
+          .container.text-center
+            .row
+              .col-md-8.col-md-offset-2.text-center
+                h2 Start and End points for Youtube videos
+                h4 Want to share video with friend? But only short version with start and end point?
+
+          .section.section-full-screen.section-signup     
+            .container
+              .row
+                .col-sm-8.col-sm-offset-2
+                  .wizard-container
+                    .card.wizard-card#wizard(data-color="red")
+
+                      block content 
+
+
+
+
+          .space-50
+
+          .section.section-examples            
+            .container.text-center
+
+              .row
+                .col-md-12
+                  h2 Examples
+                .space-50
+
+              .row
+
+                each value in examples
+                  include partials/example
+
+              .row
+                .col-md-12
+                  h2 Cases
+                .space-50
+
+                each value in cases
+                  include partials/case
+
+
+  
+    //include partials/footer
+
+    //include partials/scripts
+
+
+    script(src='/javascript/wizard/jquery.bootstrap.js')
+
+    script(src='/javascript/wizard/jquery.validate.min.js')
+
+    script(src='/javascript/wizard/material.min.js')
+
+    script(src='/javascript/wizard/material-bootstrap-wizard.js')
+
+
+    //include partials/google-analytics

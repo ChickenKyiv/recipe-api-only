@@ -1,7 +1,7 @@
 {
-  "recipeDS": {    
-    "url": "mongodb://heroku_p0dxgncb:gl2rr2bi235aoqfdojelqspjn1@ds147052.mlab.com:47052/heroku_p0dxgncb",
-    "name": "recipeDS",
+  "groceryDS": {
+    "url": "mongodb://heroku_ll5tqpvk:4d9a46dd8t182pgo4dbcu0l4mk@ds129733.mlab.com:29733/heroku_ll5tqpvk",
+    "name": "groceryDS",
     "connector": "loopback-connector-mongodb"
   }
 }

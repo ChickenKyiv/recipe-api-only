@@ -1,0 +1,15 @@
+br
+ul
+  each val, index in data.departments
+    li= val.name + '( ' + val.id + ' ) '
+      a(href='/delete/department/' + val.id) link
+      if user
+      //- User *is* logged In
+
+        if val.visible
+          a(href='/hide/department/' + val.id) HIDE
+        else
+          a(href='/show/department/' + val.id) SHOW 
+
+        a(href='/visibility/department/' + val.id)
+          i.fa.fa-bell.fa-4x   

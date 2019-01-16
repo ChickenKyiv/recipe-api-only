@@ -1,0 +1,40 @@
+
+mixin dropdown(groceryId)
+  .btn-group.pull-right
+    button(type="button", class="btn btn-primary dropdown-toggle", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+      | Grocery List Actions 
+      span.caret
+    ul.dropdown-menu.dropdown-menu-right
+      li
+        a(href='/remove/grocery/' + groceryId) Remove 
+      li
+        a(href='/change/grocery/name/' + groceryId) Change name
+      li
+        a(href='/departments/show/' + groceryId) Manage Departments
+      li
+        a(href='/clone/' + groceryId) Clone List
+
+
+
+
+
+mixin dropdown2(groceryId, departmentId, flag)
+  .btn-group
+    button(type="button", class="btn btn-default dropdown-toggle", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+      | Department Actions 
+      span.caret
+    ul.dropdown-menu.dropdown-menu-right
+      li
+        if flag
+          a(href='/visibility/department/' + departmentId + '/' + groceryId) Hide this department 
+        else
+          a(href='/visibility/department/' + departmentId + '/' + groceryId) Show this department   
+      li
+        a(href='/department/' + departmentId + '/' + groceryId) Manage Ingredients old-way
+      li
+        a(href='/shopping/' + groceryId + '/' + departmentId) Open shopping list
+        
+        
+      li
+        a(href="/remove/department/:id/:groceryId") Delete Department with ingredients
+

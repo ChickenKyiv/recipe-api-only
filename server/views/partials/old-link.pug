@@ -1,0 +1,12 @@
+ a(href='/visibility/department/' + val.id + '/' + groceryId)
+          if val.ingredients.length
+            i.fa.fa-eye-slash
+          else    
+            i.fa.fa-eye
+        |      
+        
+        +button_department_awesome(val.id, groceryId)
+        
+        //+button_ingredients_list(groceryId, val.id)
+        +button_ingredients_list(groceryId, val.id)
+        

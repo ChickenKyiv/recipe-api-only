@@ -1,0 +1,6 @@
+form#updateName(name="formsubmit", method="post", action="/update/name")
+  input(type="text", name="name", placeholder="New name")  
+  br
+  input(type="hidden", name="groceryId", value=groceryId)
+  br
+  input.btn.btn-success(type='submit', value='Save')

@@ -1,0 +1,9 @@
+.list__item__left
+  label.checkbox
+    if( element.completed )
+      input.checkbox__input(type="checkbox", name="c", checked="checked")
+
+    else	
+      input.checkbox__input(type="checkbox", name="c")
+
+    .checkbox__checkmark

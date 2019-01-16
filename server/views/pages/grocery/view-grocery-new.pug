@@ -1,0 +1,29 @@
+extends ../../layouts/dashboard
+
+block content
+
+  .row
+    .col-md-7.col-md-offset-3.mt-120
+      .panel.panel-bordered
+          .panel-heading
+            h1.panel-title= name
+  
+          .panel-body
+
+            //- :todo fix this
+            h4(style="font-weight:300;") Click on departments select box
+            h4(style="font-weight:300;") You will go to particular Department after selecting it
+            include ../../partials/departments-select
+
+      
+      //h2= current_path
+
+    section
+      .col-md-7.col-md-offset-3
+
+       
+        
+        
+    //section
+      .col-md-12  
+        include ../partials/departments-grid

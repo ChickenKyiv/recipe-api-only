@@ -1,0 +1,221 @@
+include ../mixins/mixin.pug
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title TiTlE | 
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+
+    include ../static/styles-home
+
+  body
+    .main-wrapper
+      
+
+      .preloader
+        .loader-container
+          .text-logo SmartMVP
+          .signal
+          | 
+    
+      block content 	
+
+
+      header#top.header.type(data-stellar-background-ratio='0.5')
+        // Background Overlay
+        .overlay
+          
+          nav.navbar.navbar-fixed-top(role='navigation')
+            .container
+              .row
+                .col-md-12
+                  // Navbar-Header
+                  .navbar-header
+                    // Mobile Menu
+                    button.navbar-toggle(data-target='.navbar-collapse', data-toggle='collapse', type='button')
+                      i.icon.icon_menu
+                    // Text-Logo
+                    a.navbar-brand.scrollto(href='#top', title='SmartMvp')
+                      span.text-logo SmartMvp
+                    //
+                      Image-Logo: Remove this comments and the section above Text-Logo if you want to add an Image-Logo (recommended sizes -> max-height:50, max-width:200)
+                      <a href="#top" class="navbar-brand img-logo scrollto" title="SmartMvp">
+                      <img src="assets/images/logo.png" alt="Logo">
+                      </a>
+                  // /End Navbar-Header
+                  // Navbar-Collapse
+                  .navbar-collapse.collapse
+                    ul.nav.navbar-nav.navbar-right
+                      // Menu Items
+                      li
+                        a.scrollto(href='#about', title='') About
+                      li
+                        a.scrollto(href='#features', title='') Features
+                      li
+                        a.scrollto(href='#pricing', title='') Pricing
+                      li
+                        a.scrollto(href='#testimonials', title='') Testimonials
+                      li
+                        a.scrollto(href='#team', title='') Team
+                      li
+                        a.scrollto(href='#mobile-download', title='') Mobile
+                      // Login and Signup Modal on click
+                      li
+                        a.btn.btn-nav(data-toggle='modal', href='javascript:void(0)', onclick='openLoginModal();') Login
+                      li
+                        a.btn.btn-nav.btn-signup(data-toggle='modal', href='javascript:void(0)', onclick='openRegisterModal();') Sign Up
+                 
+          .container.vmiddle
+            .row
+              .col-md-8
+                .hero-section
+                  // Welcome - Hero Message
+                  h1.text-white
+                    | Achieve Better Marketing Results with 
+                    span(data-typer-targets='Clean,Modern,Innovative,Beautiful,Advanced,Efficient,Interactive,Powerful,Impressive')
+                    |  Design
+                  p.text-white Your starting point for building successful software products.
+                  // Learn More & Video Buttons
+                  .btn-box
+                    a.btn.btn-ghost.scrollto(href='#about') Learn More
+                    // Video Lightbox on Click
+                    a.btn.btn-color.venobox(href='http://youtu.be/SZEflIVnhH8', data-type='youtube')
+                      i.icon.arrow_triangle-right_alt
+                      | Play video
+                // /End Intro-Section
+        
+      section#about.intro-features
+        .container
+          // Padding
+          .wrapper-lg
+            .row
+              // Section Header Title
+              .col-xs-12
+                h2 It's about making ideas happen
+                p.large Spend less time worrying about front-end and more focusing on your product.
+            // Three Main Features with Icons
+            .row
+              .col-sm-4.intro-content
+                .icon-lg
+                  i.icon.icon-mobile
+                h4 Responsive Layout
+                p
+                  | Optio dolores expedita unde vel laudantium enim nisi eos distinctio, rem. Repellat repudiandae quos laborum magni.
+              .col-sm-4.intro-content
+                .icon-lg
+                  i.icon.icon-browser
+                h4 Easy to Customize
+                p
+                  | Praesentium reprehenderit quae, sequi deserunt laboriosam velit necessitatibus nulla ea optio, quis nam pariatur.
+              .col-sm-4.intro-content
+                .icon-lg
+                  i.icon.icon-documents
+                h4 Fully Documented
+                p
+                  | Aperiam recusandae ipsa culpa, cupiditate magnam dolor molestiae, omnis, architecto possimus aperiam corrupti corporis.
+        
+      section.img-with-action.light-bg
+        .container.wrapper-lg
+          .row
+            .col-lg-5.col-md-5
+              // Text Col
+              h3 Validate your Business Idea and Reach Product Market Fit
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere veritatis inventore eum, cupiditate esse debitis consectetur nisi harum. Tempore, assumenda ducimus vero totam labore. Ipsam, eos odit eaque, voluptatum minima, odio eveniet soluta saepe, culpa quo enim omnis iusto. Possimus, at numquam beatae non atque?
+              // Call To Action Buttons
+              .btn-box
+                a.btn.btn-grey.scrollto(href='#features') Learn More
+                a.btn.btn-color.scrollto(href='#canvas-bg')
+                  i.icon.arrow_carrot-2dwnn_alt
+                  | Try it for Free
+              // Div Required for Correct Charts Animation
+              .start-charts
+          
+        .hidden-sm.hidden-xs.col-md-6.img-col-bg.img-right
+      
+      section#canvas-bg.dark-bg.signup-divider
+        .container
+          .wrapper-lg
+            .row
+              .col-md-12
+                h2.text-white Start to build your own grocery list!
+                p.large.text-white Update, delete, open or share anytime.
+                // Handwritten text with arrow
+                p.signup-handwritten.text-white
+                  | Why wait? Start now! 
+                  br
+                  | Simple registration
+            .row
+              // Signup Form
+              form#signup-divider(role='form')
+                // Notification
+                p.signup-success
+                  i.icon.icon_check_alt2
+                  strong Congratulation! Welcome to 'Startup Name'. Check your email address. //:todo update this
+                p.signup-failed
+                  i.icon.icon_close_alt2
+                  strong  Something went wrong! Insert correct value.
+                // Input fields
+                .form-group
+                  input#signup-email.form-control.input-lg(type='email', name='signup-email', placeholder='Enter your Email-Address', required='')
+                .form-group
+                  input#signup-password.form-control.input-lg(type='password', size='25', name='signup-password', placeholder='Enter your Password', required='')
+                // Signup Button
+                button.btn.btn-color
+                  | Join Today 
+                  i.icon.arrow_right
+         
+     
+      
+      section#newsletter.newsletter.color-bg
+        .container
+          .wrapper-sm
+            .row
+              .col-md-6
+                
+                .table
+                  .table-row
+                    .table-cell.follow
+                      h5.table-title Follow Us
+                    .table-cell
+                      ul.social-list
+                        li
+                          a(href='#')
+                            i.icon.icon-facebook
+                        li
+                          a(href='#')
+                            i.icon.icon-twitter
+                  
+              .col-md-6
+                
+                form.mailchimp-subscribe(role='form')
+                  .table
+                    .table-row
+                      .table-cell.getnewsletter
+                        h5.table-title Get the Newsletter
+                      .table-cell
+                        .input-group.text-white
+                          // Input Form
+                          input#subscriber-email.form-control(type='email', name='email', placeholder='Your email address')
+                          // Submit Button
+                          span.input-group-btn
+                            button.btn.btn-white Subscribe
+                       
+                  .col-md-10.col-md-offset-1.col-sm-8.col-sm-offset-2
+                    // Notifications
+                    p.mc-success
+                    p.mc-failed
+                // /End Mailchimp Subscribe Form
+                
+         
+
+      footer#footer.footer.dark-bg
+        .container
+          .wrapper-lg
+            .row
+
+    include ../static/scripts-home
+

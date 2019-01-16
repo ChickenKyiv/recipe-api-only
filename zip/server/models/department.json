@@ -1,0 +1,37 @@
+{
+  "name": "Department",
+  "plural": "department",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "desc": {
+      "type": "string",
+      "required": false
+    },
+    "created_at": {
+      "type": "date",
+      "required": true
+    },
+    "updated_at": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "ingredients": {
+      "type": "hasMany",
+      "model": "Ingredient",
+      "foreignKey": "departmentId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,14 @@
+extends ../layouts/dashboard
+
+block head
+  //- Behavioral Meta Data
+  meta(charset='utf-8')
+  meta(name='x-csrf-token', content=_csrf)
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui')
+
+  //- SEO Meta Data
+  title= title
+  meta(name='author', content='')
+  meta(name='description', content='')
+  meta(name='keywords', content='')

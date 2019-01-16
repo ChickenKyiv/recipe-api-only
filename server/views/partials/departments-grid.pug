@@ -1,0 +1,28 @@
+.col-md-12
+  each val, index in departments
+    .col-md-4.element-item
+      h3= val.name
+
+        +dropdown2(groceryId, val.id, val.ingredients.length)
+
+            
+      h5= val.type                  
+      h5= val.id + ' <= Department ID'
+      
+      if val.ingredients && val.ingredients.length    
+        ul
+          each ing, j in val.ingredients
+          
+            li= ing[1]           
+            +links(ing[0], ing[2]) 
+            //ing[0] = id, ing[2] = delete link 
+     
+      hr
+
+
+
+
+.col-md-12
+  .round-border
+    each item, index in departments
+      +ingredients_list(groceryId, item)

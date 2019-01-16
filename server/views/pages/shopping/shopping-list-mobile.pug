@@ -1,0 +1,61 @@
+doctype html
+html(lang='en', data-framework='jquery')
+  head
+    meta(charset='utf-8')
+    title= 'Shopping List: ' + groceryId
+
+
+    link(rel='stylesheet', href='/css/onsenUI/bootstrap-grid-only.css')
+
+    //- link(rel='stylesheet', href='/css/one.css')
+    link(rel='stylesheet', href='https://unpkg.com/onsenui/css/onsenui.css')
+
+    link(rel='stylesheet', href='/css/onsenUI/onsen-css-components.min.css')
+
+    link(rel='stylesheet', href='/css/onsenUI/addon.css')
+
+    link(rel='stylesheet', href='/css/onsenUI/items-center-only.css')
+
+
+
+  body(data-grocery-id=groceryId, data-flag=isUltimate,  data-department-id=departmentId)
+  
+    
+    section#todoapp.container
+      .row
+  
+        ons-card
+          include header
+          ul#maList.list
+            include ../../partials/department/best-select-update-my-name
+        
+            include new-item
+
+            include todo-item.pug
+
+            include empty-item.pug
+
+          include footer.pug
+
+				
+        footer#info
+          p Double-click to edit an item 
+
+
+
+      
+    // :todo move scripts to a right place      
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js')
+
+    script(src='https://use.fontawesome.com/8b5217f583.js')
+
+    script(src='https://unpkg.com/onsenui/js/onsenui.min.js')
+          
+    
+    script(src='/javascript/jquery/director.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js')
+
+    if isUltimate 
+      script(src='/javascript/jquery/app-old.js')
+    else
+      script(src='/javascript/jquery/all2.js')

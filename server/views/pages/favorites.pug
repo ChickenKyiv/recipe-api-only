@@ -1,0 +1,15 @@
+extends ../layouts/dashboard
+
+block content
+  .row
+    .col-md-6.col-md-offset-3
+
+    .col-md-12
+      //include ../partials/favorites-list
+
+    .col-md-12
+      include ../partials/favorites-list-forms
+
+    if data
+      .col-md-12
+        a(href="/add/fav2/clear", class="btn") Clear  

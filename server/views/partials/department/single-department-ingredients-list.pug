@@ -1,0 +1,20 @@
+a.border-item(href='/shopping/' + groceryId + '/' + item.id)
+  h4.list-group-item-heading= item.name + '( ' + item.id + ' ) '
+    i.fa.fa-long-arrow-right(aria-hidden="true")
+    if item.ingredients.length
+      i.fa.fa-eye-slash
+    else    
+      i.fa.fa-eye
+
+if item.ingredients && item.ingredients.length
+
+  .col-md-12
+
+    ul
+      each ing, j in item.ingredients
+  
+        li= ing[1]           
+        +links(ing[0], ing[2]) 
+    //ing[0] = id, ing[2] = delete link 
+else
+  h2 | You don't have any ingredients  

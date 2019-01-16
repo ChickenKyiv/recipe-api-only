@@ -1,0 +1,73 @@
+doctype html
+html.no-js.css-menubar(lang='en')
+  head
+
+    include ../static/styles-dash 
+
+    title Login 
+
+
+    // Page
+    link(rel='stylesheet', href='../../assets/examples/css/pages/login-v3.css')
+
+    
+
+  body.page-login-v3.layout-full
+
+    include ../partials/browserupdate
+
+    // Page
+    .page.animsition.vertical-align.text-center(data-animsition-in='fade-in', data-animsition-out='fade-out')
+      .page-content.vertical-align-middle
+        .panel
+          .panel-body
+
+            include ../partials/login-buttons
+
+
+
+            .brand
+              // <img class="brand-img" src="../../assets/images/logo-blue.png" alt="...">
+              h2.brand-text.font-size-18
+                | STARTAPEEE Logo
+            form(method='post', action='#')
+              .form-group.form-material.floating
+                input.form-control(type='email', name='email')
+                label.floating-label Email
+              .form-group.form-material.floating
+                input.form-control(type='password', name='password')
+                label.floating-label Password
+              .form-group.clearfix
+                .checkbox-custom.checkbox-inline.checkbox-primary.checkbox-lg.pull-left
+                  input#inputCheckbox(type='checkbox', name='remember')
+                  label(for='inputCheckbox') Remember me
+                a.pull-right(href='forgot-password.html') Forgot password?
+              button.btn.btn-primary.btn-block.btn-lg.margin-top-40(type='submit') Sign in
+            p
+              | Still no account? Please go to 
+              a(href='register-v3.html') Sign up
+        footer.page-copyright.page-copyright-inverse
+          p © 2017 STARTAPEEE. All RIGHT RESERVED.
+
+
+    include ../static/scripts-dash
+
+   
+
+    // Plugins For This Page
+    script(src='../../assets/vendor/jquery-placeholder/jquery.placeholder.js')
+
+
+
+    // Scripts For This Page
+    script(src='../../assets/js/components/jquery-placeholder.js')
+    script(src='../../assets/js/components/material.js')
+    script.
+      (function(document, window, $) {
+      'use strict';
+      var Site = window.Site;
+      $(document).ready(function() {
+      Site.run();
+      });
+      })(document, window, jQuery);
+

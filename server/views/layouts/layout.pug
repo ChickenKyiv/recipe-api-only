@@ -1,0 +1,11 @@
+include ../mixins/mixin.pug
+doctype html
+html(lang="en")
+  head
+  block head
+
+  body(style="padding-top: 70px; padding-bottom: 50px;")
+    include ../partials/navigation
+    include ../partials/banner
+    include ../partials/footer
+    block scripts

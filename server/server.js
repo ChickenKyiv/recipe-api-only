@@ -1,60 +1,220 @@
+// Copyright IBM Corp. 2014,2016. All Rights Reserved.
+// Node module: loopback-example-passport
+// This file is licensed under the MIT License.
+// License text available at https://opensource.org/licenses/MIT
 'use strict';
 
-const loopback = require('loopback');
-const boot = require('loopback-boot');
+var loopback       = require('loopback');
+var boot           = require('loopback-boot');
+var cookieParser   = require('cookie-parser');
+var session        = require('express-session');
 
+const path         = require('path');
+const express      = require('express');
+
+// const errorhandler = require('strong-error-handler');
 const errorhandler = require('errorhandler');
-// frontend related part
+
+const app = module.exports = loopback();
+
+
+
+
+// const Raven        = require('raven');
+// // Raven.config(cfg.RAVEN_KEY).install();
+// Raven.config('https://6c8ba2737aae4d81908677e4dba9be3f:26c83aa1a38a42cdbf0beea41a82cacf@sentry.io/231031').install();
+
+
+
+// Passport configurators..
+var loopbackPassport = require('loopback-component-passport');
+var PassportConfigurator = loopbackPassport.PassportConfigurator;
+var passportConfigurator = new PassportConfigurator(app);
+
+/*
+ * body-parser is a piece of express middleware that
+ *   reads a form's input and stores it as a javascript
+ *   object accessible through `req.body`
+ *
+ */
 var bodyParser = require('body-parser');
-// var path = require('path');
 
+/**
+ * Flash messages for passport
+ *
+ * Setting the failureFlash option to true instructs Passport to flash an
+ * error message using the message given by the strategy's verify callback,
+ * if any. This is often the best approach, because the verify callback
+ * can make the most accurate determination of why authentication failed.
+ */
+var flash      = require('express-flash');
 
-var app = module.exports = loopback();
-
-
+// attempt to build the providers/passport config
+var config = {};
 try {
+  config = require('../providers.json');
 
-  if ( process.env.NODE_ENV === 'development' || !process.env.NODE_ENV ) {
-    // only use in development
-    // config = require('../providers.json');
-  } else {
-    // config = require('../providers.production.json');
-  }
 
-  // console.log(config);
+//   if ( process.env.NODE_ENV === 'development' || !process.env.NODE_ENV ) {
+//   // only use in development
+//   config = require('../providers.json');
+// } else {
+//   config = require('../providers.production.json');
+// }
+
 } catch (err) {
   console.trace(err);
+  // Raven.captureException(err);
   process.exit(1); // fatal
 }
 
-//---------------------------------------
-// frontend related part
-// app.middleware('initial', bodyParser.urlencoded({ extended: true }));
 
 
-// app.set('view engine', 'pug');
-// app.set('json spaces', 2); // format json responses for easier viewing
 
-// must be set to serve views properly when starting the app via `lb run` from
-// the project root
-// app.set('views', path.resolve(__dirname, 'views'));
+
+
+
+
+// -- Add your pre-processing middleware here --
+
+// Setup the view engine (jade)
+// var path = require('path');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
+
+
+
+// Setup the view engine (pug)
+app.set('views', path.join(__dirname, 'views'));
+
+app.set('view engine', 'pug');
+app.set('json spaces', 2); // format json responses for easier viewing
 
 // in client/public we store static files right now.
-// var staticDir = path.join(__dirname + '/../client/public');
-// app.use(express.static(staticDir));
+var staticDir = path.join(__dirname + '/../client/public');
 
-// use loopback.token middleware on all routes
-// setup gear for authentication using cookie (access_token)
-// Note: requires cookie-parser (defined in middleware.json)
-// app.use(loopback.token({
-//   model: app.models.accessToken,
-//   currentUserLiteral: 'me',
-// }));
 
 if (process.env.NODE_ENV === 'development') {
   // only use in development
   app.use(errorhandler());
 }
+
+
+
+// boot scripts mount components like REST API
+boot(app, __dirname);
+
+// to support JSON-encoded bodies
+app.middleware('parse', bodyParser.json());
+// to support URL-encoded bodies
+app.middleware('parse', bodyParser.urlencoded({
+  extended: true,
+}));
+
+
+
+
+
+// The access token is only available after boot
+app.middleware('auth', loopback.token({
+  model: app.models.accessToken, // @TODO change this when we'll update model names
+}));
+
+app.middleware('session:before', cookieParser(app.get('cookieSecret')));
+app.middleware('session', session({
+  secret: 'jinjer',
+  saveUninitialized: true,
+  resave: true,
+}));
+
+
+
+passportConfigurator.init();
+
+
+// console.log(passportConfigurator);
+//
+
+// console.log(app.models.user)
+// console.log(app.models.userIdentity)
+// console.log(app.models.userCredential)
+
+
+// We need flash messages to see passport errors
+app.use(flash());
+
+passportConfigurator.setupModels({
+  userModel:           app.models.user,
+  userIdentityModel:   app.models.userIdentity,
+  userCredentialModel: app.models.userCredential,
+});
+
+for (var s in config) {
+  var c = config[s];
+  c.session = c.session !== false;
+  passportConfigurator.configureProvider(s, c);
+}
+
+
+
+
+
+// app.get('/local', function(req, res, next) {
+//   res.render('pages/local', {
+//     user: req.user,
+//     url: req.url,
+//   });
+// });
+//
+// app.get('/ldap', function(req, res, next) {
+//   res.render('pages/ldap', {
+//     user: req.user,
+//     url: req.url,
+//   });
+// });
+
+
+// app.post('/signup', function(req, res, next) {
+//   var User = app.models.user;
+//
+//   var newUser = {};
+//   newUser.email = req.body.email.toLowerCase();
+//   newUser.username = req.body.username.trim();
+//   newUser.password = req.body.password;
+//
+//   User.create(newUser, function(err, user) {
+//     if (err) {
+//       req.flash('error', err.message);
+//       return res.redirect('back');
+//     } else {
+//       // Passport exposes a login() function on req (also aliased as logIn())
+//       // that can be used to establish a login session. This function is
+//       // primarily used when users sign up, during which req.login() can
+//       // be invoked to log in the newly registered user.
+//       req.login(user, function(err) {
+//         if (err) {
+//           req.flash('error', err.message);
+//           return res.redirect('back');
+//         }
+//         return res.redirect('/auth/account');
+//       });
+//     }
+//   });
+// });
+//
+// app.get('/login', function(req, res, next) {
+//   res.render('pages/login', {
+//     user: req.user,
+//     url: req.url,
+//   });
+// });
+
+// app.get('/auth/logout', function(req, res, next) {
+//   req.logout();
+//   res.redirect('/');
+// });
+
+
 
 
 app.start = function() {
@@ -70,11 +230,11 @@ app.start = function() {
   });
 };
 
-//In order to create scripts load in custom way - use this:
-// bootOptions = { "appRootDir": __dirname,
-//                 "bootScripts" : [ "/full/path/to/boot/script/first.js", "//full/path/to/boot/script/second.js", ... ]
-// };
-// boot(app, bootOptions);
+// start the server if `$ node server.js`
+// if (require.main === module) {
+//   app.start();
+// }
+
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.

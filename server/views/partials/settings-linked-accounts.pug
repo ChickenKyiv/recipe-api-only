@@ -1,0 +1,13 @@
+h2 Linked Account(s)
+  ul.list-inline.list-unstyled
+  li
+    a.btn.btn-primary(href="/link/facebook") Link Facebook
+
+
+p.small
+  if user.accounts.length !== 0
+    each val in user.accounts
+      h4= val.provider + ':'
+      p.small= JSON.stringify(val)
+  else
+    | NONE

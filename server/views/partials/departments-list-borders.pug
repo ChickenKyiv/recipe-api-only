@@ -1,0 +1,19 @@
+.col-md-7.col-md-offset-3
+  .round-border
+    each val, index in departments
+      .row
+        .col-md-10
+          a.border-item(href='/shopping/' + groceryId + '/' + val.id)
+            h4.list-group-item-heading= val.name 
+              
+              if val.ingredients && val.ingredients.length
+                | 
+              else 
+                |  (hidden department)  
+              i.fa.fa-long-arrow-right.pull-right(aria-hidden="true")
+              //if val.ingredients && val.ingredients.length
+                i.fa.fa-eye-slash
+              //else    
+                i.fa.fa-eye
+        .col-md-2      	
+          +dropdown2(groceryId, val.id, true)      	

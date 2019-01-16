@@ -1,0 +1,11 @@
+form#grocery(name="formsubmit", method="post", action="/insert")
+  .input-group
+    span.input-group-addon
+      i.material-icons link
+        
+    .form-group.label-floating
+      label.control-label Link 
+        small (required)
+          
+      input#inputUrl.form-control(type="text", name="title")
+      input.btn.btn-success(type='submit', value='Save')

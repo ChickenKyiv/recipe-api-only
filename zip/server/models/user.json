@@ -1,0 +1,66 @@
+{
+  "name": "user",
+  "plural": "user",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "menuList": {
+      "type": "referencesMany",
+      "model": "Menu",
+      "foreignKey": "menuIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "groceries": {
+      "type": "referencesMany",
+      "model": "Grocery",
+      "foreignKey": "groceryIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

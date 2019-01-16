@@ -1,0 +1,14 @@
+extends ../layouts/dashboard
+
+block content
+  h2= title
+
+  hr
+
+  if groceries
+    .col-md-12
+      +view_groceries_departments(groceries)
+      
+    br
+  else
+    h2 You don't add any grocery lists at this moment    

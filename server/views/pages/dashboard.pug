@@ -1,0 +1,58 @@
+extends ../layouts/dashboard
+
+block content
+  // Page
+  .page.animsition
+    .page-header
+      h1.page-title Editable Table
+
+
+      .page-header-actions
+        a.btn.btn-sm.btn-default.btn-outline.btn-round(href='', target='_blank')
+          i.icon.wb-link(aria-hidden='true')
+          span.hidden-xs LIIIIINKIIIII
+
+    .page-content
+      // Panel
+      .panel
+        .panel-body
+          table#editableTable.editable-table.table.table-striped
+            thead
+              tr
+                th Name
+                th Cost
+                th Profit
+                th Fun
+            tbody
+              tr
+                td Car
+                td 100
+                td 200
+                td 0
+              tr
+                td Bike
+                td 330
+                td 240
+                td 1
+              tr
+                td Plane
+                td 430
+                td 540
+                td 3
+              tr
+                td Yacht
+                td 100
+                td 200
+                td 0
+              tr
+                td Segway
+                td 330
+                td 240
+                td 1
+            tfoot
+              tr
+                th
+                  strong Total
+                th
+                th
+                th

@@ -1,0 +1,57 @@
+extends ../layouts/dashboard
+
+block content
+  h2 Third Party Profile(s)
+  p.small
+    if user.profiles.length !== 0
+      each val in user.profiles
+        h4= val.provider + ':'
+        p.small= JSON.stringify(val)
+    else
+      | NONE
+
+  hr
+  
+  include ../forms/purchased
+  
+  include ../forms/clear-purchased
+
+
+  hr
+  a.btn.btn-primary(href="/auth/attach-grocery-to-user/59aea24fb147091e78051521") Attache
+  br
+  br
+  a.btn.btn-primary(href="/auth/attach-grocery-to-user/59aeb60fd633c213fc02f09f") Attache2
+  br
+  a.btn.btn-primary(href="/add/fav2/59ad416ced2a9b0f5c73c874") ADD FAV
+
+
+  if groceries
+    .col-md-12
+      +view_groceries_short(groceries)
+
+      //include ../partials/groceries-list
+  br
+
+
+  
+
+  hr
+  a.btn.btn-primary(href="/clone/59aea24fb147091e78051521") CLONE GROCERY
+  hr
+
+  
+
+  h2 Linked Account(s)
+  ul.list-inline.list-unstyled
+    li
+      a.btn.btn-primary(href="/link/facebook") Link Facebook
+
+  p.small
+    if user.accounts.length !== 0
+      each val in user.accounts
+        h4= val.provider + ':'
+        p.small= JSON.stringify(val)
+    else
+      | NONE
+  

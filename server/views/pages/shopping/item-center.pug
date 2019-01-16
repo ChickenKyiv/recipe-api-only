@@ -1,0 +1,11 @@
+label.list__item__center(for="checkbox" + element.name) 
+    
+  //if( element.completed )
+    // change it :todo
+    span.completka=element.name
+  //else	    	
+    span(class=element.completed ? 'completka' : '')=element.name
+
+  span(class=element.completed ? 'completka' : '')=element.name
+  // :todo change it      
+  input.text-input.edit.hide(type="text", value=element.name)

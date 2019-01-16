@@ -1,7 +1,4 @@
 {
-  "final": {
-  "./middleware/raven": {}
-  },
   "final:after": {
     "strong-error-handler": {
       "params": {

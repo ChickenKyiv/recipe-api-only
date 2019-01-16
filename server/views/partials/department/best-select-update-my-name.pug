@@ -1,0 +1,13 @@
+// :todo fix this
+li.list__item
+  .list__item__center
+    select.select-input#departmentList(style="width:95%") 
+      option(value='', disabled='', selected='') Department
+
+      each val, index in departments
+        if (val.ingredients.length !== 0)
+        	
+          if(val.id == departmentId)
+            option(value=val.id, selected="selected")= val.name 
+          else
+            option(value=val.id)= val.name      

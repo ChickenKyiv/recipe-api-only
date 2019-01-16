@@ -1,0 +1,47 @@
+extends ../layouts/dashboard
+
+block content
+  .row
+    .col-md-6.col-md-offset-3
+      h2= name
+
+      
+      +link('/remove/grocery/' + groceryId, 'Remove GL FROM THIS USER')
+      
+
+
+      include ../forms/update-name
+
+    .col-md-12
+      each val, index in elements
+        .col-md-4.element-item
+          h3= val.name
+            a(href='/visibility/department/' + val.id + '/' + groceryId)
+              if val.ingredients.length
+                i.fa.fa-eye-slash
+              else    
+                i.fa.fa-eye
+            |      
+            +button_department_awesome(val.id, groceryId)
+            
+            //+button_ingredients_list(groceryId, val.id)
+            +button_ingredients_list(groceryId, val.id)
+            
+            //a(href='/visibility/department/' + val.id + '/' + groceryId)
+              //i.fa.fa-ellipsis-v  
+                
+          h5= val.type                  
+          h5= val.id + ' <= Department ID'
+
+          if val.ingredients.length
+            ul
+              each ing, j in val.ingredients
+              
+                li= ing[0] + ' | ' + ing[1]
+                +links(ing[0], ing[2])
+                //ing[0] = id, ing[2] = delete link
+                
+         
+          hr  
+
+    hr       

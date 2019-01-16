@@ -1,88 +1,62 @@
 {
   "_meta": {
     "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
       "../common/models",
-      "./models"
-    ],
-    "mixins": [
-      "loopback/common/mixins",
-      "loopback/server/mixins",
-      "../common/mixins",
-      "./mixins"
+      "../server/models",
+      "./models",
+      "../node_modules/loopback-component-passport/lib/models"
     ]
   },
-  "Department": {
-    "dataSource": "recipeDS",
+  "user": {
+    "dataSource": "groceryDS",
     "public": true
   },
-  "Grocery": {
-    "dataSource": "recipeDS",
-    "public": true
-  },
-  "Ingredient": {
-    "dataSource": "recipeDS",
-    "public": true
-  },
-  "Menu": {
-    "dataSource": "recipeDS",
-    "public": true
-  },
-  "Recipe": {
-    "dataSource": "recipeDS",
-    "public": true
-  },
-  "User": {
-    "dataSource": "recipeDS",
+  "accessToken": {
+    "dataSource": "groceryDS",
     "public": false
   },
-  "AccessToken": {
-    "dataSource": "recipeDS",
+  "userCredential": {
+    "dataSource": "groceryDS",
+    "public": false
+  },
+  "userIdentity": {
+    "dataSource": "groceryDS",
     "public": false
   },
   "ACL": {
-    "dataSource": "recipeDS",
+    "dataSource": "groceryDS",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "recipeDS",
+    "dataSource": "groceryDS",
     "public": false
   },
   "Role": {
-    "dataSource": "recipeDS",
+    "dataSource": "groceryDS",
     "public": false
   },
-  "user": {
-    "dataSource": "recipeDS",
-    "public": true,
-    "options": {
-      "emailVerificationRequired": true
-    }
-  },
-  "Allergy": {
-    "dataSource": "recipeDS",
+  "Department": {
+    "dataSource": "groceryDS",
     "public": true
   },
-  "Course": {
-    "dataSource": "recipeDS",
+  "Grocery": {
+    "dataSource": "groceryDS",
     "public": true
   },
-  "Cuisine": {
-    "dataSource": "recipeDS",
+  "Ingredient": {
+    "dataSource": "groceryDS",
     "public": true
   },
-  "Holiday": {
-    "dataSource": "recipeDS",
+  "Item": {
+    "dataSource": "groceryDS",
     "public": true
   },
-  "Diet": {
-    "dataSource": "recipeDS",
+  "userFav": {
+    "dataSource": "groceryDS",
     "public": true
   },
-
-  "Nutritions": {
-    "dataSource": "recipeDS",
+  "userGrocery": {
+    "dataSource": "groceryDS",
     "public": true
   }
 }

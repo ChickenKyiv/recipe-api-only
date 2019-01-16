@@ -1,0 +1,39 @@
+{
+  "ids": {
+    "user": 2,
+    "accessToken": 15,
+    "userCredential": 1,
+    "userIdentity": 2,
+    "ACL": 1,
+    "RoleMapping": 1,
+    "Role": 1
+  },
+  "models": {
+    "user": {
+      "1": "{\"username\":\"facebook.1482504098477655\",\"password\":\"$2a$10$kdL5HTuBeJzgamMFiWNmBO/a/7g9mxUkWGJQW7fHDPGywQNJv9h9W\",\"email\":\"1482504098477655@loopback.facebook.com\",\"id\":1}"
+    },
+    "accessToken": {
+      "NQSk7m2dp5eOwtANEB8foMTIPfKwGEGbOp98ZeJkoZPeG7rvkkEZsLLXGjxU4ugM": "{\"id\":\"NQSk7m2dp5eOwtANEB8foMTIPfKwGEGbOp98ZeJkoZPeG7rvkkEZsLLXGjxU4ugM\",\"ttl\":1209600,\"created\":\"2018-11-07T08:35:32.623Z\",\"userId\":1}",
+      "SwVI5eNPfoRa56ZR1UmFvOLytQFeBdvcL9g3MQoCHzpTIEFH7LHXXQKtRMnP2q8D": "{\"id\":\"SwVI5eNPfoRa56ZR1UmFvOLytQFeBdvcL9g3MQoCHzpTIEFH7LHXXQKtRMnP2q8D\",\"ttl\":1209600,\"created\":\"2018-11-07T08:38:28.967Z\",\"userId\":1}",
+      "1zAWueTS9UDD4QFO0KfD2zN2Nm1D06vrEGQodUDF00trPHIduyVA0IAxZVEb4hNn": "{\"id\":\"1zAWueTS9UDD4QFO0KfD2zN2Nm1D06vrEGQodUDF00trPHIduyVA0IAxZVEb4hNn\",\"ttl\":1209600,\"created\":\"2018-11-16T02:57:48.367Z\",\"userId\":1}",
+      "MKC4BvMQ08LkhwoIXhYGLdt8MS7ht0UDfHwvwxbnufWuNRNpjRp9wLeuBPxg3SrZ": "{\"id\":\"MKC4BvMQ08LkhwoIXhYGLdt8MS7ht0UDfHwvwxbnufWuNRNpjRp9wLeuBPxg3SrZ\",\"ttl\":1209600,\"created\":\"2018-11-16T03:12:37.205Z\",\"userId\":1}",
+      "TI0v1taoTWgs3HEye5AMIWdbuD9mQvHdF5x2iXwUjaSC63XStcAwH4aI4dweZd2y": "{\"id\":\"TI0v1taoTWgs3HEye5AMIWdbuD9mQvHdF5x2iXwUjaSC63XStcAwH4aI4dweZd2y\",\"ttl\":1209600,\"created\":\"2018-11-16T03:22:51.719Z\",\"userId\":1}",
+      "o719BqQXm95IBT8TvkPorcJ8PJCXKPU4aj4ozwZIX1tVCvBFvQPFgfqXBUInFszz": "{\"id\":\"o719BqQXm95IBT8TvkPorcJ8PJCXKPU4aj4ozwZIX1tVCvBFvQPFgfqXBUInFszz\",\"ttl\":1209600,\"created\":\"2018-11-16T03:23:00.215Z\",\"userId\":1}",
+      "o5rBHB2xhaPeKbdIBXYXAEri8D3CrBSc4LUfxPrJBWZ7MjueDU9p8W5okMXjKbgx": "{\"id\":\"o5rBHB2xhaPeKbdIBXYXAEri8D3CrBSc4LUfxPrJBWZ7MjueDU9p8W5okMXjKbgx\",\"ttl\":1209600,\"created\":\"2018-11-16T03:23:10.084Z\",\"userId\":1}",
+      "k0Z2uOGe5Dly6vNkCLiEPcDUKDTqWcnCsp5O3CBAIZj0XOZxkAwlhsTT7m2XXrTg": "{\"id\":\"k0Z2uOGe5Dly6vNkCLiEPcDUKDTqWcnCsp5O3CBAIZj0XOZxkAwlhsTT7m2XXrTg\",\"ttl\":1209600,\"created\":\"2018-11-16T03:23:40.539Z\",\"userId\":1}",
+      "QerJhcqVEnGP5R4dmfPkXd3nGHvXuhimqc2Spm44AvaMZb3hOgsnr3jvASC7pOwN": "{\"id\":\"QerJhcqVEnGP5R4dmfPkXd3nGHvXuhimqc2Spm44AvaMZb3hOgsnr3jvASC7pOwN\",\"ttl\":1209600,\"created\":\"2018-11-16T03:24:32.621Z\",\"userId\":1}",
+      "lgvm8apoBTdArZN9DNhZ2Hb97qs8D7UzcEfABdrB9GbouEhRKROrLEYEOyjBoFKw": "{\"id\":\"lgvm8apoBTdArZN9DNhZ2Hb97qs8D7UzcEfABdrB9GbouEhRKROrLEYEOyjBoFKw\",\"ttl\":1209600,\"created\":\"2018-11-16T03:24:45.582Z\",\"userId\":1}",
+      "gMSZvtFkChXJgzGwvlvtLRVhD1damNgs3YCCgQbkDQgqDW8RtvqNP0zw12ZclKJP": "{\"id\":\"gMSZvtFkChXJgzGwvlvtLRVhD1damNgs3YCCgQbkDQgqDW8RtvqNP0zw12ZclKJP\",\"ttl\":1209600,\"created\":\"2018-11-16T03:25:01.561Z\",\"userId\":1}",
+      "eBn3YvWkzjdEAoCz6wMzFzxHLVvCnr38RF2Q09UOi2CFzmi2ncy7AZ0oDckyA4N3": "{\"id\":\"eBn3YvWkzjdEAoCz6wMzFzxHLVvCnr38RF2Q09UOi2CFzmi2ncy7AZ0oDckyA4N3\",\"ttl\":1209600,\"created\":\"2018-11-16T03:37:12.634Z\",\"userId\":1}",
+      "cUTTdfxoIEI4NVDudCOan6XsyewqnlDXusTmyh3MNAxWh2uKazufUMmrC6ZIJkGu": "{\"id\":\"cUTTdfxoIEI4NVDudCOan6XsyewqnlDXusTmyh3MNAxWh2uKazufUMmrC6ZIJkGu\",\"ttl\":1209600,\"created\":\"2018-11-16T03:41:15.610Z\",\"userId\":1}",
+      "GQlyZPkD444upIHcCMraFekf6wChhhExGnB26fhLAmYV4TDlXC9pNEDQJ6YBCJTV": "{\"id\":\"GQlyZPkD444upIHcCMraFekf6wChhhExGnB26fhLAmYV4TDlXC9pNEDQJ6YBCJTV\",\"ttl\":1209600,\"created\":\"2018-11-16T03:49:09.689Z\",\"userId\":1}"
+    },
+    "userCredential": {},
+    "userIdentity": {
+      "1": "{\"provider\":\"facebook\",\"authScheme\":\"oAuth 2.0\",\"externalId\":\"1482504098477655\",\"profile\":{\"id\":\"1482504098477655\",\"name\":{\"familyName\":\"Tkachenko\",\"givenName\":\"Arthur\"},\"emails\":[{\"value\":\"arthur.tkachenko.netweight@gmail.com\"}],\"provider\":\"facebook\",\"_raw\":\"{\\\"locale\\\":\\\"en_US\\\",\\\"last_name\\\":\\\"Tkachenko\\\",\\\"first_name\\\":\\\"Arthur\\\",\\\"timezone\\\":2,\\\"email\\\":\\\"arthur.tkachenko.netweight\\\\u0040gmail.com\\\",\\\"id\\\":\\\"1482504098477655\\\"}\",\"_json\":{\"locale\":\"en_US\",\"last_name\":\"Tkachenko\",\"first_name\":\"Arthur\",\"timezone\":2,\"email\":\"arthur.tkachenko.netweight@gmail.com\",\"id\":\"1482504098477655\"}},\"credentials\":{\"accessToken\":\"EAAEJYZCnVrCsBADxOGHeIRcuEMUuHI9G3jRE4MZAMiHa3VlkkdAOslmH8oqfd7kqg0QvaBE04UH5NCRVukDKKBkTGZA4uNDPgovc7T3qWak9XDNZAwbmhNKN03NdvF6iACXSsJwnYKR4SZBReo7rxo6HnpFhZBNg4dJfZAXkTZBZBmQZDZD\"},\"created\":\"2018-11-07T08:35:32.621Z\",\"modified\":\"2018-11-16T03:49:09.679Z\",\"userId\":1,\"id\":1}"
+    },
+    "ACL": {},
+    "RoleMapping": {},
+    "Role": {}
+  }
+}

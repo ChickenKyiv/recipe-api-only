@@ -1,0 +1,21 @@
+include ../mixins/mixin.pug
+doctype html
+html.no-js.css-menubar(lang='en')
+  head
+
+    block head 
+
+    include ../static/styles-select
+
+    include ../static/styles-dash  
+
+  body#credits-only
+
+    include ../partials/browserupdate
+
+    include ../partials/navigation
+
+    //block inside this partial
+    include ../partials/banner 
+
+    include ../static/scripts-dash

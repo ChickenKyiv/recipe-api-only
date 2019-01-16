@@ -1,0 +1,19 @@
+script(src='/javascript/select-demo/classie.js')
+script(src='/javascript/select-demo/selectFx.js')
+  
+script.
+  (function() {
+
+     var groceryId = document.getElementById('grocery').value;
+
+     var selectElement = document.querySelector('select');
+      myFXSelect = new SelectFx(selectElement, {
+        onChange: function(val) {
+          //console.log('val', val); 
+          // val is departmentId value
+          var path = "/shopping/" + groceryId + '/' + val;
+          window.location.replace(path);
+        }
+      });
+
+  })();  

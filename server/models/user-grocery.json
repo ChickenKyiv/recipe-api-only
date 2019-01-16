@@ -1,0 +1,25 @@
+{
+  "name": "userGrocery",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    },
+    "groceries": {
+      "type": "hasMany",
+      "model": "Grocery",
+      "foreignKey": "groceryIds"
+    }
+
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,14 @@
+br
+
+if data
+  div.row
+    each val, index in data
+      .col-md-6
+        form(name="favorite-manage", method="post", action="/delete/favorites/")
+          label= val.name + '( ' + val.id + ' ) ' 
+          input(type="hidden", name="ingredients[]", value=val.id)
+          input.btn.btn-success(type='submit', value='delelo')
+
+
+else
+  h2 You don't add any favorite ingredient at this moment        

@@ -1,0 +1,22 @@
+extends ../layouts/dashboard
+
+block content
+  .row.mt-120
+    .col-md-12
+      
+
+    .col-xlg-4.col-md-6.col-md-offset-3
+      
+      .panel.panel-bordered
+        .panel-body
+          h1 Login Page
+          //a.btn.btn-primary(href='/auth/facebook') Login with Facebook
+        .panel-footer 
+          a.btn.btn-primary(href='/auth/facebook') Login with Facebook
+          br
+          | * We don't post anything to Facebook  
+
+      br
+      if messages.error
+        p
+          span(style="color:red")= messages.error

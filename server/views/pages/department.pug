@@ -1,0 +1,31 @@
+extends ../layouts/dashboard
+
+block content
+
+  .row
+    .col-md-9.col-md-offset-3
+    
+      h2= data.name
+        if data.ingredients.length
+          |  (hidden department)  
+        +dropdown2(groceryId, data.id)
+
+
+      //+link_remove_department(id, groceryId)
+
+      br
+    
+
+      //include ../forms/add-ingredient    
+
+
+
+      //include ../partials/department-grid
+      
+      //include ../partials/department/single-department-ingredients-list
+
+
+
+
+      +ingredients_only(groceryId, data)
+

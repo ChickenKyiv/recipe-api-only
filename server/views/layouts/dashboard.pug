@@ -1,0 +1,29 @@
+include ../mixins/mixin.pug
+doctype html
+html.no-js.css-menubar(lang='en')
+  head
+
+    block head 
+
+    include ../static/styles-select
+
+    include ../static/styles-dash  
+
+  body
+
+    include ../partials/browserupdate
+
+    include ../partials/navigation
+
+    //block inside this partial
+    //include ../partials/banner
+    
+    .container.container-custom
+
+      block content 
+
+    include ../static/scripts-dash
+
+
+      // :todo change this. we don't need this scripts at all our dashboard pages
+      include ../static/scripts-select.pug

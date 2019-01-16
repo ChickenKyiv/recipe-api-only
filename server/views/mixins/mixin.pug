@@ -1,0 +1,285 @@
+mixin view_departments(array, groceryId)
+  ul
+    each val, index in array
+        li= val.name + '( ' + val.id + ' ) '
+          a(href='/department/' + val.id + '/' + groceryId) view  
+
+mixin view_departments_extended(array, groceryId)
+  ul
+    each val, index in array
+        li= val.name + '( ' + val.id + ' ) ' + ' isVISIBLE?:  ' + val.visible
+          a(href='/department/' + val.id + '/' + groceryId) view  
+
+mixin view_departments_awesome(array, groceryId)
+  if array
+    ul
+      each val, index in array
+        li= val.name + '( ' + val.id + ' ) '
+          button_department(val.id, groceryId)
+          a(href='/department/' + val.id + '/' + groceryId) view
+
+          a(href='/visibility/department/' + val.id)
+            i.fa.fa-bell.fa-4x
+            SHOW   
+
+//mixin view_groceries_short(array)
+  //br
+  //ul
+    //each val, index in array
+      //li= val.name + '( ' + val.id + ' ) '
+        //a(href='/view/grocery/' + val.id, class="btn") link
+      //+button_change_name(val.id)
+
+
+
+mixin view_groceries_short2(array)
+  br
+  .col-xlg-8.col-md-12
+    .round-border
+      each val, index in array
+        if( index == 0)
+          a.border-item.active(href='/view/grocery/' + val.id)
+            h4.list-group-item-heading= val.name
+              i.fa.fa-long-arrow-right.pull-right(aria-hidden="true")
+
+        else 
+          a.border-item(href='/view/grocery/' + val.id)
+            h4.list-group-item-heading= val.name
+              i.fa.fa-long-arrow-right.pull-right(aria-hidden="true")
+      
+
+mixin view_groceries_short_one(item)
+  br
+  .col-xlg-10.col-md-12
+    .round-border
+
+      a.border-item.active(href='/view/grocery/' + item.id)
+        h4.list-group-item-heading= item.name
+          i.fa.fa-long-arrow-right.pull-right(aria-hidden="true")
+
+
+      //each val, index in array
+        if( index == 0)
+
+
+
+        else 
+          a.border-item(href='/view/grocery/' + val.id)
+            h4.list-group-item-heading= val.name + '( ' + val.id + ' ) '
+              i.fa.fa-long-arrow-right(aria-hidden="true")
+      
+
+  
+
+
+mixin view_groceries_departments(array)
+
+  br
+  ul
+    each val, index in array
+      li= val.name + '( ' + val.id + ' ) '
+        a(href='/view/grocery/' + val.id, class="btn") link
+      +button_change_name(val.id)
+      +view_departments_awesome(val.departments, val.id)
+      hr 
+
+mixin view_departments_ingredients(array)
+  if array
+    ul
+      each val, index in array
+        li= val.name
+          a(href='/#' + val.id) view
+
+          a(href='/visibility/department/' + val.id)
+            i.fa.fa-bell.fa-4x
+            SHOW         
+
+
+
+
+mixin link(href, name)
+  a.btn(class!=attributes.class title=name href=href)= name
+
+mixin link2(href, name)
+  a.btn(class!=attributes.class title=name href=href target="_blank")= name
+
+mixin button_clone_ultimate(object)
+  +link('/clone/' + object.id, 'Create new grocery by cloning Grocery Template:  ' + object.name)(class="btn-primary")            
+
+mixin link_clone_ultimate(groceryId)
+  +link('/clone/' + groceryId, 'Clone Ultimate GL')
+
+// :todo change this
+mixin link_clone_ultimate2(id, name)
+  +link('/clone/' + id, name) 
+
+mixin link_clone_ultimate3(id, name)
+  +link('/clone/' + id, name)(class="btn btn-primary")    
+
+// :todo #182
+mixin link_clone_page(id, name)
+  +link('/clone-grocery/' + id, name) 
+
+mixin button_department(id, groceryId)
+  +link('/department/' + id + '/' + groceryId, 'view')
+
+mixin button_department_awesome(id, groceryId)
+  a(href='/department/' + id + '/' + groceryId)
+    i.fa.fa-ellipsis-v
+
+mixin button_view_grocery(title)    
+  +link('/view/ultimategrocery/', title)(class='btn ctas-button')
+
+//mixin button_facebook_login(class)
+//  a(href='/auth/facebook', class=class) 'Login with Facebook'
+
+mixin button_ingredients_list(groceryId, departmentId)
+  +link('/shopping/' + groceryId + '/' + departmentId, 'TODOLIST')
+
+
+mixin link_shopping(groceryId, departmentId)
+  +link('/shopping/' + groceryId + '/' + departmentId, 'Open shopping list')(class="")  
+
+
+
+mixin button_change_name(groceryId)
+  +link('/change-the-name/grocery/' + groceryId, '[change name !]')(class="btn")
+
+
+
+
+mixin link_remove_department(id, groceryId)
+  +link("/remove/department/" + id + "/" + groceryId, "Remove Department from Grocery list")
+
+mixin link_visibility(id, groceryId)  
+  +link("/visibility/department/" + id + "/" + groceryId, "Visiblity this link can control")
+
+
+// :todo understand if we're using this method
+mixin dropdown(groceryId)
+  .btn-group.pull-right
+    button(type="button", class="btn btn-primary dropdown-toggle", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+      //| Grocery List Actions 
+      i.fa.fa-ellipsis-v
+      //span.caret
+    ul.dropdown-menu.dropdown-menu-right
+      li
+        a(href='/remove/grocery/' + groceryId) Remove 
+      li
+        a(href='/change/grocery/name/' + groceryId) Change name
+      li
+        a(href='/departments/show/' + groceryId) Manage Departments
+      li
+        a(href='/clone/' + groceryId) Clone List
+
+
+
+
+
+mixin dropdown2(groceryId, departmentId, flag)
+  .btn-group.pull-right
+    button(type="button", class="btn btn-default dropdown-toggle", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+      //| Department Actions 
+      i.fa.fa-ellipsis-v
+      //span.caret
+    ul.dropdown-menu.dropdown-menu-right
+      li
+        if flag
+          a(href='/visibility/department/' + departmentId + '/' + groceryId) Hide this department 
+        else
+          a(href='/visibility/department/' + departmentId + '/' + groceryId) Show this department   
+      //li
+        a(href='/department/' + departmentId + '/' + groceryId) Manage Ingredients old-way
+      li
+        a(href='/shopping/' + groceryId + '/' + departmentId) Open shopping list
+        
+      li
+        a(href='/remove/department/'+ departmentId +'/' + groceryId) Delete Department with ingredients
+
+
+
+mixin links(id, delete_link)        
+  //a.btn.btn-default.btn-small(href='/' + id) empty
+  //a.btn.btn-default.btn-small(href='/' + id) move
+  a.btn.btn-default.btn-small(href=delete_link) delete
+  a.btn.btn-default.btn-small(href='/' + id) purchase
+
+mixin ingredients_list(groceryId, item)  
+  a.border-item(href='/shopping/' + groceryId + '/' + item.id)
+    h4.list-group-item-heading= item.name + '( ' + item.id + ' ) '
+      i.fa.fa-long-arrow-right(aria-hidden="true")
+      if item.ingredients.length
+        i.fa.fa-eye-slash
+      else    
+        i.fa.fa-eye
+
+  if item.ingredients && item.ingredients.length
+
+    .col-md-12
+
+      ul
+        each ing, j in item.ingredients
+  
+          li= ing[1]           
+          +links(ing[0], ing[2]) 
+    //ing[0] = id, ing[2] = delete link 
+  else
+    h2 | You don't have any ingredients  
+
+mixin ingredients_only(groceryId, item)    
+  a.border-item(href='/shopping/' + groceryId + '/' + item.id)
+    h4.list-group-item-heading= 'Open shopping list'
+      i.fa.fa-long-arrow-right.pull-right(aria-hidden="true")
+      if item.ingredients.length
+        i.fa.fa-eye-slash.pull-right
+      else    
+        i.fa.fa-eye.pull-right
+
+  //h4= item.ingredients
+  //h4= item.ingredients.length != 0  
+    
+
+  .col-md-12
+
+    ul
+      each ing, j in item.ingredients
+  
+        //li= ing[1] + ing[0] + ing[2]
+        li=ing[1]           
+        +links(ing[0], ing[2]) 
+
+  
+
+
+  //if item.ingredients && item.ingredients.length != 0
+
+    .col-md-12
+
+      ul
+        each ing, j in item.ingredients
+  
+          li= ing[1]           
+          +links(ing[0], ing[2]) 
+
+  //else
+    h2 | You don't have any ingredients           
+
+
+mixin undo_purchased(groceryId, ingredientId)
+ +link('remove-from-purchased/'+ groceryId + '/' + ingredientId, "Undo purchased")
+
+mixin dropdown_list_actions(groceryId)
+  li.dropdown
+    a(href="#", class="dropdown-toggle", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+      | Actions
+      span.caret
+    ul.dropdown-menu
+      li
+        +link('/departments/show/' + groceryId, 'Manage Departments')
+      li
+        +link('/change/grocery/name/' + groceryId, 'Change name')  
+      
+      li
+        +link('/clone/' + groceryId, 'Clone List')
+      li
+        +link('/remove/grocery/' + groceryId, 'Remove')

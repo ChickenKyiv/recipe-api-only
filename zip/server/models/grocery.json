@@ -1,0 +1,44 @@
+{
+  "name": "Grocery",
+  "plural": "grocery",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+
+    "img": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "required": false
+    },
+    "created_at": {
+      "type": "date",
+      "required": true
+    },
+    "updated_at": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "departmentsList": {
+      "type": "referencesMany",
+      "model": "Department",
+      "foreignKey": "departmentIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

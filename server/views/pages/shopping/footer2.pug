@@ -1,0 +1,49 @@
+ul.list#footer
+  li.list__item(style="padding-top: 15px;")
+    .list__item__center.count-wrapper
+      span.count= activeTodoCount
+      | &nbsp;items left
+      
+      	 
+    .list__item__right
+      .list__item__label
+        if (have_completed_items)
+          button#clear-completed Clear purchased 
+        else  
+          // :todo fix this later
+          button#clear-completed.hide Clear purchased 
+
+br
+h2= filter	    
+#filters.button-bar(style="width:280px;margin:0 auto;") 
+	
+  .button-bar__item
+    //if(filter == 'all')
+      input(type="radio", name="segment-filter", checked="checked", data-filter=filter) 
+    //else
+      input(type="radio", name="segment-filter", data-filter=filter)
+
+    input(type="radio", name="segment-filter", data-filter=filter)    
+	
+    button.button-bar__button All
+    a.hide(href="#/all") All
+	    
+  .button-bar__item
+    //if(filter == 'active')
+      input(type="radio", name="segment-filter", checked="checked", data-filter='active') 
+    //else
+      input(type="radio", name="segment-filter", data-filter='active')
+	  
+    input(type="radio", name="segment-filter", data-filter='active')
+    button.button-bar__button Active
+    a.hide(href="#/active") Active
+	
+  .button-bar__item
+    //if(filter == 'completed')
+      input(type="radio", name="segment-filter", checked="checked", data-filter='completed') 
+    //else
+      input(type="radio", name="segment-filter", data-filter='completed')
+
+    input(type="radio", name="segment-filter", data-filter='completed')
+    button.button-bar__button Purchased
+    a.hide(href="#/completed") Purchased   

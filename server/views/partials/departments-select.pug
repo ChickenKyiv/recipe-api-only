@@ -1,0 +1,62 @@
+// :todo move styles
+style(type="text/css").
+  select {
+
+    /* styling */
+    background-color: white;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+
+    /* reset */
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .cs-select.cs-mobile-select {
+    margin: 0;
+    width: 100%;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: 1.4em;
+    border: none;
+    padding: 0.5em 3.5em 0.5em 1em;
+    color: black;
+  }
+
+  select#departmentList {
+    display:none;
+  }
+  select.cs-mobile-select#departmentList {
+    display:block;
+  }
+  
+  .cs-select.cs-skin-border {
+    margin-left: 30px;
+  }
+
+form#choose-department(name="formsubmit", method="post")
+  .row
+    .col-md-12  
+
+
+      select.cs-select.cs-skin-border#departmentList(class=isMobile ? 'cs-mobile-select' : '')  
+        option(value='', disabled='', selected='') Department
+
+          each val, index in departments
+            if (val.ingredients.length !== 0)
+              option(value=val.id)= val.name 
+
+    .col-md-12
+      br
+      br
+      input#grocery(type="hidden", name="grocery", value=groceryId)
+      
+      //if mobile  
+        input#mobile-detector(type="hidden", name="mobile")  
+        
+    //  input.btn.btn-success(type='submit', value='Open Department') 

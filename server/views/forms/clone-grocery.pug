@@ -1,0 +1,12 @@
+form#updateName(name="formsubmit", method="post", action="/cloneform")
+  .form-group
+    label(for="name") Grocery Name
+    input.form-control(type="text", id="name", name="name", value=name, placeholder="Grocery Name")
+
+    input(type="hidden", name="groceryId", value=ultimate.id)
+
+    input(type="hidden", name="userId", value=user.id)
+
+  //- :todo change this
+  .form-group(style="height:45px;") 
+    button.btn.btn-primary.pull-right(type="submit") Create	
