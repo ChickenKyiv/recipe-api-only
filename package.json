@@ -5,10 +5,12 @@
   "scripts": {
     "start": "node server/server.js",
     "watch": "nodemon server/server.js",
+    "m1": "nodemon bin/0002-automigrate.js",
 
-    "migrate-recipes": "node bin/recipes/002-automigrate.js",
-    "import": "node bin/recipes/001-import.js",
-    "r": "npm run migrate-recipes && nodemon bin/recipes/import.js",
+    "m:free-menu": "node bin/0002-automigrate.js",
+    "m:search": "node bin/recipes/002-automigrate.js",
+    "import": "node bin/recipes/0001-import.js",
+    "r": "npm run m:free-menu && nodemon run import.js",
     "r2": "npm run migrate-recipes && node bin/recipes/import.js"
   },
   "dependencies": {
