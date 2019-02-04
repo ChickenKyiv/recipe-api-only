@@ -18,13 +18,15 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@groceristar/groceristar-fetch@^1.1.37":
-  version "1.1.37"
-  resolved "https://registry.yarnpkg.com/@groceristar/groceristar-fetch/-/groceristar-fetch-1.1.37.tgz#0307ed29e3c299c06398f4fe8f9f5de6b9510f5f"
-  integrity sha512-yfF6tjLd7lroT4HgpHCkyny87w8m1n4S6/rIZCV2EZkJXcn6sj0H6VwfJ7TOT4DZnbegGpHj+gSHiOqR1BnJ8Q==
+"@groceristar/groceristar-fetch@^1.1.60":
+  version "1.1.60"
+  resolved "https://registry.yarnpkg.com/@groceristar/groceristar-fetch/-/groceristar-fetch-1.1.60.tgz#1ee944a07e34047bb5c467996a41d081615a7f1f"
+  integrity sha512-mUvZF4p68Vo/JNddUxyQibbQ2e5hfxpVWmn+8dpn1T/UPYgRzoO6+5QE3nHWUwiUlWWT6SC95G8fUe/uEEb3+w==
   dependencies:
+    dayjs "^1.8.0"
     fs "0.0.1-security"
     lodash "^4.17.10"
+    underscore "^1.9.1"
     uuid "3.3.2"
 
 "@types/body-parser@*":
@@ -886,6 +888,11 @@ data-uri-to-buffer@1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-1.2.0.tgz#77163ea9c20d8641b4707e8f18abdf9a78f34835"
   integrity sha512-vKQ9DTQPN1FLYiiEEOQ6IBGFqvjCa5rSK3cWMy/Nespm5d/x3dGFT9UBZnkLxCwua/IXBi2TYnwTEpsOvhC4UQ==
+
+dayjs@^1.8.0:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.2.tgz#8668e50c1e048e1b1638ebe6c3552187a34ffa64"
+  integrity sha512-iHNxe5kIbxmPgzJFjks9TFMokOu3TQcUUSagb/Ff7GZNi7ulYF0qaAZ61trZEFOONgrp4jvKVpBJ86qy4UsSoA==
 
 debug@2, debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
