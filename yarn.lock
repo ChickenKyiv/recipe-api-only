@@ -2545,10 +2545,10 @@ loopback-swagger@^5.0.0:
     lodash "^4.17.2"
     strong-globalize "^4.1.1"
 
-loopback@^3.24.2:
-  version "3.24.2"
-  resolved "https://registry.yarnpkg.com/loopback/-/loopback-3.24.2.tgz#1405e1d5a3c95af58e47146822318989cc3a68a9"
-  integrity sha512-V2HoLTHkVk4vUdyX/vvtBmL4jp0Z4aPB8F7gL4l+e0phMQ/AqHNwhPVPn5mswigg3T3d8Hsj9l9PsQHoJlY9mA==
+loopback@^3.25.0:
+  version "3.25.0"
+  resolved "https://registry.yarnpkg.com/loopback/-/loopback-3.25.0.tgz#24478fcf04c4f2bbd6eaa0f18362fa60bbcf6635"
+  integrity sha512-898BSxoY2BQMHTUYkfBrfAN0T1XxxEWKW0cQY08oXmU/Rh9I+bSPjokg5aRO9Aa+OHqp3R+BrVBYmTUuWFrYfQ==
   dependencies:
     async "^2.0.1"
     bcryptjs "^2.1.0"
