@@ -14,7 +14,7 @@
     "r2": "npm run migrate-recipes && node bin/recipes/import.js"
   },
   "dependencies": {
-    "@groceristar/groceristar-fetch": "^1.1.37",
+    "@groceristar/groceristar-fetch": "^1.2.2",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "cors": "^2.8.5",
