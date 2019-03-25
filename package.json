@@ -22,7 +22,7 @@
     "errorhandler": "^1.5.0",
     "helmet": "^3.15.0",
     "loopback": "^3.24.2",
-    "loopback-boot": "^3.2.0",
+    "loopback-boot": "^3.2.1",
     "loopback-component-explorer": "^6.3.1",
     "loopback-connector-mailgun": "0.0.12",
     "loopback-connector-mongodb": "^3.9.2",
