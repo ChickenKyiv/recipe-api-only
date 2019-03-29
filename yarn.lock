@@ -381,7 +381,7 @@ bl@^2.0.1:
     readable-stream "^2.3.5"
     safe-buffer "^5.1.1"
 
-bluebird@^3.1.1, bluebird@^3.4.0, bluebird@^3.4.6, bluebird@^3.5.1:
+bluebird@^3.1.1, bluebird@^3.4.6, bluebird@^3.5.1, bluebird@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.3.tgz#7d01c6f9616c9a51ab0f8c549a79dfe6ec33efa7"
   integrity sha512-/qKPUQlaW1OyR51WeCPBvRnAlnZFUJkCSG5HzGnuIqhgyJtF+T94lFnn33eiazjRm2LAHVy2guNnaq48X9SJuw==
@@ -2421,21 +2421,21 @@ lodash@^3.10.1:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
   integrity sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y=
 
-lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
+lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
 
-loopback-boot@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/loopback-boot/-/loopback-boot-3.2.0.tgz#d1a0c92ceb45ba18f93dcde1427c795b48452508"
-  integrity sha512-lNVWW6GINHx6O/kzmOY+LP99JItzyBZIQWiH5tPSnCfrzYZ4LMXzou3//5v+eWi32rEZsaQZym8Y/g4JB+w9uw==
+loopback-boot@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/loopback-boot/-/loopback-boot-3.3.0.tgz#133b826d597cae90c6dd150a84118e63a4a3c0a6"
+  integrity sha512-ew2ZxrZ+XchuFulvLVOHzeJ8bEfAw/oDbERwAgn8A4aL0UPsQaBA1w+6N2+BRoQJ8m9ujNXDCmYfWXmVtnV4/g==
   dependencies:
     async "^2.4.0"
-    bluebird "^3.4.0"
+    bluebird "^3.5.3"
     commondir "^1.0.1"
-    debug "^2.2.0"
-    lodash "^4.13.1"
+    debug "^4.1.1"
+    lodash "^4.17.11"
     semver "^5.1.0"
     strong-globalize "^4.1.1"
     toposort "^2.0.2"
