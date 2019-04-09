@@ -1116,10 +1116,10 @@ escodegen@1.x.x:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-loopback@^13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-loopback/-/eslint-config-loopback-13.0.0.tgz#f400caef85bfe2e6328c9e04123634118ce92a87"
-  integrity sha512-3jeYQBDHOn7NB/qpZ1GsZXdwtUtNVXfwREtyliZHdMT8tXntgYT2iUP2CCkqrlyasS/74OfKMDD/tgGEmaykgQ==
+eslint-config-loopback@^13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-loopback/-/eslint-config-loopback-13.1.0.tgz#098397a9744dc3f829cfc819da3eb45cec322889"
+  integrity sha512-Dg4IylCM5ysK9LsfzNZYLpnBjkgsBnjLMcprAMW8r7EMSody4GwOzeMixlkboNxeXZAG0z7aezh3fIJcOWFEVg==
   dependencies:
     eslint-plugin-mocha "^5.2.0"
 
