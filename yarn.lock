@@ -2462,10 +2462,10 @@ loopback-connector-mailgun@0.0.12:
     mailgun-js "^0.20.0"
     mime "^2.3.1"
 
-loopback-connector-mongodb@^3.9.2:
-  version "3.9.2"
-  resolved "https://registry.yarnpkg.com/loopback-connector-mongodb/-/loopback-connector-mongodb-3.9.2.tgz#757bfba430e9321408593ab17a131f9e119bb253"
-  integrity sha512-M5XGqvvchfoXjJUAcO8hRpLiAyZ0Uef4/yu4cXnpk4SGXrSgu01wNo3pYmnXESzs6l6I1fXRwkQppOn+rfaFuQ==
+loopback-connector-mongodb@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/loopback-connector-mongodb/-/loopback-connector-mongodb-4.1.0.tgz#66821446a52d6e102a2d568e1674a862f722ec15"
+  integrity sha512-fT1WgLbjF6hfHdbJcP9YEL4Bg5DbaPZL6cbY9HouoKJxnvN9uUlrlSGKy8So489AcnBfx+VOx0zOE6B9KVQwuQ==
   dependencies:
     async "^2.6.1"
     bson "^1.0.6"
