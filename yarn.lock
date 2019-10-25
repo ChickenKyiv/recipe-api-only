@@ -462,10 +462,10 @@ braces@^2.3.0, braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-bson@^1.0.6, bson@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/bson/-/bson-1.1.0.tgz#bee57d1fb6a87713471af4e32bcae36de814b5b0"
-  integrity sha512-9Aeai9TacfNtWXOYarkFJRW2CWo+dRon+fuLZYJmvLV3+MiUp0bEI6IAZfXEIg7/Pl/7IWlLaDnhzTsD81etQA==
+bson@^1.0.6, bson@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/bson/-/bson-1.1.1.tgz#4330f5e99104c4e751e7351859e2d408279f2f13"
+  integrity sha512-jCGVYLoYMHDkOsbwJZBCqwMHyH4c+wzgI9hG7Z6SZJRXWr+x58pdIbm2i9a/jFGCkRJqRUr8eoI7lDWa0hTkxg==
 
 buildmail@3.10.0:
   version "3.10.0"
@@ -2462,16 +2462,16 @@ loopback-connector-mailgun@0.0.12:
     mailgun-js "^0.20.0"
     mime "^2.3.1"
 
-loopback-connector-mongodb@^3.9.2:
-  version "3.9.2"
-  resolved "https://registry.yarnpkg.com/loopback-connector-mongodb/-/loopback-connector-mongodb-3.9.2.tgz#757bfba430e9321408593ab17a131f9e119bb253"
-  integrity sha512-M5XGqvvchfoXjJUAcO8hRpLiAyZ0Uef4/yu4cXnpk4SGXrSgu01wNo3pYmnXESzs6l6I1fXRwkQppOn+rfaFuQ==
+loopback-connector-mongodb@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/loopback-connector-mongodb/-/loopback-connector-mongodb-5.1.0.tgz#2005656487582b0f4d7f199455d0074ce2661bc6"
+  integrity sha512-htobiUhf3kzLqa32eI3Lq2NYgsd1U2x9hP9o8u62y+dOiOJlfbsN0BfZuwFyvH0RSRGdAvekV1PLfHLccKW/9g==
   dependencies:
     async "^2.6.1"
     bson "^1.0.6"
     debug "^3.1.0"
     loopback-connector "^4.5.0"
-    mongodb "^3.1.4"
+    mongodb "^3.2.4"
     strong-globalize "^4.1.1"
 
 loopback-connector-remote@^3.0.0:
@@ -2795,24 +2795,16 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mongodb-core@3.1.9:
-  version "3.1.9"
-  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-3.1.9.tgz#c31ee407bf932b0149eaed775c17ee09974e4ca3"
-  integrity sha512-MJpciDABXMchrZphh3vMcqu8hkNf/Mi+Gk6btOimVg1XMxLXh87j6FAvRm+KmwD1A9fpu3qRQYcbQe4egj23og==
+mongodb@^3.2.4:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.3.3.tgz#509cad2225a1c56c65a331ed73a0d5d4ed5cbe67"
+  integrity sha512-MdRnoOjstmnrKJsK8PY0PjP6fyF/SBS4R8coxmhsfEU7tQ46/J6j+aSHF2n4c2/H8B+Hc/Klbfp8vggZfI0mmA==
   dependencies:
-    bson "^1.1.0"
+    bson "^1.1.1"
     require_optional "^1.0.1"
     safe-buffer "^5.1.2"
   optionalDependencies:
     saslprep "^1.0.0"
-
-mongodb@^3.1.4:
-  version "3.1.10"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.1.10.tgz#45ad9b74ea376f4122d0881b75e5489b9e504ed7"
-  integrity sha512-Uml42GeFxhTGQVml1XQ4cD0o/rp7J2ROy0fdYUcVitoE7vFqEhKH4TYVqRDpQr/bXtCJVxJdNQC1ntRxNREkPQ==
-  dependencies:
-    mongodb-core "3.1.9"
-    safe-buffer "^5.1.2"
 
 ms@2.0.0:
   version "2.0.0"
