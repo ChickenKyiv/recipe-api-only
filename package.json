@@ -31,7 +31,7 @@
     "request": "^2.87.0",
     "serve-favicon": "^2.5.0",
     "strong-error-handler": "^3.2.0",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
